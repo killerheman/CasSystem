@@ -11,7 +11,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
-    <body style="background-image: linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%);">
+<body style="background-image: linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%);">
 
     <div class="form-bg">
         <div class="container">
@@ -22,7 +22,8 @@
                         {{-- <span class="description">or use you email for registration:</span> --}}
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <input disabled type="email" value="dummy@gmail.com" class="form-control" placeholder="Email">
+                                <input disabled type="email" value="dummy@gmail.com" class="form-control"
+                                    placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <select class="form-control">
@@ -60,17 +61,28 @@
                                 <textarea class="form-control" rows="5" placeholder="Address"></textarea>
                             </div>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" id="accredited_status" name="accredited_status">
                                     <option value="" selected disabled>-- Accredited Status --</option>
                                     <option value="1">Accredited</option>
                                     <option value="0">Not Accredited</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control" placeholder="Proposed date of submission of pending AQAR">
-                            </div>
-                            <div class="form-group">
-                                <input type="date" name="aqar_submitted_upto" class="form-control" placeholder="AQAR Submitted Upto">
+                            <div id="accredited">
+                                <div class="form-group">
+                                    <label>Date of last Accredition</label>
+                                    <input type="date" name="last_accredition_date" id="last_accredition_date"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Proposed date of submission of pending AQAR</label>
+                                    <input type="date" name="proposed_aqar_date" id="proposed_aqar_date"
+                                        class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label>AQAR Submitted Upto</label>
+                                    <input type="date" id="aqar_submitted_upto" name="aqar_submitted_upto"
+                                        class="form-control">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="ssr_staus">
@@ -84,7 +96,8 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" class="checkbox">
-                                <span class="check-label">I do hereby declare that all the above information given by me are true to the best of my knowledge and belief.</span>
+                                <span class="check-label">I do hereby declare that all the above information given by me
+                                    are true to the best of my knowledge and belief.</span>
                             </div>
                             <button type="submit" class="btn signup">Submit</button>
                         </form>
@@ -97,6 +110,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#accredited').hide();
+
+            $("#accredited_status").change(function() {
+                var status = $('#accredited_status').val();
+                if (status == 1) {
+                    $('#accredited').show();
+                } else {
+                    $('#accredited').hide();
+                }
+            });
+        });
     </script>
 </body>
 

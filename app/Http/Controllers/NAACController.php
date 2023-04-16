@@ -11,7 +11,7 @@ class NAACController extends Controller
      */
     public function index()
     {
-        //
+        return view('naac_status');
     }
 
     /**

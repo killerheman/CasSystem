@@ -19,15 +19,16 @@
                 <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
                     <div class="form-container">
                         <h3 class="title">Create Your Account</h3>
-                        <span class="description">Use you email for registration:</span>
-                        <form class="form-horizontal">
+                        <span class="description">Use College email for registration:</span>
+                        <form class="form-horizontal" action="{{ route('college-register.store') }}" method="post">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter College name">
+                                <input type="text" name="college_name"  value='{{ old('college_name') }}' class="form-control" placeholder="Enter College name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" value='{{ old('college_email') }}' name="college_email" placeholder="Email" required>
                             </div>
-                            <button class="btn signup">Send</button>
+                            <button type="submit" class="btn signup">Send</button>
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NAACController;
+use App\Http\Controllers\CollegeRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return redirect()->route('college-register.index');
 });
-Route::resource('naac_status', NAACController::class);
+Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
+
+Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');

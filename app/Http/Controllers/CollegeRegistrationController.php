@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CollegeNaacFilling;
+use App\Models\CollegeList;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CollegeRegistrationController extends Controller
 {
@@ -11,7 +18,7 @@ class CollegeRegistrationController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome');
     }
 
     /**
@@ -27,7 +34,26 @@ class CollegeRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'college_name'=>'required',
+        'college_email'=>'required|email'
+      ]);
+
+      try{
+      $college=CollegeList::firstOrCreate(['email'=>$request->college_email],[
+        'email'=>$request->college_email,
+        'name'=>$request->college_name
+      ]);
+     $url=URL::temporarySignedRoute('naac-filling.index',now()->addMinutes(30),['user'=>Crypt::encrypt($college->id)]);
+     Mail::to($college->email)->send(new CollegeNaacFilling($url));
+     Alert::success('Link send on your email kindly procceed for next step');
+     
+    }
+    catch(Exception $ex){
+        Alert::warning($ex->getMessage());
+
+    }
+    return redirect()->back();
     }
 
     /**

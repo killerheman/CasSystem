@@ -20,82 +20,103 @@
                     <div class="form-container">
                         <h3 class="title">NAAC Status Report</h3>
                         {{-- <span class="description">or use you email for registration:</span> --}}
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" method="post" action="{{ route('naac-filling.update',$user) }}">
+                            @method('PUT')
+                            @csrf
                             <div class="form-group">
-                                <input disabled type="email" value="dummy@gmail.com" class="form-control"
-                                    placeholder="Email">
+                                <input disabled type="email" value="{{ $college->email }}" class="form-control" placeholder="Email" readonly>
                             </div>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="district">
                                     <option value="" selected disabled>-- Select District --</option>
-                                    <option value="darbhanga">Darbhanga</option>
-                                    <option value="madhubani">Madhubani</option>
-                                    <option value="samastipur">Samastipur</option>
-                                    <option value="begusarai">Begusarai</option>
+                                    <option value="darbhanga" @isset($college->NaacReport)@selected($college->NaacReport->district=='darbhanga')@endisset>Darbhanga</option>
+                                    <option value="madhubani" @isset($college->NaacReport)@selected($college->NaacReport->district=='madhubani')@endisset>Madhubani</option>
+                                    <option value="samastipur" @isset($college->NaacReport)@selected($college->NaacReport->district=='samastipur')@endisset>Samastipur</option>
+                                    <option value="begusarai" @isset($college->NaacReport)@selected($college->NaacReport->district=='begusarai')@endisset>Begusarai</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="College Name">
+                                <input type="text" class="form-control" placeholder="College Name" value="{{ $college->name }}" readonly>
                             </div>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="college_type">
                                     <option value="" selected disabled>-- College Type --</option>
-                                    <option value="constituent_college">Constituent</option>
-                                    <option value="affiliated_degree">Affiliated Degree College</option>
-                                    <option value="affiliated_bed">Affiliated B.Ed College</option>
-                                    <option value="govt_college">Govt. College</option>
+                                    <option value="constituent_college" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='constituent_college') @endisset>Constituent</option>
+                                    <option value="affiliated_degree" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='affiliated_degree') @endisset>Affiliated Degree College</option>
+                                    <option value="affiliated_bed" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='affiliated_bed') @endisset>Affiliated B.Ed College</option>
+                                    <option value="govt_college" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='govt_college') @endisset>Govt. College</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="ASIHE ID">
+                                <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->address??'' }}">
                             </div>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="academic_level">
                                     <option value="" selected disabled>-- Academic Level --</option>
-                                    <option value="ug">UG</option>
-                                    <option value="pg">PG</option>
-                                    <option value="both">Both UG & PG</option>
+                                    <option value="ug" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='ug')@endisset>UG</option>
+                                    <option value="pg" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='pg')@endisset>PG</option>
+                                    <option value="both" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='both')@endisset>Both UG & PG</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Address"></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Address" name="address">{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="accredited_status" name="accredited_status">
+                                <select class="form-control" id="accredited_status" name="accrediation_status">
                                     <option value="" selected disabled>-- Accredited Status --</option>
-                                    <option value="1">Accredited</option>
-                                    <option value="0">Not Accredited</option>
+                                    <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
+                                    <option value="0" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==false)@endisset>Not Accredited</option>
                                 </select>
                             </div>
                             <div id="accredited">
                                 <div class="form-group">
                                     <label>Date of last Accredition</label>
-                                    <input type="date" name="last_accredition_date" id="last_accredition_date"
+                                    <input type="date" name="last_accredition_date" id="last_accredition_date" value="{{ $college->NaacReport->last_accredetion??'' }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accredition_upto"> Accredition upto</label>
+                                    <input type="date" name="accredition_upto" id="accredition_upto" value="{{ $college->NaacReport->accredetion_upto??'' }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="grade"> Grade</label>
+                                    <input type="text" name="grade" id="grade" value="{{ $college->NaacReport->grade??'' }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cgpa"> CGPA</label>
+                                    <input type="text" name="cgpa" id="cgpa" value="{{ $college->Naacreport->cgpa??'' }}"
                                         class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Proposed date of submission of pending AQAR</label>
-                                    <input type="date" name="proposed_aqar_date" id="proposed_aqar_date"
+                                    <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>AQAR Submitted Upto</label>
-                                    <input type="date" id="aqar_submitted_upto" name="aqar_submitted_upto"
+                                    <input type="date" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="iiqa">Proposed date of submission of pending IIQA</label>
+                                    <input type="date" id="iiqa" name="iiqa" value="{{ $college->NaacReport->praposed_date_of_pending_iiqa??'' }}"
                                         class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="ssr_staus">
                                     <option value="" selected disabled>-- SSR Status --</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Yes</option>
+                                    <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>No</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="remark" placeholder="Remarks"></textarea>
+                                <textarea class="form-control" name="remark" placeholder="Remarks">{{ $college->NaacReport->remark??'' }}</textarea>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" class="checkbox">
+                                <input type="checkbox" class="checkbox" name="accept" value="1" required  @isset($college->NaacReport)@checked($college->NaacReport->accept==true)@endisset>
                                 <span class="check-label">I do hereby declare that all the above information given by me
                                     are true to the best of my knowledge and belief.</span>
                             </div>

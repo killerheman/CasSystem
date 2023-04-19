@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NAACController;
 use App\Http\Controllers\CollegeRegistrationController;
+use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::get('/', function () {
 Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
 
 Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');
+Route::get('registration',[RegistrationController::class,'index']);

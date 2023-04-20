@@ -48,7 +48,7 @@ border-bottom-right-radius: .3rem;
   
                     <div class="form-outline mb-4">
                         <div class="input-group mb-3">
-                                <input type="email" id="email"  name='email' class="form-control" value="{{ old('email') }}" />
+                                <input type="email" id="email"  name='email' placeholder="Enter Your Email" class="form-control" value="{{ old('email') }}" />
                                     <button class="btn btn-outline-primary" type="button" id="otp-send-btn">Send OTP</button>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('promotion_notification_date')->nullable();
             $table->string('grade_annual_performance')->nullable();
             $table->string('total_academic_research_scores')->nullable();
-            $table->integer('step')->nullable();
+            $table->unsignedBigInteger('promotion_application_users_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

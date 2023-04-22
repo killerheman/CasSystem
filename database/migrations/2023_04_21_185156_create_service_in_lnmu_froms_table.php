@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('service_in_lnmu_froms', function (Blueprint $table) {
+        Schema::create('part_a_service_in_lnmu_froms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('promotion_application_users_id')->nullable();
             $table->string('file')->nullable();

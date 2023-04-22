@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mphil_phd_records', function (Blueprint $table) {
+        Schema::create('part_a_mphil_phd_records', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('promotion_application_users_id')->nullable();
             $table->string('file')->nullable();

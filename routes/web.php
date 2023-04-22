@@ -26,11 +26,8 @@ Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
 Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');
 Route::get('registration',[RegistrationController::class,'index'])->name('registration');
 Route::get('registration-step2',[RegistrationController::class,'step2'])->name('step2');
-<<<<<<< Updated upstream
 Route::get('registration-step3',[RegistrationController::class,'step3'])->name('step3');
-=======
 Route::get('registration-step4',[RegistrationController::class,'step4'])->name('step4');
->>>>>>> Stashed changes
 
 
 //Promotion form

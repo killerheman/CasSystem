@@ -14,8 +14,15 @@ class RegistrationController extends Controller
     {
         return view('step2');
     }
+<<<<<<< Updated upstream
     public function step3()
     {
         return view('step3');
+=======
+
+    public function step4()
+    {
+        return view('step4');
+>>>>>>> Stashed changes
     }
 }

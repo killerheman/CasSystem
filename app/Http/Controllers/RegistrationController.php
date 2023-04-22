@@ -10,4 +10,12 @@ class RegistrationController extends Controller
     {
         return view('promotion_registration');
     }
+    public function step2()
+    {
+        return view('step2');
+    }
+    public function step3()
+    {
+        return view('step3');
+    }
 }

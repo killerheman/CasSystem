@@ -25,9 +25,11 @@ Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
 
 Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');
 Route::get('registration',[RegistrationController::class,'index'])->name('registration');
+Route::get('registration-step2',[RegistrationController::class,'step2'])->name('step2');
+Route::get('registration-step3',[RegistrationController::class,'step3'])->name('step3');
 
 
-//Promotion form 
+//Promotion form
 
 Route::get('promotion-form/login',[PromotionAuthController::class,'user_login'])->name('promotion-form.user-login');
 Route::post('promotion-form/login-otp-send',[PromotionAuthController::class,'user_login_otp_send'])->name('promotion-form.user-login-otp-send');

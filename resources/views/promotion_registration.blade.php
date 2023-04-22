@@ -387,8 +387,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Name (in Block Letters): </label> <input type="text"
-                                            name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Name (in Block Letters): </label> <input
+                                            type="text" name="name" placeholder="Name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Gender: </label>
@@ -415,19 +415,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Father's Name (in Block Letters): </label> <input type="text"
-                                            name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Father's Name (in Block Letters): </label> <input
+                                            type="text" name="name" placeholder="Name" />
                                     </div>
                                     <div class="col-6">
-                                        <label class="fieldlabels">Mother's Name (in Block Letters): </label> <input type="text"
-                                            name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Mother's Name (in Block Letters): </label> <input
+                                            type="text" name="name" placeholder="Name" />
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-2">
                                         <label class="fieldlabels">Date of birth: </label>
-                                        <input type="date" name="name"  />
+                                        <input type="date" name="name" />
                                     </div>
                                     <div class="col-2">
                                         <label class="fieldlabels">Nationality: </label>
@@ -439,11 +439,11 @@
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Current Designation: </label>
-                                        <input type="text" name="name"  />
+                                        <input type="text" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Current Pay Scale & Grade Pay: </label>
-                                        <input type="text" name="name"  />
+                                        <input type="text" name="name" />
                                     </div>
                                     {{-- <div class="col-2">
                                         <label class="fieldlabels">Date of Confirmation: </label>
@@ -451,7 +451,7 @@
                                     </div> --}}
                                     <div class="col-2">
                                         <label class="fieldlabels">Mobile Number: </label>
-                                        <input type="number" name="name"  />
+                                        <input type="number" name="name" />
                                     </div>
                                     {{-- <div class="col-2">
                                         <label class="fieldlabels">E-Mail ID: </label>
@@ -462,33 +462,34 @@
                                 <div class="row">
                                     <div class="col-3">
                                         <label class="fieldlabels">Date of Confirmation: </label>
-                                        <input type="date" name="name"  />
+                                        <input type="date" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Date of Last Promotion: </label>
-                                        <input type="date" name="name"  />
+                                        <input type="date" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Date of Eligibility for Promotion: </label>
-                                        <input type="date" name="name"  />
+                                        <input type="date" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Position, Stage and Grade Pay applied for: </label>
-                                        <input type="text" name="name"  />
+                                        <input type="text" name="name" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Date of Initial Appointment and Present Stage with Pay Scale at LNMU: </label>
-                                        <input type="text" name="name"  />
+                                        <label class="fieldlabels">Date of Initial Appointment and Present Stage with
+                                            Pay Scale at LNMU: </label>
+                                        <input type="text" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Mobile Number: </label>
-                                        <input type="text" name="name"  />
+                                        <input type="text" name="name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Email ID: </label>
-                                        <input type="text" name="name"  />
+                                        <input type="text" name="name" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -509,15 +510,227 @@
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Image Upload:</h2>
+                                    <div class="col-9">
+                                        <h3 class="fs-title"> ACADEMIC QUALIFICATIONS (Graduation onwards):</h3>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-3">
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
-                                </div> <label class="fieldlabels">Upload Your Photo:</label> <input type="file"
-                                    name="pic" accept="image/*"> <label class="fieldlabels">Upload Signature
-                                    Photo:</label> <input type="file" name="pic" accept="image/*">
+                                </div>
+                                <div class="parent">
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="qualifications">Qualifications</label>
+                                            <select class="form-select form-select-lg mb-3" name="qualifications"
+                                                aria-label="Default select example">
+                                                <option selected disabled>Choose qualifications</option>
+                                                <option value="ug">Graduate Degree (UG)</option>
+                                                <option value="pg">Post Graduate Degree (PG)</option>
+                                                <option value="mp">M. Phil.</option>
+                                                <option value="phd">Ph.D.</option>
+                                                <option value="ot">Others (if any)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="cou">College / University</label>
+                                            <input type="text" id="cou" name="colleg_university"
+                                                class="form-control" placeholder="College / University"
+                                                aria-label="College / University">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Session">Session</label>
+                                            <input type="text" id="Session" name="Session" class="form-control"
+                                                placeholder="session" aria-label="session">
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="yp">Year of Passing</label>
+                                            <input type="text" id="yp" name="Year_of_Passing"
+                                                class="form-control" placeholder="Year of Passing"
+                                                aria-label="Year of Passing">
+                                        </div>
+                                        <div class="col">
+                                            <label for="marks_cgpa">Marks Obtained /Out of Or CGPA Grade</label>
+                                            <input type="text" id="marks_cgpa" name="marks_cgpa"
+                                                class="form-control"
+                                                placeholder="Marks Obtained /Out of Or CGPA Grade"
+                                                aria-label="marks_cgpa">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="class_with">Class with %</label>
+                                            <input type="text" id="class_with" name="class_with_%"
+                                                class="form-control" placeholder="Class with %"
+                                                aria-label="Class with %">
+                                        </div>
+                                        <div class="col-md-1 mt-5">
+                                            <button type="button" class="btn btn-info add">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="add_input"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3 class="fs-title"> . RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU
+                                            (Please Attach Relevant Certificates of Service Experience):</h3>
+                                    </div>
+                                </div>
+                                <div class="parent1">
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="institute">Institution</label>
+                                            <input type="text" id="institute" name="Institution"
+                                                class="form-control" placeholder="Institution"
+                                                aria-label="Institution">
+                                        </div>
+                                        <div class="col">
+                                            <label for="designation">Designation</label>
+                                            <input type="text" id="designation" name="designation"
+                                                class="form-control" placeholder="designation"
+                                                aria-label="designation">
+                                        </div>
+                                        <div class="col">
+                                            <label for="nature_appointment">Nature of appointment</label>
+                                            <input type="text" id="nature_appointment" name="nature_appointment"
+                                                class="form-control"
+                                                placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)"
+                                                aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">
+                                        </div>
+                                        <div class="col">
+                                            <label for="nature_duties">Nature of Duties</label>
+                                            <input type="text" id="nature_duties" name="nature_duties"
+                                                class="form-control" placeholder="Nature of Duties"
+                                                aria-label="nature_duties">
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="required_min_qualification">mininmum qualification</label>
+                                            <input type="text" id="required_min_qualification"
+                                                name="required_min_qualification" class="form-control"
+                                                placeholder="Institution" aria-label="required_min_qualification">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Pay_Scale">Pay_Scale / Pay band and AGP</label>
+                                            <input type="text" id="Pay_Scale" name="Pay_Scale"
+                                                class="form-control" placeholder="Pay_Scale / Pay band and AGP"
+                                                aria-label="Pay_Scale">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Remarks">Remarks</label>
+                                            <input type="text" id="Remarks" name="remarks" class="form-control"
+                                                placeholder="Remarks" aria-label="Remarks">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Encl.No.">Encl.No.</label>
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"
+                                                placeholder="Encl.No." aria-label="Encl.No.">
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="required_min_qualification">Highest degree obtained</label>
+                                            <input type="text" id="required_min_qualification"
+                                                name="required_min_qualification" class="form-control"
+                                                placeholder="Institution" aria-label="required_min_qualification">
+                                        </div>
+                                        <div class="col-2">
+                                            <label for="Duration">Duration</label>
+                                            <input type="text" id="From" name="duration_from" class="form-control"
+                                                placeholder="From" aria-label="From">
+                                        </div>
+                                        <div class="col-2">
+                                            <label for="Duration"></label>
+                                            <input type="text" id="To" name="duration_to" class="form-control"
+                                                placeholder="To" aria-label="To">
+                                        </div>
+                                        <div class="col-2">
+                                            <label for="Experience">Experience</label>
+                                            <input type="text" id="Year" name="Year" class="form-control"
+                                                placeholder="Year" aria-label="Year">
+                                        </div>
+                                        <div class="col-2">
+                                            <label for="Experience"></label>
+                                            <input type="text" id="Months" name="Months" class="form-control"
+                                                placeholder="Months" aria-label="Months">
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add1 mt-4">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="add_input1"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3 class="fs-title">RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:</h3>
+                                    </div>
+                                </div>
+                                <div class="parent2">
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="Level">Level</label>
+                                            <select class="form-select form-select-lg mb-3" name="level"
+                                                aria-label="Default select example">
+                                                <option selected disabled>Choose Level</option>
+                                               <option value="l10">Level 10</option>
+                                               <option value="l11">Level 11</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="Designation">Designation</label>
+                                            <input type="text" id="Designation" name="designation"
+                                                class="form-control" placeholder="Designation"
+                                                aria-label="Designation">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Pay">Pay Scale and AGP</label>
+                                            <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control"
+                                                placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Encl.No.">Encl.No.</label>
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"
+                                                placeholder="Encl.No." aria-label="Encl.No.">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Remarks">Remarks</label>
+                                            <input type="text" id="Remarks" name="remarks" class="form-control"
+                                                placeholder="Remarks" aria-label="Remarks">
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <label for="Duration">Duration</label>
+                                            <input type="date" id="From" name="duration_from" class="form-control"
+                                                placeholder="From" aria-label="From">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Duration"></label>
+                                            <input type="date" id="To" name="duration_to" class="form-control"
+                                                placeholder="To" aria-label="To">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Experience">Experience</label>
+                                            <input type="text" id="Year" name="Year" class="form-control"
+                                                placeholder="Year" aria-label="Year">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Experience"></label>
+                                            <input type="month" id="Months" name="Months" class="form-control"
+                                                placeholder="Months" aria-label="Months">
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add2 mt-4">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="add_input2"></div>
+                                </div>
+                                <div class="col-12">
+                                    <h3 class="fs-title">Please clearly specify the period of Leave Without Pay (LWP)
+                                    </h3>
+                                </div>
                             </div> <input type="button" name="next" class="next action-button" value="Submit" />
                             <input type="button" name="previous" class="previous action-button-previous"
                                 value="Previous" />
@@ -633,7 +846,215 @@
             $(".submit").click(function() {
                 return false;
             })
+            // ACADEMIC QUALIFICATIONS (Graduation onwards)
+            var html = '<div class="parent">\
+                                        <div class="row g-3">\
+                                            <div class="col">\
+                                                <label for="qualifications">Qualifications</label>\
+                                                <select class="form-select form-select-lg mb-3" name="qualifications"\
+                                                    aria-label="Default select example">\
+                                                    <option selected disabled>Choose qualifications</option>\
+                                                    <option value="ug">Graduate Degree (UG)</option>\
+                                                    <option value="pg">Post Graduate Degree (PG)</option>\
+                                                    <option value="mp">M. Phil.</option>\
+                                                    <option value="phd">Ph.D.</option>\
+                                                    <option value="ot">Others (if any)</option>\
+                                                </select></div>\
+                                            <div class="col">\
+                                                <label for="cou">College / University</label>\
+                                                <input type="text" id="cou" name="colleg_university"\
+                                                    class="form-control" placeholder="College / University"\
+                                                    aria-label="College / University">\
+                                            </div>\
+                                            <div class="col">\
+                                                <label for="Session">Session</label>\
+                                                <input type="text" id="Session" name="Session" class="form-control"\
+                                                    placeholder="session" aria-label="session">\
+                                            </div></div>\
+                                        <div class="row g-3">\
+                                            <div class="col">\
+                                                <label for="yp">Year of Passing</label>\
+                                                <input type="text" id="yp" name="Year_of_Passing"\
+                                                    class="form-control" placeholder="Year of Passing"\
+                                                    aria-label="Year of Passing">\
+                                            </div><div class="col">\
+                                                <label for="marks_cgpa">Marks Obtained /Out of Or CGPA Grade</label>\
+                                                <input type="text" id="marks_cgpa" name="marks_cgpa"\
+                                                    class="form-control"\
+                                                    placeholder="Marks Obtained /Out of Or CGPA Grade"\
+                                                    aria-label="marks_cgpa">\
+                                            </div><div class="col-md-3">\
+                                                <label for="class_with">Class with %</label>\
+                                                <input type="text" id="class_with" name="class_with_%"\
+                                                    class="form-control" placeholder="Class with %"\
+                                                    aria-label="Class with %">\
+                                            </div>\
+                                            <div class="col-md-1 mt-5">\
+                                            <button type="button" class="btn btn-info remove">-</button>\
+                                        </div></div>\
+                                        </div>';
+            $(document).on('click', '.add', function() {
+                $('.add_input').append(html);
+            });
+            $(document).on('click', '.remove', function() {
+                $(this).closest('.parent').remove();
+            });
+           // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service Experience)
+            var html1='<div class="parent1">\
+                                    <div class="row g-3">\
+                                        <div class="col">\
+                                            <label for="institute">Institution</label>\
+                                            <input type="text" id="institute" name="Institution"\
+                                                class="form-control" placeholder="Institution"\
+                                                aria-label="Institution">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="designation">Designation</label>\
+                                            <input type="text" id="designation" name="designation"\
+                                                class="form-control" placeholder="designation"\
+                                                aria-label="designation">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="nature_appointment">Nature of appointment</label>\
+                                            <input type="text" id="nature_appointment" name="nature_appointment"\
+                                                class="form-control"\
+                                                placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)"\
+                                                aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="nature_duties">Nature of Duties</label>\
+                                            <input type="text" id="nature_duties" name="nature_duties"\
+                                                class="form-control" placeholder="Nature of Duties"\
+                                                aria-label="nature_duties">\
+                                        </div>\
+                                    </div>\
+                                    <div class="row g-3">\
+                                        <div class="col">\
+                                            <label for="required_min_qualification">mininmum qualification</label>\
+                                            <input type="text" id="required_min_qualification"\
+                                                name="required_min_qualification" class="form-control"\
+                                                placeholder="Institution" aria-label="required_min_qualification">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Pay_Scale">Pay_Scale / Pay band and AGP</label>\
+                                            <input type="text" id="Pay_Scale" name="Pay_Scale"\
+                                                class="form-control" placeholder="Pay_Scale / Pay band and AGP"\
+                                                aria-label="Pay_Scale">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Remarks">Remarks</label>\
+                                            <input type="text" id="Remarks" name="remarks" class="form-control"\
+                                                placeholder="Remarks" aria-label="Remarks">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Encl.No.">Encl.No.</label>\
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"\
+                                                placeholder="Encl.No." aria-label="Encl.No.">\
+                                        </div>\
+                                    </div>\
+                                    <div class="row g-3">\
+                                        <div class="col">\
+                                            <label for="required_min_qualification">Highest degree obtained</label>\
+                                            <input type="text" id="required_min_qualification"\
+                                                name="required_min_qualification" class="form-control"\
+                                                placeholder="Institution" aria-label="required_min_qualification">\
+                                        </div>\
+                                        <div class="col-2">\
+                                            <label for="Duration">Duration</label>\
+                                            <input type="date" id="From" name="duration_from" class="form-control"\
+                                                placeholder="From" aria-label="From">\
+                                        </div>\
+                                        <div class="col-2">\
+                                            <label for="Duration"></label>\
+                                            <input type="date" id="To" name="duration_to" class="form-control"\
+                                                placeholder="To" aria-label="To">\
+                                        </div>\
+                                        <div class="col-2">\
+                                            <label for="Experience">Experience</label>\
+                                            <input type="text" id="Year" name="Year" class="form-control"\
+                                                placeholder="Year" aria-label="Year">\
+                                        </div>\
+                                        <div class="col-2">\
+                                            <label for="Experience"></label>\
+                                            <input type="text" id="Months" name="Months" class="form-control"\
+                                                placeholder="Months" aria-label="Months">\
+                                        </div>\
+                                        <div class="col-1">\
+                                            <button type="button" class="btn btn-info remove1 mt-4">-</button>\
+                                        </div>\
+                                    </div>\
+                                </div>';
 
+            $(document).on('click', '.add1', function() {
+                $('.add_input1').append(html1);
+            });
+            $(document).on('click', '.remove1', function() {
+                $(this).closest('.parent1').remove();
+            });
+           // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
+            var html2 = '<div class="parent2">\
+                                    <div class="row g-3">\
+                                        <div class="col">\
+                                            <label for="Level">Level</label>\
+                                            <select class="form-select form-select-lg mb-3" name="level"\
+                                                aria-label="Default select example">\
+                                                <option selected disabled>Choose Level</option>\
+                                               <option value="l10">Level 10</option>\
+                                               <option value="l11">Level 11</option>\
+                                            </select>\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Designation">Designation</label>\
+                                            <input type="text" id="Designation" name="designation"\
+                                                class="form-control" placeholder="Designation"\
+                                                aria-label="Designation">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Pay">Pay Scale and AGP</label>\
+                                            <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control"\
+                                                placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Encl.No.">Encl.No.</label>\
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"\
+                                                placeholder="Encl.No." aria-label="Encl.No.">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Remarks">Remarks</label>\
+                                            <input type="text" id="Remarks" name="remarks" class="form-control"\
+                                                placeholder="Remarks" aria-label="Remarks">\
+                                        </div>\
+                                    </div>\
+                                    <div class="row g-3">\
+                                        <div class="col">\
+                                            <label for="Duration">Duration</label>\
+                                            <input type="date" id="From" name="duration_from" class="form-control"\
+                                                placeholder="From" aria-label="From">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Duration"></label>\
+                                            <input type="date" id="To" name="duration_to" class="form-control"\
+                                                placeholder="To" aria-label="To">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Experience">Experience</label>\
+                                            <input type="text" id="Year" name="Year" class="form-control"\
+                                                placeholder="Year" aria-label="Year">\
+                                        </div>\
+                                        <div class="col">\
+                                            <label for="Experience"></label>\
+                                            <input type="month" id="Months" name="Months" class="form-control"\
+                                                placeholder="Months" aria-label="M\onths">\
+                                        </div>\
+                                        <div class="col-1">\
+                                            <button type="button" class="btn btn-info remove2 mt-4">-</button>\
+                                        </div></div></div>';
+            $(document).on('click', '.add2', function() {
+                $('.add_input2').append(html2);
+            });
+            $(document).on('click', '.remove2', function() {
+                $(this).closest('.parent2').remove();
+            });
         });
     </script>
 </body>

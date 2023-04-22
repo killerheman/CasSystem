@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('promotion_applications', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('promotion_application_users_id')->nullable();
             $table->string('promotion_level')->nullable();
             $table->string('promotion_level_from')->nullable();
             $table->string('promotion_level_to')->nullable();
@@ -30,7 +31,13 @@ return new class extends Migration
             $table->string('promotion_notification_date')->nullable();
             $table->string('grade_annual_performance')->nullable();
             $table->string('total_academic_research_scores')->nullable();
-            $table->integer('step')->nullable();
+
+
+            $table->string('declaration_status')->nullable();
+            $table->string('place')->nullable();
+            $table->string('date')->nullable();
+            $table->text('signature_of_the_applicant')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

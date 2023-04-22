@@ -26,6 +26,7 @@ Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
 Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');
 Route::get('registration',[RegistrationController::class,'index'])->name('registration');
 Route::get('registration-step2',[RegistrationController::class,'step2'])->name('step2');
+Route::get('registration-step3',[RegistrationController::class,'step3'])->name('step3');
 
 
 //Promotion form

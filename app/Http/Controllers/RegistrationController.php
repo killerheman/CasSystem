@@ -14,4 +14,8 @@ class RegistrationController extends Controller
     {
         return view('step2');
     }
+    public function step3()
+    {
+        return view('step3');
+    }
 }

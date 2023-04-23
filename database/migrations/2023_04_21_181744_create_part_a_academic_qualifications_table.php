@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('marks_obtained_out_of_or_cgpa_grade')->nullable();
             $table->string('class_with_%')->nullable();
             $table->string('file')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

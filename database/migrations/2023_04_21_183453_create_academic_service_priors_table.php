@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('minimum_qualification_for_the_post')->nullable();
             $table->string('highest_degree_obtained')->nullable();
             $table->string('encl_no')->nullable();
-            $table->string('remarks')->nullable();
+            $table->string('remark')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

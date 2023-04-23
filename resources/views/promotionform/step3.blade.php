@@ -75,26 +75,26 @@
             <div class="row g-3">
                 <div class="col">
                     <label for="institute">Institution</label>
-                    <input type="text" id="institute" name="Institution"
+                    <input type="text" id="institute" name="institution[]"
                         class="form-control" placeholder="Institution"
                         aria-label="Institution">
                 </div>
                 <div class="col">
                     <label for="designation">Designation</label>
-                    <input type="text" id="designation" name="designation"
+                    <input type="text" id="designation" name="designation[]"
                         class="form-control" placeholder="designation"
                         aria-label="designation">
                 </div>
                 <div class="col">
                     <label for="nature_appointment">Nature of appointment</label>
-                    <input type="text" id="nature_appointment" name="nature_appointment"
+                    <input type="text" id="nature_appointment" name="nature_of_appointment[]"
                         class="form-control"
                         placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)"
                         aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">
                 </div>
                 <div class="col">
                     <label for="nature_duties">Nature of Duties</label>
-                    <input type="text" id="nature_duties" name="nature_duties"
+                    <input type="text" id="nature_duties" name="nature_of_duties[]"
                         class="form-control" placeholder="Nature of Duties"
                         aria-label="nature_duties">
                 </div>
@@ -103,23 +103,23 @@
                 <div class="col">
                     <label for="required_min_qualification">mininmum qualification</label>
                     <input type="text" id="required_min_qualification"
-                        name="required_min_qualification" class="form-control"
+                        name="minimum_qualification_for_the_post[]" class="form-control"
                         placeholder="Institution" aria-label="required_min_qualification">
                 </div>
                 <div class="col">
                     <label for="Pay_Scale">Pay_Scale / Pay band and AGP</label>
-                    <input type="text" id="Pay_Scale" name="Pay_Scale"
+                    <input type="text" id="Pay_Scale" name="pay_scale_pay_band_and_agp[]"
                         class="form-control" placeholder="Pay_Scale / Pay band and AGP"
                         aria-label="Pay_Scale">
                 </div>
                 <div class="col">
                     <label for="Remarks">Remarks</label>
-                    <input type="text" id="Remarks" name="remarks" class="form-control"
+                    <input type="text" id="Remarks" name="remark[]" class="form-control"
                         placeholder="Remarks" aria-label="Remarks">
                 </div>
                 <div class="col">
                     <label for="Encl.No.">Encl.No.</label>
-                    <input type="text" id="Encl.No." name="Encl_No" class="form-control"
+                    <input type="text" id="Encl.No." name="encl_no[]" class="form-control"
                         placeholder="Encl.No." aria-label="Encl.No.">
                 </div>
             </div>
@@ -127,27 +127,27 @@
                 <div class="col">
                     <label for="required_min_qualification">Highest degree obtained</label>
                     <input type="text" id="required_min_qualification"
-                        name="required_min_qualification" class="form-control"
+                        name="highest_degree_obtained[]" class="form-control"
                         placeholder="Institution" aria-label="required_min_qualification">
                 </div>
                 <div class="col-2">
                     <label for="Duration">Duration</label>
-                    <input type="text" id="From" name="duration_from" class="form-control"
+                    <input type="text" id="From" name="duration_from[]" class="form-control"
                         placeholder="From" aria-label="From">
                 </div>
                 <div class="col-2">
                     <label for="Duration"></label>
-                    <input type="text" id="To" name="duration_to" class="form-control"
+                    <input type="text" id="To" name="duration_to[]" class="form-control"
                         placeholder="To" aria-label="To">
                 </div>
                 <div class="col-2">
                     <label for="Experience">Experience</label>
-                    <input type="text" id="Year" name="Year" class="form-control"
+                    <input type="text" id="Year" name="experience_year[]" class="form-control"
                         placeholder="Year" aria-label="Year">
                 </div>
                 <div class="col-2">
                     <label for="Experience"></label>
-                    <input type="text" id="Months" name="Months" class="form-control"
+                    <input type="text" id="Months" name="experience_months[]" class="form-control"
                         placeholder="Months" aria-label="Months">
                 </div>
                 <div class="col-1">
@@ -166,7 +166,7 @@
             <div class="row g-3">
                 <div class="col">
                     <label for="Level">Level</label>
-                    <select class="form-select form-select-lg mb-3" name="level"
+                    <select class="form-select form-select-lg mb-3" name="level[]"
                         aria-label="Default select example">
                         <option selected disabled>Choose Level</option>
                        <option value="l10">Level 10</option>
@@ -175,45 +175,45 @@
                 </div>
                 <div class="col">
                     <label for="Designation">Designation</label>
-                    <input type="text" id="Designation" name="designation"
+                    <input type="text" id="Designation" name="designation[]"
                         class="form-control" placeholder="Designation"
                         aria-label="Designation">
                 </div>
                 <div class="col">
                     <label for="Pay">Pay Scale and AGP</label>
-                    <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control"
+                    <input type="text" id="Pay" name="pay_scale_and_agp[]" class="form-control"
                         placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">
                 </div>
                 <div class="col">
                     <label for="Encl.No.">Encl.No.</label>
-                    <input type="text" id="Encl.No." name="Encl_No" class="form-control"
+                    <input type="text" id="Encl.No." name="encl_no[]" class="form-control"
                         placeholder="Encl.No." aria-label="Encl.No.">
                 </div>
                 <div class="col">
                     <label for="Remarks">Remarks</label>
-                    <input type="text" id="Remarks" name="remarks" class="form-control"
+                    <input type="text" id="Remarks" name="remarks[]" class="form-control"
                         placeholder="Remarks" aria-label="Remarks">
                 </div>
             </div>
             <div class="row g-3">
                 <div class="col">
                     <label for="Duration">Duration (from)</label>
-                    <input type="date" id="From" name="duration_from" class="form-control"
+                    <input type="date" id="From" name="duration_from[]" class="form-control"
                         placeholder="From" aria-label="From">
                 </div>
                 <div class="col">
                     <label for="Duration">Duration (to)</label>
-                    <input type="date" id="To" name="duration_to" class="form-control"
+                    <input type="date" id="To" name="duration_to[]" class="form-control"
                         placeholder="To" aria-label="To">
                 </div>
                 <div class="col">
                     <label for="Experience">Experience (Year)</label>
-                    <input type="number" id="Months" name="Months" class="form-control"
+                    <input type="number" id="Months" name="experience_year[]" class="form-control"
                         placeholder="Months" aria-label="Months">
                 </div>
                 <div class="col">
                     <label for="Experience">Experience (Months)</label>
-                    <input type="number" id="Months" name="Months" class="form-control"
+                    <input type="number" id="Months" name="experience_months[]" class="form-control"
                         placeholder="Months" aria-label="Months">
                 </div>
                 <div class="col-1">
@@ -291,32 +291,32 @@
             });
 
 
-              // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service Experience)
+// RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service Experience)
               var html1='<div class="parent1">\
                 <hr/>\
                                     <div class="row g-3">\
                                         <div class="col">\
                                             <label for="institute">Institution</label>\
-                                            <input type="text" id="institute" name="Institution"\
+                                            <input type="text" id="institute" name="institution[]"\
                                                 class="form-control" placeholder="Institution"\
                                                 aria-label="Institution">\
                                         </div>\
                                         <div class="col">\
                                             <label for="designation">Designation</label>\
-                                            <input type="text" id="designation" name="designation"\
+                                            <input type="text" id="designation" name="designation[]"\
                                                 class="form-control" placeholder="designation"\
                                                 aria-label="designation">\
                                         </div>\
                                         <div class="col">\
                                             <label for="nature_appointment">Nature of appointment</label>\
-                                            <input type="text" id="nature_appointment" name="nature_appointment"\
+                                            <input type="text" id="nature_appointment" name="nature_of_appointment[]"\
                                                 class="form-control"\
                                                 placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)"\
                                                 aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">\
                                         </div>\
                                         <div class="col">\
                                             <label for="nature_duties">Nature of Duties</label>\
-                                            <input type="text" id="nature_duties" name="nature_duties"\
+                                            <input type="text" id="nature_duties" name="nature_of_duties[]"\
                                                 class="form-control" placeholder="Nature of Duties"\
                                                 aria-label="nature_duties">\
                                         </div>\
@@ -325,23 +325,23 @@
                                         <div class="col">\
                                             <label for="required_min_qualification">mininmum qualification</label>\
                                             <input type="text" id="required_min_qualification"\
-                                                name="required_min_qualification" class="form-control"\
+                                                name="minimum_qualification_for_the_post[]" class="form-control"\
                                                 placeholder="Institution" aria-label="required_min_qualification">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Pay_Scale">Pay_Scale / Pay band and AGP</label>\
-                                            <input type="text" id="Pay_Scale" name="Pay_Scale"\
+                                            <input type="text" id="Pay_Scale" name="pay_scale_pay_band_and_agp[]"\
                                                 class="form-control" placeholder="Pay_Scale / Pay band and AGP"\
                                                 aria-label="Pay_Scale">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Remarks">Remarks</label>\
-                                            <input type="text" id="Remarks" name="remarks" class="form-control"\
+                                            <input type="text" id="Remarks" name="remark[]" class="form-control"\
                                                 placeholder="Remarks" aria-label="Remarks">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Encl.No.">Encl.No.</label>\
-                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"\
+                                            <input type="text" id="Encl.No." name="encl_no[]" class="form-control"\
                                                 placeholder="Encl.No." aria-label="Encl.No.">\
                                         </div>\
                                     </div>\
@@ -349,27 +349,27 @@
                                         <div class="col">\
                                             <label for="required_min_qualification">Highest degree obtained</label>\
                                             <input type="text" id="required_min_qualification"\
-                                                name="required_min_qualification" class="form-control"\
+                                                name="highest_degree_obtained[]" class="form-control"\
                                                 placeholder="Institution" aria-label="required_min_qualification">\
                                         </div>\
                                         <div class="col-2">\
                                             <label for="Duration">Duration</label>\
-                                            <input type="date" id="From" name="duration_from" class="form-control"\
+                                            <input type="date" id="From" name="duration_from[]" class="form-control"\
                                                 placeholder="From" aria-label="From">\
                                         </div>\
                                         <div class="col-2">\
                                             <label for="Duration"></label>\
-                                            <input type="date" id="To" name="duration_to" class="form-control"\
+                                            <input type="date" id="To" name="duration_to[]" class="form-control"\
                                                 placeholder="To" aria-label="To">\
                                         </div>\
                                         <div class="col-2">\
                                             <label for="Experience">Experience</label>\
-                                            <input type="text" id="Year" name="Year" class="form-control"\
+                                            <input type="text" id="Year" name="experience_year[]" class="form-control"\
                                                 placeholder="Year" aria-label="Year">\
                                         </div>\
                                         <div class="col-2">\
                                             <label for="Experience"></label>\
-                                            <input type="text" id="Months" name="Months" class="form-control"\
+                                            <input type="text" id="Months" name="experience_months[]" class="form-control"\
                                                 placeholder="Months" aria-label="Months">\
                                         </div>\
                                         <div class="col-1">\
@@ -393,7 +393,7 @@ var html2 = '<div class="parent2">\
                                     <div class="row g-3">\
                                         <div class="col">\
                                             <label for="Level">Level</label>\
-                                            <select class="form-select form-select-lg mb-3" name="level"\
+                                            <select class="form-select form-select-lg mb-3" name="level[]"\
                                                 aria-label="Default select example">\
                                                 <option selected disabled>Choose Level</option>\
                                                <option value="l10">Level 10</option>\
@@ -402,45 +402,45 @@ var html2 = '<div class="parent2">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Designation">Designation</label>\
-                                            <input type="text" id="Designation" name="designation"\
+                                            <input type="text" id="Designation" name="designation[]"\
                                                 class="form-control" placeholder="Designation"\
                                                 aria-label="Designation">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Pay">Pay Scale and AGP</label>\
-                                            <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control"\
+                                            <input type="text" id="Pay" name="pay_scale_and_agp[]" class="form-control"\
                                                 placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Encl.No.">Encl.No.</label>\
-                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"\
+                                            <input type="text" id="Encl.No." name="encl_no[]" class="form-control"\
                                                 placeholder="Encl.No." aria-label="Encl.No.">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Remarks">Remarks</label>\
-                                            <input type="text" id="Remarks" name="remarks" class="form-control"\
+                                            <input type="text" id="Remarks" name="remarks[]" class="form-control"\
                                                 placeholder="Remarks" aria-label="Remarks">\
                                         </div>\
                                     </div>\
                                     <div class="row g-3">\
                                         <div class="col">\
                                             <label for="Duration">Duration</label>\
-                                            <input type="date" id="From" name="duration_from" class="form-control"\
+                                            <input type="date" id="From" name="duration_from[]" class="form-control"\
                                                 placeholder="From" aria-label="From">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Duration"></label>\
-                                            <input type="date" id="To" name="duration_to" class="form-control"\
+                                            <input type="date" id="To" name="duration_to[]" class="form-control"\
                                                 placeholder="To" aria-label="To">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Experience">Experience (year)</label>\
-                                            <input type="number" id="Year" name="Year" class="form-control"\
+                                            <input type="number" id="Year" name="experience_year[]" class="form-control"\
                                                 placeholder="Year" aria-label="Year">\
                                         </div>\
                                         <div class="col">\
                                             <label for="Experience">Experience (Months)</label>\
-                                            <input type="number" id="Months" name="Months" class="form-control"\
+                                            <input type="number" id="Months" name="experience_months[]" class="form-control"\
                                                 placeholder="Months" aria-label="M\onths">\
                                         </div>\
                                         <div class="col-1">\

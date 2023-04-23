@@ -508,8 +508,6 @@
                     <button type="button" class="btn btn-info remove2 mt-4">-</button>
                 </div>
             </div>
-
-
         </div>`;
         $(document).on('click', '.add2', function() {
                 $('.add_input2').append(html2);

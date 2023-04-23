@@ -235,6 +235,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row justify-content-center">
@@ -259,94 +260,169 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-9">
-                                        <h2 class="fs-title">ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL / WORKSHOPS/ QIP/
-                                            FIP ETC
-                                            ATTENDED: (Attach certificates)
+                                        <h2 class="fs-title">(a) RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted*
                                         </h2>
                                     </div>
-                                    <div class="col-3">
-                                        <h2 class="steps">Step 1 - 4</h2>
-                                    </div>
                                 </div>
-                                <div class="parent4">
-                                    <div class="row mt-3">
+                                <div class="parent10">
+                                    <div class="row mt-2">
                                         <div class="col">
-                                            <label class="fieldlabels"></label>
-                                            <select class="form-select form-select-lg mb-3"
-                                                aria-label=".form-select-lg example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL /
-                                                    WORKSHOPS/ QIP/ FIP ETC
-                                                    ATTENDED: (Attach certificates)
-                                                </option>
-                                                <option value="1"> ORIENTATION/REFRESHER COURSE ATTENDED (ONLY UGC
-                                                    RECOGNIZED):(Attach certificates)</option>
-                                            </select>
+                                            <label class="fieldlabels">Name of the Scholar</label> <input type="text"
+                                                name="Name_of_the_Scholar" placeholder="Name of the Scholar" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Place:</label> <input type="text"
-                                                name="Place_from" placeholder="Place from" />
+                                            <label class="fieldlabels">University </label> <input type="text"
+                                                name="University " placeholder="University " />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Particulars:</label> <input type="text"
-                                                name="Particulars_from" placeholder="Particulars from" />
+                                            <label class="fieldlabels">Title of the Thesis</label> <input type="text"
+                                                name="Title_of_the_Thesis" placeholder="Title of the Thesis" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Duration:</label> <input type="text"
-                                                name="duration_from" placeholder="Duration from" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels"></label> <input type="text" name="duration_to"
-                                                placeholder="duration_to" />
+                                            <label class="fieldlabels">Awarded/Thesis submitted</label> <input
+                                                type="text" name="Awarded_Thesis_submitted"
+                                                placeholder="Awarded/Thesis submitted" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-3">
-                                            <label class="fieldlabels">Sponsoring Agency</label>
-                                            <input type="text" name="sponsoring_agency"
-                                                placeholder="Sponsoring Agency" />
+                                        <div class="col">
+                                            <label class="fieldlabels">Month and Year</label>
+                                            <input type="text" name="Month_and_Year" placeholder="Month and Year" />
                                         </div>
-                                        <div class="col-3">
-                                            <label class="fieldlabels">Sponsoring Agency</label>
-                                            <input type="text" name="sponsoring_agency"
-                                                placeholder="Sponsoring Agency" />
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
                                         </div>
-                                        <div class="col-4">
-                                            <label class="fieldlabels">Attach (certificates)</label>
-                                            <input type="file" name="attach_certificates"
-                                                placeholder="Attach certificates" />
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
                                         </div>
                                         <div class="col-1">
-                                            <button type="button" class="btn btn-info add4 mt-3">+</button>
+                                            <button type="button" class="btn btn-info add10 mt-4">+</button>
                                         </div>
                                     </div>
-                                    <div class="add_input4"></div>
+                                    <hr>
+                                    <div class="add_input10"></div>
+                                    <div>* Submit Ph.D. Notification/Certificate of Submission.</div>
+                                </div>
+
+                                <div class="parent11">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Name of the Scholar</label> <input type="text"
+                                                name="Name_of_the_Scholar" placeholder="Name of the Scholar" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">M.Phil./ P.G.</label> <input type="text"
+                                                name="M_Phil_P_G" placeholder="M.Phil./ P.G." />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Title of the Dissertation/Thesis</label> <input
+                                                type="text" name="Title_of_the_Thesis"
+                                                placeholder="Title of the Thesis" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">University</label> <input type="text"
+                                                name="University" placeholder="University" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Month and Year</label>
+                                            <input type="text" name="Month_and_Year"
+                                                placeholder="Month and Year" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add11 mt-4">+</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="add_input11"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
-                                        <h2 class="fs-title"> YOUR CONTRIBUTION TO THE DEPARTMENT /COLLEGE/UNIVERSITY
-                                            (Attach relevant documents and mention Enclosure No. here for each document)
-                                            </h2>
+                                    <div class="col-9">
+                                        <h2 class="fs-title">RESEARCH PROJECTS COMPLETED
+                                        </h2>
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                <div class="parent12">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels"> RESEARCH PROJECTS</label>
+                                            <select class="form-select form-select-lg mb-3"
+                                                aria-label=".form-select-lg example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">RESEARCH PROJECTS COMPLETED</option>
+                                                <option value="2">RESEARCH PROJECTS ONGOING</option>
+                                                <option value="3">CONSULTANCY</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Title of the Project (More than 10
+                                                lakhs)</label> <input type="text" name="Title_of_the_Project"
+                                                placeholder="Title of the Project (More than 10 lakhs)" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Names of Pand co-PI</label> <input
+                                                type="text" name="Names_of_Pand_co_PI"
+                                                placeholder="Names of Pand co-PI" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Funding Agency</label> <input type="text"
+                                                name="Funding_Agency" placeholder="Funding Agency" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h2 class="fs-title"> ANY OTHER RELEVANT INFORMATION:</h2>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Grant Sanctioned</label>
+                                            <input type="text" name="Grant_Sanctioned"
+                                                placeholder="Grant Sanctioned" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col-1">
+                                            <label class="fieldlabels">Duration</label>
+                                            <input type="text" name="Duration_from" placeholder="From" />
+                                        </div>
+                                        <div class="col-1">
+                                            <label class="fieldlabels"></label>
+                                            <input type="text" name="Duration_to" placeholder="To" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add12 mt-4">+</button>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="add_input12"></div>
                                 </div>
                             </div>
                             <input type="button" name="next" class="action-button" value="Next" />
@@ -440,53 +516,12 @@
             $(".submit").click(function() {
                 return false;
             })
-
-            var html4 = `<div class="parent4">
-                                        <div class="row mt-3">
-                                        <div class="col">
-                                        <label class="fieldlabels"></label>
-                                        <select class="form-select form-select-lg mb-3"
-                                        aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL /
-                                        WORKSHOPS/ QIP/ FIP ETC
-                                        ATTENDED: (Attach certificates)
-                                        </option>
-                                        <option value="1"> ORIENTATION/REFRESHER COURSE ATTENDED (ONLY UGC
-                                        RECOGNIZED):(Attach certificates)</option>
-                                        </select></div><div class="col">
-                                        <label class="fieldlabels">Place:</label> <input type="text"
-                                        name="Place_from" placeholder="Place from" />
-                                        </div><div class="col">
-                                        <label class="fieldlabels">Particulars:</label> <input type="text"
-                                        name="Particulars_from" placeholder="Particulars from" />
-                                        </div><div class="col">
-                                        <label class="fieldlabels">Duration:</label> <input type="text"
-                                        name="duration_from" placeholder="Duration from" />
-                                        </div><div class="col">
-                                        <label class="fieldlabels"></label> <input type="text" name="duration_to"
-                                        placeholder="duration_to" />
-                                        </div></div><div class="row mt-2">
-                                        <div class="col-4">
-                                        <label class="fieldlabels">Sponsoring Agency</label>
-                                        <input type="text" name="sponsoring_agency"
-                                        placeholder="Sponsoring Agency" />
-                                        </div><div class="col-3">
-                                        <label class="fieldlabels">Sponsoring Agency</label>
-                                        <input type="text" name="sponsoring_agency"
-                                        placeholder="Sponsoring Agency" />
-                                        </div><div class="col-3">
-                                        <label class="fieldlabels">Attach (certificates)</label>
-                                        <input type="file" name="attach_certificates"
-                                        placeholder="Attach certificates" /></div>
-                                        <div class="col-1">
-                                        <button type="button" class="btn btn-info remove4 mt-3">-</button>
-                                        </div></div></div>`;
-            $(document).on('click', '.add4', function() {
-                $('.add_input4').append(html4);
+            var html10 = ``;
+            $(document).on('click', '.add10', function() {
+                $('.add_input10').append(html10);
             });
-            $(document).on('click', '.remove4', function() {
-                $(this).closest('.parent4').remove();
+            $(document).on('click', '.remove10', function() {
+                $(this).closest('.parent10').remove();
             });
         });
     </script>

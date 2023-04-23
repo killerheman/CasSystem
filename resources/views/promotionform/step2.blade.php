@@ -22,21 +22,21 @@
                 <label class="fieldlabels">Gender: </label>
                 <select class="form-control" name="gender">
                     <option value="" disabled selected>--Select Gender--</option>
-                    <option value="m" @selected($user->step2->gender??''=='m')  >Male</option>
-                    <option value="f"  @selected($user->step2->gender??''=='f')>Female</option>
-                    <option value="o"  @selected($user->step2->gender??''=='o')>Other</option>
+                    <option value="m" @isset($user->step2->gender) @selected($user->step2->gender=='m')  @endisset>Male</option>
+                    <option value="f"  @isset($user->step2->gender) @selected($user->step2->gender=='f')   @endisset>Female</option>
+                    <option value="o"  @isset($user->step2->gender) @selected($user->step2->gender=='o')   @endisset>Other</option>
                 </select>
             </div>
             <div class="col-3">
                 <label class="fieldlabels">Category: </label>
                 <select class="form-control" name="category">
                     <option value="" disabled selected>--Select Category--</option>
-                    <option value="sc" @selected($user->step2->category??''=='sc')>SC</option>
-                    <option value="st" @selected($user->step2->category??''=='st')>ST</option>
-                    <option value="ebc" @selected($user->step2->category??''=='ebc')>EBC</option>
-                    <option value="bc" @selected($user->step2->category??''=='bc')>BC</option>
-                    <option value="ews" @selected($user->step2->category??''=='ews')>EWS</option>
-                    <option value="general" @selected($user->step2->category??''=='general')>General</option>
+                    <option value="sc" @isset($user->step2->category) @selected($user->step2->category=='SC') @endisset>SC</option>
+                    <option value="st" @isset($user->step2->category) @selected($user->step2->category=='ST') @endisset>ST</option>
+                    <option value="ebc" @isset($user->step2->category) @selected($user->step2->category=='EBC') @endisset>EBC</option>
+                    <option value="bc" @isset($user->step2->category) @selected($user->step2->category=='BC') @endisset>BC</option>
+                    <option value="ews" @isset($user->step2->category) @selected($user->step2->category=='EWS') @endisset>EWS</option>
+                    <option value="general" @isset($user->step2->category) @selected($user->step2->category=='GENERAL') @endisset>General</option>
                 </select>
             </div>
 
@@ -61,8 +61,8 @@
                 <label class="fieldlabels">Nationality: </label>
                 <select class="form-control" name="nationality">
                     <option value="" selected disabled>--Select Nationality--</option>
-                    <option value="indian" @selected($user->step2->nationality??''=='indian')>Indian</option>
-                    <option value="other"  @selected($user->step2->nationality??''=='other') >Other</option>
+                    <option value="indian" @isset($user->step2->nationality)  @selected($user->step2->nationality=='indian') @endisset>Indian</option>
+                    <option value="other" @isset($user->step2->nationality)  @selected($user->step2->nationality=='other') @endisset >Other</option>
                 </select>
             </div>
             <div class="col-3">

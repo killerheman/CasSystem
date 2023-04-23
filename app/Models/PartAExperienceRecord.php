@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PartAExperienceRecordPA extends Model
+class PartAExperienceRecord extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];

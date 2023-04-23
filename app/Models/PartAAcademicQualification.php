@@ -15,12 +15,17 @@ class PartAAcademicQualification extends Model
     use HasFactory, SoftDeletes;
     protected $guarded = [];
 
+    public function getClassWithAttribute()
+    {
+       return $this['class_with_%'];
+    }
     public static function saveinfo(Request $req)
     {
         $d=PartAAcademicQualification::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->exists();
         try{
+            
+            PartAAcademicQualification::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
                 foreach($req->qualifications as $k=>$qualification){
-                    PartAAcademicQualification::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
                    $qualification= PartAAcademicQualification::create([
                     'promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,
                     'qualifications'=>$req->qualifications[$k]??'',
@@ -55,17 +60,17 @@ class PartAAcademicQualification extends Model
 
                 // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
                 PartAServiceInLnmuFrom::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
-                foreach($req->designation as $k=>$level){
+                foreach($req->level as $k=>$level){
                   $d=  PartAServiceInLnmuFrom::create([
                         'promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,
                         'level'=>$req->level[$k]??''??'',
-                        'designation'=>$req->designation[$k]??'',
+                        'designation'=>$req->lnmu_designation[$k]??'',
                         'pay_scale_and_agp'=>$req->pay_scale_and_agp[$k]??'',
-                        'duration_from'=>$req->duration_from[$k]??'',
-                        'duration_to'=>$req->duration_to[$k]??'',
-                        'experience_year'=>$req->experience_year[$k]??'',
-                        'experience_months'=>$req->experience_months[$k]??'',
-                        'encl_no'=>$req->encl_no[$k]??'',
+                        'duration_from'=>$req->step3_duration_from[$k]??'',
+                        'duration_to'=>$req->step3c_duration_to[$k]??'',
+                        'experience_year'=>$req->step3c_experience_year[$k]??'',
+                        'experience_months'=>$req->step3c_experience_months[$k]??'',
+                        'encl_no'=>$req->lnmu_encl_no[$k]??'',
                         'remarks'=>$req->remarks[$k]??''
                     ]);
                 }

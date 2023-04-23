@@ -21,5 +21,29 @@ class PromotionApplicationUser extends  Authenticatable
     {
        return $this->hasOne(PartAGeneralInfo::class,'promotion_application_users_id');
     }
-   
+
+    public function step3_a()
+    {
+        return $this->hasMany(PartAAcademicQualification::class,'promotion_application_users_id');
+    }
+    public function step3_b()
+    {
+        return $this->hasMany(PartAAcademicServicePrior::class,'promotion_application_users_id');
+    }
+    public function step3_c()
+    {
+        return $this->hasMany(PartAServiceInLnmuFrom::class,'promotion_application_users_id');
+    }
+    public function step4()
+    {
+        return $this->hasOne(PartAExperienceRecord::class,'promotion_application_users_id');
+    }
+    public function step4_phdrecord()
+    {
+        return $this->hasMany(PartAMphilPhdRecord::class,'promotion_application_users_id');
+    }
+    public function step5()
+    {
+       return $this->hasMany(PartARefresherProgramAttended::class,'promotion_application_users_id');
+    }
 }

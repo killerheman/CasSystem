@@ -37,23 +37,23 @@ return new class extends Migration
 
 
             $table->string('conferences_seminars_international_attended')->nullable();
-            $table->string('onferences_seminars_national_attended')->nullable();
-            $table->string('onferences_seminars__state_level_attended')->nullable();
-            $table->string('onferences_seminars_total_attended')->nullable();
+            $table->string('conferences_seminars_national_attended')->nullable();
+            $table->string('conferences_seminars__state_level_attended')->nullable();
+            $table->string('conferences_seminars_total_attended')->nullable();
 
             $table->string('conferences_seminars_international_papers_presented')->nullable();
-            $table->string('onferences_seminars_national_papers_presented')->nullable();
-            $table->string('onferences_seminars__state_level_papers_presented')->nullable();
-            $table->string('onferences_seminars_total_papers_presented')->nullable();
+            $table->string('conferences_seminars_national_papers_presented')->nullable();
+            $table->string('conferences_seminars__state_level_papers_presented')->nullable();
+            $table->string('conferences_seminars_total_papers_presented')->nullable();
 
 
             $table->string('awards_prizes_honours_recognitions')->nullable();
             $table->longText('specialization_in_the_subject_discipline')->nullable();
 
-            $table->string('future_academic_development_plan',)->nullable();
-            $table->string('vision_to_the_department',)->nullable();
-            $table->string('contribution_to_the_department',)->nullable();
-            $table->string('other_relevant_information',)->nullable();
+            $table->string('future_academic_development_plan')->nullable();
+            $table->string('vision_to_the_department')->nullable();
+            $table->string('contribution_to_the_department')->nullable();
+            $table->string('other_relevant_information')->nullable();
 
             $table->longText('file')->nullable();
             $table->softDeletes();

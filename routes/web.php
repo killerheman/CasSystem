@@ -45,5 +45,7 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
     Route::get('step-3',[PromotionFormController::class,'step3'])->name('step-3');
     Route::post('step-3-store',[PromotionFormController::class,'step3_store'])->name('step-3-store');
     Route::get('step-4',[PromotionFormController::class,'step4'])->name('step-4');
+    Route::post('step-4-store',[PromotionFormController::class,'step4_store'])->name('step-4-store');
     Route::get('step-5',[PromotionFormController::class,'step5'])->name('step-5');
+    Route::post('step-5-store',[PromotionFormController::class,'step5_store'])->name('step-5-store');
 });

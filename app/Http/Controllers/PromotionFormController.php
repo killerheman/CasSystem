@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\ImageUpload;
 use App\Models\PartAAcademicQualification;
 use App\Models\PartAGeneralInfo;
+use App\Models\PartAServiceInLnmuFrom;
 use App\Models\PromotionApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -78,7 +79,12 @@ class PromotionFormController extends Controller
    }
    public function step3_store(Request $req)
    {
-      PartAAcademicQualification::saveinfo($req);
+    
+      $r=PartAAcademicQualification::saveinfo($req);
+      if($r){
+          Alert::success('Previous Step Save Successfully');
+      }
+      return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
    }
    public function step4()
    {

@@ -1,5 +1,4 @@
-@extends('layout.teacher_promotion')
-@section('progress-width','40%')
+@extends('layout.teacher_promotion', ['activeClass' => 4])
 @section('content')
 <fieldset>
     <form action="{{ route('promotion-form.step-4-store') }}" method="post">
@@ -259,8 +258,14 @@
         </div>
     </div>
     </div>
+<<<<<<< Updated upstream
     <input type="submit" name="next" class="action-button" value="Next" />
 </form>
+=======
+    {{-- <input type="button" name="next" class="action-button" value="Next" /> --}}
+    <a type="button" href="{{ route('promotion-form.step-5') }}" class="action-button">Next</a>
+<a type="button" href="{{ route('promotion-form.step-3') }}" class="action-button">Previous</a>
+>>>>>>> Stashed changes
 </fieldset>
 @endsection
 
@@ -298,6 +303,6 @@
                                     $(document).on('click', '.remove3', function() {
                                         $(this).closest('.parerent3').remove();
                                     });
-       
+
 </script>
 @endsection

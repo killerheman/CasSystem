@@ -1,5 +1,4 @@
-@extends('layout.teacher_promotion')
-@section('progress-width','20%')
+@extends('layout.teacher_promotion', ['activeClass' => 2])
 @section('content')
 <fieldset>
     <form action="{{ route('promotion-form.step-2-store') }}" method="post">
@@ -132,8 +131,10 @@
             </div>
         </div>
     </div> <input type="submit" name="next" class="next action-button" value="Next" />
-    <input type="button" name="previous" class="previous action-button-previous"
-        value="Previous" />
+    {{-- <input type="button" name="previous" class="previous action-button-previous"
+        value="Previous" /> --}}
+        {{-- <a type="button" href="{{ route('promotion-form.step-10') }}" class="action-button">Next</a> --}}
+<a type="button" href="{{ route('promotion-form.step-1') }}" class="action-button">Previous</a>
     </form>
 </fieldset>
 @endsection

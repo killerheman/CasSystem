@@ -83,6 +83,10 @@ class PromotionFormController extends Controller
    }
    public function step3_store(Request $req)
    {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
       $r=PartAAcademicQualification::saveinfo($req);
       if($r){
           Alert::success('Previous Step Save Successfully');
@@ -157,5 +161,31 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
       }
       Alert::success('Previous Data Save ');
      return redirect()->back();
+   }
+
+   //Part B
+   public function step6()
+   {
+      return view('promotionform.step6');
+   }
+
+   public function step7()
+   {
+      return view('promotionform.step7');
+   }
+
+   public function step8()
+   {
+      return view('promotionform.step8');
+   }
+
+   public function step9()
+   {
+      return view('promotionform.step9');
+   }
+
+   public function step10()
+   {
+      return view('promotionform.step10');
    }
 }

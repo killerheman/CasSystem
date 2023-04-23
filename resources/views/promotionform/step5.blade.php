@@ -1,5 +1,4 @@
-@extends('layout.teacher_promotion')
-@section('progress-width','50%')
+@extends('layout.teacher_promotion', ['activeClass' => 5])
 @section('content')
 <form action="{{ route('promotion-form.step-5-store') }}" method="post" enctype="multipart/form-data">
     @csrf
@@ -15,7 +14,7 @@
             <h2 class="steps">Step 5 - 10</h2>
         </div>
     </div>
-    <div class="parent4  border border-4 rounded rounded-5  border-danger mb-5 p-3">
+    <div class="parent4 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <div class="row mt-3 ">
             <div class="col">
                 <label class="fieldlabels"></label>
@@ -156,7 +155,7 @@
     <div class="row">
         <div class="col-12">
             <h2 class="fs-title"> FUTURE ACADEMIC DEVELOPMENT PLAN FOR SELF AS WELL AS DEPARTMENT
-                /COLLEGE/UNIVERSITY:                
+                /COLLEGE/UNIVERSITY:
                 </h2>
         </div>
     </div>
@@ -180,8 +179,13 @@
         </div>
     </div>
 </div>
+<<<<<<< Updated upstream
 <input type="submit" name="next" class="action-button" value="Submit" />
 </form>
+=======
+<a type="button" href="{{ route('promotion-form.step-6') }}" class="action-button">Next</a>
+<a type="button" href="{{ route('promotion-form.step-4') }}" class="action-button">Previous</a>
+>>>>>>> Stashed changes
 @endsection
 
 

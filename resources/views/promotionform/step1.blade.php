@@ -1,5 +1,4 @@
-@extends('layout.teacher_promotion')
-@section('progress-width', '10%');
+@extends('layout.teacher_promotion', ['activeClass' => 1])
 @section('content')
     <fieldset>
         <form action="{{ route('promotion-form.step-1-store') }}" method="post" enctype="multipart/form-data">

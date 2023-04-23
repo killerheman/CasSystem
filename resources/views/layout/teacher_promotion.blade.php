@@ -166,7 +166,7 @@
         #progressbar li {
             list-style-type: none;
             font-size: 15px;
-            width: 25%;
+            width: 10%;
             float: left;
             position: relative;
             font-weight: 400
@@ -185,6 +185,41 @@
         #progressbar #payment:before {
             font-family: FontAwesome;
             content: "\f030"
+        }
+
+        #progressbar #personal1:before {
+            font-family: FontAwesome;
+            content: "\f19d"
+        }
+
+        #progressbar #personal2:before {
+            font-family: FontAwesome;
+            content: "\f0b1"
+        }
+
+        #progressbar #personal3:before {
+            font-family: FontAwesome;
+            content: "\f016"
+        }
+
+        #progressbar #personal4:before {
+            font-family: FontAwesome;
+            content: "\f017"
+        }
+
+        #progressbar #personal5:before {
+            font-family: FontAwesome;
+            content: "\f040"
+        }
+
+        #progressbar #personal6:before {
+            font-family: FontAwesome;
+            content: "\f009"
+        }
+
+        #progressbar #personal7:before {
+            font-family: FontAwesome;
+            content: "\f010"
         }
 
         #progressbar #confirm:before {
@@ -246,22 +281,7 @@
                     <h2 id="heading">Application for Promotion under the
                         Career Advancement Scheme (CAS) for University Teachers</h2>
                     <p>(As approved by the Chancellor Vide Letter No- BSU Statute-08/2005-283/GS(I) dt 15.02.2023)</p>
-                    <div id="msform">
-                        <!-- progressbar -->
-                        <ul id="progressbar">
-                            <li class="active" id="account"><strong>Account</strong></li>
-                            <li id="personal"><strong>Personal</strong></li>
-                            <li id="payment"><strong>Image</strong></li>
-                            <li id="confirm"><strong>Finish</strong></li>
-                        </ul>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100" style="width:@yield('progress-width')"></div>
-                        </div> <br> <!-- fieldsets -->
-                        <fieldset>
-                            @yield('content')
-                        </fieldset>
-                    </div>
+                    @include('promotionform.layout.tophead', ['activeClass' => $activeClass])
                 </div>
             </div>
         </div>
@@ -353,7 +373,7 @@
         // });
     </script>
     @yield('script')
-    
+
     @include('sweetalert::alert')
 </body>
 

@@ -1,5 +1,4 @@
-@extends('layout.teacher_promotion')
-@section('progress-width','30%')
+@extends('layout.teacher_promotion', ['activeClass' => 3])
 @section('content')
 <fieldset>
     <form action="{{ route('promotion-form.step-3-store') }}" method="post">
@@ -441,9 +440,11 @@
             <h3 class="fs-title text-danger">Please clearly specify the period of Leave Without Pay (LWP)
             </h3>
         </div>
-    </div> <input type="submit" name="next" class="next action-button" value="Submit" />
-    <input type="button" name="previous" class="previous action-button-previous"
-        value="Previous" />
+    </div> <input type="submit" name="next" class="next action-button" value="Next" />
+    {{-- <input type="button" name="previous" class="previous action-button-previous"
+        value="Previous" /> --}}
+        {{-- <a type="button" href="{{ route('promotion-form.step-10') }}" class="action-button">Next</a> --}}
+<a type="button" href="{{ route('promotion-form.step-2') }}" class="action-button">Previous</a>
     </form>
 </fieldset>
 @endsection
@@ -599,7 +600,7 @@
             $(document).on('click', '.remove1', function() {
                 $(this).closest('.parent1').remove();
             });
-          
+
 
 
 
@@ -667,6 +668,6 @@ var html2 = '<div class="parent2">\
             $(document).on('click', '.remove2', function() {
                 $(this).closest('.parent2').remove();
             });
-        
+
 </script>
 @endsection

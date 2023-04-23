@@ -37,7 +37,8 @@ Route::view('/step9', 'step9');
 Route::get('promotion-form/login',[PromotionAuthController::class,'user_login'])->name('promotion-form.user-login');
 Route::post('promotion-form/login-otp-send',[PromotionAuthController::class,'user_login_otp_send'])->name('promotion-form.user-login-otp-send');
 Route::post('promotion-form/login-otp-verify',[PromotionAuthController::class,'user_login_otp_verify'])->name('promotion-form.user-login-otp-verify');
-Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promotion_app_user')->group(function () {
+Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
+    // Part A Routes
     Route::get('step-1',[PromotionFormController::class,'step1'])->name('step-1');
     Route::post('step-1-store',[PromotionFormController::class,'step1_store'])->name('step-1-store');
     Route::get('step-2',[PromotionFormController::class,'step2'])->name('step-2');
@@ -47,5 +48,16 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
     Route::get('step-4',[PromotionFormController::class,'step4'])->name('step-4');
     Route::post('step-4-store',[PromotionFormController::class,'step4_store'])->name('step-4-store');
     Route::get('step-5',[PromotionFormController::class,'step5'])->name('step-5');
+<<<<<<< Updated upstream
     Route::post('step-5-store',[PromotionFormController::class,'step5_store'])->name('step-5-store');
+=======
+
+    //Part B Routes
+    Route::get('step-6',[PromotionFormController::class,'step6'])->name('step-6');
+    Route::get('step-7',[PromotionFormController::class,'step7'])->name('step-7');
+    Route::get('step-8',[PromotionFormController::class,'step8'])->name('step-8');
+    Route::get('step-9',[PromotionFormController::class,'step9'])->name('step-9');
+    Route::get('step-10',[PromotionFormController::class,'step10'])->name('step-10');
+
+>>>>>>> Stashed changes
 });

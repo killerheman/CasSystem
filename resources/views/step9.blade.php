@@ -260,139 +260,116 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-9">
-                                        <h2 class="fs-title">(a) RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted*
+                                        <h2 class="fs-title">(a) PATENTS
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="parent10">
+                                <div class="main">
                                     <div class="row mt-2">
                                         <div class="col">
-                                            <label class="fieldlabels">Name of the Scholar</label> <input type="text"
-                                                name="Name_of_the_Scholar" placeholder="Name of the Scholar" />
+                                            <label class="fieldlabels">Details of Patent </label> <input type="text"
+                                                name="Details_of_Patent " placeholder="Details of Patent " />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">University </label> <input type="text"
-                                                name="University " placeholder="University " />
+                                            <label class="fieldlabels">International/National</label> <input type="text"
+                                                name="International_National" placeholder="International/National " />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Title of the Thesis</label> <input type="text"
-                                                name="Title_of_the_Thesis" placeholder="Title of the Thesis" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">Awarded/Thesis submitted</label> <input
-                                                type="text" name="Awarded_Thesis_submitted"
-                                                placeholder="Awarded/Thesis submitted" />
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col">
-                                            <label class="fieldlabels">Month and Year</label>
-                                            <input type="text" name="Month_and_Year" placeholder="Month and Year" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">Verified by the Committee</label>
-                                            <input type="text" name="Verified_by_the_Committee"
-                                                placeholder="Verified by the Committee" />
+                                            <label class="fieldlabels">Year</label> <input type="text"
+                                                name="Year" placeholder="Year" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">Encl. No.</label>
-                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
-                                        </div>
-                                        <div class="col-1">
-                                            <button type="button" class="btn btn-info add10 mt-4">+</button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="add_input10"></div>
-                                    <div>* Submit Ph.D. Notification/Certificate of Submission.</div>
-                                </div>
-
-                                <div class="parent11">
-                                    <div class="row mt-5">
-                                        <div class="col">
-                                            <label class="fieldlabels">Name of the Scholar</label> <input type="text"
-                                                name="Name_of_the_Scholar" placeholder="Name of the Scholar" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">M.Phil./ P.G.</label> <input type="text"
-                                                name="M_Phil_P_G" placeholder="M.Phil./ P.G." />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">Title of the Dissertation/Thesis</label> <input
-                                                type="text" name="Title_of_the_Thesis"
-                                                placeholder="Title of the Thesis" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">University</label> <input type="text"
-                                                name="University" placeholder="University" />
+                                             <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col">
-                                            <label class="fieldlabels">Month and Year</label>
-                                            <input type="text" name="Month_and_Year"
-                                                placeholder="Month and Year" />
-                                        </div>
-                                        <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>
-                                            <input type="text" name="Verified_by_the_Committee"
-                                                placeholder="Verified by the Committee" />
-                                        </div>
-                                        <div class="col">
-                                            <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="text" name="Verified_by_the_Committee" placeholder="Verified by the Committee" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Encl. No.</label>
-                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                            <input type="text" name="Encl_No"
+                                                placeholder="Encl. No." />
                                         </div>
                                         <div class="col-1">
-                                            <button type="button" class="btn btn-info add11 mt-4">+</button>
+                                            <button type="button" class="btn btn-info add13 mt-4">+</button>
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="add_input11"></div>
+                                    <div class="add_input13"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-9">
-                                        <h2 class="fs-title">RESEARCH PROJECTS COMPLETED
+                                    <div class="col-12">
+                                        <h2 class="fs-title">(b) *Policy Document (Submitted to an International body/organization like
+                                            UNO/UNESCO/World Bank/International Monetary Fund etc. or Central Government or State
+                                            Government)
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="parent12">
+                                <div class="parent14">
                                     <div class="row mt-5">
                                         <div class="col">
-                                            <label class="fieldlabels"> RESEARCH PROJECTS</label>
-                                            <select class="form-select form-select-lg mb-3"
-                                                aria-label=".form-select-lg example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">RESEARCH PROJECTS COMPLETED</option>
-                                                <option value="2">RESEARCH PROJECTS ONGOING</option>
-                                                <option value="3">CONSULTANCY</option>
-                                            </select>
+                                            <label class="fieldlabels">Details of Policy Document</label> <input type="text"
+                                                name="Details_of_Policy_Document" placeholder="Details of Policy Document" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Title of the Project (More than 10
-                                                lakhs)</label> <input type="text" name="Title_of_the_Project"
-                                                placeholder="Title of the Project (More than 10 lakhs)" />
+                                            <label class="fieldlabels">International /National /State</label>
+                                             <input type="text" name="International_National_State" placeholder="International/National /State" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Names of Pand co-PI</label> <input
-                                                type="text" name="Names_of_Pand_co_PI"
-                                                placeholder="Names of Pand co-PI" />
+                                            <label class="fieldlabels">Year</label> <input
+                                                type="text" name="Year"
+                                                placeholder="Year" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Funding Agency</label> <input type="text"
-                                                name="Funding_Agency" placeholder="Funding Agency" />
+                                            <label class="fieldlabels">Claimed Score</label> <input type="text"
+                                                name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col">
-                                            <label class="fieldlabels">Grant Sanctioned</label>
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add14 mt-4">+</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="add_input14"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 class="fs-title">(c) Awards/Fellowship
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="parent15">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Name of the Award / Fellowship </label>
+                                            <input type="text" name="Name_of_the_Award_Fellowship" placeholder="Name of the Award / Fellowship " />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Awarding Institute/Organization</label> <input
+                                                type="text" name="Awarding_Institute_Organization"
+                                                placeholder="Awarding Institute/Organization" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">International/ National</label> <input type="text"
+                                                name="International_National" placeholder="International/ National" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Date Awarded </label>
                                             <input type="text" name="Grant_Sanctioned"
                                                 placeholder="Grant Sanctioned" />
                                         </div>
@@ -400,14 +377,6 @@
                                             <label class="fieldlabels">Claimed Score</label>
                                             <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
-                                        <div class="col-1">
-                                            <label class="fieldlabels">Duration</label>
-                                            <input type="text" name="Duration_from" placeholder="From" />
-                                        </div>
-                                        <div class="col-1">
-                                            <label class="fieldlabels"></label>
-                                            <input type="text" name="Duration_to" placeholder="To" />
-                                        </div>
                                         <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>
                                             <input type="text" name="Verified_by_the_Committee"
@@ -418,11 +387,72 @@
                                             <input type="text" name="Encl_No" placeholder="Encl. No." />
                                         </div>
                                         <div class="col-1">
-                                            <button type="button" class="btn btn-info add12 mt-4">+</button>
+                                            <button type="button" class="btn btn-info add15 mt-4">+</button>
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="add_input12"></div>
+                                    <div class="add_input15"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 class="fs-title">*INVITED LECTURES / RESOURCE PERSON/ PAPER PRESENTATION IN SEMINARS/
+                                            CONFERENCES/FULL PAPER IN CONFERENCE PROCEEDINGS (Paper presented in
+                                            Seminars/Conferences and also published as full paper in Conference Proceedings will be
+                                            counted only once)
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="parent16">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Title</label>
+                                            <input type="text" name="Title" placeholder="Title" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Name of the Event</label> <input
+                                                type="text" name="Name_of_the_Event"
+                                                placeholder="Name of the Event"/>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Invited/Oral/Poster</label> <input type="text"
+                                                name="Invited_Oral_Poster" placeholder="Invited/Oral/Poster" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Organiser/Institute</label>
+                                            <input type="text" name="Organiser_Institute"
+                                                placeholder="Organiser/Institute" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Duration</label>
+                                            <input type="text" name="duration" placeholder="Duration" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+
+                                        <div class="col">
+                                            <label class="fieldlabels">International(Ab road)/Internation al(within  country) / National / State / University level</label>
+                                            <input type="text" name="International(Ab road)_Internation_al(within_country_National_State_University_level"
+                                                placeholder="International(Ab road)/Internation al(within  country) / National / State / University level" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee" placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No"
+                                                placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-info add16 mt-4">+</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="add_input16"></div>
                                 </div>
                             </div>
                             <input type="button" name="next" class="action-button" value="Next" />
@@ -516,12 +546,193 @@
             $(".submit").click(function() {
                 return false;
             })
-            var html10 = ``;
-            $(document).on('click', '.add10', function() {
-                $('.add_input10').append(html10);
+            var html13 = `<div class="main">
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Details of Patent </label> <input type="text"
+                                                name="Details_of_Patent " placeholder="Details of Patent " />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">International/National</label> <input type="text"
+                                                name="International_National" placeholder="International/National " />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Year</label> <input type="text"
+                                                name="Year" placeholder="Year" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                             <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee" placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No"
+                                                placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-danger remove13 mt-4">-</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>`;
+            $(document).on('click', '.add13', function() {
+                $('.add_input13').append(html13);
             });
-            $(document).on('click', '.remove10', function() {
-                $(this).closest('.parent10').remove();
+            $(document).on('click', '.remove13', function() {
+                $(this).closest('.main').remove();
+            });
+            var html14 = `<div class="parent14">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Details of Policy Document</label> <input type="text"
+                                                name="Details_of_Policy_Document" placeholder="Details of Policy Document" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">International /National /State</label>
+                                             <input type="text" name="International_National_State" placeholder="International/National /State" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Year</label> <input
+                                                type="text" name="Year"
+                                                placeholder="Year" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label> <input type="text"
+                                                name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-danger remove14 mt-4">-</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>`;
+            $(document).on('click', '.add14', function() {
+                $('.add_input14').append(html14);
+            });
+            $(document).on('click', '.remove14', function() {
+                $(this).closest('.parent14').remove();
+            });
+            var html15 = ` <div class="parent15">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Name of the Award / Fellowship </label>
+                                            <input type="text" name="Name_of_the_Award_Fellowship" placeholder="Name of the Award / Fellowship " />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Awarding Institute/Organization</label> <input
+                                                type="text" name="Awarding_Institute_Organization"
+                                                placeholder="Awarding Institute/Organization" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">International/ National</label> <input type="text"
+                                                name="International_National" placeholder="International/ National" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="fieldlabels">Date Awarded </label>
+                                            <input type="text" name="Grant_Sanctioned"
+                                                placeholder="Grant Sanctioned" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee"
+                                                placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No" placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-danger remove15 mt-4">-</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>`;
+            $(document).on('click', '.add15', function() {
+                $('.add_input15').append(html15);
+            });
+            $(document).on('click', '.remove15', function() {
+                $(this).closest('.parent15').remove();
+            });
+
+            var html16 = `<div class="parent16">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <label class="fieldlabels">Title</label>
+                                            <input type="text" name="Title" placeholder="Title" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Name of the Event</label> <input
+                                                type="text" name="Name_of_the_Event"
+                                                placeholder="Name of the Event"/>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Invited/Oral/Poster</label> <input type="text"
+                                                name="Invited_Oral_Poster" placeholder="Invited/Oral/Poster" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Organiser/Institute</label>
+                                            <input type="text" name="Organiser_Institute"
+                                                placeholder="Organiser/Institute" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Duration</label>
+                                            <input type="text" name="duration" placeholder="Duration" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+
+                                        <div class="col">
+                                            <label class="fieldlabels">International(Ab road)/Internation al(within  country) / National / State / University level</label>
+                                            <input type="text" name="International(Ab road)_Internation_al(within_country_National_State_University_level"
+                                                placeholder="International(Ab road)/Internation al(within  country) / National / State / University level" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Claimed Score</label>
+                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Verified by the Committee</label>
+                                            <input type="text" name="Verified_by_the_Committee" placeholder="Verified by the Committee" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="fieldlabels">Encl. No.</label>
+                                            <input type="text" name="Encl_No"
+                                                placeholder="Encl. No." />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-danger remove16 mt-4">-</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>`;
+            $(document).on('click', '.add16', function() {
+                $('.add_input16').append(html16);
+            });
+            $(document).on('click', '.remove16', function() {
+                $(this).closest('.parent16').remove();
             });
         });
     </script>

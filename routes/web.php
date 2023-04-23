@@ -29,7 +29,8 @@ Route::get('registration-step2',[RegistrationController::class,'step2'])->name('
 Route::get('registration-step3',[RegistrationController::class,'step3'])->name('step3');
 Route::get('registration-step4',[RegistrationController::class,'step4'])->name('step4');
 Route::view('/step7', 'step7');
-Route::view('/step8', 'step8'); 
+Route::view('/step8', 'step8');
+Route::view('/step9', 'step9');
 
 //Promotion form
 

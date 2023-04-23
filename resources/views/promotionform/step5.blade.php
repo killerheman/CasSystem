@@ -179,13 +179,10 @@
         </div>
     </div>
 </div>
-<<<<<<< Updated upstream
-<input type="submit" name="next" class="action-button" value="Submit" />
+<input type="submit" name="next" class="action-button" value="Next" />
 </form>
-=======
-<a type="button" href="{{ route('promotion-form.step-6') }}" class="action-button">Next</a>
+{{-- <a type="button" href="{{ route('promotion-form.step-6') }}" class="action-button">Next</a> --}}
 <a type="button" href="{{ route('promotion-form.step-4') }}" class="action-button">Previous</a>
->>>>>>> Stashed changes
 @endsection
 
 

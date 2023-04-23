@@ -48,9 +48,7 @@ Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
     Route::get('step-4',[PromotionFormController::class,'step4'])->name('step-4');
     Route::post('step-4-store',[PromotionFormController::class,'step4_store'])->name('step-4-store');
     Route::get('step-5',[PromotionFormController::class,'step5'])->name('step-5');
-<<<<<<< Updated upstream
     Route::post('step-5-store',[PromotionFormController::class,'step5_store'])->name('step-5-store');
-=======
 
     //Part B Routes
     Route::get('step-6',[PromotionFormController::class,'step6'])->name('step-6');
@@ -59,5 +57,4 @@ Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
     Route::get('step-9',[PromotionFormController::class,'step9'])->name('step-9');
     Route::get('step-10',[PromotionFormController::class,'step10'])->name('step-10');
 
->>>>>>> Stashed changes
 });

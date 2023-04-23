@@ -83,10 +83,7 @@ class PromotionFormController extends Controller
    }
    public function step3_store(Request $req)
    {
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
       $r=PartAAcademicQualification::saveinfo($req);
       if($r){
           Alert::success('Previous Step Save Successfully');
@@ -129,17 +126,17 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
       Alert::error('This Form Cant Save right Now');
      }
      return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
-   
+
    }
    public function step5()
    {
-      
+
       $user=Auth::guard('promotion_app_user')->user();
       return view('promotionform.step5',compact('user'));
    }
    public function step5_store(Request $req)
    {
-      
+
      $data=$req->only(['vision_to_the_department','contribution_to_the_department','future_academic_development_plan','other_relevant_information']);
      PartAExperienceRecord::updateOrCreate(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id],$data);
      PartARefresherProgramAttended::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,])->delete();

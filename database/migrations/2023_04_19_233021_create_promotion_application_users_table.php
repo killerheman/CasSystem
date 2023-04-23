@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('otp', 10);
             $table->timestamp('otp_expire_at')->nullable();
-            $table->integer('step')->nullable();
+            $table->integer('step')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

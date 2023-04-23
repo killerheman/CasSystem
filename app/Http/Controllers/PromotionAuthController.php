@@ -8,6 +8,7 @@ use App\Models\PromotionApplicationUser;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -51,8 +52,8 @@ class PromotionAuthController extends Controller
 
         $user=PromotionApplicationUser::where('email',$req->email)->whereDate('otp_expire_at',Carbon::now())->whereTime('otp_expire_at','>=',Carbon::now())->where('otp',$req->otp)->first();
         if($user){
-            Alert::success('Logged in');
-            return redirect()->route('registration');
+            Auth::guard('promotion_app_user')->loginUsingId($user->id);
+            return redirect()->route('promotion-form.step-'.$user->step+1);
         }
         else
         {

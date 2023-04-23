@@ -211,6 +211,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Helper'=>App\Helpers\Helper::class,
+        'ImageUpload'=>App\Helpers\ImageUpload::class,
 
     ])->toArray(),
 

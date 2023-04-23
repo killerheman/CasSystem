@@ -35,6 +35,13 @@ Route::get('registration-step4',[RegistrationController::class,'step4'])->name('
 Route::get('promotion-form/login',[PromotionAuthController::class,'user_login'])->name('promotion-form.user-login');
 Route::post('promotion-form/login-otp-send',[PromotionAuthController::class,'user_login_otp_send'])->name('promotion-form.user-login-otp-send');
 Route::post('promotion-form/login-otp-verify',[PromotionAuthController::class,'user_login_otp_verify'])->name('promotion-form.user-login-otp-verify');
-Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
+Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promotion_app_user')->group(function () {
     Route::get('step-1',[PromotionFormController::class,'step1'])->name('step-1');
+    Route::post('step-1-store',[PromotionFormController::class,'step1_store'])->name('step-1-store');
+    Route::get('step-2',[PromotionFormController::class,'step2'])->name('step-2');
+    Route::post('step-2-store',[PromotionFormController::class,'step2_store'])->name('step-2-store');
+    Route::get('step-3',[PromotionFormController::class,'step3'])->name('step-3');
+    Route::post('step-3-store',[PromotionFormController::class,'step3_store'])->name('step-3-store');
+    Route::get('step-4',[PromotionFormController::class,'step4'])->name('step-4');
+    Route::get('step-5',[PromotionFormController::class,'step5'])->name('step-5');
 });

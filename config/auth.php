@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'promotion_app_user'=>[
+            'driver'=>'session',
+            'provider'=>'promotion_app_users'
+        ]
     ],
 
     /*
@@ -64,6 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'promotion_app_users'=>[
+            'driver' => 'eloquent',
+            'model' => App\Models\PromotionApplicationUser::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

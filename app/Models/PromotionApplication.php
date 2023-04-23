@@ -10,4 +10,12 @@ class PromotionApplication extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+    public function getFirstNameAttribute()
+    {
+       return explode(' ',$this->name)[0];
+    }
+    public function getLastNameAttribute()
+    {
+       return explode(' ',$this->name)[1];
+    }
 }

@@ -246,7 +246,7 @@
                     <h2 id="heading">Application for Promotion under the
                         Career Advancement Scheme (CAS) for University Teachers</h2>
                     <p>(As approved by the Chancellor Vide Letter No- BSU Statute-08/2005-283/GS(I) dt 15.02.2023)</p>
-                    <form id="msform">
+                    <div id="msform">
                         <!-- progressbar -->
                         <ul id="progressbar">
                             <li class="active" id="account"><strong>Account</strong></li>
@@ -256,103 +256,105 @@
                         </ul>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                                aria-valuemin="0" aria-valuemax="100" style="width:@yield('progress-width')"></div>
                         </div> <br> <!-- fieldsets -->
                         <fieldset>
                             @yield('content')
                         </fieldset>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
+        // $(document).ready(function() {
 
-            var current_fs, next_fs, previous_fs; //fieldsets
-            var opacity;
-            var current = 1;
-            var steps = $("fieldset").length;
+        //     var current_fs, next_fs, previous_fs; //fieldsets
+        //     var opacity;
+        //     var current = 1;
+        //     var steps = $("fieldset").length;
 
-            setProgressBar(current);
+        //     setProgressBar(current);
 
-            $(".next").click(function() {
+        //     $(".next").click(function() {
 
-                current_fs = $(this).parent();
-                next_fs = $(this).parent().next();
+        //         current_fs = $(this).parent();
+        //         next_fs = $(this).parent().next();
 
-                //Add Class Active
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        //         //Add Class Active
+        //         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-                //show the next fieldset
-                next_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({
-                    opacity: 0
-                }, {
-                    step: function(now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
+        //         //show the next fieldset
+        //         next_fs.show();
+        //         //hide the current fieldset with style
+        //         current_fs.animate({
+        //             opacity: 0
+        //         }, {
+        //             step: function(now) {
+        //                 // for making fielset appear animation
+        //                 opacity = 1 - now;
 
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        next_fs.css({
-                            'opacity': opacity
-                        });
-                    },
-                    duration: 500
-                });
-                setProgressBar(++current);
-            });
+        //                 current_fs.css({
+        //                     'display': 'none',
+        //                     'position': 'relative'
+        //                 });
+        //                 next_fs.css({
+        //                     'opacity': opacity
+        //                 });
+        //             },
+        //             duration: 500
+        //         });
+        //         setProgressBar(++current);
+        //     });
 
-            $(".previous").click(function() {
+        //     $(".previous").click(function() {
 
-                current_fs = $(this).parent();
-                previous_fs = $(this).parent().prev();
+        //         current_fs = $(this).parent();
+        //         previous_fs = $(this).parent().prev();
 
-                //Remove class active
-                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        //         //Remove class active
+        //         $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
-                //show the previous fieldset
-                previous_fs.show();
+        //         //show the previous fieldset
+        //         previous_fs.show();
 
-                //hide the current fieldset with style
-                current_fs.animate({
-                    opacity: 0
-                }, {
-                    step: function(now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
+        //         //hide the current fieldset with style
+        //         current_fs.animate({
+        //             opacity: 0
+        //         }, {
+        //             step: function(now) {
+        //                 // for making fielset appear animation
+        //                 opacity = 1 - now;
 
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        previous_fs.css({
-                            'opacity': opacity
-                        });
-                    },
-                    duration: 500
-                });
-                setProgressBar(--current);
-            });
+        //                 current_fs.css({
+        //                     'display': 'none',
+        //                     'position': 'relative'
+        //                 });
+        //                 previous_fs.css({
+        //                     'opacity': opacity
+        //                 });
+        //             },
+        //             duration: 500
+        //         });
+        //         setProgressBar(--current);
+        //     });
 
-            function setProgressBar(curStep) {
-                var percent = parseFloat(100 / steps) * curStep;
-                percent = percent.toFixed();
-                $(".progress-bar")
-                    .css("width", percent + "%")
-            }
+        //     function setProgressBar(curStep) {
+        //         var percent = parseFloat(100 / steps) * curStep;
+        //         percent = percent.toFixed();
+        //         $(".progress-bar")
+        //             .css("width", percent + "%")
+        //     }
 
-            $(".submit").click(function() {
-                return false;
-            })
-        });
+        //     $(".submit").click(function() {
+        //         return false;
+        //     })
+        // });
     </script>
     @yield('script')
+    
+    @include('sweetalert::alert')
 </body>
 
 </html>

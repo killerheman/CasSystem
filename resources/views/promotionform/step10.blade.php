@@ -40,7 +40,7 @@
                     <input type="date" name="10_assessment_period_to" />
                 </div>
             </div>
-            <div class="row g-3">
+            <div class=" row g-3">
                 <div class="col-sm-3">
                     <label for="academicyear">Assessment Period Year</label>
                     <select class="form-select form-select-lg mb-3" name="10_assessment_period_year"
@@ -56,10 +56,20 @@
                 </div>
                 <div class="col-sm-3">
                     <label>Claimed Score</label>
-                    <input type="text" name="10_claimed_score" />
+                    <input type="text" class="claimed_score" name="10_claimed_score" />
+                </div>
+                <div class="col-md-1 mt-5">
+                    <button type="button" class="btn btn-info plus mt">+</button>
                 </div>
                 <div class="add_input"></div>
             </div>
+            <div class="row g-3">
+                <div class="col-sm-3">
+                    <label> Total Claimed Score</label>
+                    <input type="text" class="total_claimed_score" disabled readonly id="total_value" value="0" name="10_claimed_score" />
+                </div>
+            </div>
+
         </div>
         <h6 class="text-center text-decoration-underline">Declaration </h6>
         <div class="row">
@@ -90,94 +100,57 @@
         </div>
         <input type="button" name="next" class="action-button" value="Submit" />
         {{-- <a type="button" href="{{ route('promotion-form.step-10') }}" class="action-button">Next</a> --}}
-<a type="button" href="{{ route('promotion-form.step-9') }}" class="action-button">Previous</a>
+        <a type="button" href="{{ route('promotion-form.step-9') }}" class="action-button">Previous</a>
     @endsection
 
 
     @section('script')
         <script>
             $(document).ready(function() {
-                        var html =
-                            `<div class="parent"><hr/>
-        <div class="row g-3">
-            <div class="col-sm-3">
-                <label for="academicyear">Academic Year</label>
-                <select class="form-select form-select-lg mb-3" name="acadmicYears" aria-label="Default select example">
-                    <option selected disabled>Choose Years</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label for="semester">Semester</label>
-                <select class="form-select form-select-lg mb-3" name="semester" aria-label="Default select example">
-                    <option selected disabled>Choose Semester</option>
-                    <option value="1">Sem 1</option>
-                    <option value="2">Sem 2</option>
-                    <option value="3">Sem 3</option>
-                    <option value="4">Sem 4</option>
-                    <option value="5">Sem 5</option>
-                    <option value="6">Sem 6</option>
-                    <option value="7">Sem 7</option>
-                    <option value="8">Sem 8</option>
-                    <option value="9">Sem 9</option>
-                    <option value="10">Sem 10</option>
-                    <option value="11">Sem 11</option>
-                    <option value="12">Sem 12</option>
-                </select>
-            </div>
-            <div class="col-sm-6">
-                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
-                    100%</label>
-                <input type="text" id="classes_Taught" name="classes_Taught" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
-            </div>
-        </div>
-        <div class="row g-3">
-            <div class="col-sm-2">
-                <label for="committee">Verified by the Committee</label>
-                <input type="text" id="committee" name="committee" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee">
-            </div>
-            <div class="col-sm-2">
-                <label for="claimed_candidate">Claimed by the Candidate</label>
-                <input type="text" id="claimed_candidate" name="claimed_candidate" class="form-control"
-                    placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
-            </div>
-            <div class="col-sm-2">
-                <label for="classes_Taught">Number of Classes Taught</label>
-                <input type="text" id="classes_Taught" name="classes_Taught" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
-            </div>
-            <div class="col-sm-2">
-                <label for="class_Assigned">Total Classes Assigned</label>
-                <input type="text" id="class_Assigned" name="class_Assigned" class="form-control"
-                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
-            </div>
-            <div class="col-sm-2">
-                <label for="remarks">Remarks</label>
-                <input type="text" id="remarks" name="remarks" class="form-control" placeholder="remarks"
-                    aria-label="remarks">
-            </div>
-            <div class="col-sm-1">
-                <label for="enclNo">*Encl No.</label>
-                <input type="text" id="enclNo" name="enclNo" class="form-control" placeholder="enclNo"
-                    aria-label="enclNo">
-            </div>
-            <div class="col-md-1 mt-5">
-                <button type="button" class="btn btn-danger remove">-</button>
-            </div>
-        </div>
-    </div>`;
-                        $(document).on('click', '.add', function() {
-                            $('.add_input').append(html);
-                        });
-                        $(document).on('click', '.remove', function() {
-                            $(this).closest('.parent').remove();
-                        });
+                var html = `<div class=" parent1 row g-3">
+                <div class="col-sm-3">
+                    <label for="academicyear">Assessment Period Year</label>
+                    <select class="form-select form-select-lg mb-3" name="10_assessment_period_year"
+                        aria-label="Default select example">
+                        <option selected disabled>Choose Years</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                        <option value="5">Year 5</option>
+                        <option value="6">Year 6</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label>Claimed Score</label>
+                    <input type="text" class="claimed_score" name="10_claimed_score" />
+                </div>
+                <div class="col-md-1 mt-5">
+                    <button type="button" class="btn btn-danger remove">-</button>
+                </div>
+
+            </div>`;
+
+                $(document).on('click', '.plus', function() {
+                    $('.add_input').append(html);
+                });
+                $(document).on('click', '.remove', function() {
+                    $(this).closest('.parent1').remove();
+                });
+                // var value = $('.add').val();
+
+
+            });
+
+            $(document).on('keyup', '.claimed_score', function() {
+                var scores = $(".claimed_score");
+                var score_sum = 0;
+                console.log(scores);
+                for(var i = 0; i < scores.length; i++){
+                    score_sum += parseInt($(scores[i]).val());
+                }
+
+                $('.total_claimed_score').val(score_sum >= 1 ? score_sum : 0);
+            });
         </script>
     @endsection

@@ -12,7 +12,7 @@
                     <h2 class="steps">Step 1 - 10</h2>
                 </div>
             </div>
-            <label class="fieldlabels">Choose level for promotion :*</label>
+            <label class="fieldlabels">Choose level of promotion :*</label>
             <select class="form-control" name="levels">
                 <option selected disabled>--Select Level for Promotion--</option>
                 <option value="1" @selected($user->step1->promotion_level??''==1)>Assistant Professor(Academic Level 10) to Assistant Professor (Senior

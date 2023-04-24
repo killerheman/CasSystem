@@ -16,7 +16,7 @@ background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 
 @media (min-width: 768px) {
 .gradient-form {
-height: 100vh !important;
+height: 70vh !important;
 }
 }
 @media (min-width: 769px) {
@@ -37,9 +37,9 @@ border-bottom-right-radius: .3rem;
                 <div class="card-body p-md-5 mx-md-4">
   
                   <div class="text-center">
-                    <img src="{{ asset('asset/logo.jpg') }}"
-                      style="width: 100px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">We are The LNMU Family</h4>
+                    {{-- <img src="{{ asset('asset/logo.jpg') }}"
+                      style="width: 100px;" alt="logo"> --}}
+                    <h5 class="mt-1 mb-3 pb-1">Login using your valid email address</h5>
                   </div>
   
                   <form method="post" action="{{ route('promotion-form.user-login-otp-verify') }}">
@@ -68,8 +68,13 @@ border-bottom-right-radius: .3rem;
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">Welcome to Promotion Zone </h4>
-                  <p class="small mb-0">We apreciate our teachers,professors and teaching staff , Welcome to portal where you can full fill your promotion dream. We are the best 
-                    team ever Keep distributing your knowledge and your experience</p>
+                  <p class="small mb-0">
+                    <ul>
+                      <li>CAS-2018</li>
+                      <li>CAS-1998</li>
+                      <li>Notification (LNMU)</li>
+                    </ul>
+                  </p>
                 </div>
               </div>
             </div>

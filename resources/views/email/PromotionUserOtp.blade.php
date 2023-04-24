@@ -10,7 +10,7 @@ Your OTP is <b>{{ $user->otp }}</b> for login in Promotion Application
 
 </p>
 <p>
-   <small style="color:red">Note * </small>: Don't Share this otp with any one. <br> This Otp is expire within 15 minute . <br>
+   <small style="color:red">Note * </small>: Don't Share this otp with any one. <br> This Otp will expire after 15 minutes . <br>
   
 </p>
 

@@ -279,7 +279,7 @@
             <div class="col-sm-12 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading">Application for Promotion under the
-                        Career Advancement Scheme (CAS) for University Teachers</h2>
+                        Career Advancement Scheme (CAS) / Other Promotion Scheme for University Teachers</h2>
                     <p>(As approved by the Chancellor Vide Letter No- BSU Statute-08/2005-283/GS(I) dt 15.02.2023)</p>
                     @include('promotionform.layout.tophead', ['activeClass' => $activeClass])
                 </div>

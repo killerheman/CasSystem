@@ -75,7 +75,7 @@ class PartAAcademicQualification extends Model
                     ]);
                 }
 
-                $d==true??Auth::guard('promotion_app_user')->user()->increment('step');
+                Auth::guard('promotion_app_user')->user()->step==2?Auth::guard('promotion_app_user')->user()->increment('step'):'';
                 return true;
             }
             catch(Exception $ex){

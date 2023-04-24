@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ImageUpload;
+use App\Models\AcademicResearchScoreResearchPaper;
 use App\Models\PartAAcademicQualification;
 use App\Models\PartAExperienceRecord;
 use App\Models\PartAGeneralInfo;
@@ -10,6 +11,9 @@ use App\Models\PartAMphilPhdRecord;
 use App\Models\PartARefresherProgramAttended;
 use App\Models\PartAServiceInLnmuFrom;
 use App\Models\PromotionApplication;
+use App\Models\PromotionApplicationPartB;
+use App\Models\PromotionApplicationPartBInvolvement;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -138,7 +142,8 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
    {
 
      $data=$req->only(['vision_to_the_department','contribution_to_the_department','future_academic_development_plan','other_relevant_information']);
-     PartAExperienceRecord::updateOrCreate(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id],$data);
+     $dt=PartAExperienceRecord::updateOrCreate(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id],$data);
+     Auth::guard('promotion_app_user')->user()->step==4?Auth::guard('promotion_app_user')->user()->increment('step'):'';
      PartARefresherProgramAttended::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,])->delete();
       foreach($req->type as $k=>$type){
          $file=$req->hasFile('file['.$k.']')?ImageUpload::simpleUpload('certificate',$req->file[$k],Auth::guard('promotion_app_user')->user()->id):'';
@@ -157,15 +162,78 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
          }
       }
       Alert::success('Previous Data Save ');
-     return redirect()->back();
+     return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
    }
 
    //Part B
    public function step6()
    {
-      return view('promotionform.step6');
+      
+      $user=Auth::guard('promotion_app_user')->user();
+      return view('promotionform.step6',compact('user'));
    }
 
+   public function step6_store(Request $req)
+   {
+      try{
+      PromotionApplicationPartB::where('promotion_application_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+      foreach($req->acadmicYears as $k=>$v){
+         PromotionApplicationPartB::create([
+            'promotion_application_id'=>Auth::guard('promotion_app_user')->user()->id,
+            'A1_academic_year'=>$req->acadmicYears[$k]??'',
+            'A1_semester'=>$req->semester[$k]??'',
+            'teaching'=>$req->teaching[$k]??'',
+            'varified_by_the_committee'=>$req->committee[$k]??'',
+            'claimed_by_the_candidate'=>$req->claimed_candidate[$k]??'',
+            'number_of_classes_tought'=>$req->classes_Taught[$k]??'',
+            'total_classes_assigned'=>$req->class_Assigned[$k]??'',
+            'remark_ks'=>$req->remarks[$k]??'',
+            'encl_no'=>$req->enclNo[$k]
+         ]);
+      }
+      PromotionApplicationPartBInvolvement::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+      foreach($req->acadmicYear_b as $k=>$v){
+         PromotionApplicationPartBInvolvement::create([
+            'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+            'academic_year'=>$req->acadmicYear_b[$k]??'',
+            'semester'=>$req->semester_b[$k]??'',
+            'activity'=>$req->activity[$k]??'',
+            'claimed_by_candidate'=>$req->claimed_candidate_b[$k]??'',
+            'verify_by_committee'=>$req->committee_b[$k]??'',
+            'remark'=>$req->remarks_b[$k]??'',
+            'encl_no'=>$req->enclNo_b[$k]??'',
+
+         ]);
+
+      }
+
+      AcademicResearchScoreResearchPaper::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+      foreach($req->research_paper as $k=>$v){
+         AcademicResearchScoreResearchPaper::create([
+            'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+            'title_research_chapter'=>$req->research_paper[$k]??'',
+            'name_journal'=>$req->name_journal[$k]??'',
+            'vol_pp_no_year'=>$req->vol_pp_year[$k]??'',
+            'impact_factor'=>$req->impact_factor[$k]??'',
+            'no_authors'=>$req->name_authors[$k]??'',
+            'type_authorship'=>$req->authorship[$k]??'',
+            'sr_in_ugc'=>$req->UGC_listed_journals[$k]??'',
+            'claimed_score'=>$req->claimed_score[$k]??'',
+            'varified_by_committee'=>$req->verified_committee_c[$k]??'',
+            'encl_no'=>$req->encl_no_c[$k]??''
+         ]);
+      }
+      Auth::guard('promotion_app_user')->user()->step==5?Auth::guard('promotion_app_user')->user()->increment('step'):'';
+      Alert::success('Previous Data Save ');
+   }
+      
+   catch(Exception $ex){
+      Alert::error($ex->getMessage());
+     
+   }
+   return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
+   
+   }
    public function step7()
    {
       return view('promotionform.step7');

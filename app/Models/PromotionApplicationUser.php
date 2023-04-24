@@ -46,4 +46,16 @@ class PromotionApplicationUser extends  Authenticatable
     {
        return $this->hasMany(PartARefresherProgramAttended::class,'promotion_application_users_id');
     }
+    public function step6()
+    {
+       return $this->hasMany(PromotionApplicationPartB::class,'promotion_application_id');
+    }
+    public function step6_b()
+    {
+       return $this->hasMany(PromotionApplicationPartBInvolvement::class,'promotion_application_user_id');
+    }
+    public function step6_c()
+    {
+       return $this->hasMany(AcademicResearchScoreResearchPaper::class,'promotion_application_user_id');
+    }
 }

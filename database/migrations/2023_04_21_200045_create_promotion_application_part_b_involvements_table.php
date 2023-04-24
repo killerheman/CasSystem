@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('promotion_application_user_id');
             $table->string('academic_year')->nullable();
             $table->string('semester')->nullable();
-            $table->enum('activity',['a','b','c','d','e','f','g'])->comment('INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES:');
+            $table->enum('activity',[1,2,3,4,5,6,7])->comment('INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES:');
             $table->string('claimed_by_candidate')->nullable();
             $table->string('verify_by_committee')->nullable();
             $table->string('remark')->nullable();

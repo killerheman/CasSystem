@@ -108,7 +108,7 @@ class PromotionFormController extends Controller
 $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user()->id;
       $dt=PartAExperienceRecord::updateOrCreate(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id],$data);
       if($dt){
-         $dt->wasRecentlyCreated?Auth::guard('promotion_app_user')->user()->increment('step'):'';
+         Auth::guard('promotion_app_user')->user()->step==3?Auth::guard('promotion_app_user')->user()->increment('step'):'';
          PartAMphilPhdRecord::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
          foreach($req->type as $k=>$t)
          {

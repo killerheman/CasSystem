@@ -53,13 +53,14 @@
             </div>
             <div class="col-3">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="sponsoring_agency"
-                    placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[0])?($user->step5[0]->encl_no):'' }}"/>
+                <input type="text" placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[0])?($user->step5[0]->encl_no):'' }}"/>
             </div>
             <div class="col-4">
                 <label class="fieldlabels">Attach (certificates)</label>
                 <input type="file" name="file[]"
-                    placeholder="Attach certificates" />
+                    placeholder="Attach certificates" {{!empty($user->step5[0])?($user->step5[0]->file?'required':''):'' }} />
+                    @error('file.0')  <span class="text-danger">{{ $message }}</span> @enderror
+
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add4 mt-3">+</button>
@@ -107,13 +108,13 @@
                         </div>
                         <div class="col-3">
                             <label class="fieldlabels">Encl. No.</label>
-                            <input type="text" name="sponsoring_agency"
-                                placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[$j])?($user->step5[$j]->encl_no):'' }}"/>
+                            <input type="text"  placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[$j])?($user->step5[$j]->encl_no):'' }}"/>
                         </div>
                         <div class="col-4">
                             <label class="fieldlabels">Attach (certificates)</label>
                             <input type="file" name="file[]"
-                                placeholder="Attach certificates" />
+                                placeholder="Attach certificates" {{!empty($user->step5[$j])?($user->step5[$j]->file?'required':''):'' }} />
+                                @error('file.'.$j)  <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove4 mt-3">-</button>

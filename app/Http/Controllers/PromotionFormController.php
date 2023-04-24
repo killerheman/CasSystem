@@ -140,13 +140,15 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
    }
    public function step5_store(Request $req)
    {
-
+      $req->validate([
+         'file'=>'array',
+         'file.*'=>'max:100'
+      ]);
      $data=$req->only(['vision_to_the_department','contribution_to_the_department','future_academic_development_plan','other_relevant_information']);
      $dt=PartAExperienceRecord::updateOrCreate(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id],$data);
      Auth::guard('promotion_app_user')->user()->step==4?Auth::guard('promotion_app_user')->user()->increment('step'):'';
-     PartARefresherProgramAttended::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,])->delete();
+     $r=PartARefresherProgramAttended::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete(); 
       foreach($req->type as $k=>$type){
-         $file=$req->hasFile('file['.$k.']')?ImageUpload::simpleUpload('certificate',$req->file[$k],Auth::guard('promotion_app_user')->user()->id):'';
          $r=PartARefresherProgramAttended::create([
             'promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,
             'type'=>$req->type[$k]??'',
@@ -158,7 +160,10 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
             'encl_no'=>$req->encl_no[$k]??''
          ]);
          if($r){
-            $req->hasFile('file['.$k.']')?$r->update(['file'=>$file]):'';
+           if($req->hasFile('file')){
+          $req->file[$k]?$file=ImageUpload::simpleUpload('certificate',$req->file[$k],Auth::guard('promotion_app_user')->user()->id):'';
+            $req->file[$k]?$r->update(['file'=>$file]):'';
+            }
          }
       }
       Alert::success('Previous Data Save ');

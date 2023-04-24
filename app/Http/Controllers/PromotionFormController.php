@@ -183,7 +183,7 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
       try{
       PromotionApplicationPartB::where('promotion_application_id',Auth::guard('promotion_app_user')->user()->id)->delete();
       foreach($req->acadmicYears as $k=>$v){
-         PromotionApplicationPartB::create([
+         $d=PromotionApplicationPartB::create([
             'promotion_application_id'=>Auth::guard('promotion_app_user')->user()->id,
             'A1_academic_year'=>$req->acadmicYears[$k]??'',
             'A1_semester'=>$req->semester[$k]??'',

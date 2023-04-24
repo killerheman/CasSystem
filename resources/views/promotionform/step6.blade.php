@@ -1,5 +1,7 @@
 @extends('layout.teacher_promotion', ['activeClass' => 6])
 @section('content')
+<form action="{{ route('promotion-form.step-6-store') }}" method="post">
+    @csrf
 <div class="form-card">
     <div class="row">
         <div class="col-7">
@@ -34,7 +36,7 @@
             <div class="col-sm-5">
                 <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
                     100%</label>
-                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step[0]) {{ $user->step[0]->teaching }} @endisset"
+                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought??'' }} @endisset"
                     placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
             <div class="col-sm-3">
@@ -47,31 +49,31 @@
             <div class="col-sm-2">
                 <label for="committee">Verified by the Committee</label>
                 <input type="text" id="committee" name="committee[]" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step[0]) {{ $user->step[0]->varified_by_the_committee }} @endisset">
+                    placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6[0]) {{ $user->step6[0]->varified_by_the_committee??'' }} @endisset">
             </div>
             <div class="col-sm-2">
                 <label for="claimed_candidate">Claimed by the Candidate</label>
-                <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control" value="@isset($user->step[0]) {{ $user->step[0]->claimed_by_the_candidate }} @endisset"
+                <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->claimed_by_the_candidate }} @endisset"
                     placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
             </div>
             <div class="col-sm-2">
                 <label for="classes_Taught">Number of Classes Taught</label>
-                <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step[0]) {{ $user->step[0]->number_of_classes_tought }} @endisset"
+                <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought }} @endisset"
                     placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
             <div class="col-sm-2">
                 <label for="class_Assigned">Total Classes Assigned</label>
-                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step[0]) {{ $user->step[0]->total_classes_assigned }} @endisset"
+                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset"
                     placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
             </div>
             <div class="col-sm-2">
                 <label for="remarks">Remarks</label>
-                <input type="text" id="remarks" name="remarks[]" class="form-control" placeholder="remarks" value="@isset($user->step[0]) {{ $user->step[0]->remark_ks }} @endisset"
+                <input type="text" id="remarks" name="remarks[]" class="form-control" placeholder="remarks" value="@isset($user->step6[0]) {{ $user->step6[0]->remark_ks }} @endisset"
                     aria-label="remarks">
             </div>
             <div class="col-sm-1">
                 <label for="enclNo">*Encl No.</label>
-                <input type="text" id="enclNo" name="enclNo[]" class="form-control" placeholder="enclNo" value="@isset($user->step[0]) {{ $user->step[0]->encl_no }} @endisset"
+                <input type="text" id="enclNo" name="enclNo[]" class="form-control" placeholder="enclNo" value="@isset($user->step6[0]) {{ $user->step6[0]->encl_no }} @endisset"
                     aria-label="enclNo">
             </div>
             <div class="col-md-1 mt-5">
@@ -216,7 +218,7 @@
             </div>
             <div class="col-md-3">
                 <label for="involment_file">File (Attachement)</label>
-                <input type="file" name="involment_file[]" class="form-control" id="involment_file" @isset($user->step_b[0]) {{ $user->step_b[0]->file?'required':'' }} @endisset>
+                <input type="file" name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[0]) {{ $user->step6_b[0]->file?'required':'' }} @endisset>
                 @error('involment_file.0') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         </div>
@@ -224,21 +226,21 @@
             <div class="col">
                 <label for="claimed_candidate">Claimed by the Candidate</label>
                 <input type="text" id="claimed_candidate" name="claimed_candidate_b[]" class="form-control"
-                    placeholder="Claimed by the Candidate" aria-label="claimed_candidate" value="@isset($user->step_b[0]) {{ $user->step_b[0]->claimed_by_candidate }} @endisset">
+                    placeholder="Claimed by the Candidate" aria-label="claimed_candidate" value="@isset($user->step6_b[0]) {{ $user->step6_b[0]->claimed_by_candidate }} @endisset">
             </div>
             <div class="col">
                 <label for="committee">Verified by the Committee</label>
                 <input type="text" id="committee_b[]" name="committee" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step_b[0]) {{ $user->step_b[0]->verify_by_committee }} @endisset">
+                    placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6_b[0]) {{ $user->step6_b[0]->verify_by_committee }} @endisset">
             </div>
             <div class="col">
                 <label for="remarks">Remarks</label>
-                <input type="text" id="remarks" name="remarks_b[]" class="form-control" placeholder="remarks" value="@isset($user->step_b[0]) {{ $user->step_b[0]->remark }} @endisset"
+                <input type="text" id="remarks" name="remarks_b[]" class="form-control" placeholder="remarks" value="@isset($user->step6_b[0]) {{ $user->step6_b[0]->remark }} @endisset"
                     aria-label="remarks">
             </div>
             <div class="col-md-3">
                 <label for="enclNo">*Encl No.</label>
-                <input type="text" id="enclNo" name="enclNo_b[]" class="form-control" placeholder="enclNo" value="@isset($user->step_b[0]) {{ $user->step_b[0]->encl_no }} @endisset"
+                <input type="text" id="enclNo" name="enclNo_b[]" class="form-control" placeholder="enclNo" value="@isset($user->step6_b[0]) {{ $user->step6_b[0]->encl_no }} @endisset"
                     aria-label="enclNo">
             </div>
             <div class="col-md-1 mt-5">
@@ -353,32 +355,32 @@
             <div class="col-md-2">
                 <label for="research_paper">Title of the Research Paper</label>
                 <input type="text" id="research_paper" name="research_paper[]" class="form-control"
-                    placeholder="Title of the Research Paper" aria-label="research_paper"  value="@isset($user->step6_c) @endisset">
+                    placeholder="Title of the Research Paper" aria-label="research_paper"  value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->title_research_chapter??'' }} @endisset">
             </div>
             <div class="col-md-2">
                 <label for="name_journal">Name of the Journal</label>
                 <input type="text" id="name_journal" name="name_journal[]" class="form-control"
-                    placeholder="Name of the Journal" aria-label="name_journal">
+                    placeholder="Name of the Journal" aria-label="name_journal" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->name_journal??'' }} @endisset">
             </div>
             <div class="col-md-2">
                 <label for="vol_pp_year">Vol., PP No. & Year</label>
                 <input type="text" id="vol_pp_year" name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year"
-                    aria-label="Vol., PP No. & Year">
+                    aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->vol_pp_no_year??'' }} @endisset">
             </div>
             <div class="col-md-2">
                 <label for="impact_factor*">Impact Factor*</label>
                 <input type="text" id="impact_factor" name="impact_factor[]" class="form-control" placeholder="Impact Factor"
-                    aria-label="impact_factor">
+                    aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
             </div>
             <div class="col-md-2">
                 <label for="name_authors*">Number of authors</label>
                 <input type="text" id="name_authors" name="name_authors[]" class="form-control" placeholder="Number of authors"
-                    aria-label="name_authors">
+                    aria-label="name_authors" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->no_authors??'' }} @endisset">
             </div>
             <div class="col-md-2">
                 <label for="research_file">File</label>
                 <input type="file" id="research_file" name="research_file[]" class="form-control" placeholder="research_file"
-                    aria-label="research_file">
+                    aria-label="research_file" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->research_paper?'required':'' }} @endisset">
                     @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         </div>
@@ -386,27 +388,27 @@
             <div class="col-sm-4">
                 <label for="authorship*">Type of Authorship (First author/corresponding author/principal/co-author)</label>
                 <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship"
-                    aria-label="authorship">
+                    aria-label="authorship"  value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->type_authorship??'' }} @endisset">
             </div>
             <div class="col-sm-2">
                 <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
                 <input type="text" id="UGC_listed_journals" name="UGC_listed_journals[]" class="form-control" placeholder="UGC listed Journals"
-                    aria-label="UGC_listed_journals">
+                    aria-label="UGC_listed_journals" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->sr_in_ugc??'' }} @endisset">
             </div>
             <div class="col-sm-2">
                 <label for="verified_committee*">Verified by the Committee</label>
                 <input type="text" id="verified_committee" name="verified_committee_c[]" class="form-control" placeholder="Verified by the Committee"
-                    aria-label="verified_committee">
+                    aria-label="verified_committee" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->varified_by_committee??'' }} @endisset">
             </div>
             <div class="col-sm-2">
                 <label for="claimed_score*">Claimed Score</label>
                 <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
-                    aria-label="claimed_score">
+                    aria-label="claimed_score" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->claimed_score??'' }} @endisset">
             </div>
             <div class="col-sm-1">
                 <label for="Encl*">Encl.No.</label>
                 <input type="text" id="Encl" name="encl_no_c[]" class="form-control" placeholder="Encl.No"
-                    aria-label="Encl">
+                    aria-label="Encl" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->encl_no??'' }} @endisset">
             </div>
             <div class="col-md-1 mt-5">
                 <button type="button" class="btn btn-info add2 mt">+</button>
@@ -414,73 +416,74 @@
         </div>
         <div class="add_input2">
             @isset($user->step6_c)
-                @for($g=0;$g<($user->step6_c);$g++)
-                <div class="parent2">
-                    <div class="row g-3">
-                        <div class="col-md-2">
-                            <label for="research_paper">Title of the Research Paper</label>
-                            <input type="text" id="research_paper" name="research_paper[]" class="form-control"
-                                placeholder="Title of the Research Paper" aria-label="research_paper">
+                @for($g=1;$g<count($user->step6_c);$g++)
+                    <div class="parent2"><hr/>
+                        <div class="row g-3">
+                            <div class="col-md-2">
+                                <label for="research_paper">Title of the Research Paper</label>
+                                <input type="text" id="research_paper" name="research_paper[]" class="form-control"
+                                    placeholder="Title of the Research Paper" aria-label="research_paper"  value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->title_research_chapter??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="name_journal">Name of the Journal</label>
+                                <input type="text" id="name_journal" name="name_journal[]" class="form-control"
+                                    placeholder="Name of the Journal" aria-label="name_journal" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->name_journal??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="vol_pp_year">Vol., PP No. & Year</label>
+                                <input type="text" id="vol_pp_year" name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year"
+                                    aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->vol_pp_no_year??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="impact_factor*">Impact Factor*</label>
+                                <input type="text" id="impact_factor" name="impact_factor[]" class="form-control" placeholder="Impact Factor"
+                                    aria-label="impact_factor" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->impact_factor??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="name_authors*">Number of authors</label>
+                                <input type="text" id="name_authors" name="name_authors[]" class="form-control" placeholder="Number of authors"
+                                    aria-label="name_authors" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->no_authors??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="research_file">File</label>
+                                <input type="file" id="research_file" name="research_file[]" class="form-control" placeholder="research_file"
+                                    aria-label="research_file" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->file?'required':'' }} @endisset">
+                                    @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <label for="name_journal">Name of the Journal</label>
-                            <input type="text" id="name_journal" name="name_journal[]" class="form-control"
-                                placeholder="Name of the Journal" aria-label="name_journal">
+                        <div class="row g-3">
+                            <div class="col-sm-4">
+                                <label for="authorship*">Type of Authorship (First author/corresponding author/principal/co-author)</label>
+                                <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship"
+                                    aria-label="authorship"  value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->type_authorship??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
+                                <input type="text" id="UGC_listed_journals" name="UGC_listed_journals[]" class="form-control" placeholder="UGC listed Journals"
+                                    aria-label="UGC_listed_journals" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->sr_in_ugc??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="verified_committee*">Verified by the Committee</label>
+                                <input type="text" id="verified_committee" name="verified_committee_c[]" class="form-control" placeholder="Verified by the Committee"
+                                    aria-label="verified_committee" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->varified_by_committee??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="claimed_score*">Claimed Score</label>
+                                <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
+                                    aria-label="claimed_score" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->claimed_score??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="Encl*">Encl.No.</label>
+                                <input type="text" id="Encl" name="encl_no_c[]" class="form-control" placeholder="Encl.No"
+                                    aria-label="Encl" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->encl_no??'' }} @endisset">
+                            </div>
+                            <div class="col-md-1 mt-5">
+                                <button type="button" class="btn btn-danger remove2 mt">-</button>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <label for="vol_pp_year">Vol., PP No. & Year</label>
-                            <input type="text" id="vol_pp_year" name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year"
-                                aria-label="Vol., PP No. & Year">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="impact_factor*">Impact Factor*</label>
-                            <input type="text" id="impact_factor" name="impact_factor[]" class="form-control" placeholder="Impact Factor"
-                                aria-label="impact_factor">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="name_authors*">Number of authors</label>
-                            <input type="text" id="name_authors" name="name_authors[]" class="form-control" placeholder="Number of authors"
-                                aria-label="name_authors">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="research_file">File</label>
-                            <input type="file" id="research_file" name="research_file[]" class="form-control" placeholder="research_file"
-                                aria-label="research_file">
-                                @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
-                        </div>
+                       
                     </div>
-                    <div class="row g-3">
-                        <div class="col-sm-4">
-                            <label for="authorship*">Type of Authorship (First author/corresponding author/principal/co-author)</label>
-                            <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship"
-                                aria-label="authorship">
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
-                            <input type="text" id="UGC_listed_journals" name="UGC_listed_journals[]" class="form-control" placeholder="UGC listed Journals"
-                                aria-label="UGC_listed_journals">
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="verified_committee*">Verified by the Committee</label>
-                            <input type="text" id="verified_committee" name="verified_committee_c[]" class="form-control" placeholder="Verified by the Committee"
-                                aria-label="verified_committee">
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="claimed_score*">Claimed Score</label>
-                            <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
-                                aria-label="claimed_score">
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="Encl*">Encl.No.</label>
-                            <input type="text" id="Encl" name="encl_no_c[]" class="form-control" placeholder="Encl.No"
-                                aria-label="Encl">
-                        </div>
-                        <div class="col-md-1 mt-5">
-                            <button type="button" class="btn btn-danger remove2 mt">-</button>
-                        </div>
-                    </div>
-            
-                </div>
+
                 @endfor
             @endisset
         </div>
@@ -489,7 +492,8 @@
 
 </div>
 {{-- <input type="button" name="next" class="action-button" value="Next" /> --}}
-<a type="button" href="{{ route('promotion-form.step-7') }}" class="action-button">Next</a>
+{{-- <a type="button" href="{{ route('promotion-form.step-7') }}" class="action-button">Next</a> --}}
+<button type="submit" class="action-button">Next</button>
 <a type="button" href="{{ route('promotion-form.step-5') }}" class="action-button">Previous</a>
 @endsection
 
@@ -754,7 +758,7 @@
                     aria-label="Encl">
             </div>
             <div class="col-md-1 mt-5">
-                <button type="button" class="btn btn-info add2 mt">+</button>
+                <button type="button" class="btn btn-danger remove2 mt">-</button>
             </div>
         </div>
 

@@ -135,7 +135,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement)</label> <input
-                    type="file" name="file_b[]" @isset($mphil[0]) {{ $mphil[0]->month_and_year?'required':'' }} @endisset placeholder="File" />
+                    type="file" name="file_b[]" @isset($mphil[0]) {{ $mphil[0]->file?'required':'' }} @endisset placeholder="File" />
             </div>
         </div>
         <div class="row mt-2">
@@ -183,7 +183,7 @@
                         <div class="col">
                             <label class="fieldlabels">File (Attachement)</label> <input
                                 type="file" name="file_b[]"
-                                placeholder="File" @isset($mphil[$j]) {{ $mphil[$j]->month_and_year?'required':'' }} @endisset />
+                                placeholder="File" @isset($mphil[$j]) {{ $mphil[$j]->file?'required':'' }} @endisset />
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -231,60 +231,128 @@
                 <label class="fieldlabels"> RESEARCH PROJECTS</label>
                 <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" name="project[]">
                     <option selected disabled value="">Open this select menu</option>
-                    <option value="1">RESEARCH PROJECTS COMPLETED</option>
-                    <option value="2">RESEARCH PROJECTS ONGOING</option>
-                    <option value="3">CONSULTANCY</option>
+                    <option value="1" @isset($user->step8_b[0]) @selected($user->step8_b[0]->type=='1')  @endisset>
+                        RESEARCH PROJECTS COMPLETED</option>
+                    <option value="2" @isset($user->step8_b[0]) @selected($user->step8_b[0]->type=='2')  @endisset>RESEARCH PROJECTS ONGOING</option>
+                    <option value="3" @isset($user->step8_b[0]) @selected($user->step8_b[0]->type=='3')  @endisset>CONSULTANCY</option>
                   </select>
             </div>
             <div class="col">
                 <label class="fieldlabels">Title of the Project (More than 10 lakhs)</label> <input type="text"
-                    name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" />
+                    name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->title_of_the_project??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Names of Pand PI and Co-PI</label> <input type="text"
-                    name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI"/>
+                    name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->name_of_pi_and_co_pi??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Funding  Agency</label> <input type="text"
-                    name="Funding_Agency[]" placeholder="Funding Agency" />
+                    name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->funding_agency??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label> <input type="file"
-                    name="research_file[]" placeholder="File" />
+                    name="research_file[]" placeholder="File" @isset($user->step8_b[0]) {{ $user->step8_b[0]->file?'required':'' }} @endisset />
             </div>
         </div>
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">Grant Sanctioned</label>
-                <input type="text" name="Grant_Sanctioned[]" placeholder="Grant Sanctioned" />
+                <input type="text" name="Grant_Sanctioned[]" placeholder="Grant Sanctioned"  @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->grant_sanctioned_or_component??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
                 <input type="text" name="Claimed_Score[]"
-                    placeholder="Claimed Score"/>
+                    placeholder="Claimed Score" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->claimed_score??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Duration (from)</label>
-                <input type="text" name="Duration_from[]" placeholder="From" />
+                <input type="text" name="Duration_from[]" placeholder="From" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->duration_from??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Duraction (to)</label>
-                <input type="text" name="Duration_to[]" placeholder="To" />
+                <input type="text" name="Duration_to[]" placeholder="To" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->duration_to??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
-                <input type="text" name="Verified_by_the_Committee_project[]" placeholder="Verified by the Committee" />
+                <input type="text" name="Verified_by_the_Committee_project[]" placeholder="Verified by the Committee" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->verify_by_committee??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="encl_no_project[]" placeholder="Encl. No." />
+                <input type="text" name="encl_no_project[]" placeholder="Encl. No." @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->encl_no??'' }}" @endisset />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add12 mt-4">+</button>
             </div>
         </div>
         <hr>
-        <div class="add_input12"></div>
+        <div class="add_input12">
+            @isset($user->step8_b)
+                @for($j=1;$j<count($user->step8_b);$j++)
+                    <div class="parent12 ">
+                        <div class="row mt-5">
+                            <div class="col">
+                                <label class="fieldlabels"> RESEARCH PROJECTS</label>
+                                <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" name="project[]">
+                                    <option selected disabled value="">Open this select menu</option>
+                                    <option value="1" @isset($user->step8_b[$j]) @selected($user->step8_b[$j]->type=='1')  @endisset>
+                                        RESEARCH PROJECTS COMPLETED</option>
+                                    <option value="2" @isset($user->step8_b[$j]) @selected($user->step8_b[$j]->type=='2')  @endisset>RESEARCH PROJECTS ONGOING</option>
+                                    <option value="3" @isset($user->step8_b[$j]) @selected($user->step8_b[$j]->type=='3')  @endisset>CONSULTANCY</option>
+                                  </select>
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Title of the Project (More than 10 lakhs)</label> <input type="text"
+                                    name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->title_of_the_project??'' }}" @endisset/>
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Names of Pand PI and Co-PI</label> <input type="text"
+                                    name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->name_of_pi_and_co_pi??'' }}" @endisset/>
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Funding  Agency</label> <input type="text"
+                                    name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->funding_agency??'' }}" @endisset />
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">File</label> <input type="file"
+                                    name="research_file[]" placeholder="File" @isset($user->step8_b[$j]) {{ $user->step8_b[$j]->file?'required':'' }} @endisset />
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <label class="fieldlabels">Grant Sanctioned</label>
+                                <input type="text" name="Grant_Sanctioned[]" placeholder="Grant Sanctioned"  @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->grant_sanctioned_or_component??'' }}" @endisset/>
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Claimed Score</label>
+                                <input type="text" name="Claimed_Score[]"
+                                    placeholder="Claimed Score" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->claimed_score??'' }}" @endisset/>
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Duration (from)</label>
+                                <input type="text" name="Duration_from[]" placeholder="From" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->duration_from??'' }}" @endisset />
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Duraction (to)</label>
+                                <input type="text" name="Duration_to[]" placeholder="To" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->duration_to??'' }}" @endisset />
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Verified by the Committee</label>
+                                <input type="text" name="Verified_by_the_Committee_project[]" placeholder="Verified by the Committee" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->verify_by_committee??'' }}" @endisset />
+                            </div>
+                            <div class="col">
+                                <label class="fieldlabels">Encl. No.</label>
+                                <input type="text" name="encl_no_project[]" placeholder="Encl. No." @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->encl_no??'' }}" @endisset />
+                            </div>
+                            <div class="col-1">
+                                <button type="button" class="btn btn-danger remove12 mt-4">-</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                @endfor
+            @endisset
+
+        </div>
     </div>
 </div>
 {{-- <input type="button" name="next" class="action-button" value="Next" /> --}}

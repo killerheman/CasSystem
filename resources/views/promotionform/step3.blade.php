@@ -40,7 +40,7 @@
                 <div class="col">
                     <label for="Session">File</label>
                     <input type="file" id="Session" name="file[]" class="form-control"
-                        placeholder="file" aria-label="file" value="{{ $user->step3_a[0]->file?'required':'' }}">
+                        placeholder="file" aria-label="file" value="@isset($user->step3_a[0]){{$user->step3_a[0]->file?'required':'' }} @endisset">
                 </div>
             </div>
             <div class="row g-3">

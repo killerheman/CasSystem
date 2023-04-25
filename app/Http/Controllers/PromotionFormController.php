@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ImageUpload;
+use App\Models\AcademicResearchScorePublication;
 use App\Models\AcademicResearchScoreResearchPaper;
+use App\Models\AcademinResearchScoreGuidance;
+use App\Models\AcademinResearchScoreIctMediated;
+use App\Models\AcademinResearchScoreProject;
 use App\Models\PartAAcademicQualification;
 use App\Models\PartAExperienceRecord;
 use App\Models\PartAGeneralInfo;
@@ -180,6 +184,14 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
 
    public function step6_store(Request $req)
    {
+      $req->validate([
+         'activity_file'=>'array',
+         'activity_file.*'=>'max:100',
+         'involment_file'=>'array',
+         'involment_file.*'=>'max:100',
+         'research_file'=>'array',
+         'research_file.*'=>'max:100'
+      ]);
       try{
       PromotionApplicationPartB::where('promotion_application_id',Auth::guard('promotion_app_user')->user()->id)->delete();
       foreach($req->acadmicYears as $k=>$v){
@@ -195,10 +207,16 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
             'remark_ks'=>$req->remarks[$k]??'',
             'encl_no'=>$req->enclNo[$k]
          ]);
+         if($d){
+            if($req->hasFile('activity_file')){
+           $req->activity_file[$k]?$file=ImageUpload::simpleUpload('certificate',$req->activity_file[$k],Auth::guard('promotion_app_user')->user()->id.'-act-'):'';
+             $req->activity_file[$k]?$d->update(['A1_file'=>$file]):'';
+             }
+          }
       }
       PromotionApplicationPartBInvolvement::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
       foreach($req->acadmicYear_b as $k=>$v){
-         PromotionApplicationPartBInvolvement::create([
+         $d1=PromotionApplicationPartBInvolvement::create([
             'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
             'academic_year'=>$req->acadmicYear_b[$k]??'',
             'semester'=>$req->semester_b[$k]??'',
@@ -209,12 +227,18 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
             'encl_no'=>$req->enclNo_b[$k]??'',
 
          ]);
+         if($d1){
+            if($req->hasFile('involment_file')){
+           $req->involment_file[$k]?$file=ImageUpload::simpleUpload('certificate',$req->activity_file[$k],Auth::guard('promotion_app_user')->user()->id.'-inv-'):'';
+             $req->involment_file[$k]?$d1->update(['file'=>$file]):'';
+             }
+          }
 
       }
 
       AcademicResearchScoreResearchPaper::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
       foreach($req->research_paper as $k=>$v){
-         AcademicResearchScoreResearchPaper::create([
+         $d2=AcademicResearchScoreResearchPaper::create([
             'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
             'title_research_chapter'=>$req->research_paper[$k]??'',
             'name_journal'=>$req->name_journal[$k]??'',
@@ -227,6 +251,12 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
             'varified_by_committee'=>$req->verified_committee_c[$k]??'',
             'encl_no'=>$req->encl_no_c[$k]??''
          ]);
+         if($d2){
+            if($req->hasFile('research_file')){
+           $req->research_file[$k]?$file=ImageUpload::simpleUpload('certificate',$req->research_file[$k],Auth::guard('promotion_app_user')->user()->id.'-res-'):'';
+             $req->research_file[$k]?$d2->update(['file'=>$file]):'';
+             }
+          }
       }
       Auth::guard('promotion_app_user')->user()->step==5?Auth::guard('promotion_app_user')->user()->increment('step'):'';
       Alert::success('Previous Data Save ');
@@ -241,14 +271,155 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
    }
    public function step7()
    {
-      return view('promotionform.step7');
+      $user=Auth::guard('promotion_app_user')->user();
+      $step7=$user->step7->whereIn('type',[1,2,3,4,5]);
+      $step7_a=AcademicResearchScorePublication::where('promotion_application_user_id',$user->id)->whereIn('type',[6,7])->get();
+      return view('promotionform.step7',compact('user','step7','step7_a'));
    }
 
+   public function step7_store(Request $req)
+   {
+      $req->validate([
+         'book_file'=>'array',
+         'book_file.*'=>'max:100',
+         'ict_file'=>'array',
+         'ict_file.*'=>'max:100'
+      ]);
+
+      AcademicResearchScorePublication::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+      foreach($req->type as $k=>$t){
+        $d= AcademicResearchScorePublication::create([
+            'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+            'title'=>$req->title[$k]??'',
+            'type'=>$req->type[$k]??'',
+            'auth'=>$req->author[$k]??'',
+            'co_author'=>$req->co_auther[$k]??'',
+            'publisher_month_year'=>$req->publish_date[$k]??'',
+            'publisher'=>$req->publisher[$k]??'',
+            'isbn_issn'=>$req->isbn[$k]??'',
+            'claimed_score'=>$req->book_claimed_Score[$k]??'',
+            'verify_by_committee'=>$req->iqac_score[$k]??'',
+            'encl_no'=>$req->book_encl_no[$k]??''
+         ]);
+         if($d){
+            if($req->hasFile('book_file')){
+           isset($req->book_file[$k])?$file=ImageUpload::simpleUpload('book',$req->book_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
+             isset($req->book_file[$k])?$d->update(['file'=>$file]):'';
+             }
+          }
+
+      }
+
+      AcademinResearchScoreIctMediated::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+      foreach($req->ict_type as $k=>$ict){
+         $d1=AcademinResearchScoreIctMediated::create([
+         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+         'type'=>$req->ict_type[$k],
+         'activity'=>$req->ict_activity[$k]??'',
+         'claimed_score'=>$req->ict_claimed_score[$k]??'',
+         'verify_by_committee'=>$req->ict_committee[$k]??'',
+         'encl_no'=>$req->ict_encl_no[$k]??''
+         ]);
+         if($d1){
+            if($req->hasFile('ict_file')){
+           isset($req->ict_file[$k])?$file=ImageUpload::simpleUpload('ict',$req->ict_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
+             isset($req->ict_file[$k])?$d->update(['file'=>$file]):'';
+             }
+          }
+
+      }
+      Auth::guard('promotion_app_user')->user()->step==6?Auth::guard('promotion_app_user')->user()->increment('step'):'';
+      Alert::success('Previous Data Save Successfully');
+      return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
+   }
    public function step8()
    {
-      return view('promotionform.step8');
+      
+      $user=Auth::guard('promotion_app_user')->user();
+      $phd=AcademinResearchScoreGuidance::where('type','phd')->where('promotion_application_user_id',$user->id)->get();
+      $mphil=AcademinResearchScoreGuidance::where('type','mphil')->where('promotion_application_user_id',$user->id)->get();
+      return view('promotionform.step8',compact('user','phd','mphil'));
    }
+   public function step8_store(Request $req)
+   {
+     $req->validate([
+      'file'=>'array',
+      'file.*'=>'max:100',
+      'file_b'=>'array',
+      'file_b.*'=>'max:100',
+      'research_file'=>'array',
+      'research_file.*'=>'max:100'
+     ]);
+     AcademinResearchScoreGuidance::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','phd')->delete();
+     foreach($req->Name_of_the_Scholar as $k=>$v){
+      $d=AcademinResearchScoreGuidance::create([
+         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+         'name_of_the_scholar'=>$req->Name_of_the_Scholar[$k]??'',
+         'title_of_the_dissertation/thesis'=>$req->Title_of_the_Thesis[$k]??'',
+         'type'=>'phd',
+         'awarded_thesis_submitted'=>$req->Awarded_Thesis_submitted[$k]??'',
+         'university'=>$req->University[$k],
+         'month_and_year'=>$req->Month_and_Year[$k],
+         'claimed_score'=>$req->Claimed_Score[$k],
+         'verify_by_committee'=>$req->Verified_by_the_Committee[$k],
+         'encl_no'=>$req->encl_no[$k],
 
+      ]);
+      if($d){
+         if($req->hasFile('file')){
+        isset($req->file[$k])?$files=ImageUpload::simpleUpload('projects',$req->file[$k],Auth::guard('promotion_app_user')->user()->id):'';
+          isset($req->file[$k])?$d->update(['file'=>$files]):'';
+          }
+       }
+     }
+     AcademinResearchScoreGuidance::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','mphil')->delete();
+     foreach($req->Name_of_the_Scholar_b as $k=>$v){
+      $d=AcademinResearchScoreGuidance::create([
+         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+         'name_of_the_scholar'=>$req->Name_of_the_Scholar_b[$k]??'',
+         'title_of_the_dissertation/thesis'=>$req->Title_of_the_Thesis_b[$k]??'',
+         'type'=>'mphil',
+         'awarded_thesis_submitted'=>$req->Awarded_Thesis_submitted[$k]??'',
+         'mphil_phd'=>$req->M_Phil_P_G_b[$k],
+         'university'=>$req->University_b[$k],
+         'month_and_year'=>$req->Month_and_Year_b[$k],
+         'claimed_score'=>$req->Claimed_Score_b[$k],
+         'verify_by_committee'=>$req->Verified_by_the_Committee_b[$k],
+         'encl_no'=>$req->encl_no_b[$k],
+
+      ]);
+      if($d){
+         if($req->hasFile('file_b')){
+        isset($req->file_b[$k])?$files=ImageUpload::simpleUpload('book',$req->file_b[$k],Auth::guard('promotion_app_user')->user()->id):'';
+          isset($req->file_b[$k])?$d->update(['file'=>$files]):'';
+          }
+       }
+     }
+
+     AcademinResearchScoreProject::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
+     foreach($req->project as $k=>$v){
+      $d=AcademinResearchScoreProject::create([
+         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+         'type'=>$req->project[$k],
+         'name_of_pi_and_co_pi'=>$req->Names_of_Pand_co_PI[$k],
+         'title_of_the_project'=>$req->Title_of_the_Project[$k],
+         'funding_agency'=>$req->Funding_Agency[$k],
+         'grant_sanctioned_or_component'=>$req->Grant_Sanctioned[$k],
+         'duration_from'=>$req->Duration_from[$k],
+         'duration_to'=>$req->Duration_to[$k],
+         'agency_to_it_is_offered'=>'',
+         'claimed_score'=>$req->Claimed_Score[$k],
+         'verify_by_committee'=>$req->Verified_by_the_Committee_project[$k],
+         'encl_no'=>$req->encl_no_project[$k]
+      ]);
+      if($d){
+         if($req->hasFile('research_file')){
+        isset($req->research_file[$k])?$files=ImageUpload::simpleUpload('book',$req->research_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
+          isset($req->research_file[$k])?$d->update(['file'=>$files]):'';
+          }
+       }
+     }
+   }
    public function step9()
    {
       return view('promotionform.step9');

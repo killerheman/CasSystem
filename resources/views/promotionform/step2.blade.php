@@ -92,11 +92,11 @@
                 <input type="date" name="date_of_confirmation" value="{{ $user->step2->date_of_confirmation??'' }}" />
             </div>
             <div class="col-3">
-                <label class="fieldlabels">Date of Last Promotion: </label>
+                <label class="fieldlabels">Date of Last Promotion (W.E.F.): </label>
                 <input type="date" name="date_of_last_promotion" value="{{ $user->step2->date_of_last_promotion??'' }}" />
             </div>
             <div class="col-3">
-                <label class="fieldlabels">Date of Eligibility for Promotion: </label>
+                <label class="fieldlabels">Date of Eligibility for Next Promotion: </label>
                 <input type="date" name="date_of_eligibility_for_promotion"  value="{{ $user->step2->date_of_eligibility_for_promotion??'' }}"/>
             </div>
             <div class="col-3">

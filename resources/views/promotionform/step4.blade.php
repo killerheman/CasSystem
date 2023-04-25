@@ -13,17 +13,21 @@
             </div>
         </div>
         <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
-            <div class="col-4">
+            <div class="col">
                 <label class="fieldlabels">In Years :</label> <input type="text"
                     name="ug_pg_in_years" placeholder="In Years" value="{{ $user->step4->ug_pg_in_years??'' }}" />
             </div>
-            <div class="col-4">
+            <div class="col">
                 <label class="fieldlabels">Period (from) : </label> 
                 <input type="text" name="ug_pg_from" placeholder="period_from" value="{{ $user->step4->ug_pg_from??'' }}" />
             </div>
-            <div class="col-4">
+            <div class="col">
                 <label class="fieldlabels">to</label> <input type="text"
                     name="ug_pg_to" placeholder="period_to"  value="{{ $user->step4->ug_pg_to??'' }}"/>
+            </div>
+            <div class="col">
+                <label class="fieldlabels" id="teaching_file">File (Attachement)</label> 
+                <input type="file" name="teaching_file[]" placeholder="period_to"  value="{{ $user->step4->file?'required':'' }}"/>
             </div>
         </div>
         <div class="row">
@@ -52,10 +56,14 @@
                 <label class="fieldlabels">Total Year Spent in Ph.D</label>
                 <input type="number" name="years_spent_in_phd" value="{{ $user->step4->years_spent_in_phd??'' }}" placeholder="spent in Ph.D" />
             </div>
+            <div class="col-4">
+                <label class="fieldlabels" id="research_file">File (Attachement)</label> 
+                <input type="file" name="research_file[]" placeholder="research_file"  value="{{ $user->step4->file_2?'required':'' }}"/>
+            </div>
         </div>
        <div class="parerent3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <div class="row mt-3 ">
-            <div class="col-3">
+            <div class="col">
                 
                 <label class="fieldlabels">Years Spent in:</label>
                 <select class="form-select form-select-lg mb-3" name="type[]" aria-label=".form-select-lg example">
@@ -68,14 +76,19 @@
                 <label class="fieldlabels">Period of</label>
                 <input type="text" name="period_of_from[]" value="{{  !empty($user->step4_phdrecord[0])?$user->step4_phdrecord[0]->period_of_from:'' }}" placeholder="Period_of_from" />
             </div>
-            <div class="col-3">
+            <div class="col">
                 <label class="fieldlabels"></label> <input type="text"
                     name="period_of_to[]" placeholder="period_of_to" value="{{ !empty($user->step4_phdrecord[0])?$user->step4_phdrecord[0]->period_of_to:'' }}" />
             </div> 
-            <div class="col-3">
+            <div class="col">
                 <label class="fieldlabels">Name of Institute/University</label>
                 <input type="text" name="name_of_institute_university[]" value="{{ !empty($user->step4_phdrecord[0])?$user->step4_phdrecord[0]->name_of_institute_university:'' }}" placeholder="Name of Institute/University" />
             </div>
+            <div class="col">
+                <label class="fieldlabels">File</label>
+                <input type="file" name="research_b[]" placeholder="Name of Institute/University" />
+            </div>
+            
         </div>
         <div class="row mt-3">
             <div class="col-4">
@@ -159,6 +172,10 @@
             <label class="fieldlabels">Registered</label>
             <input type="text" name="years_of_guiding_registered" value="{{ $user->step4->years_of_guiding_registered??'' }}" placeholder="Registered" />
         </div>
+        <div class="col">
+            <label class="fieldlabels">File (Attachement)</label>
+            <input type="file" name="pd_file"  placeholder="Registered" />
+        </div>
     </div>
     <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <h3 class="fs-title h3">Total No. of Papers Published:</h3>
@@ -173,6 +190,10 @@
         <div class="col">
             <label class="fieldlabels">State Level Journals </label>
             <input type="text" name="papers_published_state_level_journals" value="{{ $user->step4->papers_published_state_level_journals??'' }}" placeholder="State Level Journals " />
+        </div>
+        <div class="col">
+            <label class="fieldlabels">File (Attachement)</label>
+            <input type="file" name="paper_file"  placeholder="Registered" />
         </div>
     </div>
 
@@ -193,6 +214,10 @@
             <label class="fieldlabels"> Attended and Papers Presented</label>
             <input type="text" name="conferences_seminars_international_papers_presented" value="{{ $user->step4->conferences_seminars_international_papers_presented??'' }}" placeholder=" Attended and Papers Presented" />
         </div>
+        <div class="col">
+            <label class="fieldlabels">File (Attachement)</label>
+            <input type="file" name="conference_international"  placeholder="Registered" />
+        </div>
     </div>
     <div class="row mt-2">
         <h2 class="fs-title">ii. National: </h2>
@@ -204,6 +229,10 @@
             <label class="fieldlabels"> Attended and Papers Presented</label>
             <input type="text" name="conferences_seminars_national_papers_presented" value="{{ $user->step4->conferences_seminars_national_papers_presented??'' }}" placeholder=" Attended and Papers Presented" />
         </div>
+        <div class="col">
+            <label class="fieldlabels">File (Attachement)</label>
+            <input type="file" name="conference_national"  placeholder="Registered" />
+        </div>
     </div>
     <div class="row mt-2">
         <h2 class="fs-title">iii. State Level:</h2>
@@ -214,6 +243,10 @@
         <div class="col">
             <label class="fieldlabels"> Attended and Papers Presented</label>
             <input type="text" name="conferences_seminars__state_level_papers_presented" value="{{ $user->step4->conferences_seminars__state_level_papers_presented??'' }}" placeholder=" Attended and Papers Presented" />
+        </div>
+        <div class="col">
+            <label class="fieldlabels">File (Attachement)</label>
+            <input type="file" name="conference_state"  placeholder="Registered" />
         </div>
     </div>
     <div class="row mt-2">
@@ -277,15 +310,20 @@
                                         <option value="m_phil">M. Phil.</option>\
                                         <option value="ph_d">Ph.D.</option>\
                                         </select>\
-                                    </div><div class="col-3">\
+                                    </div><div class="col">\
                                     <label class="fieldlabels">Period of</label>\
                                     <input type="text" name="period_of_from[]" placeholder="Period_of_from" />\
-                                    </div><div class="col-3">\
+                                    </div><div class="col">\
                                     <label class="fieldlabels"></label> <input type="text" name="period_of_to[]" placeholder="period_of_to" />\
-                                    </div><div class="col-3">\
+                                    </div><div class="col">\
                                     <label class="fieldlabels">Name of Institute/University</label>\
                                     <input type="text" name="name_of_institute_university[]" placeholder="Name of Institute/University" />\
-                                    </div></div><div class="row mt-3"><div class="col-4">\
+                                    </div>\
+                                    <div class="col">\
+                                        <label class="fieldlabels" id="research_file">File (Attachement)</label> \
+                                        <input type="file" name="research_b[]" placeholder="research_file" />\
+                                    </div>\
+                                    </div><div class="row mt-3"><div class="col-4">\
                                     <label class="fieldlabels">Research Topic(Dissertation)</label>\
                                     <input type="text" name="research_topic[]" placeholder="Research Topic(Dissertation)" />\
                                     </div><div class="col-4"><label class="fieldlabels">Date of Notification of result</label>\

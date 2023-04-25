@@ -29,11 +29,15 @@
             <div class="row">
                 <div class="col-lg-10">
                 <div class="row mt-3">
-                    <div class="col-6">
+                    <div class="col-4">
                         <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" value="{{ $user->step1->first_name??'' }}"
                             placeholder="Name" />
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
+                        <label class="fieldlabels">Middle Name: </label> <input type="text" name="middle_name" value="{{ $user->step1->middle_name??'' }}"
+                            placeholder="Name" />
+                    </div>
+                    <div class="col-4">
                         <label class="fieldlabels">Last Name: </label> <input type="text" name="last_name" value="{{ $user->step1->last_name??'' }}"
                             placeholder="Department" />
                     </div>
@@ -50,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <label class="fieldlabels">Advertisement Reference No. :: </label> <input type="text" value="{{ $user->step1->notification_reference_no??'' }}"
+                        <label class="fieldlabels">Notification No. :: </label> <input type="text" value="{{ $user->step1->notification_reference_no??'' }}"
                             name="advertisement_no" placeholder="Advertisement Reference No" />
                     </div>
                     <div class="col-6">
@@ -77,11 +81,11 @@
                             name="date_of_confirmation" value="{{ $user->step1->date_of_confirmation??'' }}" />
                     </div>
                     <div class="col-4">
-                        <label class="fieldlabels">Period of Assessment for promotion: (From)
+                        <label class="fieldlabels">Period of Assessment For Promotion: (From)
                         </label> <input type="date" name="assessment_period_for_promotion_from" value="{{ $user->step1->assessment_promotion_from??'' }}" />
                     </div>
                     <div class="col-4">
-                        <label class="fieldlabels">Period of Assessment for promotion: (To) </label>
+                        <label class="fieldlabels">Period of Assessment For Promotion: (To) </label>
                         <input type="date" name="assessment_period_for_promotion_to" value="{{ $user->step1->assessment_promotion_to??'' }}" />
                     </div>
                 </div>

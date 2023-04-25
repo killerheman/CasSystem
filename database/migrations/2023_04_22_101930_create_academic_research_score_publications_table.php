@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('auth')->nullable();
             $table->string('co_author')->nullable();
+            $table->string('publisher')->nullable();
             $table->string('publisher_month_year')->nullable();
             $table->string('isbn_issn')->nullable();
             $table->string('claimed_score')->nullable();

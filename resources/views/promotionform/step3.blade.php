@@ -37,6 +37,11 @@
                     <input type="text" id="Session" name="session[]" class="form-control"
                         placeholder="session" aria-label="session" value="{{ $user->step3_a[0]->session??'' }}">
                 </div>
+                <div class="col">
+                    <label for="Session">File</label>
+                    <input type="file" id="Session" name="file[]" class="form-control"
+                        placeholder="file" aria-label="file" value="{{ $user->step3_a[0]->file?'required':'' }}">
+                </div>
             </div>
             <div class="row g-3">
                 <div class="col">
@@ -90,6 +95,11 @@
                                                                     <label for="Session">Session</label>
                                                                     <input type="text" id="Session" name="session[]" class="form-control"
                                                                         placeholder="session" aria-label="session" value="{{ $user->step3_a[$i]->session??'' }}">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <label for="Session">File</label>
+                                                                    <input type="file" id="Session" name="file[]" class="form-control"
+                                                                        placeholder="file" aria-label="file" value="{{ $user->step3_a[0]->file?'required':'' }}">
                                                                 </div>
                                                             </div>
                                                             <div class="row g-3">
@@ -476,7 +486,13 @@
                                                 <label for="Session">Session</label>\
                                                 <input type="text" id="Session" name="session[]" class="form-control"\
                                                     placeholder="session" aria-label="session">\
-                                            </div></div>\
+                                            </div>\
+                                            <div class="col">\
+                                                <label for="Session">File</label>\
+                                                <input type="file" id="Session" name="file[]" class="form-control"\
+                                                    placeholder="file" aria-label="file">\
+                                            </div>\
+                                            </div>\
                                         <div class="row g-3">\
                                             <div class="col">\
                                                 <label for="yp">Year of Passing</label>\

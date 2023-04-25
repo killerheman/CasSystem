@@ -176,9 +176,9 @@
         <div class="row mt-2">
 
             <div class="col">
-                <label class="fieldlabels">International(Ab road)/Internation al(within  country) / National / State / University level</label>
-                <input type="text" name="International(Ab road)_Internation_al(within_country_National_State_University_level"
-                    placeholder="International(Ab road)/Internation al(within  country) / National / State / University level" />
+                <label class="fieldlabels">International(Abroad)/Internation al(within  country) / National / State / University level</label>
+                <input type="text" name="International(Abroad)_Internation_al(within_country_National_State_University_level"
+                    placeholder="International(Abroad)/Internation al(within  country) / National / State / University level" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
@@ -373,9 +373,9 @@
                                 <div class="row mt-2">
 
                                     <div class="col">
-                                        <label class="fieldlabels">International(Ab road)/Internation al(within  country) / National / State / University level</label>
-                                        <input type="text" name="International(Ab road)_Internation_al(within_country_National_State_University_level"
-                                            placeholder="International(Ab road)/Internation al(within  country) / National / State / University level" />
+                                        <label class="fieldlabels">International(Abroad)/Internation al(within  country) / National / State / University level</label>
+                                        <input type="text" name="International(Abroad)_Internation_al(within_country_National_State_University_level"
+                                            placeholder="International(Abroad)/Internation al(within  country) / National / State / University level" />
                                     </div>
                                     <div class="col">
                                         <label class="fieldlabels">Claimed Score</label>

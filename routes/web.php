@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NAACController;
 use App\Http\Controllers\CollegeRegistrationController;
+use App\Http\Controllers\PreviewPromotionController;
 use App\Http\Controllers\PromotionAuthController;
 use App\Http\Controllers\PromotionFormController;
 use App\Http\Controllers\RegistrationController;
@@ -60,5 +61,7 @@ Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
     Route::post('step-9-store',[PromotionFormController::class,'step9_store'])->name('step-9-store');
     Route::get('step-10',[PromotionFormController::class,'step10'])->name('step-10');
     Route::post('step-10-store',[PromotionFormController::class,'step10_store'])->name('step-10-store');
+
+    Route::get('preview', [PreviewPromotionController::class, 'preview']);
 
 });

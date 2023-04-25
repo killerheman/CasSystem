@@ -27,7 +27,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels" id="teaching_file">File (Attachement)</label> 
-                <input type="file" name="teaching_file[]" placeholder="period_to"  value="{{ $user->step4->file?'required':'' }}"/>
+                <input type="file" name="teaching_file[]" placeholder="period_to" @isset($user->step4) value="{{ $user->step4->file?'required':'' }}" @endisset/>
             </div>
         </div>
         <div class="row">

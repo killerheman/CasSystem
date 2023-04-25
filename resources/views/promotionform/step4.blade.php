@@ -58,7 +58,7 @@
             </div>
             <div class="col-4">
                 <label class="fieldlabels" id="research_file">File (Attachement)</label> 
-                <input type="file" name="research_file[]" placeholder="research_file"  value="{{ $user->step4->file_2?'required':'' }}"/>
+                <input type="file" name="research_file[]" placeholder="research_file"  @isset($user->step4->file_2)value="{{ $user->step4->file_2?'required':'' }}" @endisset/>
             </div>
         </div>
        <div class="parerent3 border border-4 rounded rounded-5  border-danger mb-5 p-3">

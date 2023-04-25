@@ -62,6 +62,8 @@ Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
     Route::get('step-10',[PromotionFormController::class,'step10'])->name('step-10');
     Route::post('step-10-store',[PromotionFormController::class,'step10_store'])->name('step-10-store');
 
+
+    //Preview Promotion Form
     Route::get('preview', [PreviewPromotionController::class, 'preview']);
 
 });

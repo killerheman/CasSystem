@@ -419,6 +419,9 @@ $data['promotion_application_users_id']=Auth::guard('promotion_app_user')->user(
           }
        }
      }
+     Auth::guard('promotion_app_user')->user()->step==7?Auth::guard('promotion_app_user')->user()->increment('step'):'';
+     Alert::success('Previous Data Save Successfully');
+     return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
    }
    public function step9()
    {

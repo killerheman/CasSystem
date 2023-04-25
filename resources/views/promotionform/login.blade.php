@@ -70,8 +70,8 @@ border-bottom-right-radius: .3rem;
                   <h4 class="mb-4">Welcome to Portal for Promotion of Teacher </h4>
                   <p class="small mb-0">
                     <ul>
-                      <li> <a href="Bihar CAS Promotion-2018_(2023).pdf "> CAS-2018 </a></li>
-                      <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html" target="_blank"> CAS-1998 </a></li>
+                      <li> <a href="Bihar CAS Promotion-2018_(2023).pdf " class="text-light"> CAS-2018 </a></li>
+                      <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html"  class="text-light" target="_blank"> CAS-1998 </a></li>
                       <li > Notification (LNMU)</li>
                     </ul>
                   </p>

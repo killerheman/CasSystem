@@ -31,9 +31,8 @@ Route::get('registration-step4',[RegistrationController::class,'step4'])->name('
 Route::view('/step7', 'step7');
 Route::view('/step8', 'step8');
 Route::view('/step9', 'step9');
-
+Route::view('/preview','preview');
 //Promotion form
-
 Route::get('promotion-form/login',[PromotionAuthController::class,'user_login'])->name('promotion-form.user-login');
 Route::post('promotion-form/login-otp-send',[PromotionAuthController::class,'user_login_otp_send'])->name('promotion-form.user-login-otp-send');
 Route::post('promotion-form/login-otp-verify',[PromotionAuthController::class,'user_login_otp_verify'])->name('promotion-form.user-login-otp-verify');

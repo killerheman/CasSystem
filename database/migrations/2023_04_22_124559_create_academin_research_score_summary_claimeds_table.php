@@ -19,15 +19,10 @@ return new class extends Migration
             $table->string('entire_assessment_period_from')->nullable();
             $table->string('entire_assessment_period_to')->nullable();
             $table->string('total_claimed_score')->nullable();
-            $table->string('claimed_score_1')->nullable();
-            $table->string('claimed_score_2')->nullable();
-            $table->string('claimed_score_3')->nullable();
-            $table->string('claimed_score_4')->nullable();
-            $table->string('claimed_score_5')->nullable();
-            $table->string('claimed_score_6')->nullable();
             $table->string('year')->nullable();
             $table->string('type')->nullable();
             $table->string('claimed_score')->nullable();
+            $table->string('applicant_sign')->nullable();
             $table->string('verify_by_committee')->nullable();
             $table->string('encl_no')->nullable();
             $table->text('file')->nullable();

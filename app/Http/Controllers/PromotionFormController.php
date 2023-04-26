@@ -534,6 +534,7 @@ class PromotionFormController extends Controller
             if(isset($request->claimed_score)){
 
                $d = AcademinResearchScoreSummaryClaimed::create([
+                    'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
                     'assessment_period_from' => $request->assessment_period_from,
                     'assessment_period_to' => $request->assessment_period_to,
                     'entire_assessment_period_from' => $request->entire_assessment_period_from,

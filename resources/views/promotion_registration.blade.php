@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LNMU</title>
     <link rel="shortcut icon" href="{{ asset('asset/logo.jpg') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -253,8 +250,7 @@
                             <li id="confirm"><strong>Finish</strong></li>
                         </ul>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div> <br> <!-- fieldsets -->
                         <fieldset>
                             <div class="form-card">
@@ -282,49 +278,39 @@
                                 </select>
                                 <div class="row mt-3">
                                     <div class="col-6">
-                                        <label class="fieldlabels">First Name: </label> <input type="text"
-                                            name="first_name" placeholder="Name" />
+                                        <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" placeholder="Name" />
                                     </div>
                                     <div class="col-6">
-                                        <label class="fieldlabels">Last Name: </label> <input type="text"
-                                            name="last_name" placeholder="Department" />
+                                        <label class="fieldlabels">Last Name: </label> <input type="text" name="last_name" placeholder="Department" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Department: </label> <input type="text"
-                                            name="department" placeholder="Department" />
+                                        <label class="fieldlabels">Department: </label> <input type="text" name="department" placeholder="Department" />
                                     </div>
                                     <div class="col-6">
-                                        <label class="fieldlabels">College Name: </label> <input type="text"
-                                            name="college_name" placeholder="College Name" />
+                                        <label class="fieldlabels">College Name: </label> <input type="text" name="college_name" placeholder="College Name" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Advertisement Reference No. :: </label> <input
-                                            type="text" name="advertisement_no"
-                                            placeholder="Advertisement Reference No" />
+                                        <label class="fieldlabels">Advertisement Reference No. :: </label> <input type="text" name="advertisement_no" placeholder="Advertisement Reference No" />
                                     </div>
                                     <div class="col-6">
-                                        <label class="fieldlabels">Date: </label> <input type="date"
-                                            name="date" />
+                                        <label class="fieldlabels">Date: </label> <input type="date" name="date" />
                                     </div>
                                 </div>
                                 <div style="border: 2px solid;padding:15px;">
                                     <div class="row">
                                         <div class="col-2">
-                                            <label class="fieldlabels">Date of Appointment: </label> <input
-                                                type="date" name="date_of_appointment" />
+                                            <label class="fieldlabels">Date of Appointment: </label> <input type="date" name="date_of_appointment" />
                                         </div>
                                         <div class="col-2">
-                                            <label class="fieldlabels">Date of Confirmation: </label> <input
-                                                type="date" name="date_of_confirmation" />
+                                            <label class="fieldlabels">Date of Confirmation: </label> <input type="date" name="date_of_confirmation" />
                                         </div>
                                         <div class="col-4">
                                             <label class="fieldlabels">Period of Assessment for promotion: (From)
-                                            </label> <input type="date"
-                                                name="assessment_period_for_promotion_from" />
+                                            </label> <input type="date" name="assessment_period_for_promotion_from" />
                                         </div>
                                         <div class="col-4">
                                             <label class="fieldlabels">Period of Assessment for promotion: (To) </label>
@@ -333,31 +319,26 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-4">
-                                            <label class="fieldlabels">Date of the Last Promotion </label> <input
-                                                type="date" name="date_of_last_promotion" />
+                                            <label class="fieldlabels">Date of the Last Promotion </label> <input type="date" name="date_of_last_promotion" />
 
                                         </div>
                                         <div class="col-4">
                                             <label class="fieldlabels">Notification No. of the Last Promotion </label>
-                                            <input type="text" name="last_promotion_notification_no"
-                                                placeholder="Last Promotion Notification No." />
+                                            <input type="text" name="last_promotion_notification_no" placeholder="Last Promotion Notification No." />
                                         </div>
                                         <div class="col-4">
                                             <label class="fieldlabels">Period of Assessment for promotion: (To)
-                                            </label> <input type="date"
-                                                name="assessment_period_for_promotion_to" />
+                                            </label> <input type="date" name="assessment_period_for_promotion_to" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-8">
                                             <label class="fieldlabels">Grade in Annual Performance Report of the last 3
-                                                years of the assessment period </label> <input type="text"
-                                                name="date_of_last_promotion" />
+                                                years of the assessment period </label> <input type="text" name="date_of_last_promotion" />
 
                                         </div>
                                         <div class="col-4">
-                                            <label class="fieldlabels">Total Academic / Research Scores </label> <input
-                                                type="text" name="assessment_period_for_promotion_to" />
+                                            <label class="fieldlabels">Total Academic / Research Scores </label> <input type="text" name="assessment_period_for_promotion_to" />
                                         </div>
                                     </div>
                                     <div class="row">
@@ -387,8 +368,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Name (in Block Letters): </label> <input
-                                            type="text" name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Name (in Block Letters): </label> <input type="text" name="name" placeholder="Name" />
                                     </div>
                                     <div class="col-3">
                                         <label class="fieldlabels">Gender: </label>
@@ -415,12 +395,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label class="fieldlabels">Father's Name (in Block Letters): </label> <input
-                                            type="text" name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Father's Name (in Block Letters): </label> <input type="text" name="name" placeholder="Name" />
                                     </div>
                                     <div class="col-6">
-                                        <label class="fieldlabels">Mother's Name (in Block Letters): </label> <input
-                                            type="text" name="name" placeholder="Name" />
+                                        <label class="fieldlabels">Mother's Name (in Block Letters): </label> <input type="text" name="name" placeholder="Name" />
                                     </div>
 
                                 </div>
@@ -504,8 +482,7 @@
                                     </div>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Next" />
-                            <input type="button" name="previous" class="previous action-button-previous"
-                                value="Previous" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -521,8 +498,7 @@
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="qualifications">Qualifications</label>
-                                            <select class="form-select form-select-lg mb-3" name="qualifications"
-                                                aria-label="Default select example">
+                                            <select class="form-select form-select-lg mb-3" name="qualifications" aria-label="Default select example">
                                                 <option selected disabled>Choose qualifications</option>
                                                 <option value="ug">Graduate Degree (UG)</option>
                                                 <option value="pg">Post Graduate Degree (PG)</option>
@@ -533,35 +509,25 @@
                                         </div>
                                         <div class="col">
                                             <label for="cou">College / University</label>
-                                            <input type="text" id="cou" name="colleg_university"
-                                                class="form-control" placeholder="College / University"
-                                                aria-label="College / University">
+                                            <input type="text" id="cou" name="colleg_university" class="form-control" placeholder="College / University" aria-label="College / University">
                                         </div>
                                         <div class="col">
                                             <label for="Session">Session</label>
-                                            <input type="text" id="Session" name="Session" class="form-control"
-                                                placeholder="session" aria-label="session">
+                                            <input type="text" id="Session" name="Session" class="form-control" placeholder="session" aria-label="session">
                                         </div>
                                     </div>
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="yp">Year of Passing</label>
-                                            <input type="text" id="yp" name="Year_of_Passing"
-                                                class="form-control" placeholder="Year of Passing"
-                                                aria-label="Year of Passing">
+                                            <input type="text" id="yp" name="Year_of_Passing" class="form-control" placeholder="Year of Passing" aria-label="Year of Passing">
                                         </div>
                                         <div class="col">
                                             <label for="marks_cgpa">Marks Obtained /Out of Or CGPA Grade</label>
-                                            <input type="text" id="marks_cgpa" name="marks_cgpa"
-                                                class="form-control"
-                                                placeholder="Marks Obtained /Out of Or CGPA Grade"
-                                                aria-label="marks_cgpa">
+                                            <input type="text" id="marks_cgpa" name="marks_cgpa" class="form-control" placeholder="Marks Obtained /Out of Or CGPA Grade" aria-label="marks_cgpa">
                                         </div>
                                         <div class="col-md-3">
                                             <label for="class_with">Class with %</label>
-                                            <input type="text" id="class_with" name="class_with_%"
-                                                class="form-control" placeholder="Class with %"
-                                                aria-label="Class with %">
+                                            <input type="text" id="class_with" name="class_with_%" class="form-control" placeholder="Class with %" aria-label="Class with %">
                                         </div>
                                         <div class="col-md-1 mt-5">
                                             <button type="button" class="btn btn-info add">+</button>
@@ -580,80 +546,59 @@
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="institute">Institution</label>
-                                            <input type="text" id="institute" name="Institution"
-                                                class="form-control" placeholder="Institution"
-                                                aria-label="Institution">
+                                            <input type="text" id="institute" name="Institution" class="form-control" placeholder="Institution" aria-label="Institution">
                                         </div>
                                         <div class="col">
                                             <label for="designation">Designation</label>
-                                            <input type="text" id="designation" name="designation"
-                                                class="form-control" placeholder="designation"
-                                                aria-label="designation">
+                                            <input type="text" id="designation" name="designation" class="form-control" placeholder="designation" aria-label="designation">
                                         </div>
                                         <div class="col">
                                             <label for="nature_appointment">Nature of appointment</label>
-                                            <input type="text" id="nature_appointment" name="nature_appointment"
-                                                class="form-control"
-                                                placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)"
-                                                aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">
+                                            <input type="text" id="nature_appointment" name="nature_appointment" class="form-control" placeholder="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)" aria-label="Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/ Part_time)">
                                         </div>
                                         <div class="col">
                                             <label for="nature_duties">Nature of Duties</label>
-                                            <input type="text" id="nature_duties" name="nature_duties"
-                                                class="form-control" placeholder="Nature of Duties"
-                                                aria-label="nature_duties">
+                                            <input type="text" id="nature_duties" name="nature_duties" class="form-control" placeholder="Nature of Duties" aria-label="nature_duties">
                                         </div>
                                     </div>
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="required_min_qualification">mininmum qualification</label>
-                                            <input type="text" id="required_min_qualification"
-                                                name="required_min_qualification" class="form-control"
-                                                placeholder="Institution" aria-label="required_min_qualification">
+                                            <input type="text" id="required_min_qualification" name="required_min_qualification" class="form-control" placeholder="Institution" aria-label="required_min_qualification">
                                         </div>
                                         <div class="col">
                                             <label for="Pay_Scale">Pay_Scale / Pay band and AGP</label>
-                                            <input type="text" id="Pay_Scale" name="Pay_Scale"
-                                                class="form-control" placeholder="Pay_Scale / Pay band and AGP"
-                                                aria-label="Pay_Scale">
+                                            <input type="text" id="Pay_Scale" name="Pay_Scale" class="form-control" placeholder="Pay_Scale / Pay band and AGP" aria-label="Pay_Scale">
                                         </div>
                                         <div class="col">
                                             <label for="Remarks">Remarks</label>
-                                            <input type="text" id="Remarks" name="remarks" class="form-control"
-                                                placeholder="Remarks" aria-label="Remarks">
+                                            <input type="text" id="Remarks" name="remarks" class="form-control" placeholder="Remarks" aria-label="Remarks">
                                         </div>
                                         <div class="col">
                                             <label for="Encl.No.">Encl.No.</label>
-                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"
-                                                placeholder="Encl.No." aria-label="Encl.No.">
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control" placeholder="Encl.No." aria-label="Encl.No.">
                                         </div>
                                     </div>
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="required_min_qualification">Highest degree obtained</label>
-                                            <input type="text" id="required_min_qualification"
-                                                name="required_min_qualification" class="form-control"
-                                                placeholder="Institution" aria-label="required_min_qualification">
+                                            <input type="text" id="required_min_qualification" name="required_min_qualification" class="form-control" placeholder="Institution" aria-label="required_min_qualification">
                                         </div>
                                         <div class="col-2">
                                             <label for="Duration">Duration</label>
-                                            <input type="text" id="From" name="duration_from" class="form-control"
-                                                placeholder="From" aria-label="From">
+                                            <input type="text" id="From" name="duration_from" class="form-control" placeholder="From" aria-label="From">
                                         </div>
                                         <div class="col-2">
                                             <label for="Duration"></label>
-                                            <input type="text" id="To" name="duration_to" class="form-control"
-                                                placeholder="To" aria-label="To">
+                                            <input type="text" id="To" name="duration_to" class="form-control" placeholder="To" aria-label="To">
                                         </div>
                                         <div class="col-2">
                                             <label for="Experience">Experience</label>
-                                            <input type="text" id="Year" name="Year" class="form-control"
-                                                placeholder="Year" aria-label="Year">
+                                            <input type="text" id="Year" name="Year" class="form-control" placeholder="Year" aria-label="Year">
                                         </div>
                                         <div class="col-2">
                                             <label for="Experience"></label>
-                                            <input type="text" id="Months" name="Months" class="form-control"
-                                                placeholder="Months" aria-label="Months">
+                                            <input type="text" id="Months" name="Months" class="form-control" placeholder="Months" aria-label="Months">
                                         </div>
                                         <div class="col-1">
                                             <button type="button" class="btn btn-info add1 mt-4">+</button>
@@ -671,55 +616,45 @@
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="Level">Level</label>
-                                            <select class="form-select form-select-lg mb-3" name="level"
-                                                aria-label="Default select example">
+                                            <select class="form-select form-select-lg mb-3" name="level" aria-label="Default select example">
                                                 <option selected disabled>Choose Level</option>
-                                               <option value="l10">Level 10</option>
-                                               <option value="l11">Level 11</option>
+                                                <option value="l10">Level 10</option>
+                                                <option value="l11">Level 11</option>
                                             </select>
                                         </div>
                                         <div class="col">
                                             <label for="Designation">Designation</label>
-                                            <input type="text" id="Designation" name="designation"
-                                                class="form-control" placeholder="Designation"
-                                                aria-label="Designation">
+                                            <input type="text" id="Designation" name="designation" class="form-control" placeholder="Designation" aria-label="Designation">
                                         </div>
                                         <div class="col">
                                             <label for="Pay">Pay Scale and AGP</label>
-                                            <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control"
-                                                placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">
+                                            <input type="text" id="Pay" name="Pay_Scale_AGP" class="form-control" placeholder="Pay Scale and AGP" aria-label="Pay Scale and AGP">
                                         </div>
                                         <div class="col">
                                             <label for="Encl.No.">Encl.No.</label>
-                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control"
-                                                placeholder="Encl.No." aria-label="Encl.No.">
+                                            <input type="text" id="Encl.No." name="Encl_No" class="form-control" placeholder="Encl.No." aria-label="Encl.No.">
                                         </div>
                                         <div class="col">
                                             <label for="Remarks">Remarks</label>
-                                            <input type="text" id="Remarks" name="remarks" class="form-control"
-                                                placeholder="Remarks" aria-label="Remarks">
+                                            <input type="text" id="Remarks" name="remarks" class="form-control" placeholder="Remarks" aria-label="Remarks">
                                         </div>
                                     </div>
                                     <div class="row g-3">
                                         <div class="col">
                                             <label for="Duration">Duration</label>
-                                            <input type="date" id="From" name="duration_from" class="form-control"
-                                                placeholder="From" aria-label="From">
+                                            <input type="date" id="From" name="duration_from" class="form-control" placeholder="From" aria-label="From">
                                         </div>
                                         <div class="col">
                                             <label for="Duration"></label>
-                                            <input type="date" id="To" name="duration_to" class="form-control"
-                                                placeholder="To" aria-label="To">
+                                            <input type="date" id="To" name="duration_to" class="form-control" placeholder="To" aria-label="To">
                                         </div>
                                         <div class="col">
                                             <label for="Experience">Experience</label>
-                                            <input type="text" id="Year" name="Year" class="form-control"
-                                                placeholder="Year" aria-label="Year">
+                                            <input type="text" id="Year" name="Year" class="form-control" placeholder="Year" aria-label="Year">
                                         </div>
                                         <div class="col">
                                             <label for="Experience"></label>
-                                            <input type="month" id="Months" name="Months" class="form-control"
-                                                placeholder="Months" aria-label="Months">
+                                            <input type="month" id="Months" name="Months" class="form-control" placeholder="Months" aria-label="Months">
                                         </div>
                                         <div class="col-1">
                                             <button type="button" class="btn btn-info add2 mt-4">+</button>
@@ -732,8 +667,7 @@
                                     </h3>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Submit" />
-                            <input type="button" name="previous" class="previous action-button-previous"
-                                value="Previous" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -747,8 +681,7 @@
                                 </div> <br><br>
                                 <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png"
-                                            class="fit-image"> </div>
+                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
@@ -899,8 +832,8 @@
             $(document).on('click', '.remove', function() {
                 $(this).closest('.parent').remove();
             });
-           // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service Experience)
-            var html1='<div class="parent1">\
+            // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service Experience)
+            var html1 = '<div class="parent1">\
                                     <div class="row g-3">\
                                         <div class="col">\
                                             <label for="institute">Institution</label>\
@@ -991,7 +924,7 @@
             $(document).on('click', '.remove1', function() {
                 $(this).closest('.parent1').remove();
             });
-           // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
+            // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
             var html2 = '<div class="parent2">\
                                     <div class="row g-3">\
                                         <div class="col">\

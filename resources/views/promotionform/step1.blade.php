@@ -95,6 +95,10 @@
                         <label class="fieldlabels">Notification No. of the Last Promotion </label>
                         <input type="text" name="last_promotion_notification_no" value="{{ $user->step1->promotion_notification_no??'' }}" placeholder="Last Promotion Notification No." />
                     </div>
+                    <div class="col-4">
+                        <label class="fieldlabels">Notification date of the Last Promotion </label>
+                        <input type="date" name="last_promotion_notification_date" value="{{ $user->step1->promotion_notification_last_date??'' }}" placeholder="Last Promotion Notification date." />
+                    </div>
                     {{-- <div class="col-4">
                         <label class="fieldlabels">Period of Assessment for promotion: (To)
                         </label> <input type="date" name="assessment_period_for_promotion_to" />

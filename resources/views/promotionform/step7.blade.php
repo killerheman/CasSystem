@@ -427,279 +427,241 @@
 
 
 @section('script')
+
+
+@section('script')
 <script>
     $(document).ready(function() {
-        var html =
-            `<div class="parent"><hr/>
-                <div class="row g-3">
-            <div class="col-sm-2">
-                <label for="academicyear">Academic Year</label>
-                <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
-                    <option selected disabled>Choose Years</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <label for="semester">Semester</label>
-                <select class="form-select form-select-lg mb-3" name="semester[]" aria-label="Default select example">
-                    <option selected disabled>Choose Semester</option>
-                    <option value="1">Sem 1</option>
-                    <option value="2">Sem 2</option>
-                    <option value="3">Sem 3</option>
-                    <option value="4">Sem 4</option>
-                    <option value="5">Sem 5</option>
-                    <option value="6">Sem 6</option>
-                    <option value="7">Sem 7</option>
-                    <option value="8">Sem 8</option>
-                    <option value="9">Sem 9</option>
-                    <option value="10">Sem 10</option>
-                    <option value="11">Sem 11</option>
-                    <option value="12">Sem 12</option>
-                </select>
-            </div>
-            <div class="col-sm-5">
-                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
-                    100%</label>
-                <input type="text" id="teaching" name="teaching[]" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
-            </div>
-            <div class="col-sm-3">
-                <label for="activity_file">File Attachement</label>
-                <input type="file" id="activity_file" name="activity_file[]" class="form-control"
-                    placeholder="Activity File" aria-label="Activity File">
-            </div>
+        $(".submit").click(function() {
+            return false;
+        })
+        var html7 =
+            `<div class="parent7 ">
+        <div class="row">
+            (a) BOOKS AUTHORED WHICH ARE PUBLISHED BY:
         </div>
-        <div class="row g-3">
-            <div class="col-sm-2">
-                <label for="committee">Verified by the Committee</label>
-                <input type="text" id="committee" name="committee[]" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee">
-            </div>
-            <div class="col-sm-2">
-                <label for="claimed_candidate">Claimed by the Candidate</label>
-                <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control"
-                    placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
-            </div>
-            <div class="col-sm-2">
-                <label for="classes_Taught">Number of Classes Taught</label>
-                <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
-            </div>
-            <div class="col-sm-2">
-                <label for="class_Assigned">Total Classes Assigned</label>
-                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control"
-                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
-            </div>
-            <div class="col-sm-2">
-                <label for="remarks">Remarks</label>
-                <input type="text" id="remarks" name="remarks[]" class="form-control" placeholder="remarks"
-                    aria-label="remarks">
-            </div>
-            <div class="col-sm-1">
-                <label for="enclNo">*Encl No.</label>
-                <input type="text" id="enclNo" name="enclNo[]" class="form-control" placeholder="enclNo"
-                    aria-label="enclNo">
-            </div>
-            <div class="col-md-1 mt-5">
-                <button type="button" class="btn btn-danger remove">-</button>
-            </div>
-        </div>
-    </div>`;
-        $(document).on('click', '.add', function() {
-            $('.add_input').append(html);
-        });
-        $(document).on('click', '.remove', function() {
-            $(this).closest('.parent').remove();
-        });
-        var html1=
-        `<div class="parent1"><hr/>
-        <div class="row g-3">
-            <div class="col-md-3">
-                <label for="academicyear">Academic Year</label>
-                <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]"
-                    aria-label="Default select example">
-                    <option selected disabled>Choose Years</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="semester">Semester</label>
-                <select class="form-select form-select-lg mb-3" name="semester_b[]" aria-label="Default select example">
-                    <option selected disabled>Choose Semester</option>
-                    <option value="1">Sem 1</option>
-                    <option value="2">Sem 2</option>
-                    <option value="3">Sem 3</option>
-                    <option value="4">Sem 4</option>
-                    <option value="5">Sem 5</option>
-                    <option value="6">Sem 6</option>
-                    <option value="7">Sem 7</option>
-                    <option value="8">Sem 8</option>
-                    <option value="9">Sem 9</option>
-                    <option value="10">Sem 10</option>
-                    <option value="11">Sem 11</option>
-                    <option value="12">Sem 12</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="academicyear">Activity</label>
-                <select class="form-select form-select-lg mb-3" name="activity[]" aria-label="Activity">
-                    <option selected disabled>Choose Activity</option>
-                    <option
-                        value="1">
-                        Administrative responsibilities such as Head, Chairperson/ Dean/ Director/ Co-ordinator, Warden
-                        etc.
+        <div class="row mt-3">
+            <div class="col-4">
+                <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
+                <select class="form-select form-select-lg mb-3" name="type[]"
+                    aria-label=".form-select-lg example">
+                    <option selected disabled hidden>Open this select menu</option>
+                    <option value="1">Editor of Book by National Publisher</option>
+                    <option value="2">Editor of Book by International Publisher
                     </option>
-                    <option
-                        value="2">
-                        Examination and evaluation duties assigned by the Department/ College /University or attending
-                        the
-                        examination paper evaluation.</option>
-                    <option
-                        value="3">
-                        Student related co-curricular, extension and field based activities such as student clubs,
-                        career
-                        counselling, study visits, student seminars and other events, cultural, sports, NCC, NSS and
-                        community services.</option>
-                    <option
-                        value="4">
-                        Organising seminars/ conferences/ workshops, other Department/ College/University activities.
-                    </option>
-                    <option value="5">Evidence of actively
-                        involved
-                        in guiding Ph.D students.</option>
-                    <option
-                        value="6">
-                        Conducting minor or major research project sponsored by national or international agencies.
-                    </option>
-                    <option value="7">
-                        At
-                        least one single or joint publication in peer reviewed or UGC list of Journals.</option>
+                    <option value="3">Chapter in Edited Book</option>
+                    <option value="4">National publishers</option>
+                    <option value="5">International publishers</option>
                 </select>
-            </div>
-            <div class="col-md-3">
-                <label for="involment_file">File (Attachement)</label>
-                <input type="file" name="involment_file[]" class="form-control" id="involment_file" >
-            </div>
-        </div>
-        <div class="row g-3">
-            <div class="col">
-                <label for="claimed_candidate">Claimed by the Candidate</label>
-                <input type="text" id="claimed_candidate" name="claimed_candidate_b[]" class="form-control"
-                    placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
             </div>
             <div class="col">
-                <label for="committee">Verified by the Committee</label>
-                <input type="text" id="committee" name="committee_b[]" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee">
+                <label class="fieldlabels">Title of the Book:</label> <input type="text"
+                    name="title[]" placeholder="Title_of_the_Book" />
             </div>
             <div class="col">
-                <label for="remarks">Remarks</label>
-                <input type="text" id="remarks" name="remarks_b[]" class="form-control" placeholder="remarks"
-                    aria-label="remarks">
+                <label class="fieldlabels">Author:</label> <input type="text"
+                    name="author[]" placeholder="Author" />
             </div>
-            <div class="col-md-3">
-                <label for="enclNo">*Encl No.</label>
-                <input type="text" id="enclNo" name="enclNo_b[]" class="form-control" placeholder="enclNo"
-                    aria-label="enclNo">
+            <div class="col">
+                <label class="fieldlabels">Co_Author(s):</label> <input type="text"
+                    name="co_auther[]" placeholder="Co_Author(s)" />
             </div>
-            <div class="col-md-1 mt-3">
-                <button type="button" class="btn btn-danger remove1 mt-4">-</button>
+            <div class="col">
+                <label class="fieldlabels">File (Attachement):</label> 
+                <input type="file" name="book_file[]" placeholder="File" />
             </div>
         </div>
-    </div>`;
-    $(document).on('click', '.add1', function() {
-            $('.add_input1').append(html1);
+        <div class="row mt-2">
+            <div class="col">
+                <label class="fieldlabels">ISBN</label>
+                <input type="text" name="isbn[]" placeholder="ISBN" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Name of the Publisher</label>
+                <input type="text" name="publisher[]"
+                    placeholder="Name of the Publisher" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Claimed Score</label>
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Verified Score</label>
+                <input type="text" name="iqac_score[]"
+                    placeholder="Verified Score" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Encl. No.</label>
+                <input type="text" name="book_encl_no[]" placeholder="Encl. No." />
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-danger remove7 mt-3">-</button>
+            </div>
+        </div>
+        <hr>
+        </div>
+    </div> `;
+        $(document).on('click', '.add7', function() {
+            $('.add_input7').append(html7);
         });
-        $(document).on('click', '.remove1', function() {
-            $(this).closest('.parent1').remove();
+        $(document).on('click', '.remove7', function() {
+            $(this).closest('.parent7').remove();
         });
-         var html2 =
-         `
-         <div class="parent2 "><hr/>
-        <div class="row g-3">
-            <div class="col-md-2">
-                <label for="research_paper">Title of the Research Paper</label>
-                <input type="text" id="research_paper" name="research_paper[]" class="form-control"
-                    placeholder="Title of the Research Paper" aria-label="research_paper">
+        var html8 =
+            `
+            <div class="parent8">
+        <div class="row">
+            (b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
+        </div>
+        <div class="row mt-3">
+            <div class="col-4">
+                <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
+                <select class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example" name="type[]">
+                    <option selected disabled hidden>Open this select menu</option>
+                    <option value="6">CHAPTER OR RESEARCH PAPER</option>
+                    <option value="7">BOOK</option>
+                </select>
             </div>
-            <div class="col-md-2">
-                <label for="name_journal">Name of the Journal</label>
-                <input type="text" id="name_journal" name="name_journal[]" class="form-control"
-                    placeholder="Name of the Journal" aria-label="name_journal">
+            <div class="col">
+                <label class="fieldlabels">Title of the Book:</label> <input  type="text" name="title[]" placeholder="Title_of_the_Book" />
             </div>
-            <div class="col-md-2">
-                <label for="vol_pp_year">Vol., PP No. & Year</label>
-                <input type="text" id="vol_pp_year" name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year"
-                    aria-label="Vol., PP No. & Year">
+            <div class="col">
+                <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" />
             </div>
-            <div class="col-md-2">
-                <label for="impact_factor*">Impact Factor*</label>
-                <input type="text" id="impact_factor" name="impact_factor[]" class="form-control" placeholder="Impact Factor"
-                    aria-label="impact_factor">
+            <div class="col">
+                <label class="fieldlabels">Co_Author(s):</label> <input type="text"
+                    name="co_auther[]" placeholder="Co_Author(s)" />
             </div>
-            <div class="col-md-2">
-                <label for="name_authors*">Number of authors</label>
-                <input type="text" id="name_authors" name="name_authors[]" class="form-control" placeholder="Number of authors"
-                    aria-label="name_authors">
-            </div>
-            <div class="col-md-2">
-                <label for="research_file">File</label>
-                <input type="file" id="research_file" name="research_file[]" class="form-control" placeholder="research_file"
-                    aria-label="research_file">
+            <div class="col">
+                <label class="fieldlabels">File (Attachement):</label> 
+                <input type="file" name="book_file[]" placeholder="File" />
             </div>
         </div>
-        <div class="row g-3">
-            <div class="col-sm-4">
-                <label for="authorship*">Type of Authorship (First author/corresponding author/principal/co-author)</label>
-                <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship"
-                    aria-label="authorship">
+        <div class="row mt-2">
+            <div class="col">
+                <label class="fieldlabels">ISBN</label>
+                <input type="text" name="isbn[]" placeholder="duration_to" />
             </div>
-            <div class="col-sm-2">
-                <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
-                <select name="UGC_listed_journals[]" class="form-control" id="">
-                <option >UGC care listed</option>    
-                <option >UGC approved</option>    
-                <option >Peer Review General</option> 
-                <option >Other</option>   
-            </select> 
+            <div class="col">
+                <label class="fieldlabels">Name of the Publisher</label>
+                <input type="text" name="publisher[]"
+                    placeholder="Name of the Publisher " />
             </div>
-            <div class="col-sm-2">
-                <label for="verified_committee*">Verified by the Committee</label>
-                <input type="text" id="verified_committee" name="verified_committee_c[]" class="form-control" placeholder="Verified by the Committee"
-                    aria-label="verified_committee">
+            <div class="col">
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year" />
             </div>
-            <div class="col-sm-2">
-                <label for="claimed_score*">Claimed Score</label>
-                <input type="number" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
-                    aria-label="claimed_score">
+            <div class="col">
+                <label class="fieldlabels">Claimed Score</label>
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
             </div>
-            <div class="col-sm-1">
-                <label for="Encl*">Encl.No.</label>
-                <input type="text" id="Encl" name="encl_no_c[]" class="form-control" placeholder="Encl.No"
-                    aria-label="Encl">
+            <div class="col">
+                <label class="fieldlabels">Verified Score</label>
+                <input type="text" name="iqac_score[]"
+                    placeholder="Verified Score" />
             </div>
-            <div class="col-md-1 mt-5">
-                <button type="button" class="btn btn-danger remove2 mt">-</button>
+            <div class="col">
+                <label class="fieldlabels">Encl. No.</label>
+                <input type="text" name="book_encl_no[]" placeholder="Encl. No." />
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-danger remove8 mt-3">-</button>
             </div>
         </div>
+        <hr>
     </div>
-         `;
-    $(document).on('click', '.add2', function() {
-            $('.add_input2').append(html2);
+            `;
+        $(document).on('click', '.add8', function() {
+            $('.add_input8').append(html8);
         });
-        $(document).on('click', '.remove2', function() {
-            $(this).closest('.parent2').remove();
+        $(document).on('click', '.remove8', function() {
+            $(this).closest('.parent8').remove();
         });
-    });
-</script>
+        var html9 =
+            ` 
+            <div class="parent9 ">
+        <div class="row mt-2">
+            <div class="col">
+                <label class="fieldlabels">Select Type</label>
+                <select class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example" name="ict_type[]">
+                    <option selected disabled hidden>Open this select menu</option>
+                    <optgroup label="PEDAGOGY">
+                        <option value="1"> DEVELOPMENT OF INNOVATIVE PEDAGOGY</option>
+                        <option value="2">DESIGN OF NEW CURRICULA AND COURSES</option>
+                    </optgroup>
+                    <optgroup label="MOOCs">
+                        <option value="3">Development of complete MOOCs in 4 quadrants
+                            (4 credit course) (In case of MOOCs of lesser
+                            credits 05 marks/credit)
+                        </option>
+                        <option value="4">MOOCs (developed in 4 quadrant) per
+                            module/lecture</option>
+                        <option value="5">Content writer/subject matter expert for
+                            each module of MOOCs (at least one quadrant)
+                        </option>
+                        <option value="6">
+                            Course Coordinator for MOOCs (4 credit course)(In case of MOOCs
+                            of lesser credits 02 marks/credit)
+                        </option>
+                    </optgroup>
+                    <optgroup label="E-CONTENT">
+                        <option value="7">Development of e-Content in 4 quadrants for
+                            a complete course/e-book
+                        </option>
+                        <option value="8">e-Content (developed in 4 quadrants) per
+                            module</option>
+                        <option value="9">Contribution to development of e-content
+                            module in complete course/paper/e-book (at least one
+                            quadrant)
+                        </option>
+                        <option value="10">
+                            Editor of e-content for complete course/ paper /e-book
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Activity*</label> <input type="text"
+                    name="ict_activity[]" placeholder="Activity*" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Claimed Score</label> <input type="number"
+                    name="ict_claimed_score[]" placeholder="Claimed Score" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <label class="fieldlabels">Verified by the Committee</label>
+                <input type="text" name="ict_committee[]"
+                    placeholder="Verified by the Committee" />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">Encl. No.</label>
+                <input type="text" name="ict_encl_no[]" placeholder="Encl. No." />
+            </div>
+            <div class="col">
+                <label class="fieldlabels">File</label>
+                <input type="file" name="ict_file[]" placeholder="File" />
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-danger remove9 mt-4">-</button>
+            </div>
+        </div>
+        <hr>
+        </div>
+            `;
+            $(document).on('click', '.add9', function() {
+                $('.add_input9').append(html9);
+            });
+            $(document).on('click', '.remove9', function() {
+                $(this).closest('.parent9').remove();
+            });
+        });
+    </script>
 @endsection

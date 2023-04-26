@@ -26,8 +26,8 @@
 
         .photo {
             height: 170px;
-            border: 2px solid;
             width: 140px;
+            border: 2px solid;
             position: absolute;
             right: 100px;
             top: 460px;
@@ -103,7 +103,7 @@
             </div>
             <div class="photo">
                 @if($users->step1->profile_image)
-                 <img src="{{ asset('storage/'.$users->step1->profile_image) }}" />
+                 <img src="{{ asset('storage/'.$users->step1->profile_image) }}" style="height: 170px;width: 140px;" />
                 @else
                 N/A
                 @endif

@@ -290,10 +290,10 @@
                                 @endisset>Level 10</option>
                             <option value="l11" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l11')
                                 @endisset>Level 11</option>
-                                <option value="l12" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l12')
-                                    @endisset>Level 12</option>
-                                    <option value="l13a" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l13a')
-                                        @endisset>Level 13a</option>
+                            <option value="l12" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l12')
+                                @endisset>Level 12</option>
+                            <option value="l13a" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l13a')
+                                @endisset>Level 13a</option>
                         </select>
                     </div>
                     <div class="col">
@@ -352,10 +352,10 @@
                                             @selected($user->step3_c[$k]->level=='l10') @endisset>Level 10</option>
                                         <option value="l11" @isset($user->step3_c[$k])
                                             @selected($user->step3_c[$k]->level=='l11') @endisset>Level 11</option>
-                                            <option value="l12" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l12')
-                                                @endisset>Level 12</option>
-                                                <option value="l13a" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l13a')
-                                                    @endisset>Level 13a</option>
+                                        <option value="l12" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l12')
+                                            @endisset>Level 12</option>
+                                        <option value="l13a" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l13a')
+                                            @endisset>Level 13a</option>
                                     </select>
                                 </div>
                                 <div class="col">
@@ -542,7 +542,7 @@
                                         </div>\
                                         <div class="col">\
                                             <label for="service_file">File</label>\
-                                            <input type="file" id="service_file." name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." value="{{ $user->step3_b[0]->file??'' }}">\
+                                            <input type="file" id="service_file." name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." >\
                                         </div>\
                                     </div>\
                                     <div class="row g-3">\

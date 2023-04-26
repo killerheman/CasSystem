@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\ImageUpload;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,12 +36,17 @@ class PartAAcademicQualification extends Model
                     'marks_obtained_out_of_or_cgpa_grade'=>$req->marks_obtained_out_of_or_cgpa_grade[$k],
                     'class_with_%'=>$req->class_with[$k], 
                     ]);
+                    if($qualification){
+                        if($req->hasFile('file')){
+                            isset($req->file[$k])?$qualification->update(['file'=>ImageUpload::simpleUpload('certificate',$req->file[$k],'q-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                        }
+                    }
                 }
 
                 // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU
                 PartAAcademicServicePrior::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
                 foreach($req->institution as $k=>$qualification){
-                    PartAAcademicServicePrior::create([
+                   $lnmu= PartAAcademicServicePrior::create([
                         'promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,
                        'institution'=>$req->institution[$k]??'',
                         'designation'=>$req->designation[$k]??'',
@@ -56,6 +62,11 @@ class PartAAcademicQualification extends Model
                        'encl_no'=> $req->encl_no[$k]??'',
                         'remark'=>$req->remark[$k]??''
                     ]);
+                    if($lnmu){
+                        if($req->hasFile('service_file')){
+                            isset($req->service_file[$k])?$lnmu->update(['file'=>ImageUpload::simpleUpload('certificate',$req->service_file[$k],'sf-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                        }
+                    }
                 }
 
                 // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
@@ -73,6 +84,11 @@ class PartAAcademicQualification extends Model
                         'encl_no'=>$req->lnmu_encl_no[$k]??'',
                         'remarks'=>$req->remarks[$k]??''
                     ]);
+                    if($d){
+                        if($req->hasFile('step3c_experience_file')){
+                            isset($req->step3c_experience_file[$k])?$d->update(['file'=>ImageUpload::simpleUpload('certificate',$req->step3c_experience_file[$k],'ex-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                        }
+                    }
                 }
 
                 Auth::guard('promotion_app_user')->user()->step==2?Auth::guard('promotion_app_user')->user()->increment('step'):'';

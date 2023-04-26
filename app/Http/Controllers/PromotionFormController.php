@@ -211,8 +211,8 @@ class PromotionFormController extends Controller
                 ]);
                 if ($d) {
                     if ($req->hasFile('activity_file')) {
-                        $req->activity_file[$k] ? $file = ImageUpload::simpleUpload('certificate', $req->activity_file[$k], Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
-                        $req->activity_file[$k] ? $d->update(['A1_file' => $file]) : '';
+                        isset($req->activity_file[$k]) ? $file = ImageUpload::simpleUpload('certificate', $req->activity_file[$k], Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
+                       isset($req->activity_file[$k]) ? $d->update(['A1_file' => $file]) : '';
                     }
                 }
             }
@@ -231,8 +231,8 @@ class PromotionFormController extends Controller
                 ]);
                 if ($d1) {
                     if ($req->hasFile('involment_file')) {
-                        $req->involment_file[$k] ? $file = ImageUpload::simpleUpload('certificate', $req->activity_file[$k], Auth::guard('promotion_app_user')->user()->id . '-inv-') : '';
-                        $req->involment_file[$k] ? $d1->update(['file' => $file]) : '';
+                        isset($req->involment_file[$k]) ? $file = ImageUpload::simpleUpload('certificate', $req->activity_file[$k], Auth::guard('promotion_app_user')->user()->id . '-inv-') : '';
+                       isset($req->involment_file[$k]) ? $d1->update(['file' => $file]) : '';
                     }
                 }
             }
@@ -254,8 +254,8 @@ class PromotionFormController extends Controller
                 ]);
                 if ($d2) {
                     if ($req->hasFile('research_file')) {
-                        $req->research_file[$k] ? $file = ImageUpload::simpleUpload('certificate', $req->research_file[$k], Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
-                        $req->research_file[$k] ? $d2->update(['file' => $file]) : '';
+                        isset($req->research_file[$k]) ? $file = ImageUpload::simpleUpload('certificate', $req->research_file[$k], Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
+                        isset($req->research_file[$k]) ? $d2->update(['file' => $file]) : '';
                     }
                 }
             }

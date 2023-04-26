@@ -458,7 +458,7 @@
                                 <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->type_authorship??'' }} @endisset">
                             </div>
                             <div class="col-sm-2">
-                                <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
+                                <label for="UGC_listed_journals*">Narure Journals</label>
                                 <input type="text" id="UGC_listed_journals" name="UGC_listed_journals[]" class="form-control" placeholder="UGC listed Journals" aria-label="UGC_listed_journals" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->sr_in_ugc??'' }} @endisset">
                             </div>
                             <div class="col-sm-2">
@@ -570,7 +570,7 @@
             <div class="col-md-3">
                 <label for="academicyear">Academic Year</label>
                 
-                <input type="text" class="form-control" name="acadmicYears[]" >
+                <input type="text" class="form-control" name="acadmicYear_b[]" >
             </div>
             <div class="col-md-3">
                 <label for="academicyear">Activity</label>
@@ -687,7 +687,7 @@
                     aria-label="authorship">
             </div>
             <div class="col-sm-2">
-                <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
+                <label for="UGC_listed_journals*">Narure Journals</label>
                 <select name="UGC_listed_journals[]" class="form-control" id="">
                 <option >UGC care listed</option>    
                 <option >UGC approved</option>    

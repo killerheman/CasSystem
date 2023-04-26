@@ -111,7 +111,7 @@ class PromotionFormController extends Controller
     public function step4_store(Request $req)
     {
         $data = $req->only([
-            'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
+            'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
             'conferences_seminars_national_papers_presented', 'conferences_seminars__state_level_papers_presented', 'conferences_seminars_total_papers_presented',
             'awards_prizes_honours_recognitions', 'specialization_in_the_subject_discipline', ''
         ]);

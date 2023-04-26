@@ -296,7 +296,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Encl. No.</label>
@@ -343,7 +343,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Encl. No.</label>
@@ -393,7 +393,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score"
+                                            <input type="number" name="Claimed_Score"
                                                 placeholder="Claimed Score"/>
                                         </div>
                                         <div class="col-1">
@@ -542,7 +542,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Encl. No.</label>
@@ -593,7 +593,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Encl. No.</label>
@@ -643,7 +643,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score"
+                                            <input type="number" name="Claimed_Score"
                                                 placeholder="Claimed Score"/>
                                         </div>
                                         <div class="col-1">

@@ -242,7 +242,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
-                    <input type="text" id="claimed_score" name="claimed_score" class="form-control" placeholder="Claimed Score"
+                    <input type="number" id="claimed_score" name="claimed_score" class="form-control" placeholder="Claimed Score"
                         aria-label="claimed_score">
                 </div>
                 <div class="col-sm-1">
@@ -496,7 +496,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
-                    <input type="text" id="claimed_score" name="claimed_score" class="form-control" placeholder="Claimed Score"
+                    <input type="number" id="claimed_score" name="claimed_score" class="form-control" placeholder="Claimed Score"
                         aria-label="claimed_score">
                 </div>
                 <div class="col-sm-1">

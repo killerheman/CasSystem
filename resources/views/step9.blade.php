@@ -280,7 +280,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                             <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                             <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -324,7 +324,7 @@
                                                 placeholder="Year" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Claimed Score</label> <input type="text"
+                                            <label class="fieldlabels">Claimed Score</label> <input type="number"
                                                 name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
@@ -375,7 +375,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>
@@ -436,7 +436,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>
@@ -562,7 +562,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                             <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                             <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -603,7 +603,7 @@
                                                 placeholder="Year" />
                                         </div>
                                         <div class="col">
-                                            <label class="fieldlabels">Claimed Score</label> <input type="text"
+                                            <label class="fieldlabels">Claimed Score</label> <input type="number"
                                                 name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                     </div>
@@ -653,7 +653,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>
@@ -711,7 +711,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Claimed Score</label>
-                                            <input type="text" name="Claimed_Score" placeholder="Claimed Score" />
+                                            <input type="number" name="Claimed_Score" placeholder="Claimed Score" />
                                         </div>
                                         <div class="col">
                                             <label class="fieldlabels">Verified by the Committee</label>

@@ -58,17 +58,17 @@
                     placeholder="Name of the Publisher" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher??'' }}" @endisset/>
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder=",Month, Year" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher_month_year??'' }}" @endisset />
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher_month_year??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[0]) value="{{ $user->step7[0]->claimed_score??'' }}" @endisset />
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[0]) value="{{ $user->step7[0]->claimed_score??'' }}" @endisset />
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
+                <label class="fieldlabels"> Verified Score</label>
                 <input type="text" name="iqac_score[]"
-                    placeholder="IQAC Verified Score" @isset($user->step7[0]) value="{{ $user->step7[0]->verify_by_committee??'' }}" @endisset />
+                    placeholder=" Verified Score" @isset($user->step7[0]) value="{{ $user->step7[0]->verify_by_committee??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -128,17 +128,17 @@
                                 placeholder="Name of the Publisher" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher??'' }}" @endisset/>
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">,Month, Year</label>
-                            <input type="month" name="publish_date[]" placeholder=",Month, Year" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher_month_year??'' }}" @endisset />
+                            <label class="fieldlabels">Month, Year</label>
+                            <input type="month" name="publish_date[]" placeholder="Month, Year" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher_month_year??'' }}" @endisset />
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Claimed Score</label>
-                            <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->claimed_score??'' }}" @endisset />
+                            <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->claimed_score??'' }}" @endisset />
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">IQAC Verified Score</label>
+                            <label class="fieldlabels">Verified Score</label>
                             <input type="text" name="iqac_score[]"
-                                placeholder="IQAC Verified Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->verify_by_committee??'' }}" @endisset />
+                                placeholder="Verified Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->verify_by_committee??'' }}" @endisset />
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Encl. No.</label>
@@ -199,15 +199,15 @@
                     placeholder="Name of the Publisher " value="{{ isset($step7_a[0]->publisher)?$step7_a[0]->publisher:'' }}" />
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder=",Month, Year"  value="{{ isset($step7_a[0]->publisher_month_year)?$step7_a[0]->publisher_month_year:'' }}"/>
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year"  value="{{ isset($step7_a[0]->publisher_month_year)?$step7_a[0]->publisher_month_year:'' }}"/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[0]->claimed_score)?$step7_a[0]->claimed_score:'' }}"/>
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[0]->claimed_score)?$step7_a[0]->claimed_score:'' }}"/>
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
+                <label class="fieldlabels">Verified Score</label>
                 <input type="text" name="iqac_score[]" placeholder="IQAC Verified Score" value="{{ isset($step7_a[0]->verify_by_committee)?$step7_a[0]->verify_by_committee:'' }}" />
             </div>
             <div class="col">
@@ -259,16 +259,16 @@
                         placeholder="Name of the Publisher " value="{{ isset($step7_a[$j]->publisher)?$step7_a[$j]->publisher:'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">,Month, Year</label>
-                    <input type="month" name="publish_date[]" placeholder=",Month, Year"  value="{{ isset($step7_a[$j]->publisher_month_year)?$step7_a[$j]->publisher_month_year:'' }}"/>
+                    <label class="fieldlabels">Month, Year</label>
+                    <input type="month" name="publish_date[]" placeholder="Month, Year"  value="{{ isset($step7_a[$j]->publisher_month_year)?$step7_a[$j]->publisher_month_year:'' }}"/>
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Claimed Score</label>
-                    <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[$j]->claimed_score)?$step7_a[$j]->claimed_score:'' }}"/>
+                    <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[$j]->claimed_score)?$step7_a[$j]->claimed_score:'' }}"/>
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">IQAC Verified Score</label>
-                    <input type="text" name="iqac_score[]" placeholder="IQAC Verified Score" value="{{ isset($step7_a[$j]->verify_by_committee)?$step7_a[$j]->verify_by_committee:'' }}" />
+                    <label class="fieldlabels">Verified Score</label>
+                    <input type="text" name="iqac_score[]" placeholder="Verified Score" value="{{ isset($step7_a[$j]->verify_by_committee)?$step7_a[$j]->verify_by_committee:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Encl. No.</label>
@@ -338,7 +338,7 @@
                     name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->activity??'' }}" @endisset/>
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label> <input type="text"
+                <label class="fieldlabels">Claimed Score</label> <input type="number"
                     name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->claimed_score??'' }}" @endisset />
             </div>
         </div>
@@ -411,7 +411,7 @@
                                 name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->activity??'' }}" @endisset/>
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">Claimed Score</label> <input type="text"
+                            <label class="fieldlabels">Claimed Score</label> <input type="number"
                                 name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->claimed_score??'' }}" @endisset />
                         </div>
                     </div>
@@ -503,17 +503,17 @@
                     placeholder="Name of the Publisher" />
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder=",Month, Year" />
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" />
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
+                <label class="fieldlabels">Verified Score</label>
                 <input type="text" name="iqac_score[]"
-                    placeholder="IQAC Verified Score" />
+                    placeholder="Verified Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -574,17 +574,17 @@
                     placeholder="Name of the Publisher " />
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder=",Month, Year" />
+                <label class="fieldlabels">Month, Year</label>
+                <input type="month" name="publish_date[]" placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="book_claimed_Score[]" placeholder="Claimed Score" />
+                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
+                <label class="fieldlabels">Verified Score</label>
                 <input type="text" name="iqac_score[]"
-                    placeholder="IQAC Verified Score" />
+                    placeholder="Verified Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -652,7 +652,7 @@
                     name="ict_activity[]" placeholder="Activity*" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label> <input type="text"
+                <label class="fieldlabels">Claimed Score</label> <input type="number"
                     name="ict_claimed_score[]" placeholder="Claimed Score" />
             </div>
         </div>
@@ -732,19 +732,19 @@
                     <div class="col">
                         <label class="fieldlabels">Name of the Publisher</label>
                         <input type="text" name="Name_of_the_Publisher_Month_Year[]"
-                            placeholder="Name of the Publisher,Month, Year" />
+                            placeholder="Name of the Publisher" />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">,Month, Year</label>
-                        <input type="month" name="Month_Year[]" placeholder=",Month, Year" />
+                        <label class="fieldlabels">Month, Year</label>
+                        <input type="month" name="Month_Year[]" placeholder="Month, Year" />
                     </div>
                     <div class="col">
                         <label class="fieldlabels">Claimed Score</label>
-                        <input type="text" name="Claimed_Score[]" placeholder="Claimed Score" />
+                        <input type="number" name="Claimed_Score[]" placeholder="Claimed Score" />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">IQAC Verified Score</label>
-                        <input type="text" name="IQAC_Verified_Score[]" placeholder="IQAC Verified Score" />
+                        <label class="fieldlabels">Verified Score</label>
+                        <input type="text" name="IQAC_Verified_Score[]" placeholder="Verified Score" />
                     </div>
                     <div class="col">
                         <label class="fieldlabels">Encl. No.</label>
@@ -797,19 +797,19 @@
                     <div class="col">
                         <label class="fieldlabels">Name of the Publisher</label>
                         <input type="text" name="Name_of_the_Publisher_Month_Year_a[]"
-                            placeholder="Name of the Publisher,Month, Year" />
+                            placeholder="Name of the Publisher Month, Year" />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">,Month, Year</label>
-                        <input type="month" name="Month_Year" placeholder=",Month, Year" />
+                        <label class="fieldlabels">Month, Year</label>
+                        <input type="month" name="Month_Year" placeholder="Month, Year" />
                     </div>
                     <div class="col">
                         <label class="fieldlabels">Claimed Score</label>
-                        <input type="text" name="Claimed_Score_a[]" placeholder="Claimed Score" />
+                        <input type="number" name="Claimed_Score_a[]" placeholder="Claimed Score" />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">IQAC Verified Score</label>
-                        <input type="text" name="IQAC_Verified_Score_a[]" placeholder="IQAC Verified Score" />
+                        <label class="fieldlabels">Verified Score</label>
+                        <input type="text" name="IQAC_Verified_Score_a[]" placeholder="Verified Score" />
                     </div>
                     <div class="col">
                         <label class="fieldlabels">Encl. No.</label>
@@ -876,7 +876,7 @@
                             placeholder="Activity*" />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">Claimed Score</label> <input type="text" name="Claimed_Score"
+                        <label class="fieldlabels">Claimed Score</label> <input type="number" name="Claimed_Score"
                             placeholder="Claimed Score" />
                     </div>
                 </div>
@@ -952,20 +952,20 @@
             <div class="col">
                 <label class="fieldlabels">Name of the Publisher</label>
                 <input type="text" name="Name_of_the_Publisher_Month_Year"
-                    placeholder="Name of the Publisher,Month, Year" />
+                    placeholder="Name of the Publisher Month, Year" />
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
+                <label class="fieldlabels">Month, Year</label>
                 <input type="month" name="Month_Year"
-                    placeholder=",Month, Year" />
+                    placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score" placeholder="Claimed Score"/>
+                <input type="number" name="Claimed_Score" placeholder="Claimed Score"/>
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
-                <input type="text" name="IQAC_Verified_Score" placeholder="IQAC Verified Score"/>
+                <label class="fieldlabels"> Verified Score</label>
+                <input type="text" name="IQAC_Verified_Score" placeholder=" Verified Score"/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -1014,20 +1014,20 @@
             <div class="col">
                 <label class="fieldlabels">Name of the Publisher</label>
                 <input type="text" name="Name_of_the_Publisher_Month_Year"
-                    placeholder="Name of the Publisher,Month, Year" />
+                    placeholder="Name of the Publisher Month, Year" />
             </div>
             <div class="col">
-                <label class="fieldlabels">,Month, Year</label>
+                <label class="fieldlabels">Month, Year</label>
                 <input type="month" name="Month_Year"
-                    placeholder=",Month, Year" />
+                    placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score" placeholder="Claimed Score"/>
+                <input type="number" name="Claimed_Score" placeholder="Claimed Score"/>
             </div>
             <div class="col">
-                <label class="fieldlabels">IQAC Verified Score</label>
-                <input type="text" name="IQAC_Verified_Score" placeholder="IQAC Verified Score"/>
+                <label class="fieldlabels">Verified Score</label>
+                <input type="text" name="IQAC_Verified_Score" placeholder="Verified Score"/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -1091,7 +1091,7 @@
                                             name="Activity*" placeholder="Activity*" />
                                     </div>
                                     <div class="col">
-                                        <label class="fieldlabels">Claimed Score</label> <input type="text"
+                                        <label class="fieldlabels">Claimed Score</label> <input type="number"
                                             name="Claimed_Score" placeholder="Claimed Score" />
                                     </div>
                                 </div>

@@ -397,7 +397,7 @@
                <select name="UGC_listed_journals[]" class="form-control" id="">
                 <option >UGC care listed</option>    
                 <option >UGC approved</option>    
-                <option >Peer Review General</option> 
+                <option >Peer Review Journal</option> 
                 <option >Other</option>   
             </select> 
             </div>
@@ -408,7 +408,7 @@
             </div>
             <div class="col-sm-2">
                 <label for="claimed_score*">Claimed Score</label>
-                <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
+                <input type="number" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
                     aria-label="claimed_score" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->claimed_score??'' }} @endisset">
             </div>
             <div class="col-sm-1">
@@ -446,7 +446,7 @@
                                     aria-label="impact_factor" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->impact_factor??'' }} @endisset">
                             </div>
                             <div class="col-md-2">
-                                <label for="name_authors*">Number of authors</label>
+                                <label for="name_authors*">Number of Authors</label>
                                 <input type="text" id="name_authors" name="name_authors[]" class="form-control" placeholder="Number of authors"
                                     aria-label="name_authors" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->no_authors??'' }} @endisset">
                             </div>
@@ -475,7 +475,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <label for="claimed_score*">Claimed Score</label>
-                                <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
+                                <input type="number" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
                                     aria-label="claimed_score" value="@isset($user->step6_c[$g]) {{ $user->step6_c[$g]->claimed_score??'' }} @endisset">
                             </div>
                             <div class="col-sm-1">
@@ -759,7 +759,7 @@
             </div>
             <div class="col-sm-2">
                 <label for="claimed_score*">Claimed Score</label>
-                <input type="text" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
+                <input type="number" id="claimed_score" name="claimed_score[]" class="form-control" placeholder="Claimed Score"
                     aria-label="claimed_score">
             </div>
             <div class="col-sm-1">

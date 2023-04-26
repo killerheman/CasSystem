@@ -28,7 +28,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                 <input type="text" name="claimed_score[]" placeholder="Claimed Score" @isset($patents[0]) value="{{ $patents[0]->claimed_score??'' }}" @endisset/>
+                 <input type="number" name="claimed_score[]" placeholder="Claimed Score" @isset($patents[0]) value="{{ $patents[0]->claimed_score??'' }}" @endisset/>
             </div>
         </div>
         <div class="row mt-2">
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col">
                                     <label class="fieldlabels">Claimed Score</label>
-                                     <input type="text" name="claimed_score[]" placeholder="Claimed Score" @isset($patents[$j]) value="{{ $patents[$j]->claimed_score??'' }}" @endisset/>
+                                     <input type="number" name="claimed_score[]" placeholder="Claimed Score" @isset($patents[$j]) value="{{ $patents[$j]->claimed_score??'' }}" @endisset/>
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -118,7 +118,7 @@
                 <label class="fieldlabels">Year</label> <input type="text" name="year_b[]" placeholder="Year" @isset($policies[0]) value="{{ $policies[0]->year??'' }}" @endisset />
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label> <input type="text" name="claimed_score_b[]" placeholder="Claimed Score"  @isset($policies[0]) value="{{ $policies[0]->claimed_score??'' }}" @endisset/>
+                <label class="fieldlabels">Claimed Score</label> <input type="number" name="claimed_score_b[]" placeholder="Claimed Score"  @isset($policies[0]) value="{{ $policies[0]->claimed_score??'' }}" @endisset/>
             </div>
         </div>
         <div class="row mt-2">
@@ -156,7 +156,7 @@
                         <label class="fieldlabels">Year</label> <input type="text" name="year_b[]" placeholder="Year" @isset($policies[$j]) value="{{ $policies[$j]->year??'' }}" @endisset />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">Claimed Score</label> <input type="text" name="claimed_score_b[]" placeholder="Claimed Score"  @isset($policies[$j]) value="{{ $policies[$j]->claimed_score??'' }}" @endisset/>
+                        <label class="fieldlabels">Claimed Score</label> <input type="number" name="claimed_score_b[]" placeholder="Claimed Score"  @isset($policies[$j]) value="{{ $policies[$j]->claimed_score??'' }}" @endisset/>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -212,7 +212,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="claimed_score[]" placeholder="Claimed Score" @isset($user->step9_b[0]) value="{{ $user->step9_b[0]->claimed_score }}" @endisset />
+                <input type="number" name="claimed_score[]" placeholder="Claimed Score" @isset($user->step9_b[0]) value="{{ $user->step9_b[0]->claimed_score }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
@@ -260,7 +260,7 @@
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Claimed Score</label>
-                                <input type="text" name="claimed_score[]" placeholder="Claimed Score" @isset($user->step9_b[$j]) value="{{ $user->step9_b[$j]->claimed_score }}" @endisset />
+                                <input type="number" name="claimed_score[]" placeholder="Claimed Score" @isset($user->step9_b[$j]) value="{{ $user->step9_b[$j]->claimed_score }}" @endisset />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Verified by the Committee</label>
@@ -331,7 +331,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="inv_claimed_score[]" placeholder="Claimed Score" @isset($user->step9_c[0]) value="{{ $user->step9_c[0]->claimed_score??'' }}"  @endisset  />
+                <input type="number" name="inv_claimed_score[]" placeholder="Claimed Score" @isset($user->step9_c[0]) value="{{ $user->step9_c[0]->claimed_score??'' }}"  @endisset  />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
@@ -389,7 +389,7 @@
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Claimed Score</label>
-                                <input type="text" name="inv_claimed_score[]" placeholder="Claimed Score" @isset($user->step9_c[$k]) value="{{ $user->step9_c[$k]->claimed_score??'' }}"  @endisset  />
+                                <input type="number" name="inv_claimed_score[]" placeholder="Claimed Score" @isset($user->step9_c[$k]) value="{{ $user->step9_c[$k]->claimed_score??'' }}"  @endisset  />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Verified by the Committee</label>
@@ -449,7 +449,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                 <input type="text" name="claimed_score[]" placeholder="Claimed Score" />
+                 <input type="number" name="claimed_score[]" placeholder="Claimed Score" />
             </div>
         </div>
         <div class="row mt-2">
@@ -496,7 +496,7 @@
                 <label class="fieldlabels">Year</label> <input type="text" name="year_b[]" placeholder="Year" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label> <input type="text" name="claimed_score_b[]" placeholder="Claimed Score" />
+                <label class="fieldlabels">Claimed Score</label> <input type="number" name="claimed_score_b[]" placeholder="Claimed Score" />
             </div>
         </div>
         <div class="row mt-2">
@@ -551,7 +551,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="claimed_score[]" placeholder="Claimed Score" />
+                <input type="number" name="claimed_score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>

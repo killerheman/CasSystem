@@ -45,7 +45,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score[]" placeholder="Claimed Score" @isset($phd[0]) value="{{ $phd[0]->claimed_score??'' }}" @endisset />
+                <input type="number" name="Claimed_Score[]" placeholder="Claimed Score" @isset($phd[0]) value="{{ $phd[0]->claimed_score??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Claimed Score</label>
-                            <input type="text" name="Claimed_Score[]" placeholder="Claimed Score" @isset($phd[0]) value="{{ $phd[0]->claimed_score??'' }}" @endisset />
+                            <input type="number" name="Claimed_Score[]" placeholder="Claimed Score" @isset($phd[0]) value="{{ $phd[0]->claimed_score??'' }}" @endisset />
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Encl. No.</label>
@@ -149,7 +149,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score_b[]" placeholder="Claimed Score" @isset($mphil[0]) value="{{ $mphil[0]->claimed_score??'' }}" @endisset />
+                <input type="number" name="Claimed_Score_b[]" placeholder="Claimed Score" @isset($mphil[0]) value="{{ $mphil[0]->claimed_score??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -197,7 +197,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Claimed Score</label>
-                            <input type="text" name="Claimed_Score_b[]" placeholder="Claimed Score" @isset($mphil[$j]) value="{{ $mphil[$j]->claimed_score??'' }}" @endisset />
+                            <input type="number" name="Claimed_Score_b[]" placeholder="Claimed Score" @isset($mphil[$j]) value="{{ $mphil[$j]->claimed_score??'' }}" @endisset />
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Encl. No.</label>
@@ -212,7 +212,7 @@
             @endisset
             <div class="row">
                 <div class="col">
-                    <span class="text-danger">Note :</span> Attacement certitifacte duly certified by the HOD.
+                    <span class="text-danger">Note :</span> Attachement certitifacte duly certified by the Head Of Department.
                 </div>
             </div>
         </div>
@@ -261,7 +261,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score[]"
+                <input type="number" name="Claimed_Score[]"
                     placeholder="Claimed Score" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->claimed_score??'' }}" @endisset/>
             </div>
             <div class="col">
@@ -324,8 +324,8 @@
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Claimed Score</label>
-                                <input type="text" name="Claimed_Score[]"
-                                    placeholder="Claimed Score" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->claimed_score??'' }}" @endisset/>
+                                <input type="number" name="Claimed_Score[]"
+                                    placeholder="" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->claimed_score??'' }}" @endisset/>
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Duration (from)</label>
@@ -407,8 +407,8 @@
                     placeholder="Verified by the Committee" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score[]" placeholder="Claimed Score" />
+                <label class="fieldlabels"></label>
+                <input type="number" name="Claimed_Score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -466,7 +466,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score_b[]" placeholder="Claimed Score" />
+                <input type="number" name="Claimed_Score_b[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -522,7 +522,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="text" name="Claimed_Score[]"
+                <input type="number" name="Claimed_Score[]"
                     placeholder="Claimed Score"/>
             </div>
             <div class="col">

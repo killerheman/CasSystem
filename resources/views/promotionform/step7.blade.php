@@ -1,6 +1,6 @@
 @extends('layout.teacher_promotion', ['activeClass' => 7])
 @section('content')
-<<<<<<< Updated upstream
+
 <form action="{{ route('promotion-form.step-7-store') }}" method="post" enctype="multipart/form-data">
     @csrf
 <div class="form-card">
@@ -1117,7 +1117,6 @@
             $(document).on('click', '.remove9', function() {
                 $(this).closest('.parent9').remove();
             });
->>>>>>> Stashed changes
         });
     </script>
 @endsection

@@ -77,7 +77,7 @@ class PromotionFormController extends Controller
     }
     public function step2_store(Request $req)
     {
-        $data = $req->except(['_token', 'next']);
+        $data = $req->except(['_token', 'next','submit']);
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
         $dt = PartAGeneralInfo::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
         if ($dt) {

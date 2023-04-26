@@ -18,4 +18,6 @@ class PromotionApplication extends Model
     {
        return explode(' ',$this->name)[1];
     }
+
+    
 }

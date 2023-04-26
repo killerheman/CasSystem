@@ -196,54 +196,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users->step3_a as $data)
                         <tr>
-                            <th scope="row">Graduate Degree (UG)</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">{{$data->qualifications??''}}</th>
+                            <td>{{$data->college_university??''}}</td>
+                            <td>{{$data->session??''}}</td>
+                            <td>{{$data->year_of_passing??''}}</td>
+                            <td>{{$data->marks_obtained_out_of_or_cgpa_grade??''}}</td>
+                            <td>{{$data->class_with??''}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">Post Graduate Degree (PG)</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Integrated IMA/IMSc/IMS(UG-PG)</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">M. Phil.</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Ph.D./D.Phil.</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Others (if any)</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -282,36 +244,23 @@
                         <th>Year</th>
                         <th>Months</th>
                     </tr>
+                    @foreach($users->step3_b as $data)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$data->institution??''}}</td>
+                        <td>{{$data->designation??''}}</td>
+                        <td>{{$data->nature_of_appointment??''}}</td>
+                        <td>{{$data->nature_of_duties}}</td>
+                        <td>{{$data->pay_scale_pay_band_and_a??''}}</td>
+                        <td>{{$data->duration_from??''}}</td>
+                        <td>{{$data->duration_to??''}}</td>
+                        <td>{{$data->experience_year}}</td>
+                        <td>{{$data->experience_months}}</td>
+                        <td>{{$data->minimum_qualification_for_the_post??''}}</td>
+                        <td>{{$data->highest_degree_obtained??''}}</td>
+                        <td>{{$data->remark??''}}</td>
+                        <td>{{$data->encl_no??''}}</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <p><b>22.RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER</b></p>
@@ -333,26 +282,18 @@
                         <th>Year</th>
                         <th>Months</th>
                     </tr>
+                    @foreach($users->step3_c as $data)
+
                     <tr>
-                        <td>Level 12</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Level 13A</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Level {{$data->level??''}}</td>
+                        <td>{{$data->designation??''}}</td>
+                        <td>{{$data->pay_scale_and_agp??''}}</td>
+                        <td>{{$data->duration_from??''}}</td>
+                        <td>{{$data->duration_to??''}}</td>
+                        <td>{{$data->experience_year??''}}</td>
+                        <td>{{$data->experience_months??''}}</td>
+                        <td>{{$data->remarks??''}}</td>
+                        <td>{{$data->encl_no??''}}</td>
 
                     </tr>
                     <tr>
@@ -361,6 +302,7 @@
                         <td></td>
 
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -374,8 +316,8 @@
                 <h5>23. TEACHING EXPERIENCE (UG/PG): </h5>
             </div>
             <div class="row p-2">
-                In Years: <span class="col-3 sp"></span>&nbsp;&nbsp;&nbsp;Period: &nbsp;From<span
-                    class="col-2 sp"></span> &nbsp;&nbsp;To<span class="col-2 sp"></span>
+                In Years: <span class="col-3 sp">{{$users->step4->ug_pg_in_years??''}}</span>&nbsp;Period: &nbsp;From<span
+                    class="col-2 sp">{{ $users->step4->ug_pg_from??'' }}</span> &nbsp;To<span class="col-2 sp">{{ $users->step4->ug_pg_to??'' }}</span>
             </div>
             <div class="row mt-3">
                 <h5>24. RESEARCH EXPERIENCE: (including M.Phil/Ph.D Duration) </h5>

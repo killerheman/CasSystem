@@ -103,7 +103,7 @@
             </div>
             <div class="photo">
                 @if($users->step1->profile_image)
-                 <img src="{{ asset($users->step1->profile_image) }}" />
+                 <img src="{{ asset('storage/'.$users->step1->profile_image) }}" />
                 @else
                 N/A
                 @endif

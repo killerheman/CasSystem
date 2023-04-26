@@ -28,6 +28,9 @@
                         <option value="2" {{!empty($user->step5[0])?($user->step5[0]->type=='2'?'selected':''):'' }}>
                             ORIENTATION/REFRESHER COURSE ATTENDED (ONLY UGC
                             RECOGNIZED):(Attach certificates)</option>
+                            <option value="3" {{!empty($user->step5[0])?($user->step5[0]->type=='3'?'selected':''):'' }}>
+                                Other
+                            </option>
                     </select>
                 </div>
                 <div class="col">
@@ -79,6 +82,9 @@
                                     <option value="2" {{!empty($user->step5[$j])?($user->step5[$j]->type=='2'?'selected':''):'' }}>
                                         ORIENTATION/REFRESHER COURSE ATTENDED (ONLY UGC
                                         RECOGNIZED):(Attach certificates)</option>
+                                        <option value="3" {{!empty($user->step5[$j])?($user->step5[$j]->type=='3'?'selected':''):'' }}>
+                                            Other
+                                        </option>
                                 </select>
                             </div>
                             <div class="col">
@@ -198,6 +204,9 @@
                     </option>
                     <option value="2" > ORIENTATION/REFRESHER COURSE ATTENDED (ONLY UGC
                         RECOGNIZED):(Attach certificates)</option>
+                        <option value="3">
+                                Other
+                        </option>
                 </select>
             </div>
             <div class="col">

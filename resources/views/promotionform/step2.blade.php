@@ -128,13 +128,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 pt-5">
                 <label class="fieldlabels">Address for Correspondence (with Pin Code): </label>
-                <textarea placeholder="Address" name="address_for_correspondence">{{ $user->step2->address_for_correspondence??'' }} </textarea>
+                <textarea placeholder="Address" id="address_for_correspondence" name="address_for_correspondence">{{ $user->step2->address_for_correspondence??'' }} </textarea>
             </div>
             <div class="col-6">
-                <label class="fieldlabels">Permanent Address (with Pin Code): </label>
-                <textarea placeholder="Permanent Address" name="permanent_address">{{ $user->step2->permanent_address??'' }} </textarea>
+                <div class="row">
+                    <div class="col">
+                        
+                        <label class="fieldlabels">Same as Correspondence Address</label>
+                        <input type="checkbox"  id="adcheck" class="ms-0 form-checkbox">
+                </div></div>
+                <div class="row">
+                    <label class="fieldlabels">Permanent Address (with Pin Code): </label>
+                    <textarea placeholder="Permanent Address" id="permanent_address" name="permanent_address">{{ $user->step2->permanent_address??'' }} </textarea>
+                </div>
+
 
             </div>
         </div>
@@ -151,4 +160,15 @@
         <a type="button" href="{{ route('promotion-form.step-1') }}" class="action-button">Previous</a>
     </form>
 </fieldset>
+@endsection
+
+
+@section('script')
+<script>
+    $(document).on('change','#adcheck',function(){
+        if(this.checked){
+        $('#permanent_address').val($('#address_for_correspondence').val());
+        }
+    })
+</script>
 @endsection

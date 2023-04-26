@@ -17,14 +17,15 @@
             <div class="row g-3">
                 <div class="col-sm-2">
                     <label for="academicyear">Academic Year</label>
-                    <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
+                    {{-- <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
                         <option selected disabled>Choose Years</option>
                         @for($i=1;$i<7;$i++) <option value="{{ $i }}" @isset($user->step6[0])
                             @selected($user->step6[0]->A1_academic_year==$i) @endisset>Year {{ $i }}</option>
                             @endfor
-                    </select>
+                    </select> --}}
+                    <input type="text" class="form-control" name="acadmicYears[]" @isset($user->step6[0]) value="{{ $user->step6[0]->A1_academic_year??'' }}" @endisset>
                 </div>
-                <div class="col-sm-2">
+                {{-- <div class="col-sm-2">
                     <label for="semester">Semester</label>
                     <select class="form-select form-select-lg mb-3" name="semester[]" aria-label="Default select example">
                         <option selected disabled>Choose Semester</option>
@@ -32,17 +33,19 @@
                             @selected($user->step6[0]->A1_semester==$i) @endisset>Sem {{ $i }}</option>
                             @endfor
                     </select>
-                </div>
+                </div> --}}
                 <div class="col-sm-5">
                     <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
                         100%</label>
                     <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                 </div>
-                <div class="col-sm-3">
-                    <label for="activity_file">File Attachement</label>
-                    <input type="file" id="activity_file" name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[0])
-                    {{ $user->step6[0]->A1_file?'required':'' }} @endisset >
-                    @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
+                <div class="col-sm-2">
+                    <label for="classes_Taught">Number of Classes Taught</label>
+                    <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
+                </div>
+                <div class="col-sm-2">
+                    <label for="class_Assigned">Total Classes Assigned</label>
+                    <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
                 </div>
             </div>
             <div class="row g-3">
@@ -54,13 +57,12 @@
                     <label for="claimed_candidate">Claimed by the Candidate</label>
                     <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->claimed_by_the_candidate }} @endisset" placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
                 </div>
-                <div class="col-sm-2">
-                    <label for="classes_Taught">Number of Classes Taught</label>
-                    <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
-                </div>
-                <div class="col-sm-2">
-                    <label for="class_Assigned">Total Classes Assigned</label>
-                    <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+                
+                <div class="col-sm-3">
+                    <label for="activity_file">File Attachement</label>
+                    <input type="file" id="activity_file" name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[0])
+                    {{ $user->step6[0]->A1_file?'required':'' }} @endisset >
+                    @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-sm-2">
                     <label for="remarks">Remarks</label>
@@ -82,15 +84,15 @@
                         <div class="row g-3">
                             <div class="col-sm-2">
                                 <label for="academicyear">Academic Year</label>
-                                <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
+                                {{-- <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
                                     <option selected disabled>Choose Years</option>
-                                    @for($i=1;$i<7;$i++) <option value="{{ $i }}" @isset($user->step6[$j])
-                                        @selected($user->step6[$j]->A1_academic_year==$i) @endisset>Year {{ $i }}
-                                        </option>
+                                    @for($i=1;$i<7;$i++) <option value="{{ $i }}" @isset($user->step6[0])
+                                        @selected($user->step6[0]->A1_academic_year==$i) @endisset>Year {{ $i }}</option>
                                         @endfor
-                                </select>
+                                </select> --}}
+                                <input type="text" class="form-control" name="acadmicYears[]" @isset($user->step6[$j]) value="{{ $user->step6[$j]->A1_academic_year??'' }}" @endisset>
                             </div>
-                            <div class="col-sm-2">
+                            {{-- <div class="col-sm-2">
                                 <label for="semester">Semester</label>
                                 <select class="form-select form-select-lg mb-3" name="semester[]" aria-label="Default select example">
                                     <option selected disabled>Choose Semester</option>
@@ -98,27 +100,11 @@
                                         @selected($user->step6[$j]->A1_semester==$i) @endisset>Sem {{ $i }}</option>
                                         @endfor
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-5">
                                 <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
                                     100%</label>
-                                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->teaching }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="activity_file">File Attachement</label>
-                                <input type="file" id="activity_file" name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
-                                {{ $user->step6[$j]->A1_file?'required':'' }} @endisset>
-                                @error('activity_file.'.$j) <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-sm-2">
-                                <label for="committee">Verified by the Committee</label>
-                                <input type="text" id="committee" name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6[$j]) {{ $user->step6[$j]->varified_by_the_committee }} @endisset">
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="claimed_candidate">Claimed by the Candidate</label>
-                                <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->claimed_by_the_candidate }} @endisset" placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
+                                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                             </div>
                             <div class="col-sm-2">
                                 <label for="classes_Taught">Number of Classes Taught</label>
@@ -127,6 +113,23 @@
                             <div class="col-sm-2">
                                 <label for="class_Assigned">Total Classes Assigned</label>
                                 <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-sm-2">
+                                <label for="committee">Verified by the Committee</label>
+                                <input type="text" id="committee" name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6[$j]) {{ $user->step6[$j]->varified_by_the_committee??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="claimed_candidate">Claimed by the Candidate</label>
+                                <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->claimed_by_the_candidate }} @endisset" placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <label for="activity_file">File Attachement</label>
+                                <input type="file" id="activity_file" name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
+                                {{ $user->step6[$j]->A1_file?'required':'' }} @endisset >
+                                @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-sm-2">
                                 <label for="remarks">Remarks</label>
@@ -157,15 +160,16 @@
             <div class="row g-3">
                 <div class="col-md-3">
                     <label for="academicyear">Academic Year</label>
-                    <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]" aria-label="Default select example">
+                    {{-- <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]" aria-label="Default select example">
                         <option selected disabled>Choose Years</option>
                         @for($i=1;$i<7;$i++) <option value="{{ $i }}" @isset($user->step6_b[0])
                             @selected($user->step6_b[0]->academic_year==$i) @endisset>Year {{ $i }}</option>
                             @endfor
 
-                    </select>
+                    </select> --}}
+                    <input type="text" name="acadmicYear_b[]" id="" class="form-control" @isset($user->step6_b[0]) value="{{ $user->step6_b[0]->academic_year??'' }}" @endisset>
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <label for="semester">Semester</label>
                     <select class="form-select form-select-lg mb-3" name="semester_b[]" aria-label="Default select example">
                         <option selected disabled>Choose Semester</option>
@@ -173,7 +177,7 @@
                             @selected($user->step6_b[0]->semester==$i) @endisset>Sem {{ $i }}</option>
                             @endfor
                     </select>
-                </div>
+                </div> --}}
                 <div class="col-md-3">
                     <label for="academicyear">Activity</label>
                     <select class="form-select form-select-lg mb-3" name="activity[]" aria-label="Activity">
@@ -244,16 +248,17 @@
                         <div class="row g-3">
                             <div class="col-md-3">
                                 <label for="academicyear">Academic Year</label>
-                                <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]" aria-label="Default select example">
+                                {{-- <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]" aria-label="Default select example">
                                     <option selected disabled>Choose Years</option>
                                     @for($i=1;$i<7;$i++) <option value="{{ $i }}" @isset($user->step6_b[$j])
                                         @selected($user->step6_b[$j]->academic_year==$i) @endisset>Year {{ $i }}
                                         </option>
                                         @endfor
 
-                                </select>
+                                </select> --}}
+                                <input type="text" name="acadmicYear_b[]" id="" class="form-control" @isset($user->step6_b[$j]) value="{{ $user->step6_b[$j]->academic_year??'' }}" @endisset>
                             </div>
-                            <div class="col-md-3">
+                            {{-- <div class="col-md-3">
                                 <label for="semester">Semester</label>
                                 <select class="form-select form-select-lg mb-3" name="semester_b[]" aria-label="Default select example">
                                     <option selected disabled>Choose Semester</option>
@@ -261,7 +266,7 @@
                                         @selected($user->step6_b[$j]->semester==$i) @endisset>Sem {{ $i }}</option>
                                         @endfor
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-md-3">
                                 <label for="academicyear">Activity</label>
                                 <select class="form-select form-select-lg mb-3" name="activity[]" aria-label="Activity">
@@ -496,33 +501,7 @@
                 <div class="row g-3">
             <div class="col-sm-2">
                 <label for="academicyear">Academic Year</label>
-                <select class="form-select form-select-lg mb-3" name="acadmicYears[]" aria-label="Default select example">
-                    <option selected disabled>Choose Years</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <label for="semester">Semester</label>
-                <select class="form-select form-select-lg mb-3" name="semester[]" aria-label="Default select example">
-                    <option selected disabled>Choose Semester</option>
-                    <option value="1">Sem 1</option>
-                    <option value="2">Sem 2</option>
-                    <option value="3">Sem 3</option>
-                    <option value="4">Sem 4</option>
-                    <option value="5">Sem 5</option>
-                    <option value="6">Sem 6</option>
-                    <option value="7">Sem 7</option>
-                    <option value="8">Sem 8</option>
-                    <option value="9">Sem 9</option>
-                    <option value="10">Sem 10</option>
-                    <option value="11">Sem 11</option>
-                    <option value="12">Sem 12</option>
-                </select>
+                <input type="text" class="form-control" name="acadmicYears[]">
             </div>
             <div class="col-sm-5">
                 <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
@@ -530,10 +509,15 @@
                 <input type="text" id="teaching" name="teaching[]" class="form-control"
                     placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
-            <div class="col-sm-3">
-                <label for="activity_file">File Attachement</label>
-                <input type="file" id="activity_file" name="activity_file[]" class="form-control"
-                    placeholder="Activity File" aria-label="Activity File">
+            <div class="col-sm-2">
+                <label for="classes_Taught">Number of Classes Taught</label>
+                <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control"
+                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
+            </div>
+            <div class="col-sm-2">
+                <label for="class_Assigned">Total Classes Assigned</label>
+                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control"
+                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
             </div>
         </div>
         <div class="row g-3">
@@ -547,15 +531,10 @@
                 <input type="text" id="claimed_candidate" name="claimed_candidate[]" class="form-control"
                     placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
             </div>
-            <div class="col-sm-2">
-                <label for="classes_Taught">Number of Classes Taught</label>
-                <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
-            </div>
-            <div class="col-sm-2">
-                <label for="class_Assigned">Total Classes Assigned</label>
-                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control"
-                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+            <div class="col-sm-3">
+                <label for="activity_file">File Attachement</label>
+                <input type="file" id="activity_file" name="activity_file[]" class="form-control"
+                    placeholder="Activity File" aria-label="Activity File">
             </div>
             <div class="col-sm-2">
                 <label for="remarks">Remarks</label>
@@ -584,34 +563,8 @@
         <div class="row g-3">
             <div class="col-md-3">
                 <label for="academicyear">Academic Year</label>
-                <select class="form-select form-select-lg mb-3" name="acadmicYear_b[]"
-                    aria-label="Default select example">
-                    <option selected disabled>Choose Years</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="semester">Semester</label>
-                <select class="form-select form-select-lg mb-3" name="semester_b[]" aria-label="Default select example">
-                    <option selected disabled>Choose Semester</option>
-                    <option value="1">Sem 1</option>
-                    <option value="2">Sem 2</option>
-                    <option value="3">Sem 3</option>
-                    <option value="4">Sem 4</option>
-                    <option value="5">Sem 5</option>
-                    <option value="6">Sem 6</option>
-                    <option value="7">Sem 7</option>
-                    <option value="8">Sem 8</option>
-                    <option value="9">Sem 9</option>
-                    <option value="10">Sem 10</option>
-                    <option value="11">Sem 11</option>
-                    <option value="12">Sem 12</option>
-                </select>
+                
+                <input type="text" class="form-control" name="acadmicYears[]" >
             </div>
             <div class="col-md-3">
                 <label for="academicyear">Activity</label>

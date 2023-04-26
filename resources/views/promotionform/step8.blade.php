@@ -221,7 +221,7 @@
                 <label class="fieldlabels">Title of the Project (More than 10 lakhs)</label> <input type="text" name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->title_of_the_project??'' }}" @endisset/>
             </div>
             <div class="col">
-                <label class="fieldlabels">Names of Pand PI and Co-PI</label> <input type="text" name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->name_of_pi_and_co_pi??'' }}" @endisset/>
+                <label class="fieldlabels">Names of  PI and Co-PI</label> <input type="text" name="Names_of_Pand_co_PI[]" placeholder="Names of  PI and Co-PI" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->name_of_pi_and_co_pi??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Funding Agency</label> <input type="text" name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->funding_agency??'' }}" @endisset />
@@ -279,7 +279,7 @@
                             <label class="fieldlabels">Title of the Project (More than 10 lakhs)</label> <input type="text" name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->title_of_the_project??'' }}" @endisset/>
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">Names of Pand PI and Co-PI</label> <input type="text" name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->name_of_pi_and_co_pi??'' }}" @endisset/>
+                            <label class="fieldlabels">Names of PI and Co-PI</label> <input type="text" name="Names_of_Pand_co_PI[]" placeholder="Names of  PI and Co-PI" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->name_of_pi_and_co_pi??'' }}" @endisset/>
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Funding Agency</label> <input type="text" name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->funding_agency??'' }}" @endisset />
@@ -475,8 +475,8 @@
                     name="Title_of_the_Project[]" placeholder="Title of the Project (More than 10 lakhs)" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Names of Pand PI and Co-PI</label> <input type="text"
-                    name="Names_of_Pand_co_PI[]" placeholder="Names of Pand PI and Co-PI"/>
+                <label class="fieldlabels">Names of  PI and Co-PI</label> <input type="text"
+                    name="Names_of_Pand_co_PI[]" placeholder="Names of  PI and Co-PI"/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Funding  Agency</label> <input type="text"

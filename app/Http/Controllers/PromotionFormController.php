@@ -545,7 +545,7 @@ class PromotionFormController extends Controller
                 $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
                         $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
                 Alert::success('Form Filling Success. Please Check Preview');
-                return route('promotion-form.preview');
+                return redirect()->route('promotion-form.preview');
                 return redirect('/')->with('toast_success', 'Promotion Form Submitted Successfully');
             }
             else{

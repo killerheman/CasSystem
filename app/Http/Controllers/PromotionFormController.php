@@ -533,7 +533,9 @@ class PromotionFormController extends Controller
         if($request->hasFile('applicant_signature')){
             if(isset($request->claimed_score)){
 
-               $d = AcademinResearchScoreSummaryClaimed::create([
+               $d = AcademinResearchScoreSummaryClaimed::updateOrCreate([
+                'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+               ],[
                     'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
                     'assessment_period_from' => $request->assessment_period_from,
                     'assessment_period_to' => $request->assessment_period_to,

@@ -100,7 +100,7 @@
                 <input type="date" name="date_of_confirmation" value="{{ $user->step2->date_of_confirmation??'' }}" />
             </div>
             <div class="col-3">
-                <label class="fieldlabels">Date of Last Promotion (W.E.F.): </label>
+                <label class="fieldlabels">Date of Last Promotion (w.e.f): </label>
                 <input type="date" name="date_of_last_promotion" value="{{ $user->step2->date_of_last_promotion??'' }}" />
             </div>
             <div class="col-3">

@@ -169,6 +169,10 @@
                         <label for="Encl.No.">Encl.No.</label>
                         <input type="text" id="Encl.No." name="encl_no[]" class="form-control" placeholder="Encl.No." aria-label="Encl.No." value="{{ $user->step3_b[0]->encl_no??'' }}">
                     </div>
+                    <div class="col">
+                        <label for="service_file">File</label>
+                        <input type="file" id="service_file." name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." value="{{ $user->step3_b[0]->file??'' }}">
+                    </div>
                 </div>
                 <div class="row g-3">
                     <div class="col">
@@ -235,6 +239,10 @@
                                     <label for="Encl.No.">Encl.No.</label>
                                     <input type="text" id="Encl.No." name="encl_no[]" class="form-control" placeholder="Encl.No." aria-label="Encl.No." value="{{ $user->step3_b[$j]->encl_no??'' }}">
                                 </div>
+                                <div class="col">
+                                    <label for="service_file">File</label>
+                                    <input type="file" id="service_file." name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." value="{{ $user->step3_b[$j]->file??'' }}">
+                                </div>
                             </div>
                             <div class="row g-3">
                                 <div class="col">
@@ -282,6 +290,10 @@
                                 @endisset>Level 10</option>
                             <option value="l11" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l11')
                                 @endisset>Level 11</option>
+                                <option value="l12" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l12')
+                                    @endisset>Level 12</option>
+                                    <option value="l13a" @isset($user->step3_c[0]) @selected($user->step3_c[0]->level=='l13a')
+                                        @endisset>Level 13a</option>
                         </select>
                     </div>
                     <div class="col">
@@ -318,6 +330,10 @@
                         <label for="Experience">Experience (Months)</label>
                         <input type="number" id="Months" name="step3c_experience_months[]" class="form-control" value="{{ $user->step3_c[0]->experience_months??'' }}" placeholder="Months" aria-label="Months">
                     </div>
+                    <div class="col">
+                        <label for="experience_file">File</label>
+                        <input type="file" id="Months" name="step3c_experience_file[]" class="form-control" value="{{ $user->step3_c[0]->file??'' }}" placeholder="experience_file" aria-label="experience_file">
+                    </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-info add2 mt-4">+</button>
                     </div>
@@ -336,6 +352,10 @@
                                             @selected($user->step3_c[$k]->level=='l10') @endisset>Level 10</option>
                                         <option value="l11" @isset($user->step3_c[$k])
                                             @selected($user->step3_c[$k]->level=='l11') @endisset>Level 11</option>
+                                            <option value="l12" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l12')
+                                                @endisset>Level 12</option>
+                                                <option value="l13a" @isset($user->step3_c[$k]) @selected($user->step3_c[$k]->level=='l13a')
+                                                    @endisset>Level 13a</option>
                                     </select>
                                 </div>
                                 <div class="col">
@@ -372,6 +392,10 @@
                                 <div class="col">
                                     <label for="Experience">Experience (Months)</label>
                                     <input type="number" id="Months" name="step3c_experience_months[]" class="form-control" value="{{ $user->step3_c[$k]->experience_months??'' }}" placeholder="Months" aria-label="Months">
+                                </div>
+                                <div class="col">
+                                    <label for="experience_file">File</label>
+                                    <input type="file" id="Months" name="step3c_experience_file[]" class="form-control" value="{{ $user->step3_c[$k]->file??'' }}" placeholder="experience_file" aria-label="experience_file">
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-danger remove2 mt-4">-</button>
@@ -516,6 +540,10 @@
                                             <input type="text" id="Encl.No." name="encl_no[]" class="form-control"\
                                                 placeholder="Encl.No." aria-label="Encl.No.">\
                                         </div>\
+                                        <div class="col">\
+                                            <label for="service_file">File</label>\
+                                            <input type="file" id="service_file." name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." value="{{ $user->step3_b[0]->file??'' }}">\
+                                        </div>\
                                     </div>\
                                     <div class="row g-3">\
                                         <div class="col">\
@@ -561,7 +589,7 @@
 
 
     // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
-    var html2 = '<div class="parent2">\
+    var html2 = '<div class="parent2"><hr/>\
                                     <div class="row g-3">\
                                         <div class="col">\
                                             <label for="Level">Level</label>\
@@ -570,6 +598,8 @@
                                                 <option selected disabled>Choose Level</option>\
                                                <option value="l10">Level 10</option>\
                                                <option value="l11">Level 11</option>\
+                                               <option value="l12">Level 12</option>\
+                                                <option value="l13a">Level 13a</option>\
                                             </select>\
                                         </div>\
                                         <div class="col">\
@@ -615,9 +645,14 @@
                                             <input type="number" id="Months" name="step3c_experience_months[]" class="form-control"\
                                                 placeholder="Months" aria-label="M\onths">\
                                         </div>\
+                                        <div class="col">\
+                                            <label for="experience_file">File</label>\
+                                            <input type="file" id="Months" name="step3c_experience_file[]" class="form-control"  placeholder="experience_file" aria-label="experience_file">\
+                                        </div>\
                                         <div class="col-1">\
                                             <button type="button" class="btn btn-danger remove2 mt-4">-</button>\
-                                        </div></div></div>';
+                                        </div></div>\
+                                        </div>';
     $(document).on('click', '.add2', function() {
         $('.add_input2').append(html2);
     });

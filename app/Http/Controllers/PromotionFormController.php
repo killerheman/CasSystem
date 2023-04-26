@@ -526,4 +526,31 @@ class PromotionFormController extends Controller
    {
       return view('promotionform.step10');
    }
+    
+   public function step10_store(Request $request)
+    {
+//         dd($request->all());
+        if($request->hasFile('applicant_signature')){
+            if(isset($request->claimed_score)){
+
+               $d = AcademinResearchScoreSummaryClaimed::create([
+                    'assessment_period_from' => $request->assessment_period_from,
+                    'assessment_period_to' => $request->assessment_period_to,
+                    'entire_assessment_period_from' => $request->entire_assessment_period_from,
+                    'entire_assessment_period_to' => $request->entire_assessment_period_to,
+                    'claimed_score' => json_encode($request->claimed_score),
+                    'total_claimed_score' => array_sum($request->claimed_score)
+                ]);
+                $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
+                        $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
+
+                return redirect('/')->with('toast_success', 'Promotion Form Submitted Successfully');
+            }
+            else{
+                return redirect()->back()->with('toast_error', 'please add some claimed score');
+            }
+        }else{
+            return redirect()->back()->with('toast_error', 'please upload applicant signature');
+        }
+    }
 }

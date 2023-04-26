@@ -158,14 +158,19 @@
                     </div>
                 </div>
             </div>
+            @if ($user->step1->promotion_level =='1' || $user->step1->promotion_level =='2')
             <div class="row">
                 <div class="col-12">
                     <h3 class="fs-title h3">Post Doctoral Research Experience as a research scientist, research
                         associate etc. (in yrs) :</h3>
                 </div>
             </div>
+            @endif
+
             <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
                 <h3 class="fs-title h3">Years of Guiding Ph.D.:</h3>
+
+                @if ($user->step1->promotion_level =='1' || $user->step1->promotion_level =='2')
                 <div class="col">
                     <label class="fieldlabels">Completed</label>
                     <input type="text" name="years_of_guiding_completed" value="{{ $user->step4->years_of_guiding_completed??'' }}" placeholder="Completed" />
@@ -174,6 +179,13 @@
                     <label class="fieldlabels">Registered</label>
                     <input type="text" name="years_of_guiding_registered" value="{{ $user->step4->years_of_guiding_registered??'' }}" placeholder="Registered" />
                 </div>
+                @else
+                <div class="col">
+                    <label class="fieldlabels">Ph.D.</label>
+                    <input type="text" name="years_of_guiding_phd" value="{{ $user->step4->years_of_guiding_phd??'' }}" placeholder="Ph.D" />
+                </div>
+                @endif
+
                 <div class="col">
                     <label class="fieldlabels">File (Attachement)</label>
                     <input type="file" name="pd_file" placeholder="Registered" />

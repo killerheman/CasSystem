@@ -15,18 +15,18 @@
             <label class="fieldlabels">Choose level of promotion :*</label>
             <select class="form-control" name="levels">
                 <option selected disabled>--Select Level for Promotion--</option>
-                <option value="1" @selected($user->step1->promotion_level??''==1)>Assistant Professor(Academic Level 10)
+                <option value="1" @isset($user->step1) @selected($user->step1->promotion_level==1) @endisset>Assistant Professor(Academic Level 10)
                     to Assistant Professor (Senior
                     Scale/Academic Level 11)</option>
-                <option value="2" @selected($user->step1->promotion_level??''==2)>Assistant Professor (Senior
+                <option value="2" @isset($user->step1) @selected($user->step1->promotion_level==2) @endisset)>Assistant Professor (Senior
                     Scale/Academic Level 11) to Assistant Professor
                     (Selection
                     Grade/Academic Level 12)</option>
-                <option value="3" @selected($user->step1->promotion_level??''==3)>Assistant Professor (Selection
+                <option value="3" @isset($user->step1) @selected($user->step1->promotion_level==3) @endisset>Assistant Professor (Selection
                     Grade/Academic Level 12) to Associate
                     Professor (Academic Level
                     13A)</option>
-                <option value="4" @selected($user->step1->promotion_level??''==4)>Associate Professor (Academic Level
+                <option value="4" @isset($user->step1) @selected($user->step1->promotion_level==4) @endisset>Associate Professor (Academic Level
                     13A) to Professor (Academic Level 14)
                 </option>
             </select>

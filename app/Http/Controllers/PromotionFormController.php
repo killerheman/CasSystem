@@ -38,6 +38,7 @@ class PromotionFormController extends Controller
     }
     public function step1_store(Request $req)
     {
+
         $this->user = Auth::guard('promotion_app_user')->user();
         $req->validate(['profile_pic' => 'nullable|image|max:100']);
         $image = '';
@@ -390,153 +391,152 @@ class PromotionFormController extends Controller
             }
         }
 
-     AcademinResearchScoreProject::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
-     foreach($req->project as $k=>$v){
-      $d=AcademinResearchScoreProject::create([
-         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-         'type'=>$req->project[$k],
-         'name_of_pi_and_co_pi'=>$req->Names_of_Pand_co_PI[$k],
-         'title_of_the_project'=>$req->Title_of_the_Project[$k],
-         'funding_agency'=>$req->Funding_Agency[$k],
-         'grant_sanctioned_or_component'=>$req->Grant_Sanctioned[$k],
-         'duration_from'=>$req->Duration_from[$k],
-         'duration_to'=>$req->Duration_to[$k],
-         'agency_to_it_is_offered'=>'',
-         'claimed_score'=>$req->Claimed_Score[$k],
-         'verify_by_committee'=>$req->Verified_by_the_Committee_project[$k],
-         'encl_no'=>$req->encl_no_project[$k]
-      ]);
-      if($d){
-         if($req->hasFile('research_file')){
-        isset($req->research_file[$k])?$files=ImageUpload::simpleUpload('book',$req->research_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
-          isset($req->research_file[$k])?$d->update(['file'=>$files]):'';
-          }
-       }
-     }
-     Auth::guard('promotion_app_user')->user()->step==7?Auth::guard('promotion_app_user')->user()->increment('step'):'';
-     Alert::success('Previous Data Save Successfully');
-     return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
-   }
-   public function step9()
-   {
-      $user=Auth::guard('promotion_app_user')->user();
-      $patents=AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','patent')->get();
-      $policies=AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','policy')->get();
-      return view('promotionform.step9',compact('patents','policies','user'));
-   }
-   public function step9_store(Request $req)
-   {
-     $req->validate([
-      'patent_file'=>'array',
-      'patent_file.*'=>'max:100',
-      'file_b'=>'array',
-      'file_b.*'=>'max:100',
-      'award_file_b'=>'array',
-      'award_file_b.*'=>'max:100',
-      'inv_file'=>'array',
-      'inv_file.*'=>'max:100'
-     ]);
-     AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','patent')->delete();
-     foreach($req->details_of_patents_or_policy_document as $k=>$g){
-      $d=AcademinResearchScorePatentsAndPolicyDoc::create([
-         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-         'details_of_patents_or_policy_document'=>$req->details_of_patents_or_policy_document[$k]??'',
-         'international_national_state'=>$req->international_national_state[$k]??'',
-         'year'=>$req->year[$k]??'',
-         'claimed_score'=>$req->claimed_score[$k]??'',
-         'verify_by_committee'=>$req->verify_by_committee[$k]??'',
-         'type'=>'patent',
-         'encl_no'=>$req->encl_no[$k]??''
-      ]);
-      if($d){
-         if($req->hasFile('patent_file')){
-        isset($req->patent_file[$k])?$files=ImageUpload::simpleUpload('book',$req->patent_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
-          isset($req->patent_file[$k])?$d->update(['file'=>$files]):'';
-          }
-       }
-     }
-     AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->where('type','policy')->delete();
-     foreach($req->details_of_patents_or_policy_document as $k=>$g){
-      $d=AcademinResearchScorePatentsAndPolicyDoc::create([
-         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-         'details_of_patents_or_policy_document'=>$req->details_of_patents_or_policy_document_b[$k]??'',
-         'international_national_state'=>$req->international_national_state_b[$k]??'',
-         'year'=>$req->year_b[$k]??'',
-         'claimed_score'=>$req->claimed_score_b[$k]??'',
-         'verify_by_committee'=>$req->verify_by_committee_b[$k]??'',
-         'type'=>'policy',
-         'encl_no'=>$req->encl_no_b[$k]??''
-      ]);
-      if($d){
-         if($req->hasFile('file_b')){
-        isset($req->file_b[$k])?$files=ImageUpload::simpleUpload('book',$req->file_b[$k],Auth::guard('promotion_app_user')->user()->id):'';
-          isset($req->file_b[$k])?$d->update(['file'=>$files]):'';
-          }
-       }
-     }
-     AcademinResearchScoreAwardsFellowship::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
-     foreach($req->name_of_the_award_followship as $k=>$w){
-      $d=AcademinResearchScoreAwardsFellowship::create([
-         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-         'name_of_the_award_followship'=>$req->name_of_the_award_followship[$k],
-         'awarding_institute_organization'=>$req->awarding_institute_organization[$k],
-         'international_national_state'=>$req->international_national_state[$k],
-         'date_awarded'=>$req->date_awarded[$k],
-         'claimed_score'=>$req->claimed_score[$k],
-         'verify_by_committee'=>$req->verify_by_committee[$k],
-         'encl_no'=>$req->encl_no[$k],
-      ]);
-      
-      if($d){
-         if($req->hasFile('award_file_b')){
-        isset($req->award_file_b[$k])?$files=ImageUpload::simpleUpload('book',$req->award_file_b[$k],Auth::guard('promotion_app_user')->user()->id):'';
-          isset($req->award_file_b[$k])?$d->update(['file'=>$files]):'';
-          }
-       }
-     }
-
-     AcademinResearchScoreInvitedLecture::where('promotion_application_user_id',Auth::guard('promotion_app_user')->user()->id)->delete();
-     foreach($req->inv_title as $k=>$v){
-      $d=AcademinResearchScoreInvitedLecture::create([
-         'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-         'name_of_the_event'=>$req->name_of_the_event[$k],
-         'title'=>$req->inv_title[$k],
-         'invited_or_al_poster'=>$req->invited_or_al_poster[$k],
-         'international_national_state'=>$req->international_national_state[$k],
-         'organiser_institute'=>$req->organiser_institute[$k],
-         'claimed_score'=>$req->inv_claimed_score[$k],
-         'duration'=>$req->duration[$k],
-         'verify_by_committee'=>$req->inv_verify_by_committee[$k],
-         'encl_no'=>$req->inv_encl_no[$k]
-      ]);
-      if($d){
-         if($req->hasFile('inv_file')){
-         isset($req->inv_file[$k])?$files=ImageUpload::simpleUpload('book',$req->inv_file[$k],Auth::guard('promotion_app_user')->user()->id):'';
-          isset($req->inv_file[$k])?$d->update(['file'=>$files]):'';
-          }
-       }
-     }
-
-     Auth::guard('promotion_app_user')->user()->step==8?Auth::guard('promotion_app_user')->user()->increment('step'):'';
-     Alert::success('Previous Data Save Successfully');
-     return redirect()->route('promotion-form.step-'.Auth::guard('promotion_app_user')->user()->step+1);
-
-   }
-   public function step10()
-   {
-      return view('promotionform.step10');
-   }
-    
-   public function step10_store(Request $request)
+        AcademinResearchScoreProject::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        foreach ($req->project as $k => $v) {
+            $d = AcademinResearchScoreProject::create([
+                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                'type' => $req->project[$k],
+                'name_of_pi_and_co_pi' => $req->Names_of_Pand_co_PI[$k],
+                'title_of_the_project' => $req->Title_of_the_Project[$k],
+                'funding_agency' => $req->Funding_Agency[$k],
+                'grant_sanctioned_or_component' => $req->Grant_Sanctioned[$k],
+                'duration_from' => $req->Duration_from[$k],
+                'duration_to' => $req->Duration_to[$k],
+                'agency_to_it_is_offered' => '',
+                'claimed_score' => $req->Claimed_Score[$k],
+                'verify_by_committee' => $req->Verified_by_the_Committee_project[$k],
+                'encl_no' => $req->encl_no_project[$k]
+            ]);
+            if ($d) {
+                if ($req->hasFile('research_file')) {
+                    isset($req->research_file[$k]) ? $files = ImageUpload::simpleUpload('book', $req->research_file[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                    isset($req->research_file[$k]) ? $d->update(['file' => $files]) : '';
+                }
+            }
+        }
+        Auth::guard('promotion_app_user')->user()->step == 7 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
+        Alert::success('Previous Data Save Successfully');
+        return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
+    }
+    public function step9()
     {
-//         dd($request->all());
-        if($request->hasFile('applicant_signature')){
-            if(isset($request->claimed_score)){
+        $user = Auth::guard('promotion_app_user')->user();
+        $patents = AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'patent')->get();
+        $policies = AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'policy')->get();
+        return view('promotionform.step9', compact('patents', 'policies', 'user'));
+    }
+    public function step9_store(Request $req)
+    {
+        $req->validate([
+            'patent_file' => 'array',
+            'patent_file.*' => 'max:100',
+            'file_b' => 'array',
+            'file_b.*' => 'max:100',
+            'award_file_b' => 'array',
+            'award_file_b.*' => 'max:100',
+            'inv_file' => 'array',
+            'inv_file.*' => 'max:100'
+        ]);
+        AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'patent')->delete();
+        foreach ($req->details_of_patents_or_policy_document as $k => $g) {
+            $d = AcademinResearchScorePatentsAndPolicyDoc::create([
+                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                'details_of_patents_or_policy_document' => $req->details_of_patents_or_policy_document[$k] ?? '',
+                'international_national_state' => $req->international_national_state[$k] ?? '',
+                'year' => $req->year[$k] ?? '',
+                'claimed_score' => $req->claimed_score[$k] ?? '',
+                'verify_by_committee' => $req->verify_by_committee[$k] ?? '',
+                'type' => 'patent',
+                'encl_no' => $req->encl_no[$k] ?? ''
+            ]);
+            if ($d) {
+                if ($req->hasFile('patent_file')) {
+                    isset($req->patent_file[$k]) ? $files = ImageUpload::simpleUpload('book', $req->patent_file[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                    isset($req->patent_file[$k]) ? $d->update(['file' => $files]) : '';
+                }
+            }
+        }
+        AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'policy')->delete();
+        foreach ($req->details_of_patents_or_policy_document as $k => $g) {
+            $d = AcademinResearchScorePatentsAndPolicyDoc::create([
+                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                'details_of_patents_or_policy_document' => $req->details_of_patents_or_policy_document_b[$k] ?? '',
+                'international_national_state' => $req->international_national_state_b[$k] ?? '',
+                'year' => $req->year_b[$k] ?? '',
+                'claimed_score' => $req->claimed_score_b[$k] ?? '',
+                'verify_by_committee' => $req->verify_by_committee_b[$k] ?? '',
+                'type' => 'policy',
+                'encl_no' => $req->encl_no_b[$k] ?? ''
+            ]);
+            if ($d) {
+                if ($req->hasFile('file_b')) {
+                    isset($req->file_b[$k]) ? $files = ImageUpload::simpleUpload('book', $req->file_b[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                    isset($req->file_b[$k]) ? $d->update(['file' => $files]) : '';
+                }
+            }
+        }
+        AcademinResearchScoreAwardsFellowship::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        foreach ($req->name_of_the_award_followship as $k => $w) {
+            $d = AcademinResearchScoreAwardsFellowship::create([
+                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                'name_of_the_award_followship' => $req->name_of_the_award_followship[$k],
+                'awarding_institute_organization' => $req->awarding_institute_organization[$k],
+                'international_national_state' => $req->international_national_state[$k],
+                'date_awarded' => $req->date_awarded[$k],
+                'claimed_score' => $req->claimed_score[$k],
+                'verify_by_committee' => $req->verify_by_committee[$k],
+                'encl_no' => $req->encl_no[$k],
+            ]);
 
-               $d = AcademinResearchScoreSummaryClaimed::updateOrCreate([
-                'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
-               ],[
-                    'promotion_application_user_id'=>Auth::guard('promotion_app_user')->user()->id,
+            if ($d) {
+                if ($req->hasFile('award_file_b')) {
+                    isset($req->award_file_b[$k]) ? $files = ImageUpload::simpleUpload('book', $req->award_file_b[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                    isset($req->award_file_b[$k]) ? $d->update(['file' => $files]) : '';
+                }
+            }
+        }
+
+        AcademinResearchScoreInvitedLecture::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        foreach ($req->inv_title as $k => $v) {
+            $d = AcademinResearchScoreInvitedLecture::create([
+                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                'name_of_the_event' => $req->name_of_the_event[$k],
+                'title' => $req->inv_title[$k],
+                'invited_or_al_poster' => $req->invited_or_al_poster[$k],
+                'international_national_state' => $req->international_national_state[$k],
+                'organiser_institute' => $req->organiser_institute[$k],
+                'claimed_score' => $req->inv_claimed_score[$k],
+                'duration' => $req->duration[$k],
+                'verify_by_committee' => $req->inv_verify_by_committee[$k],
+                'encl_no' => $req->inv_encl_no[$k]
+            ]);
+            if ($d) {
+                if ($req->hasFile('inv_file')) {
+                    isset($req->inv_file[$k]) ? $files = ImageUpload::simpleUpload('book', $req->inv_file[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                    isset($req->inv_file[$k]) ? $d->update(['file' => $files]) : '';
+                }
+            }
+        }
+
+        Auth::guard('promotion_app_user')->user()->step == 8 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
+        Alert::success('Previous Data Save Successfully');
+        return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
+    }
+    public function step10()
+    {
+        return view('promotionform.step10');
+    }
+
+    public function step10_store(Request $request)
+    {
+        //         dd($request->all());
+        if ($request->hasFile('applicant_signature')) {
+            if (isset($request->claimed_score)) {
+
+                $d = AcademinResearchScoreSummaryClaimed::updateOrCreate([
+                    'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                ], [
+                    'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
                     'assessment_period_from' => $request->assessment_period_from,
                     'assessment_period_to' => $request->assessment_period_to,
                     'entire_assessment_period_from' => $request->entire_assessment_period_from,
@@ -545,15 +545,14 @@ class PromotionFormController extends Controller
                     'total_claimed_score' => array_sum($request->claimed_score)
                 ]);
                 $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
-                        $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
+                $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
                 Alert::success('Form Filling Success. Please Check Preview');
                 return redirect()->route('promotion-form.preview');
                 return redirect('/')->with('toast_success', 'Promotion Form Submitted Successfully');
-            }
-            else{
+            } else {
                 return redirect()->back()->with('toast_error', 'please add some claimed score');
             }
-        }else{
+        } else {
             return redirect()->back()->with('toast_error', 'please upload applicant signature');
         }
     }

@@ -81,7 +81,7 @@
                 <input type="checkbox" name="accept_declaration" checked />
             </div>
             <div class="col-11">
-                <p>I, ........................................ hereby solemnly certify that the information provided in
+                <p>I, <span style="border-bottom: 2px solid;font-weight:bold;" >{{ Auth::guard('promotion_app_user')->user()->name ?? '' }}</span> hereby solemnly certify that the information provided in
                     and
                     documents attached to this application form is true, correct, and complete to the best of my
                     knowledge
@@ -104,7 +104,7 @@
         <div class="row text-center mt-5">
             <h6>Forwarded By :</h6>
             <p>Head of the Department/Principal</p>
-            <p>Name of the Department/College (With Seal) .....................</p>
+            <p>Name of the Department/College (With Seal)</p>
         </div>
         <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
         <a type="button" href="{{ route('promotion-form.step-9') }}" class="action-button"> Previous</a>

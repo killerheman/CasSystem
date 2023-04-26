@@ -1,7 +1,7 @@
 @extends('layout.teacher_promotion', ['activeClass' => 4])
 @section('content')
 <fieldset>
-    <form action="{{ route('promotion-form.step-4-store') }}" method="post">
+    <form action="{{ route('promotion-form.step-4-store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-card">
             <div class="row">
@@ -25,8 +25,8 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels" id="teaching_file">File (Attachement)</label>
-                    <input type="file" name="teaching_file[]" placeholder="period_to" @isset($user->step4)
-                    value="{{ $user->step4->file?'required':'' }}" @endisset/>
+                    <input type="file" name="teaching_file" placeholder="period_to" @isset($user->step4)
+                    {{ $user->step4->file?'required':'' }} @endisset/>
                 </div>
             </div>
             <div class="row">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-4">
                     <label class="fieldlabels" id="research_file">File (Attachement)</label>
-                    <input type="file" name="research_file[]" placeholder="research_file" @isset($user->step4->file_2)value="{{ $user->step4->file_2?'required':'' }}" @endisset/>
+                    <input type="file" name="research_file" placeholder="research_file" @isset($user->step4->file) value="{{ $user->step4->file?'required':'' }}" @endisset/>
                 </div>
             </div>
             <div class="parerent3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File</label>
-                        <input type="file" name="research_b[]" placeholder="Name of Institute/University" />
+                        <input type="file" name="research_b[]" placeholder="Name of Institute/University"  @isset($user->step4_phdrecord[0]) {{ $user->step4_phdrecord[0]->file?'required':'' }} @endisset/>
                     </div>
 
                 </div>

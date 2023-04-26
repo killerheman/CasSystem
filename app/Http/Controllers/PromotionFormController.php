@@ -110,6 +110,17 @@ class PromotionFormController extends Controller
 
     public function step4_store(Request $req)
     {
+        $req->validate([
+            'teaching_file'=>'max:100',
+            'research_file'=>'max:100',
+            'research_b'=>'array',
+            'research_b.*'=>'max:100',
+            'pd_file'=>'max:100',
+            'paper_file'=>'max:100',
+            'conference_international'=>'max:100',
+            'conference_national'=>'max:100',
+            'conference_state'=>'max:100',
+        ]);
         $data = $req->only([
             'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
             'conferences_seminars_national_papers_presented', 'conferences_seminars__state_level_papers_presented', 'conferences_seminars_total_papers_presented',
@@ -117,6 +128,29 @@ class PromotionFormController extends Controller
         ]);
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
         $dt = PartAExperienceRecord::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
+        $files=[];
+        if($req->hasFile('teaching_file')){
+            $files['teaching_file']=ImageUpload::simpleUpload('certificate',$req->teaching_file,'teach-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('research_file')){
+            $files['research_file']=ImageUpload::simpleUpload('certificate',$req->research_file,'research-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('pd_file')){
+            $files['pd_file']=ImageUpload::simpleUpload('certificate',$req->pd_file,'pd-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('paper_file')){
+            $files['paper_file']=ImageUpload::simpleUpload('certificate',$req->paper_file,'paper-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('conference_international')){
+            $files['conference_international']=ImageUpload::simpleUpload('certificate',$req->conference_international,'co-int-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('conference_national')){
+            $files['conference_national']=ImageUpload::simpleUpload('certificate',$req->conference_national,'co-nat-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        if($req->hasFile('conference_state')){
+            $files['conference_state']=ImageUpload::simpleUpload('certificate',$req->conference_state,'co-st-'.Auth::guard('promotion_app_user')->user()->id)??'';
+        }
+        $dt->update(['file'=>json_encode($files)]);
         if ($dt) {
             Auth::guard('promotion_app_user')->user()->step == 3 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             PartAMphilPhdRecord::where(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id])->delete();
@@ -131,6 +165,9 @@ class PromotionFormController extends Controller
                     'date_of_notification_result_conferring_the_degree' => $req->date_of_notification_result_conferring_the_degree[$k] ?? '',
                     'encl_no' => $req->encl_no[$k] ?? ''
                 ]);
+                if($req->hasFile('research_b')){
+                    isset($req->research_b[$k])?ImageUpload::simpleUpload('certificate',$req->research_b[$k],'doc-'.Auth::guard('promotion_app_user')->user()->id):'';
+                }
             }
             Alert::success('Previous Step Save Successfully');
         } else {

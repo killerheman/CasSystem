@@ -34,18 +34,20 @@
                             @endfor
                     </select>
                 </div> --}}
-                <div class="col-sm-5">
-                    <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
-                        100%</label>
-                    <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
+                
+                <div class="col-sm-2">
+                    <label for="class_Assigned">Total Classes Assigned</label>
+                    <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
                 </div>
+                
                 <div class="col-sm-2">
                     <label for="classes_Taught">Number of Classes Taught</label>
                     <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                 </div>
-                <div class="col-sm-2">
-                    <label for="class_Assigned">Total Classes Assigned</label>
-                    <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+                <div class="col-sm-5">
+                    <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
+                        100%</label>
+                    <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                 </div>
             </div>
             <div class="row g-3">
@@ -101,19 +103,21 @@
                                         @endfor
                                 </select>
                             </div> --}}
-                            <div class="col-sm-5">
-                                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
-                                    100%</label>
-                                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
+                            <div class="col-sm-2">
+                                <label for="class_Assigned">Total Classes Assigned</label>
+                                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
                             </div>
                             <div class="col-sm-2">
                                 <label for="classes_Taught">Number of Classes Taught</label>
                                 <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->number_of_classes_tought }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                             </div>
-                            <div class="col-sm-2">
-                                <label for="class_Assigned">Total Classes Assigned</label>
-                                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+                            <div class="col-sm-5">
+                                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
+                                    100%</label>
+                                <input type="text" id="teaching" name="teaching[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                             </div>
+                            
+                            
                         </div>
                         <div class="row g-3">
                             <div class="col-sm-2">
@@ -390,7 +394,7 @@
                     <input type="text" id="authorship" name="authorship[]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->type_authorship??'' }} @endisset">
                 </div>
                 <div class="col-sm-2">
-                    <label for="UGC_listed_journals*">Sr. No. in UGC listed Journals</label>
+                    <label for="UGC_listed_journals*">Narure Journals</label>
                     <select name="UGC_listed_journals[]" class="form-control" id="">
                         <option>UGC care listed</option>
                         <option>UGC approved</option>
@@ -503,22 +507,24 @@
                 <label for="academicyear">Academic Year</label>
                 <input type="text" class="form-control" name="acadmicYears[]">
             </div>
-            <div class="col-sm-5">
-                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
-                    100%</label>
-                <input type="text" id="teaching" name="teaching[]" class="form-control"
-                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
+            <div class="col-sm-2">
+                <label for="class_Assigned">Total Classes Assigned</label>
+                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control"
+                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
             </div>
             <div class="col-sm-2">
                 <label for="classes_Taught">Number of Classes Taught</label>
                 <input type="text" id="classes_Taught" name="classes_Taught[]" class="form-control"
                     placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
-            <div class="col-sm-2">
-                <label for="class_Assigned">Total Classes Assigned</label>
-                <input type="text" id="class_Assigned" name="class_Assigned[]" class="form-control"
-                    placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
+            <div class="col-sm-5">
+                <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
+                    100%</label>
+                <input type="text" id="teaching" name="teaching[]" class="form-control"
+                    placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
+           
+            
         </div>
         <div class="row g-3">
             <div class="col-sm-2">

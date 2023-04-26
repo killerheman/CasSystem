@@ -64,6 +64,6 @@ Route::prefix('promotion-form')->as('promotion-form.')->group(function () {
 
 
     //Preview Promotion Form
-    Route::get('preview', [PreviewPromotionController::class, 'preview']);
+    Route::get('preview', [PreviewPromotionController::class, 'preview'])->name('preview');
 
 });

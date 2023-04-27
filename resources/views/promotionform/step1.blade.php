@@ -34,10 +34,10 @@
                 <div class="col-lg-10">
                     <div class="row mt-3">
                         <div class="col-4">
-                            <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" value="{{ $user->step1->f_name??'' }}" placeholder="Name" />
+                            <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" value="{{ $user->step1->f_name??'' }}" placeholder="First Name" />
                         </div>
                         <div class="col-4">
-                            <label class="fieldlabels">Middle Name: </label> <input type="text" name="middle_name" value="{{ $user->step1->m_name??'' }}" placeholder="Name" />
+                            <label class="fieldlabels">Middle Name: </label> <input type="text" name="middle_name" value="{{ $user->step1->m_name??'' }}" placeholder="Middle Name" />
                         </div>
                         <div class="col-4">
                             <label class="fieldlabels">Last Name: </label> <input type="text" name="last_name" value="{{ $user->step1->l_name??'' }}" placeholder="Last Name" />

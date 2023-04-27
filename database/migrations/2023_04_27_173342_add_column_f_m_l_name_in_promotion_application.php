@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('promotion_applications', function (Blueprint $table) {
-            //
-        });
+            $table->string('f_name')->after('name');
+            $table->string('m_name')->after('f_name');
+            $table->string('l_name')->after('m_name');
+            $table->string('notificatio_date_last_promotion');
+         });
     }
 
     /**
@@ -21,11 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('promotion_applications', function (Blueprint $table) {
-           $table->string('f_name')->after('name');
-           $table->string('m_name')->after('f_name');
-           $table->string('l_name')->after('m_name');
-           $table->string('notificatio_date_last_promotion');
-        });
+       
     }
 };

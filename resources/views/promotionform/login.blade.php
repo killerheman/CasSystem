@@ -25,6 +25,10 @@ border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 }
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 </style>
 
 <section class="h-100 gradient-form" style="background-color: #eee;">
@@ -73,7 +77,19 @@ border-bottom-right-radius: .3rem;
                       <li> <a href="{{ asset('Bihar CAS Promotion-2018_(2023).pdf') }} " class="text-light"> CAS-2018 </a></li>
                       <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html"  class="text-light" target="_blank"> CAS-1998 </a></li>
                       <li > Notification (LNMU)</li>
+                      <li><a href="{{ asset('Old Cas/C.C.R Proforma for Teacher.pdf') }}" download="">C.C.R Proforma for Teacher</a></li>
+                      <li><a href="{{ asset('Old Cas/Proforma for Promotion to Reader (MPS).pdf') }}" download="">Proforma for Promotion to Reader (MPS)</a></li>
                     </ul>
+                    <details>
+                      <summary>Proforma For CAS 1998</summary>
+                      <p>
+                        <ul>
+                          <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/Performa for promotion to Professor.pdf') }}" download="">Performa for promotion to Professor</a></li>
+                          <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/Proforma for promotion of Lecturer (Senior Scale).pdf') }}" download="">Proforma for promotion of Lecturer (Senior Scale)</a></li>
+                          <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/~$oforma for promotion to READER (CAS).pdf') }}" download="">Proforma for promotion to READER (CAS)</a></li>
+                        </ul>
+                      </p>
+                    </details>
                   </p>
                 </div>
               </div>

@@ -18,7 +18,7 @@
                 <option value="1" @isset($user->step1) @selected($user->step1->promotion_level==1) @endisset>Assistant Professor(Academic Level 10)
                     to Assistant Professor (Senior
                     Scale/Academic Level 11)</option>
-                <option value="2" @isset($user->step1) @selected($user->step1->promotion_level==2) @endisset)>Assistant Professor (Senior
+                <option value="2" @isset($user->step1) @selected($user->step1->promotion_level==2) @endisset>Assistant Professor (Senior
                     Scale/Academic Level 11) to Assistant Professor
                     (Selection
                     Grade/Academic Level 12)</option>
@@ -34,13 +34,13 @@
                 <div class="col-lg-10">
                     <div class="row mt-3">
                         <div class="col-4">
-                            <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" value="{{ $user->step1->first_name??'' }}" placeholder="Name" />
+                            <label class="fieldlabels">First Name: </label> <input type="text" name="first_name" value="{{ $user->step1->f_name??'' }}" placeholder="Name" />
                         </div>
                         <div class="col-4">
-                            <label class="fieldlabels">Middle Name: </label> <input type="text" name="middle_name" value="{{ $user->step1->middle_name??'' }}" placeholder="Name" />
+                            <label class="fieldlabels">Middle Name: </label> <input type="text" name="middle_name" value="{{ $user->step1->m_name??'' }}" placeholder="Name" />
                         </div>
                         <div class="col-4">
-                            <label class="fieldlabels">Last Name: </label> <input type="text" name="last_name" value="{{ $user->step1->last_name??'' }}" placeholder="Department" />
+                            <label class="fieldlabels">Last Name: </label> <input type="text" name="last_name" value="{{ $user->step1->l_name??'' }}" placeholder="Last Name" />
                         </div>
                     </div>
                     <div class="row">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-4">
                         <label class="fieldlabels">Notification date of the Last Promotion </label>
-                        <input type="date" name="last_promotion_notification_date" value="{{ $user->step1->promotion_notification_last_date??'' }}" placeholder="Last Promotion Notification date." />
+                        <input type="date" name="last_promotion_notification_date" value="{{ $user->step1->notificatio_date_last_promotion??'' }}" placeholder="Last Promotion Notification date." />
                     </div>
                     {{-- <div class="col-4">
                         <label class="fieldlabels">Period of Assessment for promotion: (To)

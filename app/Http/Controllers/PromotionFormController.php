@@ -85,7 +85,7 @@ class PromotionFormController extends Controller
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
         $dt = PartAGeneralInfo::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
         if ($dt) {
-            $dt->wasRecentlyCreated ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
+            Auth::guard('promotion_app_user')->user()->step==1 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             Alert::success('Previous Step Save Successfully');
         } else {
             Alert::error('This Form Cant Save right Now');

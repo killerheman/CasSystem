@@ -18,7 +18,7 @@
             <div class="row mt-3 ">
                 <div class="col">
                     <label class="fieldlabels"></label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type[]">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="type[]">
                         <option selected value="" disabled selected>Open this select menu</option>
                         <option value="1" {{!empty($user->step5[0])?($user->step5[0]->type=='1'?'selected':''):'' }}>
                             ORIENTATION/REFRESHER COURSE OR ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL /
@@ -34,30 +34,30 @@
                     </select>
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Place:</label> <input type="text" name="place[]" placeholder="Place from" value=" {{!empty($user->step5[0])?($user->step5[0]->place):'' }}" />
+                    <label class="fieldlabels">Place:</label> <input type="text" required name="place[]" placeholder="Place from" value=" {{!empty($user->step5[0])?($user->step5[0]->place):'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Particulars:</label> <input type="text" name="particulars[]" placeholder="Particulars from" value="{{!empty($user->step5[0])?($user->step5[0]->particulars):'' }}" />
+                    <label class="fieldlabels">Particulars:</label> <input type="text" required name="particulars[]" placeholder="Particulars from" value="{{!empty($user->step5[0])?($user->step5[0]->particulars):'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Duration:</label> <input type="text" name="duration_from[]" placeholder="Duration from" value="{{!empty($user->step5[0])?($user->step5[0]->duration_from):'' }}" />
+                    <label class="fieldlabels">Duration:</label> <input type="text" required name="duration_from[]" placeholder="Duration from" value="{{!empty($user->step5[0])?($user->step5[0]->duration_from):'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels"></label> <input type="text" name="duration_to[]" placeholder="duration_to" value="{{!empty($user->step5[0])?($user->step5[0]->duration_to):'' }}" />
+                    <label class="fieldlabels"></label> <input type="text" required name="duration_to[]" placeholder="duration_to" value="{{!empty($user->step5[0])?($user->step5[0]->duration_to):'' }}" />
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-3">
                     <label class="fieldlabels">Sponsoring Agency</label>
-                    <input type="text" name="sponsoring_agency[]" placeholder="Sponsoring Agency" value="{{!empty($user->step5[0])?($user->step5[0]->sponsoring_agency):'' }}" />
+                    <input type="text" required name="sponsoring_agency[]" placeholder="Sponsoring Agency" value="{{!empty($user->step5[0])?($user->step5[0]->sponsoring_agency):'' }}" />
                 </div>
                 <div class="col-3">
                     <label class="fieldlabels">Encl. No.</label>
-                    <input type="text" placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[0])?($user->step5[0]->encl_no):'' }}" />
+                    <input type="text" placeholder="Sponsoring Agency" required name="encl_no[]" value="{{!empty($user->step5[0])?($user->step5[0]->encl_no):'' }}" />
                 </div>
                 <div class="col-4">
                     <label class="fieldlabels">Attach (certificates)</label>
-                    <input type="file" name="file[]" placeholder="Attach certificates" {{!empty($user->step5[0])?($user->step5[0]->file?'required':''):'' }} />
+                    <input type="file"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[0])?($user->step5[0]->file?'required':''):'' }} />
                     @error('file.0') <span class="text-danger">{{ $message }}</span> @enderror
 
                 </div>
@@ -72,7 +72,7 @@
                         <div class="row mt-3 ">
                             <div class="col">
                                 <label class="fieldlabels"></label>
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type[]">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="type[]">
                                     <option selected value="" disabled selected>Open this select menu</option>
                                     <option value="1" {{!empty($user->step5[$j])?($user->step5[$j]->type=='1'?'selected':''):'' }}>
                                         ORIENTATION/REFRESHER COURSE OR ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL /
@@ -88,30 +88,30 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Place:</label> <input type="text" name="place[]" placeholder="Place from" value=" {{!empty($user->step5[$j])?($user->step5[$j]->place):'' }}" />
+                                <label class="fieldlabels">Place:</label> <input type="text" required name="place[]" placeholder="Place from" value=" {{!empty($user->step5[$j])?($user->step5[$j]->place):'' }}" />
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Particulars:</label> <input type="text" name="particulars[]" placeholder="Particulars from" value="{{!empty($user->step5[$j])?($user->step5[$j]->particulars):'' }}" />
+                                <label class="fieldlabels">Particulars:</label> <input type="text" required name="particulars[]" placeholder="Particulars from" value="{{!empty($user->step5[$j])?($user->step5[$j]->particulars):'' }}" />
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Duration:</label> <input type="text" name="duration_from[]" placeholder="Duration from" value="{{!empty($user->step5[$j])?($user->step5[$j]->duration_from):'' }}" />
+                                <label class="fieldlabels">Duration:</label> <input type="text" required name="duration_from[]" placeholder="Duration from" value="{{!empty($user->step5[$j])?($user->step5[$j]->duration_from):'' }}" />
                             </div>
                             <div class="col">
-                                <label class="fieldlabels"></label> <input type="text" name="duration_to[]" placeholder="duration_to" value="{{!empty($user->step5[$j])?($user->step5[$j]->duration_to):'' }}" />
+                                <label class="fieldlabels"></label> <input type="text" required name="duration_to[]" placeholder="duration_to" value="{{!empty($user->step5[$j])?($user->step5[$j]->duration_to):'' }}" />
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-3">
                                 <label class="fieldlabels">Sponsoring Agency</label>
-                                <input type="text" name="sponsoring_agency[]" placeholder="Sponsoring Agency" value="{{!empty($user->step5[$j])?($user->step5[$j]->sponsoring_agency):'' }}" />
+                                <input type="text" required name="sponsoring_agency[]" placeholder="Sponsoring Agency" value="{{!empty($user->step5[$j])?($user->step5[$j]->sponsoring_agency):'' }}" />
                             </div>
                             <div class="col-3">
                                 <label class="fieldlabels">Encl. No.</label>
-                                <input type="text" placeholder="Sponsoring Agency" name="encl_no[]" value="{{!empty($user->step5[$j])?($user->step5[$j]->encl_no):'' }}" />
+                                <input type="text" placeholder="Sponsoring Agency" required name="encl_no[]" value="{{!empty($user->step5[$j])?($user->step5[$j]->encl_no):'' }}" />
                             </div>
                             <div class="col-4">
                                 <label class="fieldlabels">Attach (certificates)</label>
-                                <input type="file" name="file[]" placeholder="Attach certificates" {{!empty($user->step5[$j])?($user->step5[$j]->file?'required':''):'' }} />
+                                <input type="file"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[$j])?($user->step5[$j]->file?'required':''):'' }} />
                                 @error('file.'.$j) <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-1">
@@ -133,7 +133,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" name="vision_to_the_department" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->vision_to_the_department??'' }}</textarea>
+                    <textarea class="form-control" required name="vision_to_the_department" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->vision_to_the_department??'' }}</textarea>
                 </div>
             </div>
         </div>
@@ -147,7 +147,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" name="contribution_to_the_department" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->contribution_to_the_department??'' }}</textarea>
+                    <textarea class="form-control" required name="contribution_to_the_department" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->contribution_to_the_department??'' }}</textarea>
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" name="future_academic_development_plan" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->future_academic_development_plan??'' }}</textarea>
+                    <textarea class="form-control" required name="future_academic_development_plan" placeholder="Leave a comment here" id="floatingTextarea">{{ $user->step4->future_academic_development_plan??'' }}</textarea>
                 </div>
             </div>
         </div>
@@ -173,7 +173,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="other_relevant_information">{{ $user->step4->other_relevant_information??'' }}</textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required name="other_relevant_information">{{ $user->step4->other_relevant_information??'' }}</textarea>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
     @isset($user->step) @if($user->step>=5)<a href="{{route('promotion-form.step-6')}}" class="action-button">Next</a>
     @endif @endisset
 
-    <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
+    <input type="submit" required name="submit" class=" action-button-submit" value="Submit" />
 
     <a type="button" href="{{ route('promotion-form.step-4') }}" class="action-button">Previous</a>
 </form>
@@ -196,7 +196,7 @@
             <div class="col">
                 <label class="fieldlabels"></label>
                 <select class="form-select form-select-lg mb-3"
-                    aria-label=".form-select-lg example" name="type[]">
+                    aria-label=".form-select-lg example" required name="type[]">
                     <option selected value="" disabled selected>Open this select menu</option>
                     <option value="1">ORIENTATION/REFRESHER COURSE OR ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL /
                         WORKSHOPS/ QIP/ FIP ETC
@@ -211,34 +211,34 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Place:</label> <input type="text"
-                    name="place[]" placeholder="Place from"  />
+                    required name="place[]" placeholder="Place from"  />
             </div>
             <div class="col">
                 <label class="fieldlabels">Particulars:</label> <input type="text"
-                    name="particulars[]" placeholder="Particulars from"  />
+                    required name="particulars[]" placeholder="Particulars from"  />
             </div>
             <div class="col">
                 <label class="fieldlabels">Duration:</label> <input type="text"
-                    name="duration_from[]" placeholder="Duration from"/>
+                    required name="duration_from[]" placeholder="Duration from"/>
             </div>
             <div class="col">
-                <label class="fieldlabels"></label> <input type="text" name="duration_to[]" placeholder="duration_to"  />
+                <label class="fieldlabels"></label> <input type="text" required name="duration_to[]" placeholder="duration_to"  />
             </div>
         </div>
         <div class="row mt-2">
             <div class="col-3">
                 <label class="fieldlabels">Sponsoring Agency</label>
-                <input type="text" name="sponsoring_agency[]"
+                <input type="text" required name="sponsoring_agency[]"
                     placeholder="Sponsoring Agency" />
             </div>
             <div class="col-3">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="sponsoring_agency"
-                    placeholder="Sponsoring Agency" name="encl_no[]"/>
+                <input type="text" required name="sponsoring_agency"
+                    placeholder="Sponsoring Agency" required name="encl_no[]"/>
             </div>
             <div class="col-4">
                 <label class="fieldlabels">Attach (certificates)</label>
-                <input type="file" name="file[]"
+                <input type="file"  name="file[]"
                     placeholder="Attach certificates" />
             </div>
             <div class="col-1">

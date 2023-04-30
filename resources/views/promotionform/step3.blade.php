@@ -171,7 +171,7 @@
                     </div>
                     <div class="col">
                         <label for="service_file">File</label>
-                        <input type="file" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." {{ $user->step3_b[0]->file?'required':'' }}>
+                        <input type="file" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." @isset($user->step3_b[0]){{ $user->step3_b[0]->file?'required':'' }} @endisset>
                     </div>
                 </div>
                 <div class="row g-3">

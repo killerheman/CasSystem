@@ -30,7 +30,7 @@
                 <h6>Applicant Claimed Score : </h6>
             </div>
             <div class="col-3">
-                <input type="text" name="10_applicant_claimed_score" />
+                <input type="text" required name="10_applicant_claimed_score" />
             </div>
         </div>
         <div class="parent border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -40,10 +40,10 @@
                     <p>Assessment Period From :</p>
                 </div>
                 <div class="col-3">
-                    <input type="date" name="assessment_period_from" />
+                    <input type="date" required name="assessment_period_from" />
                 </div>
                 <div class="col-3">
-                    <input type="date" name="assessment_period_to" />
+                    <input type="date" required name="assessment_period_to" />
                 </div>
             </div>
             <div class="row text-center">
@@ -51,26 +51,33 @@
                     <p>Entire Assessment Period From :</p>
                 </div>
                 <div class="col-3">
-                    <input type="date" name="entire_assessment_period_from" />
+                    <input type="date" required name="entire_assessment_period_from" />
                 </div>
                 <div class="col-3">
-                    <input type="date" name="entire_assessment_period_to" />
+                    <input type="date" required name="entire_assessment_period_to" />
                 </div>
             </div>
-            <div class=" row g-3">
-                <div class="col-sm-3">
+            <div class="row g-3 add_input">
+                <div class="col-3">
                     <label>Claimed Score</label>
-                    <input type="text" class="claimed_score" name="claimed_score[]" />
+                    <input type="text" class="claimed_score" required name="claimed_score[]" />
                 </div>
-                <div class="col-md-1 mt-5">
+                <div class="col-1 mt-5">
                     <button type="button" class="btn btn-info plus mt">+</button>
                 </div>
-                <div class="add_input"></div>
             </div>
             <div class="row g-3">
                 <div class="col-sm-3">
                     <label> Total Claimed Score</label>
-                    <input type="text" class="total_claimed_score" disabled readonly id="total_value" value="0" name="total_claimed_score" />
+                    <input type="text" class="total_claimed_score" disabled readonly id="total_value" value="0" required name="total_claimed_score" />
+                </div>
+                <div class="col-sm-9 d-flex justify-content-center">
+                    <button type="button" class="btn btn-warning mt-3 mb-3" data-toggle="modal" data-target="#docmodal"> View All Your Document</button>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-sm-3">
+                   
                 </div>
             </div>
 
@@ -78,7 +85,7 @@
         <h6 class="text-center text-decoration-underline">Declaration </h6>
         <div class="row">
             <div class="col-1">
-                <input type="checkbox" name="accept_declaration" checked />
+                <input type="checkbox" required name="accept_declaration" checked />
             </div>
             <div class="col-11">
                 <p>I, <span style="border-bottom: 2px solid;font-weight:bold;" >{{ Auth::guard('promotion_app_user')->user()->name ?? '' }}</span> hereby solemnly certify that the information provided in
@@ -106,25 +113,48 @@
             <p>Head of the Department/Principal</p>
             <p>Name of the Department/College (With Seal)</p>
         </div>
-        <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
+        <input type="submit" required name="submit" class=" action-button-submit" value="Submit" />
         <a type="button" href="{{ route('promotion-form.step-9') }}" class="action-button"> Previous</a>
     </form>
-    @endsection
+
+
+    {{-- Document Modal --}}
+    <div class="modal" id="docmodal" tabindex="-1"  aria-labelledby="docmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+@endsection
 
 
     @section('script')
     <script>
         $(document).ready(function() {
-            var html = `<div class=" parent1 row g-3">
-                <div class="col-sm-3">
+            var html = `<div class='col-md-3 parent1'><div class='row'><div class="col-sm-10 parent1">
                     <label>Claimed Score</label>
-                    <input type="text" class="claimed_score" name="claimed_score[]" />
+                    <input type="text" class="claimed_score" required name="claimed_score[]" />
                 </div>
-                <div class="col-md-1 mt-5">
+                <div class="col-md-2 mt-4">
                     <button type="button" class="btn btn-danger remove">-</button>
-                </div>
-
-            </div>`;
+                </div></div></div>`;
 
             $(document).on('click', '.plus', function() {
                 $('.add_input').append(html);

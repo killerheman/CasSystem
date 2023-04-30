@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('sr_in_ugc')->nullable();
             $table->string('claimed_score')->nullable();
             $table->string('varified_by_committee')->nullable();
+            $table->json('co_author')->default('[]');
             $table->string('encl_no')->nullable();
             $table->text('file')->nullable();
             $table->timestamps();

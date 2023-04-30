@@ -99,7 +99,7 @@ class PromotionFormController extends Controller
     }
     public function step3_store(Request $req)
     {
-
+        // dd($req->service_file[1]);
         $r = PartAAcademicQualification::saveinfo($req);
         if ($r) {
             Alert::success('Previous Step Save Successfully');
@@ -279,26 +279,26 @@ class PromotionFormController extends Controller
             }
 
             AcademicResearchScoreResearchPaper::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
-            foreach ($req->research_paper as $k => $v) {
                 $d2 = AcademicResearchScoreResearchPaper::create([
                     'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
-                    'title_research_chapter' => $req->research_paper[$k] ?? '',
-                    'name_journal' => $req->name_journal[$k] ?? '',
-                    'vol_pp_no_year' => $req->vol_pp_year[$k] ?? '',
-                    'impact_factor' => $req->impact_factor[$k] ?? '',
-                    'no_authors' => $req->name_authors[$k] ?? '',
-                    'type_authorship' => $req->authorship[$k] ?? '',
-                    'sr_in_ugc' => $req->UGC_listed_journals[$k] ?? '',
-                    'claimed_score' => $req->claimed_score[$k] ?? '',
-                    'varified_by_committee' => $req->verified_committee_c[$k] ?? '',
-                    'encl_no' => $req->encl_no_c[$k] ?? ''
+                    'title_research_chapter' => $req->research_paper ?? '',
+                    'name_journal' => $req->name_journal ?? '',
+                    'vol_pp_no_year' => $req->vol_pp_year?? '',
+                    'impact_factor' => $req->impact_factor?? '',
+                    'no_authors' => $req->name_authors?? '',
+                    'type_authorship' =>  '',
+                    'sr_in_ugc' => '',
+                    'claimed_score' => '',
+                    'varified_by_committee' =>'',
+                    'encl_no' => '',
+                    'co_author'=>$req->name_authors=='multiple'?json_encode($req->co_auth):json_encode([])
+
                 ]);
                 if ($d2) {
                     if ($req->hasFile('research_file')) {
-                        isset($req->research_file[$k]) ? $file = ImageUpload::simpleUpload('certificate', $req->research_file[$k], Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
-                        isset($req->research_file[$k]) ? $d2->update(['file' => $file]) : '';
+                        isset($req->research_file) ? $file = ImageUpload::simpleUpload('certificate', $req->research_file, Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
+                        isset($req->research_file) ? $d2->update(['file' => $file]) : '';
                     }
-                }
             }
             Auth::guard('promotion_app_user')->user()->step == 5 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             Alert::success('Previous Data Save ');

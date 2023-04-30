@@ -19,7 +19,7 @@
             <div class="row mt-3">
                 <div class="col-4">
                     <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
-                    <select class="form-select form-select-lg mb-3" name="type[]" aria-label=".form-select-lg example">
+                    <select class="form-select form-select-lg mb-3" required name="type[]" aria-label=".form-select-lg example">
                         <option selected disabled hidden>Open this select menu</option>
                         <option value="1" @isset($user->step7[0]) @selected($user->step7[0]->type=='1') @endisset>Editor of Book by National Publisher</option>
                         <option value="2" @isset($user->step7[0]) @selected($user->step7[0]->type=='2') @endisset>Editor of Book by International Publisher
@@ -30,13 +30,13 @@
                     </select>
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Title of the Book:</label> <input type="text" name="title[]" placeholder="Title_of_the_Book" @isset($user->step7[0]) value="{{ $user->step7[0]->title??'' }}" @endisset/>
+                    <label class="fieldlabels">Title of the Book:</label> <input type="text" required name="title[]" placeholder="Title_of_the_Book" @isset($user->step7[0]) value="{{ $user->step7[0]->title??'' }}" @endisset/>
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" @isset($user->step7[0]) value="{{ $user->step7[0]->auth??'' }}" @endisset />
+                    <label class="fieldlabels">Author:</label> <input type="text" required name="author[]" placeholder="Author" @isset($user->step7[0]) value="{{ $user->step7[0]->auth??'' }}" @endisset />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Co_Author(s):</label> <input type="text" name="co_auther[]" placeholder="Co_Author(s)" @isset($user->step7[0]) value="{{ $user->step7[0]->co_author??'' }}" @endisset/>
+                    <label class="fieldlabels">Co_Author(s):</label> <input type="text" required name="co_auther[]" placeholder="Co_Author(s)" @isset($user->step7[0]) value="{{ $user->step7[0]->co_author??'' }}" @endisset/>
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement):</label>
@@ -46,27 +46,27 @@
             <div class="row mt-2">
                 <div class="col">
                     <label class="fieldlabels">ISBN</label>
-                    <input type="text" name="isbn[]" placeholder="ISBN" @isset($user->step7[0]) value='{{ $user->step7[0]->isbn_issn??'' }}' @endisset />
+                    <input type="text" required name="isbn[]" placeholder="ISBN" @isset($user->step7[0]) value='{{ $user->step7[0]->isbn_issn??'' }}' @endisset />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Name of the Publisher</label>
-                    <input type="text" name="publisher[]" placeholder="Name of the Publisher" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher??'' }}" @endisset/>
+                    <input type="text" required name="publisher[]" placeholder="Name of the Publisher" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher??'' }}" @endisset/>
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Month, Year</label>
-                    <input type="month" name="publish_date[]" placeholder="Month, Year" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher_month_year??'' }}" @endisset />
+                    <input type="month" required name="publish_date[]" placeholder="Month, Year" @isset($user->step7[0]) value="{{ $user->step7[0]->publisher_month_year??'' }}" @endisset />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Claimed Score</label>
-                    <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[0]) value="{{ $user->step7[0]->claimed_score??'' }}" @endisset />
+                    <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[0]) value="{{ $user->step7[0]->claimed_score??'' }}" @endisset />
                 </div>
                 <div class="col">
                     <label class="fieldlabels"> Verified Score</label>
-                    <input type="text" name="iqac_score[]" placeholder=" Verified Score" @isset($user->step7[0]) value="{{ $user->step7[0]->verify_by_committee??'' }}" @endisset />
+                    <input type="text" required name="iqac_score[]" placeholder=" Verified Score" @isset($user->step7[0]) value="{{ $user->step7[0]->verify_by_committee??'' }}" @endisset />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Encl. No.</label>
-                    <input type="text" name="book_encl_no[]" placeholder="Encl. No." @isset($user->step7[0]) value="{{ $user->step7[0]->encl_no??'' }}" @endisset/>
+                    <input type="text" required name="book_encl_no[]" placeholder="Encl. No." @isset($user->step7[0]) value="{{ $user->step7[0]->encl_no??'' }}" @endisset/>
                 </div>
                 <div class="col-1">
                     <button type="button" class="btn btn-info add7 mt-3">+</button>
@@ -83,7 +83,7 @@
                         <div class="row mt-3">
                             <div class="col-4">
                                 <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
-                                <select class="form-select form-select-lg mb-3" name="type[]" aria-label=".form-select-lg example">
+                                <select class="form-select form-select-lg mb-3" required name="type[]" aria-label=".form-select-lg example">
                                     <option selected disabled hidden>Open this select menu</option>
                                     <option value="1" @isset($user->step7[$i]) @selected($user->step7[$i]->type=='1') @endisset>Editor of Book by National Publisher</option>
                                     <option value="2" @isset($user->step7[$i]) @selected($user->step7[$i]->type=='2') @endisset>Editor of Book by International Publisher
@@ -94,13 +94,13 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Title of the Book:</label> <input type="text" name="title[]" placeholder="Title_of_the_Book" @isset($user->step7[$i]) value="{{ $user->step7[$i]->title??'' }}" @endisset/>
+                                <label class="fieldlabels">Title of the Book:</label> <input type="text" required name="title[]" placeholder="Title_of_the_Book" @isset($user->step7[$i]) value="{{ $user->step7[$i]->title??'' }}" @endisset/>
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" @isset($user->step7[$i]) value="{{ $user->step7[$i]->auth??'' }}" @endisset />
+                                <label class="fieldlabels">Author:</label> <input type="text" required name="author[]" placeholder="Author" @isset($user->step7[$i]) value="{{ $user->step7[$i]->auth??'' }}" @endisset />
                             </div>
                             <div class="col">
-                                <label class="fieldlabels">Co_Author(s):</label> <input type="text" name="co_auther[]" placeholder="Co_Author(s)" @isset($user->step7[$i]) value="{{ $user->step7[$i]->co_author??'' }}" @endisset/>
+                                <label class="fieldlabels">Co_Author(s):</label> <input type="text" required name="co_auther[]" placeholder="Co_Author(s)" @isset($user->step7[$i]) value="{{ $user->step7[$i]->co_author??'' }}" @endisset/>
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">File (Attachement):</label>
@@ -110,27 +110,27 @@
                         <div class="row mt-2">
                             <div class="col">
                                 <label class="fieldlabels">ISBN</label>
-                                <input type="text" name="isbn[]" placeholder="ISBN" @isset($user->step7[$i]) value='{{ $user->step7[$i]->isbn_issn??'' }}' @endisset />
+                                <input type="text" required name="isbn[]" placeholder="ISBN" @isset($user->step7[$i]) value='{{ $user->step7[$i]->isbn_issn??'' }}' @endisset />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Name of the Publisher</label>
-                                <input type="text" name="publisher[]" placeholder="Name of the Publisher" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher??'' }}" @endisset/>
+                                <input type="text" required name="publisher[]" placeholder="Name of the Publisher" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher??'' }}" @endisset/>
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Month, Year</label>
-                                <input type="month" name="publish_date[]" placeholder="Month, Year" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher_month_year??'' }}" @endisset />
+                                <input type="month" required name="publish_date[]" placeholder="Month, Year" @isset($user->step7[$i]) value="{{ $user->step7[$i]->publisher_month_year??'' }}" @endisset />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Claimed Score</label>
-                                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->claimed_score??'' }}" @endisset />
+                                <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->claimed_score??'' }}" @endisset />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Verified Score</label>
-                                <input type="text" name="iqac_score[]" placeholder="Verified Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->verify_by_committee??'' }}" @endisset />
+                                <input type="text" required name="iqac_score[]" placeholder="Verified Score" @isset($user->step7[$i]) value="{{ $user->step7[$i]->verify_by_committee??'' }}" @endisset />
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">Encl. No.</label>
-                                <input type="text" name="book_encl_no[]" placeholder="Encl. No." @isset($user->step7[$i]) value="{{ $user->step7[$i]->encl_no??'' }}" @endisset/>
+                                <input type="text" required name="book_encl_no[]" placeholder="Encl. No." @isset($user->step7[$i]) value="{{ $user->step7[$i]->encl_no??'' }}" @endisset/>
                             </div>
                             <div class="col-1">
                                 <button type="button" class="btn btn-danger remove7 mt-3">-</button>
@@ -154,20 +154,20 @@
         <div class="row mt-3">
             <div class="col-4">
                 <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type[]">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="type[]">
                     <option selected disabled hidden>Open this select menu</option>
                     <option value="6" @isset($step7_a[0]) @selected($step7_a[0]->type==6) @endisset>CHAPTER OR RESEARCH PAPER</option>
                     <option value="7" @isset($step7_a[0]) @selected($step7_a[0]->type==7) @endisset>BOOK</option>
                 </select>
             </div>
             <div class="col">
-                <label class="fieldlabels">Title of the Book:</label> <input type="text" name="title[]" placeholder="Title_of_the_Book" value="{{ isset($step7_a[0]->title)?$step7_a[0]->title:'' }}" />
+                <label class="fieldlabels">Title of the Book:</label> <input type="text" required name="title[]" placeholder="Title_of_the_Book" value="{{ isset($step7_a[0]->title)?$step7_a[0]->title:'' }}" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" value="{{ isset($step7_a[0]->auth)?$step7_a[0]->auth:'' }}" />
+                <label class="fieldlabels">Author:</label> <input type="text" required name="author[]" placeholder="Author" value="{{ isset($step7_a[0]->auth)?$step7_a[0]->auth:'' }}" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Co_Author(s):</label> <input type="text" value="{{ isset($step7_a[0]->co_author)?$step7_a[0]->co_author:'' }}" name="co_auther[]" placeholder="Co_Author(s)" />
+                <label class="fieldlabels">Co_Author(s):</label> <input type="text" value="{{ isset($step7_a[0]->co_author)?$step7_a[0]->co_author:'' }}" required name="co_auther[]" placeholder="Co_Author(s)" />
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label>
@@ -177,27 +177,27 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">ISBN</label>
-                <input type="text" name="isbn[]" placeholder="ISBN" value="{{ isset($step7_a[0]->isbn_issn)?$step7_a[0]->title:'' }}" />
+                <input type="text" required name="isbn[]" placeholder="ISBN" value="{{ isset($step7_a[0]->isbn_issn)?$step7_a[0]->title:'' }}" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Name of the Publisher</label>
-                <input type="text" name="publisher[]" placeholder="Name of the Publisher " value="{{ isset($step7_a[0]->publisher)?$step7_a[0]->publisher:'' }}" />
+                <input type="text" required name="publisher[]" placeholder="Name of the Publisher " value="{{ isset($step7_a[0]->publisher)?$step7_a[0]->publisher:'' }}" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder="Month, Year" value="{{ isset($step7_a[0]->publisher_month_year)?$step7_a[0]->publisher_month_year:'' }}" />
+                <input type="month" required name="publish_date[]" placeholder="Month, Year" value="{{ isset($step7_a[0]->publisher_month_year)?$step7_a[0]->publisher_month_year:'' }}" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[0]->claimed_score)?$step7_a[0]->claimed_score:'' }}" />
+                <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[0]->claimed_score)?$step7_a[0]->claimed_score:'' }}" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified Score</label>
-                <input type="text" name="iqac_score[]" placeholder=" Verified Score" value="{{ isset($step7_a[0]->verify_by_committee)?$step7_a[0]->verify_by_committee:'' }}" />
+                <input type="text" required name="iqac_score[]" placeholder=" Verified Score" value="{{ isset($step7_a[0]->verify_by_committee)?$step7_a[0]->verify_by_committee:'' }}" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="book_encl_no[]" placeholder="Encl. No." value="{{ isset($step7_a[0]->encl_no)?$step7_a[0]->encl_no:'' }}" />
+                <input type="text" required name="book_encl_no[]" placeholder="Encl. No." value="{{ isset($step7_a[0]->encl_no)?$step7_a[0]->encl_no:'' }}" />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add8 mt-3">+</button>
@@ -211,20 +211,20 @@
             <div class="row mt-3">
                 <div class="col-4">
                     <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type[]">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="type[]">
                         <option selected disabled hidden>Open this select menu</option>
                         <option value="6" @isset($step7_a[$j]) @selected($step7_a[$j]->type==6) @endisset>CHAPTER OR RESEARCH PAPER</option>
                         <option value="7" @isset($step7_a[$j]) @selected($step7_a[$j]->type==7) @endisset>BOOK</option>
                     </select>
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Title of the Book:</label> <input type="text" name="title[]" placeholder="Title_of_the_Book" value="{{ isset($step7_a[$j]->title)?$step7_a[$j]->title:'' }}" />
+                    <label class="fieldlabels">Title of the Book:</label> <input type="text" required name="title[]" placeholder="Title_of_the_Book" value="{{ isset($step7_a[$j]->title)?$step7_a[$j]->title:'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" value="{{ isset($step7_a[$j]->auth)?$step7_a[$j]->auth:'' }}" />
+                    <label class="fieldlabels">Author:</label> <input type="text" required name="author[]" placeholder="Author" value="{{ isset($step7_a[$j]->auth)?$step7_a[$j]->auth:'' }}" />
                 </div>
                 <div class="col">
-                    <label class="fieldlabels">Co_Author(s):</label> <input type="text" value="{{ isset($step7_a[$j]->co_author)?$step7_a[$j]->co_author:'' }}" name="co_auther[]" placeholder="Co_Author(s)" />
+                    <label class="fieldlabels">Co_Author(s):</label> <input type="text" value="{{ isset($step7_a[$j]->co_author)?$step7_a[$j]->co_author:'' }}" required name="co_auther[]" placeholder="Co_Author(s)" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement):</label>
@@ -234,27 +234,27 @@
             <div class="row mt-2">
                 <div class="col">
                     <label class="fieldlabels">ISBN</label>
-                    <input type="text" name="isbn[]" placeholder="ISBN" value="{{ isset($step7_a[$j]->isbn_issn)?$step7_a[$j]->title:'' }}" />
+                    <input type="text" required name="isbn[]" placeholder="ISBN" value="{{ isset($step7_a[$j]->isbn_issn)?$step7_a[$j]->title:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Name of the Publisher</label>
-                    <input type="text" name="publisher[]" placeholder="Name of the Publisher " value="{{ isset($step7_a[$j]->publisher)?$step7_a[$j]->publisher:'' }}" />
+                    <input type="text" required name="publisher[]" placeholder="Name of the Publisher " value="{{ isset($step7_a[$j]->publisher)?$step7_a[$j]->publisher:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Month, Year</label>
-                    <input type="month" name="publish_date[]" placeholder="Month, Year" value="{{ isset($step7_a[$j]->publisher_month_year)?$step7_a[$j]->publisher_month_year:'' }}" />
+                    <input type="month" required name="publish_date[]" placeholder="Month, Year" value="{{ isset($step7_a[$j]->publisher_month_year)?$step7_a[$j]->publisher_month_year:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Claimed Score</label>
-                    <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[$j]->claimed_score)?$step7_a[$j]->claimed_score:'' }}" />
+                    <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" value="{{ isset($step7_a[$j]->claimed_score)?$step7_a[$j]->claimed_score:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Verified Score</label>
-                    <input type="text" name="iqac_score[]" placeholder="Verified Score" value="{{ isset($step7_a[$j]->verify_by_committee)?$step7_a[$j]->verify_by_committee:'' }}" />
+                    <input type="text" required name="iqac_score[]" placeholder="Verified Score" value="{{ isset($step7_a[$j]->verify_by_committee)?$step7_a[$j]->verify_by_committee:'' }}" />
                 </div>
                 <div class="col">
                     <label class="fieldlabels">Encl. No.</label>
-                    <input type="text" name="book_encl_no[]" placeholder="Encl. No." value="{{ isset($step7_a[$j]->encl_no)?$step7_a[$j]->encl_no:'' }}" />
+                    <input type="text" required name="book_encl_no[]" placeholder="Encl. No." value="{{ isset($step7_a[$j]->encl_no)?$step7_a[$j]->encl_no:'' }}" />
                 </div>
                 <div class="col-1">
                     <button type="button" class="btn btn-danger remove8 mt-3">-</button>
@@ -277,7 +277,7 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">Select Type</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="ict_type[]">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="ict_type[]">
                     <option selected disabled hidden>Open this select menu</option>
                     <optgroup label="PEDAGOGY">
                         <option value="1" @isset($user->step7_b[0]) @selected($user->step7_b[0]->type==1) @endisset> DEVELOPMENT OF INNOVATIVE PEDAGOGY</option>
@@ -315,20 +315,20 @@
                 </select>
             </div>
             <div class="col">
-                <label class="fieldlabels">Activity*</label> <input type="text" name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->activity??'' }}" @endisset/>
+                <label class="fieldlabels">Activity*</label> <input type="text" required name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->activity??'' }}" @endisset/>
             </div>
             <div class="col">
-                <label class="fieldlabels">Claimed Score</label> <input type="number" name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->claimed_score??'' }}" @endisset />
+                <label class="fieldlabels">Claimed Score</label> <input type="number" required name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->claimed_score??'' }}" @endisset />
             </div>
         </div>
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
-                <input type="text" name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->verify_by_committee??'' }}" @endisset/>
+                <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->verify_by_committee??'' }}" @endisset/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="ict_encl_no[]" placeholder="Encl. No." @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->encl_no??'' }}" @endisset />
+                <input type="text" required name="ict_encl_no[]" placeholder="Encl. No." @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->encl_no??'' }}" @endisset />
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>
@@ -346,7 +346,7 @@
                     <div class="row mt-2">
                         <div class="col">
                             <label class="fieldlabels">Select Type</label>
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="ict_type[]">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="ict_type[]">
                                 <option selected disabled hidden>Open this select menu</option>
                                 <optgroup label="PEDAGOGY">
                                     <option value="1" @isset($user->step7_b[$u]) @selected($user->step7_b[$u]->type==1) @endisset> DEVELOPMENT OF INNOVATIVE PEDAGOGY</option>
@@ -384,20 +384,20 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">Activity*</label> <input type="text" name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->activity??'' }}" @endisset/>
+                            <label class="fieldlabels">Activity*</label> <input type="text" required name="ict_activity[]" placeholder="Activity*" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->activity??'' }}" @endisset/>
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">Claimed Score</label> <input type="number" name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->claimed_score??'' }}" @endisset />
+                            <label class="fieldlabels">Claimed Score</label> <input type="number" required name="ict_claimed_score[]" placeholder="Claimed Score" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->claimed_score??'' }}" @endisset />
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col">
                             <label class="fieldlabels">Verified by the Committee</label>
-                            <input type="text" name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->verify_by_committee??'' }}" @endisset/>
+                            <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->verify_by_committee??'' }}" @endisset/>
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Encl. No.</label>
-                            <input type="text" name="ict_encl_no[]" placeholder="Encl. No." @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->encl_no??'' }}" @endisset />
+                            <input type="text" required name="ict_encl_no[]" placeholder="Encl. No." @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->encl_no??'' }}" @endisset />
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File</label>
@@ -417,7 +417,7 @@
     @isset($user->step) @if($user->step>=7)<a href="{{route('promotion-form.step-8')}}" class="action-button">Next</a>
     @endif @endisset
 
-    <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
+    <input type="submit" required name="submit" class=" action-button-submit" value="Submit" />
 
     <a type="button" href="{{ route('promotion-form.step-6') }}" class="action-button">Previous</a>
 </form>
@@ -443,7 +443,7 @@
         <div class="row mt-3">
             <div class="col-4">
                 <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
-                <select class="form-select form-select-lg mb-3" name="type[]"
+                <select class="form-select form-select-lg mb-3" required name="type[]"
                     aria-label=".form-select-lg example">
                     <option selected disabled hidden>Open this select menu</option>
                     <option value="1">Editor of Book by National Publisher</option>
@@ -456,15 +456,15 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Title of the Book:</label> <input type="text"
-                    name="title[]" placeholder="Title_of_the_Book" />
+                    required name="title[]" placeholder="Title_of_the_Book" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Author:</label> <input type="text"
-                    name="author[]" placeholder="Author" />
+                    required name="author[]" placeholder="Author" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Co_Author(s):</label> <input type="text"
-                    name="co_auther[]" placeholder="Co_Author(s)" />
+                    required name="co_auther[]" placeholder="Co_Author(s)" />
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label> 
@@ -474,29 +474,29 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">ISBN</label>
-                <input type="text" name="isbn[]" placeholder="ISBN" />
+                <input type="text" required name="isbn[]" placeholder="ISBN" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Name of the Publisher</label>
-                <input type="text" name="publisher[]"
+                <input type="text" required name="publisher[]"
                     placeholder="Name of the Publisher" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder="Month, Year" />
+                <input type="month" required name="publish_date[]" placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
+                <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified Score</label>
-                <input type="text" name="iqac_score[]"
+                <input type="text" required name="iqac_score[]"
                     placeholder="Verified Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="book_encl_no[]" placeholder="Encl. No." />
+                <input type="text" required name="book_encl_no[]" placeholder="Encl. No." />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-danger remove7 mt-3">-</button>
@@ -521,21 +521,21 @@
             <div class="col-4">
                 <label class="fieldlabels">BOOKS AUTHORED WHICH ARE PUBLISHED BY</label>
                 <select class="form-select form-select-lg mb-3"
-                    aria-label=".form-select-lg example" name="type[]">
+                    aria-label=".form-select-lg example" required name="type[]">
                     <option selected disabled hidden>Open this select menu</option>
                     <option value="6">CHAPTER OR RESEARCH PAPER</option>
                     <option value="7">BOOK</option>
                 </select>
             </div>
             <div class="col">
-                <label class="fieldlabels">Title of the Book:</label> <input  type="text" name="title[]" placeholder="Title_of_the_Book" />
+                <label class="fieldlabels">Title of the Book:</label> <input  type="text" required name="title[]" placeholder="Title_of_the_Book" />
             </div>
             <div class="col">
-                <label class="fieldlabels">Author:</label> <input type="text" name="author[]" placeholder="Author" />
+                <label class="fieldlabels">Author:</label> <input type="text" required name="author[]" placeholder="Author" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Co_Author(s):</label> <input type="text"
-                    name="co_auther[]" placeholder="Co_Author(s)" />
+                    required name="co_auther[]" placeholder="Co_Author(s)" />
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label> 
@@ -545,29 +545,29 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">ISBN</label>
-                <input type="text" name="isbn[]" placeholder="duration_to" />
+                <input type="text" required name="isbn[]" placeholder="duration_to" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Name of the Publisher</label>
-                <input type="text" name="publisher[]"
+                <input type="text" required name="publisher[]"
                     placeholder="Name of the Publisher " />
             </div>
             <div class="col">
                 <label class="fieldlabels">Month, Year</label>
-                <input type="month" name="publish_date[]" placeholder="Month, Year" />
+                <input type="month" required name="publish_date[]" placeholder="Month, Year" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label>
-                <input type="number" name="book_claimed_Score[]" placeholder="Claimed Score" />
+                <input type="number" required name="book_claimed_Score[]" placeholder="Claimed Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Verified Score</label>
-                <input type="text" name="iqac_score[]"
+                <input type="text" required name="iqac_score[]"
                     placeholder="Verified Score" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="book_encl_no[]" placeholder="Encl. No." />
+                <input type="text" required name="book_encl_no[]" placeholder="Encl. No." />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-danger remove8 mt-3">-</button>
@@ -589,7 +589,7 @@
             <div class="col">
                 <label class="fieldlabels">Select Type</label>
                 <select class="form-select form-select-lg mb-3"
-                    aria-label=".form-select-lg example" name="ict_type[]">
+                    aria-label=".form-select-lg example" required name="ict_type[]">
                     <option selected disabled hidden>Open this select menu</option>
                     <optgroup label="PEDAGOGY">
                         <option value="1"> DEVELOPMENT OF INNOVATIVE PEDAGOGY</option>
@@ -628,22 +628,22 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">Activity*</label> <input type="text"
-                    name="ict_activity[]" placeholder="Activity*" />
+                    required name="ict_activity[]" placeholder="Activity*" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Claimed Score</label> <input type="number"
-                    name="ict_claimed_score[]" placeholder="Claimed Score" />
+                    required name="ict_claimed_score[]" placeholder="Claimed Score" />
             </div>
         </div>
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
-                <input type="text" name="ict_committee[]"
+                <input type="text" required name="ict_committee[]"
                     placeholder="Verified by the Committee" />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
-                <input type="text" name="ict_encl_no[]" placeholder="Encl. No." />
+                <input type="text" required name="ict_encl_no[]" placeholder="Encl. No." />
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>

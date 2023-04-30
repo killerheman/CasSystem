@@ -39,6 +39,7 @@ class PartAAcademicQualification extends Model
                     if($qualification){
                         if($req->hasFile('file')){
                             isset($req->file[$k])?$qualification->update(['file'=>ImageUpload::simpleUpload('certificate',$req->file[$k],'q-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                            // Log::info('file-'.json_encode($req->file[$k]));
                         }
                     }
                 }
@@ -65,6 +66,7 @@ class PartAAcademicQualification extends Model
                     if($lnmu){
                         if($req->hasFile('service_file')){
                             isset($req->service_file[$k])?$lnmu->update(['file'=>ImageUpload::simpleUpload('certificate',$req->service_file[$k],'sf-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                            // Log::info('service file-'.json_encode($req->service_file[$k]));
                         }
                     }
                 }
@@ -87,6 +89,7 @@ class PartAAcademicQualification extends Model
                     if($d){
                         if($req->hasFile('step3c_experience_file')){
                             isset($req->step3c_experience_file[$k])?$d->update(['file'=>ImageUpload::simpleUpload('certificate',$req->step3c_experience_file[$k],'ex-'.Auth::guard('promotion_app_user')->user()->id)]):'';
+                            // Log::info('ex-'.json_encode($req->step3c_experience_file[$k]));
                         }
                     }
                 }

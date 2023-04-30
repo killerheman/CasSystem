@@ -332,7 +332,7 @@
                     </div>
                     <div class="col">
                         <label for="experience_file">File</label>
-                        <input type="file" id="Months"  name="step3c_experience_file[]" class="form-control" {{ $user->step3_c[0]->file?'required':'' }} placeholder="experience_file" aria-label="experience_file">
+                        <input type="file" id="Months"  name="step3c_experience_file[]" class="form-control" @isset($user->step3_c[0]){{ $user->step3_c[0]->file?'required':'' }} @endisset placeholder="experience_file" aria-label="experience_file">
                     </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-info add2 mt-4">+</button>

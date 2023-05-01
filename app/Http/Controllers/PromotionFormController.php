@@ -170,7 +170,8 @@ class PromotionFormController extends Controller
                     'encl_no' => $req->encl_no[$k] ?? ''
                 ]);
                 if($req->hasFile('research_b')){
-                    isset($req->research_b[$k])?ImageUpload::simpleUpload('certificate',$req->research_b[$k],'doc-'.Auth::guard('promotion_app_user')->user()->id):'';
+                    isset($req->research_b[$k])?$f=ImageUpload::simpleUpload('certificate',$req->research_b[$k],'doc-'.Auth::guard('promotion_app_user')->user()->id):'';
+                    $r->update(['file'=>$f]);
                 }
             }
             Alert::success('Previous Step Save Successfully');
@@ -232,8 +233,7 @@ class PromotionFormController extends Controller
             'activity_file.*' => 'max:100',
             'involment_file' => 'array',
             'involment_file.*' => 'max:100',
-            'research_file' => 'array',
-            'research_file.*' => 'max:100'
+            'research_file' => 'max:100'
         ]);
         try {
             PromotionApplicationPartB::where('promotion_application_id', Auth::guard('promotion_app_user')->user()->id)->delete();
@@ -360,7 +360,7 @@ class PromotionFormController extends Controller
             if ($d1) {
                 if ($req->hasFile('ict_file')) {
                     isset($req->ict_file[$k]) ? $file = ImageUpload::simpleUpload('ict', $req->ict_file[$k], Auth::guard('promotion_app_user')->user()->id) : '';
-                    isset($req->ict_file[$k]) ? $d->update(['file' => $file]) : '';
+                    isset($req->ict_file[$k]) ? $d1->update(['file' => $file]) : '';
                 }
             }
         }
@@ -565,7 +565,8 @@ class PromotionFormController extends Controller
     }
     public function step10()
     {
-        return view('promotionform.step10');
+        $user = Auth::guard('promotion_app_user')->user();
+        return view('promotionform.step10',compact('user'));
     }
 
     public function step10_store(Request $request)
@@ -585,7 +586,7 @@ class PromotionFormController extends Controller
                     'claimed_score' => json_encode($request->claimed_score),
                     'total_claimed_score' => array_sum($request->claimed_score)
                 ]);
-                $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-act-') : '';
+                $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-sign-') : '';
                 $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
                 Alert::success('Form Filling Success. Please Check Preview');
                 return redirect()->route('promotion-form.preview');

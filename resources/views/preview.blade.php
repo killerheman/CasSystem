@@ -146,8 +146,8 @@
             </div>
             <div class="p-5">
                 <span class="col-2 sp"></span>
-                1 CAS Statutes-2018 can be downloaded here:
-                https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf
+                1 CAS Statutes-2018 can be downloaded here: <a href="https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf" target="_blank">
+                https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf</a>
             </div>
         </div>
     </section>
@@ -182,7 +182,7 @@
                     <li>Permanent Address (with Pin Code) : <strong>{{ $users->step2->permanent_address ?? 'N/A' }}(Pincode - {{ $users->step2->permanent_address_pincode ?? 'N/A' }})</strong></li>
                     <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? 'N/A' }}</strong></li>
                     <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? 'N/A' }}</strong></li>
-                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong></li>
+                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong> --}}</li>
                 </ol>
                 <table class="table table-bordered">
                     <thead>
@@ -222,7 +222,7 @@
                 </b>
             </p>
             <table class="table table-bordered border-primary">
-                <tbody>
+                <thead>
                     <tr>
                         <th rowspan="2"><strong>Institution</strong></th>
                         <th rowspan="2"><strong>Designation</strong></th>
@@ -244,13 +244,15 @@
                         <th>Year</th>
                         <th>Months</th>
                     </tr>
+                </thead>
+                <tbody>
                     @foreach($users->step3_b as $data)
                     <tr>
                         <td>{{$data->institution??''}}</td>
                         <td>{{$data->designation??''}}</td>
                         <td>{{$data->nature_of_appointment??''}}</td>
                         <td>{{$data->nature_of_duties}}</td>
-                        <td>{{$data->pay_scale_pay_band_and_a??''}}</td>
+                        <td>{{$data->pay_scale_pay_band_and_agp??''}}</td>
                         <td>{{$data->duration_from??''}}</td>
                         <td>{{$data->duration_to??''}}</td>
                         <td>{{$data->experience_year}}</td>
@@ -296,13 +298,14 @@
                         <td>{{$data->encl_no??''}}</td>
 
                     </tr>
+                    
+                    @endforeach
                     <tr>
                         <td colspan="7">Please clearly specify the period of Leave Without Pay (LWP)</td>
                         <td></td>
                         <td></td>
 
                     </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -323,11 +326,11 @@
                 <h5>24. RESEARCH EXPERIENCE: (including M.Phil/Ph.D Duration) </h5>
             </div>
             <div class="row p-2">
-                i. &nbsp;&nbsp; Total Number of Years: <span class="col-3 sp"></span>&nbsp;&nbsp;&nbsp;Period:
-                &nbsp;From<span class="col-2 sp"></span> &nbsp;&nbsp;To<span class="col-2 sp"></span>
+                i. &nbsp;&nbsp; Total Number of Years: <span class="col-3 sp">{{$users->step4->mphil_phd_in_years??''}}</span>&nbsp;&nbsp;&nbsp;Period:
+                &nbsp;From<span class="col-2 sp">{{$users->step4->mphil_phd_from??''}}</span> &nbsp;&nbsp;To<span class="col-2 sp">{{$users->step4->mphil_phd_to??''}}</span>
             </div>
             <div class="row p-2">
-                a)&nbsp; &nbsp;&nbsp; Years Spent in M. Phil.: <span class="col-3 sp"></span>
+                a)&nbsp; &nbsp;&nbsp; Years Spent in M. Phil.: <span class="col-3 sp">{{$users->step4->years_spent_in_mphil??''}}</span>
             </div>
             <table class="table table-bordered mt-5">
                 <thead>
@@ -348,19 +351,23 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @foreach ($users->step4_phdrecord->where('type','m_phil') as $phdrec)
+                        
                     <tr>
-                        <td scope="row">hello</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td scope="row">{{ $phdrec->period_of_from??'' }}</td>
+                        <td>{{ $phdrec->period_of_to??'' }}</td>
+                        <td>{{ $phdrec->name_of_institute_university??'' }}</td>
+                        <td>{{ $phdrec->research_topic??'' }}</td>
+                        <td>{{ $phdrec->date_of_notification_result_conferring_the_degree??'' }}</td>
+                        <td>{{ $phdrec->period_of_from??'' }}</td>
                     </tr>
+                    
+                    @endforeach
                 </tbody>
             </table>
             <div class="row p-2">
-                b)&nbsp; &nbsp;&nbsp; Years Spent in M. Phil. &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:<span class="col-3 sp"></span>
+                b)&nbsp; &nbsp;&nbsp; Years Spent in M. Ph.D. &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:<span class="col-3 sp">{{$users->step4->years_spent_in_phd??''}}</span>
             </div>
             <table class="table table-bordered mt-5">
                 <thead>
@@ -381,66 +388,69 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @foreach ($users->step4_phdrecord->where('type','ph_d') as $phdrec)
+                        
                     <tr>
-                        <td scope="row">hello</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td scope="row">{{ $phdrec->period_of_from??'' }}</td>
+                        <td>{{ $phdrec->period_of_to??'' }}</td>
+                        <td>{{ $phdrec->name_of_institute_university??'' }}</td>
+                        <td>{{ $phdrec->research_topic??'' }}</td>
+                        <td>{{ $phdrec->date_of_notification_result_conferring_the_degree??'' }}</td>
+                        <td>{{ $phdrec->period_of_from??'' }}</td>
                     </tr>
+                    
+                    @endforeach
                 </tbody>
             </table>
             <div class="row p-2">
-                ii. &nbsp;&nbsp; Years of Guiding Ph.D.: <span class="col-3 sp"></span>&nbsp;&nbsp;&nbsp;Ph.D.: <span
+                ii. &nbsp;&nbsp; Years of Guiding Ph.D.: <span class="col-3 sp">{{$users->step4->years_of_guiding_phd??''}}</span>&nbsp;&nbsp;&nbsp;Ph.D.: <span
                     class="col-2 sp"></span>
             </div>
             <div class="row p-2">
                 iii. &nbsp;&nbsp;&nbsp;&nbsp; Total No. of Papers Published: <span class="col-2"></span> &nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp; i.International Journals <span class="col-2 sp"></span>
+                &nbsp; &nbsp; &nbsp; i.International Journals <span class="col-2 sp">{{$users->step4->papers_published_international_journals??''}}</span>
             </div>
             <div class="row p-2">
-                <span class="col-5"></span> ii.International Journals <span class="col-2 sp"></span>
+                <span class="col-5"></span> ii.National Journals <span class="col-2 sp">{{$users->step4->papers_published_national_journals??''}}</span>
             </div>
             <div class="row p-2">
-                <span class="col-5"></span> iii.International Journals <span class="col-2 sp"></span>
+                <span class="col-5"></span> iii.State Journals <span class="col-2 sp">{{$users->step4->papers_published_state_level_journals??''}}</span>
             </div>
             <div class="row p-2">
-                <span class="col-3"></span> (Not Abstract but Full paper only) Total <span class="col-3 sp"></span>
+                <span class="col-3"></span> (Not Abstract but Full paper only) Total <span class="col-3 sp">{{$users->step4->papers_published_total??''}}</span>
             </div>
             <div class="row pt-2">
                 <b> iv.&nbsp;&nbsp;&nbsp;&nbsp;Total No. of Conferences/Seminars/Workshops Attended and papers
                     presented:</b>
             </div>
             <div class="row p-2">
-                i. &nbsp;&nbsp;&nbsp;&nbsp; International: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp"></span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp"></span>
+                i. &nbsp;&nbsp;&nbsp;&nbsp; International: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_international_attended??''}}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_international_papers_presented??''}}</span>
             </div>
             <div class="row p-2">
-                ii. &nbsp;&nbsp;&nbsp;&nbsp; National: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp"></span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp"></span>
+                ii. &nbsp;&nbsp;&nbsp;&nbsp; National: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_national_attended??''}}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_national_papers_presented??''}}</span>
             </div>
             <div class="row p-2">
-                iii. &nbsp;&nbsp;&nbsp;&nbsp; State Level: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp"></span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp"></span>
+                iii. &nbsp;&nbsp;&nbsp;&nbsp; State Level: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars__state_level_attended??''}}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars__state_level_papers_presented??''}}</span>
             </div>
             <div class="row p-2">
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                Total: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp"></span> &nbsp;&nbsp; &nbsp; : Attended and
-                Papers Presented <span class="col-2 sp"></span>
+                Total: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_total_attended??''}}</span> &nbsp;&nbsp; &nbsp; : Attended and
+                Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_total_papers_presented??''}}</span>
             </div>
             <div class="row pt-2">
                 <b> 27. AWARDS /PRIZES/HONOURS/RECOGNITIONS :</b>
             </div>
+            @php $awards=explode(',',$users->step4->awards_prizes_honours_recognitions) @endphp
+            @foreach($awards as $a)
             <div class="row pt-2">
-                1.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="col-8 sp"></span>
+
+                {{ $loop->index+1 }}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="col-8 sp">{{ $a }}</span>
             </div>
-            <div class="row pt-2">
-                2.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="col-8 sp"></span>
-            </div>
-            <div class="row pt-2">
-                3.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="col-8 sp"></span>
-            </div>
+            @endforeach
+            
         </div>
     </section>
 
@@ -449,12 +459,13 @@
         <hr>
         <div class="container">
             <h6> 28.FIELDS OF SPECIALIZATION IN THE SUBJECT/DISCIPLINE:</h6>
+            @php $field=explode(',',$users->step4->specialization_in_the_subject_discipline) @endphp
             <div class="row">
-                <span>&#10146;</span>
-                <span>&#10146;</span>
-                <span>&#10146;</span>
+                @foreach ($field as $f)
+                <span>&#10146; {{ $f }}</span>
+                @endforeach
             </div>
-            <h6> 29. ORIENTATION/REFRESHER COURSE ATTENDED <span>(ONLY UGC RECOGNIZED):(Attach certificates)</span></h6>
+            <h6 class="mt-2"> 29. ORIENTATION/REFRESHER COURSE ATTENDED <span>(ONLY UGC RECOGNIZED):(Attach certificates)</span></h6>
 
             <table class="table table-bordered">
                 <thead>
@@ -477,15 +488,19 @@
                         <th></th>
                         <th></th>
                     </tr>
+                    @isset($users->step5)
+                    @foreach ($users->step5->where('type',1) as $v)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
+                        <th scope="row">{{ $loop->index+1 }}</th>
+                        <td>{{ $v->particulars??'' }}</td>
+                        <td>{{ $v->place??'' }}</td>
+                        <td>{{ $v->duration_from??'' }}</td>
+                        <td>{{ $v->duration_to??'' }}</td>
+                        <td>{{ $v->sponsoring_agency??'' }}</td>
+                        <td>{{ $v->encl_no??'' }}</td>
                     </tr>
+                    @endforeach
+                    @endisset
                 </tbody>
             </table>
             <h6>
@@ -504,47 +519,51 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @isset($users->step5)
+                    @foreach ($users->step5->where('type',2) as $v)
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
+                        <th scope="row">{{ $loop->index+1 }}</th>
+                        <td>{{ $v->particulars??'' }}</td>
+                        <td>{{ $v->place??'' }}</td>
+                        <td>{{ $v->duration_from??'' }}</td>
+                        <td>{{ $v->duration_to??'' }}</td>
+                        <td>{{ $v->sponsoring_agency??'' }}</td>
+                        <td>{{ $v->encl_no??'' }}</td>
                     </tr>
+                    @endforeach
+                    @endisset
                 </tbody>
             </table>
             <div class="row">
                 <h6 class="mt-5">31. YOUR VISION FOR THE DEPARTMENT /COLLEGE/UNIVERSITY:</h6>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
+                @php $vision=explode(',',$users->step4->vision_to_the_department) @endphp
+                @foreach ($vision as $v)
+                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                @endforeach
             </div>
 
             <div class="row">
                 <h6 class="mt-5">32. YOUR CONTRIBUTION TO THE DEPARTMENT /COLLEGE/DISCIPLINE AND
                     UNIVERSITY:</h6>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
+                 @php $conti=explode(',',$users->step4->contribution_to_the_department) @endphp
+                @foreach ($conti as $v)
+                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                @endforeach
             </div>
             <div class="row">
                 <h6 class="mt-5">33. FUTURE ACADEMIC DEVELOPMENT PLAN FOR SELF AS WELL AS DEPARTMENT
                     /COLLEGE/UNIVERSITY:</h6>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
+                    @php $dev=explode(',',$users->step4->future_academic_development_plan) @endphp
+                    @foreach ($dev as $v)
+                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    @endforeach
             </div>
             <div class="row">
                 <h6 class="mt-5">34. ANY OTHER RELEVANT INFORMATION:</h6>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
-                <span class="col-12 sp pt-5 mb-2"></span>
+                @php $dev=explode(',',$users->step4->other_relevant_information) @endphp
+                @foreach ($dev as $v)
+                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                @endforeach
             </div>
         </div>
     </section>

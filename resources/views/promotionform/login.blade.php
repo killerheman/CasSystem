@@ -73,12 +73,15 @@ a {
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">Welcome to Portal for Promotion of Teacher </h4>
                   <p class="small mb-0">
+                    <marquee behavior="" direction="up" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">
                     <ul>
                       <li> <a href="{{ asset('Bihar CAS Promotion-2018_(2023).pdf') }} " class="text-light"> CAS-2018 </a></li>
                       <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html"  class="text-light" target="_blank"> CAS-1998 </a></li>
                       <li > Notification (LNMU)</li>
                       <li><a href="{{ asset('Old Cas/C.C.R Proforma for Teacher.pdf') }}" download="">C.C.R Proforma for Teacher</a></li>
                       <li><a href="{{ asset('Old Cas/Proforma for Promotion to Reader (MPS).pdf') }}" download="">Proforma for Promotion to Reader (MPS)</a></li>
+                      <li><a href="{{ asset('upload/Principal HOD Cert for Class Engagement_Format (3).pdf') }}" target="_blank">Principal HOD Cert for Class Engagement_Format</a></li>
+                      <li><a href="{{ asset('upload/Principal HOD Cert for Examination work_Format (2).pdf') }}" target="_blank">Principal HOD Cert for Examination work_Format </a></li>
                     </ul>
                     <details>
                       <summary>Proforma For CAS 1998</summary>
@@ -90,6 +93,19 @@ a {
                         </ul>
                       </p>
                     </details>
+                    <details>
+                      <summary>Proforma</summary>
+                      <p>
+                        <ul>
+                          <li><a href="{{ asset('upload/Time Bound Promotion READER Proforma.pdf') }}" target="_blank">Time Bound Promotion READER Proforma</a></li>
+                          <li><a href="{{ asset('upload/Time Bound Promotion Professor Proforma.pdf') }}" target="_blank">Time Bound Promotion Professor Proforma</a></li>
+                          <li><a href="{{ asset('upload/4. Proforma for selection grade.pdf') }}" target="_blank">Proforma for selection grade</a></li>
+                          <li><a href="{{ asset('upload/5. Proforma for promotion of READER (CAS).pdf') }}" target="_blank">Proforma for promotion of READER (CAS)</a></li>
+                          <li><a href="{{ asset('upload/7. proforma for date shifting under CAS 01.11.12.pdf') }}" target="_blank">proforma for date shifting under CAS 01.11.12</a></li>
+                        </ul>
+                      </p>
+                    </details>
+                  </marquee>
                   </p>
                 </div>
               </div>

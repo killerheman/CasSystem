@@ -82,6 +82,7 @@ a {
                       <li><a href="{{ asset('Old Cas/Proforma for Promotion to Reader (MPS).pdf') }}" download="">Proforma for Promotion to Reader (MPS)</a></li>
                       <li><a href="{{ asset('upload/Principal HOD Cert for Class Engagement_Format (3).pdf') }}" target="_blank">Principal HOD Cert for Class Engagement_Format</a></li>
                       <li><a href="{{ asset('upload/Principal HOD Cert for Examination work_Format (2).pdf') }}" target="_blank">Principal HOD Cert for Examination work_Format </a></li>
+                      <li><a href="{{ asset('upload/LNMU_CAS_FORM OF OPTION (1).pdf') }}" target="_blank">LNMU CAS FORM OF OPTION</a></li>
                     </ul>
                     <details>
                       <summary>Proforma For CAS 1998</summary>

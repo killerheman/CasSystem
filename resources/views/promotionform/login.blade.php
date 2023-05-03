@@ -91,6 +91,7 @@ a {
                           <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/Performa for promotion to Professor.pdf') }}" download="">Performa for promotion to Professor</a></li>
                           <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/Proforma for promotion of Lecturer (Senior Scale).pdf') }}" download="">Proforma for promotion of Lecturer (Senior Scale)</a></li>
                           <li><a href="{{ asset('Old Cas/Proforma For CAS 1998/~$oforma for promotion to READER (CAS).pdf') }}" download="">Proforma for promotion to READER (CAS)</a></li>
+                          <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
                         </ul>
                       </p>
                     </details>
@@ -103,6 +104,8 @@ a {
                           <li><a href="{{ asset('upload/4. Proforma for selection grade.pdf') }}" target="_blank">Proforma for selection grade</a></li>
                           <li><a href="{{ asset('upload/5. Proforma for promotion of READER (CAS).pdf') }}" target="_blank">Proforma for promotion of READER (CAS)</a></li>
                           <li><a href="{{ asset('upload/7. proforma for date shifting under CAS 01.11.12.pdf') }}" target="_blank">proforma for date shifting under CAS 01.11.12</a></li>
+                          <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
+                          <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
                         </ul>
                       </p>
                     </details>

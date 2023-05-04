@@ -645,155 +645,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach($users->step6 as $s6)
                                     <tr>
-                                        <th rowspan="12">1</th>
-                                        <th rowspan="2">Year 1</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
-                                    <tr>
-                                        <th rowspan="2">Year 2</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
+                                        <th>{{$loop->index+1}}</th>
+                                        <th>Year {{ $s6->A1_academic_year??'' }} </th>
+                                        <td>{{ $s6->A1_semester??'' }} </td>
+                                        <td>{{ $s6->total_classes_assigned??'' }}</td>
+                                        <td>{{ $s6->number_of_classes_tought??'' }}</td>
+                                        <td>{{ $s6->teaching??'' }}</td>
+                                        <td>{{ $s6->claimed_by_the_candidate??'' }}</td>
+                                        <td>{{ $s6->varified_by_the_committee??'' }}</td>
+                                        <td>{{ $s6->remark_ks??'' }}</td>
+                                        <td>{{ $s6->encl_no??'' }}</td>
+                                        <td><a href="{{$s6->A1_file??''}}">{{$s6->A1_file??''}}</a></td>
 
                                     </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
-                                    <tr>
-                                        <th rowspan="2">Year 3</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th rowspan="2">Year 4</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th rowspan="2">Year 5</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th rowspan="2">Year 6</th>
-                                        <td>Odd Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Event Sem</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                    </tr>
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
 
@@ -805,152 +673,39 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col" rowspan="2">Sl.No</th>
-                                        <th scope="col" rowspan="2">Academic Year</th>
-                                        <th scope="col" rowspan="2">Semester</th>
+                                        <th scope="col">Sl.No</th>
+                                        <th scope="col">Academic Year</th>
+                                        <th scope="col">Semester</th>
                                         <th scope="col" colspan="3"><b>Activity</b></th>
 
-                                        <th scope="col" rowspan="2">Claimed
+                                        <th scope="col">Claimed
                                             by the
                                             Candidate</th>
-                                        <th scope="col" rowspan="2">Verified
+                                        <th scope="col">Verified
                                             by the
                                             Committ
                                             ee</th>
-                                        <th scope="col" rowspan="2">Remarks</th>
-                                        <th scope="col" rowspan="2">*Encl No.</th>
-                                        <th scope="col" rowspan="2">File</th>
+                                        <th scope="col">Remarks</th>
+                                        <th scope="col">*Encl No.</th>
+                                        <th scope="col">File</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
-
-
+                                @foreach($users->step6_b as $s6)
                                     <tr>
-                                        <th rowspan="24">1</th>
-                                        <th rowspan="2">Year 1</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
+                                        <th >{{$loop->index+1}}</th>
+                                        <th>Year {{$s6->academic_year}}</th>
+                                        <td>{{$s6->semester??''}}</td>
+                                        <td colspan="3">{{$s6->activity??''}}</td>
+                                        <td>{{ $s6->claimed_by_candidate??'' }}</td>
+                                        <td>{{ $s6->verify_by_committee??'' }}</td>
+                                        <td>{{ $s6->remark??'' }}</td>
+                                        <td>{{ $s6->encl_no??'' }}</td>
+                                        <td><a href="{{$s6->file??''}}">{{$s6->file??''}}</a></td>
                                     </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
+                                    @endforeach
 
-                                    <tr>
-                                        <th rowspan="2">Year 2</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <th rowspan="2">Year 3</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <th rowspan="2">Year 4</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <th rowspan="2">Year 5</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <th rowspan="2">Year 6</th>
-                                        <td>Odd Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even Sem</td>
-                                        <td colspan="3">1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -993,30 +748,20 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                    @foreach($users->step6_c as $s6)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title_research_chapter??''}}</td>
+                        <td>{{$s6->name_journal??''}}</td>
+                        <td>{{$s6->vol_pp_no_year??''}}</td>
+                        <td>{{$s6->impact_factor??''}}</td>
+                        <td>{{$s6->no_authors??''}}</td>
+                        <td>{{$s6->type_authorship??''}}</td>
+                        <td>{{$s6->sr_in_ugc??''}}</td>
+                        <td>{{$s6->varified_by_committee??''}}</td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <small class="text-danger mt-0">*Impact factor to be determined as per Thomson Reuters list</small>
@@ -1038,12 +783,27 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+
                     <tr>
                         <td colspan="9">(a) BOOKS AUTHORED WHICH ARE PUBLISHED BY:</td>
                     </tr>
+                    
                     <tr>
                         <td colspan="9">International publishers</td>
                     </tr>
+                    @forelse($users->step7->where('type',5) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1055,20 +815,24 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+                   
                     <tr>
                         <td colspan="9">National publishers</td>
                     </tr>
+                    @forelse($users->step7->where('type',4) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1080,20 +844,24 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+                   
                     <tr>
                         <td colspan="9">Chapter in Edited Book</td>
                     </tr>
+                    @forelse($users->step7->where('type',3) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1105,20 +873,24 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+                   
                     <tr>
                         <td colspan="9">Editor of Book by International Publisher</td>
                     </tr>
+                    @forelse($users->step7->where('type',2) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1130,20 +902,24 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+                   
                     <tr>
                         <td colspan="9">Editor of Book by National Publisher</td>
                     </tr>
+                    @forelse($users->step7->where('type',1) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1155,24 +931,28 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
+                    @endforelse
+                   
+                      <tr>
                         <td colspan="9">(b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
                         </td>
                     </tr>
                     <tr>
                         <td colspan="9">CHAPTER OR RESEARCH PAPER</td>
                     </tr>
+                    @forelse($users->step7->where('type',6) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1184,20 +964,24 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+                    
                     <tr>
                         <td colspan="9">BOOKS</td>
                     </tr>
+                    @forelse($users->step7->where('type',7) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s6->title??''}}</td>
+                        <td>{{$s6->auth??''}}</td>
+                        <td>{{$s6->co_author??''}}</td>
+                        <td>{{$s6->publisher??''}}</td>
+                        <td>{{$s6->isbn_issn??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1209,18 +993,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
+                    @endforelse
+                   
                 </tbody>
             </table>
             <small class="text-danger">Note: Attach front, index and back pages justifying the claim showing the
@@ -1247,8 +1021,20 @@
                         <th><strong>Encl.No</strong></th>
                     </tr>
                     <tr>
-                        <td colspan="9">(a) DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
+                        <td colspan="9">PEDAGOGY</td>
                     </tr>
+                    <tr>
+                        <td colspan="9">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
+                    </tr>
+                    @forelse($users->step7_b->where('type',1) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1256,9 +1042,19 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
-                        <td colspan="9">(b) DESIGN OF NEW CURRICULA AND COURSES</td>
+                        <td colspan="9">DESIGN OF NEW CURRICULA AND COURSES</td>
                     </tr>
+                    @forelse($users->step7_b->where('type',2) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1266,6 +1062,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">(c) MOOCs</td>
                     </tr>
@@ -1275,6 +1072,15 @@
                             (In case of MOOCs of lesser credits 05 marks/credit)
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',3) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1282,11 +1088,21 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             MOOCs (developed in 4 quadrant) per module/lectur
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',4) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1294,12 +1110,22 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             Content writer/subject matter expert for each module of MOOCs
                             (at least one quadrant)
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',5) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1307,12 +1133,22 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             Course Coordinator for MOOCs (4 credit course)(In case of MOOCs
                             of lesser credits 02 marks/credit)
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',6) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1320,6 +1156,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">(d) E-CONTENT</td>
                     </tr>
@@ -1329,6 +1166,15 @@
                             course/e-book
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',7) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1336,11 +1182,21 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             e-Content (developed in 4 quadrants) per module
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',8) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1348,12 +1204,22 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             Contribution to development of e-content module in complete
                             course/paper/e-book (at least one quadrant)
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',9) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1361,11 +1227,21 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                     <tr>
                         <td colspan="9">
                             Editor of e-content for complete course/ paper /e-book
                         </td>
                     </tr>
+                    @forelse($users->step7_b->where('type',10) as $s6)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td colspan="5">{{$s6->activity??''}}</td>
+                        <td>{{$s6->claimed_score??''}}</td>
+                        <td>{{$s6->verify_by_committee??''}}</td>
+                        <td>{{$s6->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td colspan="5"></td>
@@ -1373,6 +1249,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
             <small class="text-danger">* Each activity should be claimed by the applicant with supporting
@@ -1404,6 +1281,19 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                    @forelse($users->step8->where('type','phd') as $s8)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s8->name_of_the_scholar??''}}</td>
+                        <td>{{$s8->thesis??''}}</td>
+                        <td>{{$s8->awarded_thesis_submitted??''}}</td>
+                        <td>{{$s8->university??''}}</td>
+                        <td>{{$s8->month_and_year??''}}</td>
+                        <td>{{$s8->claimed_score??''}}</td>
+                        <td>{{$s8->verify_by_committee??''}}</td>
+                        <td>{{$s8->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1415,6 +1305,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
             <small class="text-danger">* Submit Ph.D. Notification/Certificate of Submission</small>
@@ -1445,6 +1336,19 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                    @forelse($users->step8->where('type','mphil') as $s8)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s8->name_of_the_scholar??''}}</td>
+                        <td>{{$s8->thesis??''}}</td>
+                        <td>{{$s8->awarded_thesis_submitted??''}}</td>
+                        <td>{{$s8->university??''}}</td>
+                        <td>{{$s8->month_and_year??''}}</td>
+                        <td>{{$s8->claimed_score??''}}</td>
+                        <td>{{$s8->verify_by_committee??''}}</td>
+                        <td>{{$s8->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1456,6 +1360,7 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
             <p>
@@ -1484,6 +1389,20 @@
                         <th>From</th>
                         <th>To</th>
                     </tr>
+                    @forelse($users->step8_b->where('type',1) as $s8)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s8->title_of_the_project??''}}</td>
+                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
+                        <td>{{$s8->funding_agency??''}}</td>
+                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
+                        <td>{{$s8->duration_from??''}}</td>
+                        <td>{{$s8->duration_to??''}}</td>
+                        <td>{{$s8->claimed_score??''}}</td>
+                        <td>{{$s8->verify_by_committee??''}}</td>
+                        <td>{{$s8->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1496,66 +1415,9 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
                 </tbody>
-                <tbody>
-                    <tr>
-                        <th rowspan="2"><strong>Sr.no</strong></th>
-                        <th rowspan="2">
-                            <strong>Title of the Project (More than 10 lakhs</strong>
-                        </th>
-                        <th rowspan="2">
-                            <strong>Names of PI and co-PI</strong>
-                        </th>
-                        <th rowspan="2"><strong>Funding Agency</strong></th>
-                        <th rowspan="2">Grant Sanctioned</th>
-                        <th colspan="2"><strong>Duration</strong></th>
-                        <th rowspan="2"><strong>Claimed Score</strong></th>
-                        <th rowspan="2">
-                            <strong>Verified by the Committee</strong>
-                        </th>
-                        <th rowspan="2"><strong>Encl.No</strong></th>
-                    </tr>
-                    <tr>
-                        <th>From</th>
-                        <th>To</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                
             </table>
             <p>
                 <b>(c) RESEARCH PROJECTS ONGOING </b>
@@ -1583,6 +1445,20 @@
                         <th>From</th>
                         <th>To</th>
                     </tr>
+                    @forelse($users->step8_b->where('type',2) as $s8)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s8->title_of_the_project??''}}</td>
+                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
+                        <td>{{$s8->funding_agency??''}}</td>
+                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
+                        <td>{{$s8->duration_from??''}}</td>
+                        <td>{{$s8->duration_to??''}}</td>
+                        <td>{{$s8->claimed_score??''}}</td>
+                        <td>{{$s8->verify_by_committee??''}}</td>
+                        <td>{{$s8->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1595,66 +1471,10 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+
                 </tbody>
-                <tbody>
-                    <tr>
-                        <th rowspan="2"><strong>Sr.no</strong></th>
-                        <th rowspan="2">
-                            <strong>Title of the Project (More than 10 lakhs</strong>
-                        </th>
-                        <th rowspan="2">
-                            <strong>Names of PI and co-PI</strong>
-                        </th>
-                        <th rowspan="2"><strong>Funding Agency</strong></th>
-                        <th rowspan="2">Grant Sanctioned</th>
-                        <th colspan="2"><strong>Duration</strong></th>
-                        <th rowspan="2"><strong>Claimed Score</strong></th>
-                        <th rowspan="2">
-                            <strong>Verified by the Committee</strong>
-                        </th>
-                        <th rowspan="2"><strong>Encl.No</strong></th>
-                    </tr>
-                    <tr>
-                        <th>From</th>
-                        <th>To</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+
             </table>
 
             <p>
@@ -1683,6 +1503,20 @@
                         <th>From</th>
                         <th>To</th>
                     </tr>
+                    @forelse($users->step8_b->where('type',3) as $s8)
+                    <tr>
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$s8->title_of_the_project??''}}</td>
+                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
+                        <td>{{$s8->funding_agency??''}}</td>
+                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
+                        <td>{{$s8->duration_from??''}}</td>
+                        <td>{{$s8->duration_to??''}}</td>
+                        <td>{{$s8->claimed_score??''}}</td>
+                        <td>{{$s8->verify_by_committee??''}}</td>
+                        <td>{{$s8->encl_no??''}}</td>
+                    </tr>
+                    @empty
                     <tr>
                         <td></td>
                         <td></td>
@@ -1695,18 +1529,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @endforelse
+
                 </tbody>
             </table>
             <p>

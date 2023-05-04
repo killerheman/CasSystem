@@ -105,7 +105,6 @@ a {
                           <li><a href="{{ asset('upload/5. Proforma for promotion of READER (CAS).pdf') }}" target="_blank">Proforma for promotion of READER (CAS)</a></li>
                           <li><a href="{{ asset('upload/7. proforma for date shifting under CAS 01.11.12.pdf') }}" target="_blank">proforma for date shifting under CAS 01.11.12</a></li>
                           <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
-                          <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
                         </ul>
                       </p>
                     </details>

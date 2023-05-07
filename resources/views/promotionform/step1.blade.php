@@ -88,16 +88,16 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <label class="fieldlabels">Date of the Last Promotion </label> <input type="date" required name="date_of_last_promotion" value="{{ $user->step1->promotion_notification_date??'' }}" />
+                        <label class="fieldlabels">Date of the Last Promotion </label> <input type="date"  name="date_of_last_promotion" value="{{ $user->step1->promotion_notification_date??'' }}" />
 
                     </div>
                     <div class="col-4">
                         <label class="fieldlabels">Notification No. of the Last Promotion </label>
-                        <input type="text" required name="last_promotion_notification_no" value="{{ $user->step1->promotion_notification_no??'' }}" placeholder="Last Promotion Notification No." />
+                        <input type="text"  name="last_promotion_notification_no" value="{{ $user->step1->promotion_notification_no??'' }}" placeholder="Last Promotion Notification No." />
                     </div>
                     <div class="col-4">
                         <label class="fieldlabels">Notification date of the Last Promotion </label>
-                        <input type="date" required name="last_promotion_notification_date" value="{{ $user->step1->notificatio_date_last_promotion??'' }}" placeholder="Last Promotion Notification date." />
+                        <input type="date"  name="last_promotion_notification_date" value="{{ $user->step1->notificatio_date_last_promotion??'' }}" placeholder="Last Promotion Notification date." />
                     </div>
                     {{-- <div class="col-4">
                         <label class="fieldlabels">Period of Assessment for promotion: (To)

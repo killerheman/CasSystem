@@ -101,7 +101,7 @@
             </div>
             <div class="col-3">
                 <label class="fieldlabels">Date of Last Promotion (w.e.f): </label>
-                <input type="date" required name="date_of_last_promotion" value="{{ $user->step2->date_of_last_promotion??'' }}" />
+                <input type="date"  name="date_of_last_promotion" value="{{ $user->step2->date_of_last_promotion??'' }}" />
             </div>
             <div class="col-3">
                 <label class="fieldlabels">Date of Eligibility for Next Promotion: </label>

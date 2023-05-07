@@ -64,16 +64,17 @@
                 <div class="second text-center">
                     <h5>Application for Promotion under the</h5>
                     <h5>Career Advancement Scheme (CAS) for University Teachers </h5>
-                    <p>(As approved by the Chancellor Vide Letter No- BSU Statute-08/2005-283/GS(I) dt 15.02.20231)</p>
+                    <p>(As approved by the Chancellor Vide Letter No- BSU Statute-08/2005-283/GS(I) dt 15.02.2023)</p>
                 </div>
             </div>
             <div class="row">
                 <div class="main1">
-                    <p>For Promotion:</p>
+                    <p class="mt-5"></p>
+                    {{-- <p>For Promotion:</p>
                     <li>Assistant Professor(Academic Level 10) to Assistant Professor (Senior Scale/Academic Level 11)
                     </li>
-                    <li>Assistant Professor (Senior Scale/Academic Level 11) to Assistant Professor (Selection
-                        Grade/Academic Level 12)</li>
+                    <li>Assistant Professor (Senior Scale/Academic Level 11) to Assistant Professor (Selection --}}
+                        {{-- Grade/Academic Level 12)</li> --}}
                 </div>
                 <div class="row p-2">
                     @php

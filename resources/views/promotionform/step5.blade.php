@@ -118,7 +118,6 @@
                                 <button type="button" class="btn btn-danger remove4 mt-3">-</button>
                             </div>
                         </div>
-                        <div class="add_input4"></div>
                     </div>
                     @endfor
                     @endisset

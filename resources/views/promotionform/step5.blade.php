@@ -239,7 +239,7 @@
             <div class="col-4">
                 <label class="fieldlabels">Attach (certificates)</label>
                 <input type="file"  name="file[]"
-                    placeholder="Attach certificates" />
+                    placeholder="Attach certificates" required/>
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-danger remove4 mt-3">-</button>

@@ -168,7 +168,7 @@
                                 <h6>TEACHING EXPERIENCE <span class="text-danger">(UG/PG)</span> / RESEARCH EXPERIENCE
                                     (including M.Phil/Ph.D Duration) / Conferences/Seminars/Workshops</h6>
                                 <ul>
-                                    @if ($user->step4)
+                                    @if ($user->step4 && json_decode($user->step4->file))
                                         @foreach (json_decode($user->step4->file) as $file)
                                             <li>{!! $file??'<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach

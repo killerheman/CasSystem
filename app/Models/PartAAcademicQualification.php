@@ -46,6 +46,7 @@ class PartAAcademicQualification extends Model
 
                 // RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU
                 PartAAcademicServicePrior::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();
+                if($req->institution and count($req->institution)>0){
                 foreach($req->institution as $k=>$qualification){
                    $lnmu= PartAAcademicServicePrior::create([
                         'promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id,
@@ -70,6 +71,7 @@ class PartAAcademicQualification extends Model
                         }
                     }
                 }
+            }
 
                 // RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER:
                 PartAServiceInLnmuFrom::where(['promotion_application_users_id'=>Auth::guard('promotion_app_user')->user()->id])->delete();

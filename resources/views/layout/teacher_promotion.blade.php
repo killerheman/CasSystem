@@ -394,6 +394,14 @@
     @yield('script')
 
     @include('sweetalert::alert')
+    @include('promotionform.layout.document')
+    <script>
+        $(document).ready(function(){
+        $(document).on('click', '#docmodalbtn2', function() {
+            $('#dcmodal2').modal('show');
+        });
+    });
+    </script>
 </body>
 
 </html>

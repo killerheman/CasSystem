@@ -129,11 +129,14 @@
             </div>
             <div class="row">
                 <div class="col-12">
+                    
                     <h3 class="fs-title"> RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU
-                        (Please Attach Relevant Certificates of Service Experience):</h3>
+                        (Please Attach Relevant Certificates of Service Experience):
+                    </h3>
+                        <input type="checkbox" name="" class="form-check" id="section2_check">
                 </div>
             </div>
-            <div class="parent1  border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            <div class="parent1  border border-4 rounded rounded-5  border-danger mb-5 p-3" >
                 <div class="row g-3">
                     <div class="col">
                         <label for="institute">Institution</label>
@@ -658,6 +661,28 @@
     });
     $(document).on('click', '.remove2', function() {
         $(this).closest('.parent2').remove();
+    });
+
+    $(document).ready(function(){
+        @isset($user->step3_b)
+        @if(count($user->step3_b)>0)
+        $('#section2_check').attr('checked','true');
+        @else
+        $('.parent1').find('input').attr('disabled','true');
+        @endif
+        @else
+        $('.parent1').find('input').attr('disabled','true');
+        @endisset
+
+    });
+    $(document).on('click','#section2_check',function(){
+        if($(this).is(':checked')){
+            $('.parent1').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent1').find('input').attr('disabled','true');
+        }
     });
 </script>
 @endsection

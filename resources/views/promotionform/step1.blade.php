@@ -130,6 +130,7 @@
         @isset($user->step) @if($user->step>=1)<a href="{{route('promotion-form.step-2')}}" class="action-button">Next</a> @endif @endisset
         <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
     </form>
+   
 </fieldset>
 @endsection
 

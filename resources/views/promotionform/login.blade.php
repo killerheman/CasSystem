@@ -107,6 +107,7 @@ a {
                           <li><a href="{{ asset('upload/Contents(Promotion).pdf') }}">Contents(Promotion)</a></li>
                           <li><a href="{{ asset('upload/Proforma for Performance Appraisal Report 1.pdf') }}">Proforma for Performance Appraisal Report 1</a></li>
                         </ul>
+                        
                       </p>
                     </details>
                   </marquee>

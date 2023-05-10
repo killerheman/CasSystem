@@ -72,7 +72,7 @@
             <div style="border: 2px solid;padding:15px;">
                 <div class="row">
                     <div class="col-2">
-                        <label class="fieldlabels">Date of Appointment: </label> <input type="date" required name="date_of_appointment" value="{{ $user->step1->date_of_appointment??'' }}" />
+                        <label class="fieldlabels">Date of Appointment: </label> <input type="date" name="date_of_appointment" value="{{ $user->step1->date_of_appointment??'' }}" />
                     </div>
                     <div class="col-2">
                         <label class="fieldlabels">Date of Confirmation: </label> <input type="date" required name="date_of_confirmation" value="{{ $user->step1->date_of_confirmation??'' }}" />
@@ -130,7 +130,7 @@
         @isset($user->step) @if($user->step>=1)<a href="{{route('promotion-form.step-2')}}" class="action-button">Next</a> @endif @endisset
         <input type="submit" name="submit" class=" action-button-submit" value="Submit" />
     </form>
-   
+
 </fieldset>
 @endsection
 

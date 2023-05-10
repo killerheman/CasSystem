@@ -35,7 +35,12 @@
                         </small>:</h2>
                 </div>
             </div>
-            <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            <div class="row">
+                <div class="col-2">
+                    <input type="checkbox" name="" class="form-check" id="section2_check">
+                </div>
+            </div>
+            <div class="row mt-3 border border-4 rounded rounded-5 p2 border-danger mb-5 p-3">
                 <div class="col-4">
                     <label class="fieldlabels">Years Spent in (M.phil/Ph.D):</label> <input type="text" required name="mphil_phd_in_years" placeholder="Total Number of Years:" value="{{ $user->step4->mphil_phd_in_years??'' }}" />
                 </div>
@@ -58,7 +63,14 @@
                     <input type="file"  name="research_file" placeholder="research_file" @isset($user->step4->file) value="{{ $user->step4->file?'required':'' }}" @endisset/>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    Are you want to fill this Section
+                    <input type="checkbox" name="" class="form-check check" id="section3_check">
+                </div>
+            </div>
             <div class="parerent3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
+                
                 <div class="row mt-3 ">
                     <div class="col">
 
@@ -115,7 +127,7 @@
 
                                     <label class="fieldlabels">Years Spent in:</label>
                                     <select class="form-select form-select-lg mb-3" required name="type[]" aria-label=".form-select-lg example">
-                                        <option selected disabled>choose option...</option>
+                                        <option value="" selected disabled>choose option...</option>
                                         <option value="m_phil" @isset($user->step4_phdrecord[$i])
                                             @selected($user->step4_phdrecord[$i]->type=='m_phil') @endisset>M. Phil.
                                         </option>
@@ -166,10 +178,15 @@
                 </div>
             </div>
             @endif
-
-            <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
-                <h3 class="fs-title h3">Years of Guiding Ph.D.:</h3>
-
+            <div class="row">
+                <div class="col-3">
+                    Are you want to fill this form
+            <input type="checkbox" name="" class="form-check" id="section4_check">
+        </div>
+        </div>
+            <div class="row mt-3 border border-4 rounded rounded-5 p4 border-danger mb-5 p-3">
+                <h3 class="fs-title h3">Years of Guiding Ph.D.: </h3>
+                   
                 @if ($user->step1->promotion_level =='1' || $user->step1->promotion_level =='2')
                 <div class="col">
                     <label class="fieldlabels">Completed</label>
@@ -191,7 +208,12 @@
                     <input type="file"  name="pd_file" placeholder="Registered" />
                 </div>
             </div>
-            <div class="row mt-3 border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            <div class="row">
+                <div class="col-3">
+                    Are you want to fill this form
+            <input type="checkbox" name="" class="form-check" id="section5_check">
+        </div>
+            <div class="row mt-3 border border-4 rounded rounded-5  p5 border-danger mb-5 p-3">
                 <h3 class="fs-title h3">Total No. of Papers Published:</h3>
                 <div class="col">
                     <label class="fieldlabels">International Journals</label>
@@ -217,7 +239,12 @@
                     </h3>
                 </div>
             </div>
-            <div class="border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            <div class="row">
+                <div class="col-3">
+                    Are you want to fill this form
+            <input type="checkbox" name="" class="form-check" id="section6_check">
+        </div>
+            <div class="border border-4 rounded rounded-5  border-danger p6 mb-5 p-3">
                 <div class="row mt-2 ">
                     <h2 class="fs-title">i. International:</h2>
                     <div class="col">
@@ -281,9 +308,15 @@
             <div class="row">
                 <div class="col-12">
                     <h3 class="fs-title h3">AWARDS /PRIZES/HONOURS/RECOGNITIONS :</h3>
+                    
                 </div>
             </div>
-            <div class="row mt-2 border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            <div class="row">
+                <div class="col-3">
+                    Are you want to fill this form
+            <input type="checkbox" name="" class="form-check" id="section7_check">
+        </div>
+            <div class="row mt-2 border border-4 rounded rounded-5 p7 border-danger mb-5 p-3">
                 <div class="col-12">
                     <div class="form-floating">
                         <label for="floatingTextarea">AWARDS /PRIZES/HONOURS/RECOGNITIONS</label>
@@ -311,6 +344,7 @@
         <input type="submit" required name="submit" class=" action-button-submit" value="Submit" />
 
         <a type="button" href="{{ route('promotion-form.step-3') }}" class="action-button">Previous</a>
+        {{ $user->step4_phdrecord}}
     </form>
 </fieldset>
 @endsection
@@ -354,6 +388,112 @@
     });
     $(document).on('click', '.remove3', function() {
         $(this).closest('.parerent3').remove();
+    });
+    $(document).on('click','#section2_check',function(){
+        if($(this).is(':checked')){
+            $('.p2').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p2').find('input').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section3_check',function(){
+        if($(this).is(':checked')){
+            $('.parerent3').find('input').removeAttr('disabled');
+            $('.parerent3').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parerent3').find('input').attr('disabled','true');
+            $('.parerent3').find('select').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section4_check',function(){
+        if($(this).is(':checked')){
+            $('.p4').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p4').find('input').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section5_check',function(){
+        if($(this).is(':checked')){
+            $('.p5').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p5').find('input').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section6_check',function(){
+        if($(this).is(':checked')){
+            $('.p6').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p6').find('input').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section7_check',function(){
+        if($(this).is(':checked')){
+            $('.p7').find('textarea').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p7').find('textarea').attr('disabled','true');
+        }
+    });
+
+    $(document).ready(function(){
+        @if(isset($user->step4->mphil_phd_in_years) and $user->step4->mphil_phd_in_years!=null)
+        $('#section2_check').attr('checked',true);
+        @else
+        $('#section2_check').removeAttr('checked');
+        $('.p2').find('input').attr('disabled',true);
+        @endif
+
+        @if(isset($user->step4_phdrecord) and count($user->step4_phdrecord)>0)
+        $('#section3_check').attr('checked',true);
+        @else
+        $('#section3_check').removeAttr('checked');
+        $('.parerent3').find('input').attr('disabled','true');
+        $('.parerent3').find('select').attr('disabled','true');
+        @endif
+
+
+        // section 4
+        @if(isset($user->step4->years_of_guiding_phd) and $user->step4->years_of_guiding_phd!=null)
+        $('#section4_check').attr('checked',true);
+        @else
+        $('#section4_check').removeAttr('checked');
+        $('.p4').find('input').attr('disabled','true');
+        @endif
+
+        //section 5
+        @if(isset($user->step4->papers_published_international_journals) and $user->step4->papers_published_international_journals!=null)
+        $('#section5_check').attr('checked',true);
+        @else
+        $('#section5_check').removeAttr('checked');
+        $('.p5').find('input').attr('disabled','true');
+        @endif
+
+        //section 6
+        @if(isset($user->step4->conferences_seminars_international_attended) and $user->step4->conferences_seminars_international_attended!=null)
+        $('#section6_check').attr('checked',true);
+        @else
+        $('#section6_check').removeAttr('checked');
+        $('.p6').find('input').attr('disabled','true');
+        @endif
+
+        //section 7
+        @if(isset($user->step4->conferences_seminars_international_attended) and $user->step4->conferences_seminars_international_attended!=null)
+        $('#section7_check').attr('checked',true);
+        @else
+        $('#section7_check').removeAttr('checked');
+        $('.p7').find('textarea').attr('disabled','true');
+        @endif
     });
 </script>
 @endsection

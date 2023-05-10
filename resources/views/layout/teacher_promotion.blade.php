@@ -288,6 +288,9 @@
         a {
             text-decoration: none;
         }
+        .check{
+            margin-left:-600px;
+        }
     </style>
     @yield('css')
 </head>

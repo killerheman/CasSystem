@@ -125,13 +125,39 @@ class PromotionFormController extends Controller
             'conference_national'=>'max:100',
             'conference_state'=>'max:100',
         ]);
-        $data = $req->only([
-            'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
-            'conferences_seminars_national_papers_presented', 'conferences_seminars__state_level_papers_presented', 'conferences_seminars_total_papers_presented',
-            'awards_prizes_honours_recognitions', 'specialization_in_the_subject_discipline', ''
-        ]);
+        // $data = $req->only([
+        //     'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
+        //     'conferences_seminars_national_papers_presented', 'conferences_seminars__state_level_papers_presented', 'conferences_seminars_total_papers_presented',
+        //     'awards_prizes_honours_recognitions', 'specialization_in_the_subject_discipline', ''
+        // ]);
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
-        $dt = PartAExperienceRecord::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
+        $dt = PartAExperienceRecord::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], [
+            'ug_pg_in_years'=>$req->ug_pg_in_years??'',
+            'ug_pg_from'=>$req->ug_pg_from??'',
+            'ug_pg_to'=>$req->ug_pg_to??'',
+            'mphil_phd_in_years'=>$req->mphil_phd_in_years??'',
+            'mphil_phd_from'=>$req->mphil_phd_from??'',
+            'mphil_phd_to'=>$req->mphil_phd_to??'',
+            'years_spent_in_mphil'=>$req->years_spent_in_mphil??'',
+            'years_spent_in_phd'=>$req->years_spent_in_phd??'',
+            'years_of_guiding_phd'=>$req->years_of_guiding_phd??'',
+            'years_of_guiding_completed'=>$req->years_of_guiding_completed??'',
+            'years_of_guiding_registered'=>$req->years_of_guiding_registered??'',
+             'papers_published_international_journals'=>$req->papers_published_international_journals??'',
+             'papers_published_national_journals'=>$req->papers_published_national_journals??'',
+             'papers_published_state_level_journals'=>$req->papers_published_state_level_journals??'',
+             'papers_published_total'=>$req->papers_published_total??'',
+             'conferences_seminars_international_attended'=>$req->conferences_seminars_international_attended??'',
+             'conferences_seminars_national_attended'=>$req->conferences_seminars_national_attended??'',
+             'conferences_seminars__state_level_attended'=>$req->conferences_seminars__state_level_attended??'',
+             'conferences_seminars_total_attended'=>$req->conferences_seminars_total_attended??'',
+             'conferences_seminars_international_papers_presented'=>$req->conferences_seminars_international_papers_presented??'',
+            'conferences_seminars_national_papers_presented'=>$req->conferences_seminars_national_papers_presented??'',
+             'conferences_seminars__state_level_papers_presented'=>$req->conferences_seminars__state_level_papers_presented??'',
+             'conferences_seminars_total_papers_presented'=>$req->conferences_seminars_total_papers_presented??'',
+            'awards_prizes_honours_recognitions'=>$req->awards_prizes_honours_recognitions??'',
+             'specialization_in_the_subject_discipline'=>$req->specialization_in_the_subject_discipline??'',
+        ]);
         $files=[];
         if($req->hasFile('teaching_file')){
             $files['teaching_file']=ImageUpload::simpleUpload('certificate',$req->teaching_file,'teach-'.Auth::guard('promotion_app_user')->user()->id)??'';
@@ -158,6 +184,7 @@ class PromotionFormController extends Controller
         if ($dt) {
             Auth::guard('promotion_app_user')->user()->step == 3 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             PartAMphilPhdRecord::where(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id])->delete();
+            if(isset($req->type)){
             foreach ($req->type as $k => $t) {
                 $r = PartAMphilPhdRecord::create([
                     'promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -174,6 +201,7 @@ class PromotionFormController extends Controller
                     $r->update(['file'=>$f]);
                 }
             }
+        }
             Alert::success('Previous Step Save Successfully');
         } else {
             Alert::error('This Form Cant Save right Now');

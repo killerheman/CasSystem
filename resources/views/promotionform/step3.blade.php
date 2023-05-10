@@ -133,7 +133,7 @@
                     <h3 class="fs-title"> RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU
                         (Please Attach Relevant Certificates of Service Experience):
                     </h3>
-                        <input type="checkbox" name="" class="form-check" id="section2_check">
+                        <input type="checkbox" name="" class="form-check check" id="section2_check">
                 </div>
             </div>
             <div class="parent1  border border-4 rounded rounded-5  border-danger mb-5 p-3" >

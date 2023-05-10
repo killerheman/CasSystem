@@ -21,7 +21,9 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                     <div class="col-md-6">
                         <p>
                         <h6>Application Information</h6>
+                        @isset($user->step1->profile_image)
                         {{ $user->step1->profile_image }}
+                        @endisset
                         </p>
                         <p>
                         <h6>ACADEMIC QUALIFICATIONS</h6>

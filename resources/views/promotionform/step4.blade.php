@@ -344,7 +344,7 @@
         <input type="submit" required name="submit" class=" action-button-submit" value="Submit" />
 
         <a type="button" href="{{ route('promotion-form.step-3') }}" class="action-button">Previous</a>
-        {{ $user->step4_phdrecord}}
+        
     </form>
 </fieldset>
 @endsection

@@ -347,7 +347,7 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
-                <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[0]) value="{{ $user->step7_b[0]->verify_by_committee??'' }}" @endisset/>
+                <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee"  value="Pending" readonly/>
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>
@@ -416,7 +416,7 @@
                     <div class="row mt-2">
                         <div class="col">
                             <label class="fieldlabels">Verified by the Committee</label>
-                            <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee" @isset($user->step7_b[$u]) value="{{ $user->step7_b[$u]->verify_by_committee??'' }}" @endisset/>
+                            <input type="text" required name="ict_committee[]" placeholder="Verified by the Committee" value="Pending" readonly/>
                         </div>
                         <div class="col">
                             <label class="fieldlabels">Encl. No.</label>
@@ -662,7 +662,7 @@
             <div class="col">
                 <label class="fieldlabels">Verified by the Committee</label>
                 <input type="text" required name="ict_committee[]"
-                    placeholder="Verified by the Committee" />
+                    placeholder="Verified by the Committee" value="Pending" readonly />
             </div>
             <div class="col">
                 <label class="fieldlabels">Encl. No.</label>

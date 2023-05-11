@@ -53,7 +53,7 @@
             <div class="row g-3">
                 <div class="col-sm-2">
                     <label for="committee">Verified by the Committee</label>
-                    <input type="text" id="committee" required name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6[0]) {{ $user->step6[0]->varified_by_the_committee??'' }} @endisset">
+                    <input type="text" id="committee" required name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="Pending" readonly>
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_candidate">Claimed by the Candidate</label>
@@ -123,7 +123,7 @@
                         <div class="row g-3">
                             <div class="col-sm-2">
                                 <label for="committee">Verified by the Committee</label>
-                                <input type="text" id="committee" required name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6[$j]) {{ $user->step6[$j]->varified_by_the_committee??'' }} @endisset">
+                                <input type="text" id="committee" required name="committee[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="Pending" readonly>
                             </div>
                             <div class="col-sm-2">
                                 <label for="claimed_candidate">Claimed by the Candidate</label>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col">
                     <label for="committee">Verified by the Committee</label>
-                    <input type="text" id="committee_b[]" required name="committee_b[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6_b[0]) {{ $user->step6_b[0]->verify_by_committee }} @endisset">
+                    <input type="text" id="committee_b[]" required name="committee_b[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="Pending" readonly>
                 </div>
                 <div class="col">
                     <label for="remarks">Remarks</label>
@@ -330,7 +330,7 @@
                             </div>
                             <div class="col">
                                 <label for="committee">Verified by the Committee</label>
-                                <input type="text" id="committee_b[]" required name="committee_b[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="@isset($user->step6_b[$j]) {{ $user->step6_b[$j]->verify_by_committee??'' }} @endisset">
+                                <input type="text" id="committee_b[]" required name="committee_b[]" class="form-control" placeholder="Verified by the Committee" aria-label="committee" value="Pending" readonly>
                             </div>
                             <div class="col">
                                 <label for="remarks">Remarks</label>
@@ -417,7 +417,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="verified_committee*">Verified by the Committee</label>
-                    <input type="text" id="verified_committee"  name="co_auth[0][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="@isset($co_author[0]) {{ $co_author[0]->verified_committee_c??'' }} @endisset">
+                    <input type="text" id="verified_committee"  name="co_auth[0][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
@@ -453,7 +453,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <label for="verified_committee*">Verified by the Committee</label>
-                                <input type="text" id="verified_committee"  name="co_auth[{{ $g }}][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="@isset($co_author[$g]) {{ $co_author[$g]->verified_committee_c??'' }} @endisset">
+                                <input type="text" id="verified_committee"  name="co_auth[{{ $g }}][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
                             </div>
                             <div class="col-sm-2">
                                 <label for="claimed_score*">Claimed Score</label>
@@ -520,7 +520,7 @@
             <div class="col-sm-2">
                 <label for="committee">Verified by the Committee</label>
                 <input type="text" id="committee" required name="committee[]" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee">
+                    placeholder="Verified by the Committee" aria-label="committee" value="pending" readonly>
             </div>
             <div class="col-sm-2">
                 <label for="claimed_candidate">Claimed by the Candidate</label>
@@ -612,7 +612,7 @@
             <div class="col">
                 <label for="committee">Verified by the Committee</label>
                 <input type="text" id="committee" required name="committee_b[]" class="form-control"
-                    placeholder="Verified by the Committee" aria-label="committee">
+                    placeholder="Verified by the Committee" aria-label="committee" value="pending" readonly>
             </div>
             <div class="col">
                 <label for="remarks">Remarks</label>
@@ -658,7 +658,7 @@
             <div class="col-sm-2">
                 <label for="verified_committee*">Verified by the Committee</label>
                 <input type="text" id="verified_committee" required name="co_auth[`+c+`][verified_committee_c]" class="form-control" placeholder="Verified by the Committee"
-                    aria-label="verified_committee">
+                    aria-label="verified_committee" value="Pending" readonly>
             </div>
             <div class="col-sm-2">
                 <label for="claimed_score*">Claimed Score</label>

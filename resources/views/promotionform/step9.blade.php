@@ -12,6 +12,14 @@
                 <h2 class="steps">Step 9 - 10</h2>
             </div>
         </div>
+        
+        <div class="row">
+            
+            <div class="col-3">Are you want to fill this section ? </div>
+            <div class="col-2">
+                <input type="checkbox" name="" class="form-check" id="section1_check" @if(isset($patents) and count($patents)>0) checked @endif>
+            </div>
+        </div>
         <div class="main border border-4 rounded rounded-5  border-danger mb-5 p-3">
             <div class="row mt-2">
                 <div class="col">
@@ -97,6 +105,13 @@
             </h2>
         </div>
     </div>
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section2_check" @if(isset($policies) and count($policies)>0) checked @endif>
+        </div>
+    </div>
     <div class="parent14 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <div class="row mt-5">
             <div class="col">
@@ -176,6 +191,13 @@
         <div class="col-12">
             <h2 class="fs-title">(c) Awards/Fellowship
             </h2>
+        </div>
+    </div>
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section3_check" @if(isset($user->step9_b) and count($user->step9_b)>0) checked @endif>
         </div>
     </div>
     <div class="parent15 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -275,6 +297,7 @@
             </h2>
         </div>
     </div>
+    
     <div class="parent16 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <div class="row mt-5">
             <div class="col">
@@ -614,5 +637,60 @@
             $(this).closest('.parent16').remove();
         });
     });
+      //section 1
+      $(document).on('click','#section1_check',function(){
+        if($(this).is(':checked')){
+            $('.main').find('input').removeAttr('disabled');
+            $('.main').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.main').find('input').attr('disabled','true');
+            $('.main').find('select').attr('disabled','true');
+        }
+    });
+
+      //section 2
+      $(document).on('click','#section2_check',function(){
+        if($(this).is(':checked')){
+            $('.parent14').find('input').removeAttr('disabled');
+            $('.parent14').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent14').find('input').attr('disabled','true');
+            $('.parent14').find('select').attr('disabled','true');
+        }
+    });
+
+     //section 3
+     $(document).on('click','#section3_check',function(){
+        if($(this).is(':checked')){
+            $('.parent15').find('input').removeAttr('disabled');
+            $('.parent15').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent15').find('input').attr('disabled','true');
+            $('.parent15').find('select').attr('disabled','true');
+        }
+    });
+
+     //on dynamic data comes 
+     @if(isset($patents) and count($patents)>0)
+    @else 
+    $('.main').find('input').attr('disabled','true');
+    $('.main').find('select').attr('disabled','true');
+    @endif
+    @if(isset($policies) and count($policies)>0)
+    @else 
+    $('.parent14').find('input').attr('disabled','true');
+    $('.parent14').find('select').attr('disabled','true');
+    @endif
+    @if(isset($user->step9_b) and count($user->step9_b)>0)
+    @else 
+    $('.parent15').find('input').attr('disabled','true');
+    $('.parent15').find('select').attr('disabled','true');
+    @endif
 </script>
 @endsection

@@ -11,6 +11,13 @@
                 <h2 class="steps">Step 8 - 10</h2>
             </div>
         </div>
+        <div class="row">
+            
+            <div class="col-3">Are you want to fill this section ? </div>
+            <div class="col-2">
+                <input type="checkbox" name="" class="form-check" id="section1_check" @if(isset($phd) and count($phd)>0) checked @endif>
+            </div>
+        </div>
         <div class="parent10 border border-4 rounded rounded-5  border-danger mb-5 p-3">
             <div class="row mt-2">
                 <div class="col">
@@ -104,6 +111,13 @@
     <div class="row">
         <div class="col-12">
             <h2 class="fs-title">M.Phil./P.G. Dissertation Supervised </h2>
+        </div>
+    </div>
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section2_check" @if(isset($mphil) and count($mphil)>0) checked @endif>
         </div>
     </div>
     <div class="parent11 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -203,6 +217,13 @@
         <div class="col-9">
             <h2 class="fs-title">RESEARCH PROJECTS COMPLETED
             </h2>
+        </div>
+    </div>
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section3_check" @if(isset($user->step8_b) and count($user->step8_b)>0) checked @endif>
         </div>
     </div>
     <div class="parent12 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -528,5 +549,62 @@
             $(this).closest('.parent12').remove();
         });
     });
+
+
+
+     //section 1
+     $(document).on('click','#section1_check',function(){
+        if($(this).is(':checked')){
+            $('.parent10').find('input').removeAttr('disabled');
+            $('.parent10').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent10').find('input').attr('disabled','true');
+            $('.parent10').find('select').attr('disabled','true');
+        }
+    });
+
+    //section 2
+    $(document).on('click','#section2_check',function(){
+        if($(this).is(':checked')){
+            $('.parent11').find('input').removeAttr('disabled');
+            $('.parent11').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent11').find('input').attr('disabled','true');
+            $('.parent11').find('select').attr('disabled','true');
+        }
+    });
+    //section 3
+    $(document).on('click','#section3_check',function(){
+        if($(this).is(':checked')){
+            $('.parent12').find('input').removeAttr('disabled');
+            $('.parent12').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent12').find('input').attr('disabled','true');
+            $('.parent12').find('select').attr('disabled','true');
+        }
+    });
+    //on dynamic data comes 
+    @if(isset($phd) and count($phd)>0)
+    @else 
+    $('.parent10').find('input').attr('disabled','true');
+    $('.parent10').find('select').attr('disabled','true');
+    @endif
+     //on dynamic data comes 
+     @if(isset($mphil) and count($mphil)>0)
+    @else 
+    $('.parent11').find('input').attr('disabled','true');
+    $('.parent11').find('select').attr('disabled','true');
+    @endif
+    @if(isset($user->step8_b) and count($user->step8_b)>0)
+    @else 
+    $('.parent12').find('input').attr('disabled','true');
+    $('.parent12').find('select').attr('disabled','true');
+    @endif
 </script>
 @endsection

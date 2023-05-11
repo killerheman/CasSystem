@@ -418,6 +418,7 @@ class PromotionFormController extends Controller
             'research_file.*' => 'max:100'
         ]);
         AcademinResearchScoreGuidance::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'phd')->delete();
+        if(isset($req->Name_of_the_Scholar) and count($req->Name_of_the_Scholar)>0){
         foreach ($req->Name_of_the_Scholar as $k => $v) {
             $d = AcademinResearchScoreGuidance::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -439,7 +440,9 @@ class PromotionFormController extends Controller
                 }
             }
         }
+        }
         AcademinResearchScoreGuidance::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'mphil')->delete();
+        if(isset($req->Name_of_the_Scholar_b) and count($req->Name_of_the_Scholar_b)>0){
         foreach ($req->Name_of_the_Scholar_b as $k => $v) {
             $d = AcademinResearchScoreGuidance::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -462,8 +465,10 @@ class PromotionFormController extends Controller
                 }
             }
         }
-
+        }
+       
         AcademinResearchScoreProject::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        if(isset($req->project) and count($req->project)>0){
         foreach ($req->project as $k => $v) {
             $d = AcademinResearchScoreProject::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -486,6 +491,7 @@ class PromotionFormController extends Controller
                 }
             }
         }
+    }
         Auth::guard('promotion_app_user')->user()->step == 7 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
         Alert::success('Previous Data Save Successfully');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
@@ -510,6 +516,8 @@ class PromotionFormController extends Controller
             'inv_file.*' => 'max:100'
         ]);
         AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'patent')->delete();
+        if(isset($req->details_of_patents_or_policy_document) and count($req->details_of_patents_or_policy_document)>0)
+        {
         foreach ($req->details_of_patents_or_policy_document as $k => $g) {
             $d = AcademinResearchScorePatentsAndPolicyDoc::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -528,26 +536,31 @@ class PromotionFormController extends Controller
                 }
             }
         }
+        }
         AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'policy')->delete();
-        foreach ($req->details_of_patents_or_policy_document as $k => $g) {
-            $d = AcademinResearchScorePatentsAndPolicyDoc::create([
-                'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
-                'details_of_patents_or_policy_document' => $req->details_of_patents_or_policy_document_b[$k] ?? '',
-                'international_national_state' => $req->international_national_state_b[$k] ?? '',
-                'year' => $req->year_b[$k] ?? '',
-                'claimed_score' => $req->claimed_score_b[$k] ?? '',
-                'verify_by_committee' => $req->verify_by_committee_b[$k] ?? '',
-                'type' => 'policy',
-                'encl_no' => $req->encl_no_b[$k] ?? ''
-            ]);
-            if ($d) {
-                if ($req->hasFile('file_b')) {
-                    isset($req->file_b[$k]) ? $files = ImageUpload::simpleUpload('book', $req->file_b[$k], Auth::guard('promotion_app_user')->user()->id) : '';
-                    isset($req->file_b[$k]) ? $d->update(['file' => $files]) : '';
+        if(isset($req->details_of_patents_or_policy_document_b) and count($req->details_of_patents_or_policy_document_b)>0)
+        {
+            foreach ($req->details_of_patents_or_policy_document_b as $k => $g) {
+                $d = AcademinResearchScorePatentsAndPolicyDoc::create([
+                    'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
+                    'details_of_patents_or_policy_document' => $req->details_of_patents_or_policy_document_b[$k] ?? '',
+                    'international_national_state' => $req->international_national_state_b[$k] ?? '',
+                    'year' => $req->year_b[$k] ?? '',
+                    'claimed_score' => $req->claimed_score_b[$k] ?? '',
+                    'verify_by_committee' => $req->verify_by_committee_b[$k] ?? '',
+                    'type' => 'policy',
+                    'encl_no' => $req->encl_no_b[$k] ?? ''
+                ]);
+                if ($d) {
+                    if ($req->hasFile('file_b')) {
+                        isset($req->file_b[$k]) ? $files = ImageUpload::simpleUpload('book', $req->file_b[$k], Auth::guard('promotion_app_user')->user()->id) : '';
+                        isset($req->file_b[$k]) ? $d->update(['file' => $files]) : '';
+                    }
                 }
             }
         }
         AcademinResearchScoreAwardsFellowship::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        if(isset($req->name_of_the_award_followship) and count($req->name_of_the_award_followship)>0){
         foreach ($req->name_of_the_award_followship as $k => $w) {
             $d = AcademinResearchScoreAwardsFellowship::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -567,6 +580,7 @@ class PromotionFormController extends Controller
                 }
             }
         }
+    }
 
         AcademinResearchScoreInvitedLecture::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
         foreach ($req->inv_title as $k => $v) {

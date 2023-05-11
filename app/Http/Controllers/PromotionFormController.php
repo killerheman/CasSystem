@@ -353,6 +353,7 @@ class PromotionFormController extends Controller
         ]);
 
         AcademicResearchScorePublication::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        if(isset($req->type) and count($req->type)>0){
         foreach ($req->type as $k => $t) {
             $d = AcademicResearchScorePublication::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -374,8 +375,9 @@ class PromotionFormController extends Controller
                 }
             }
         }
-
+    }
         AcademinResearchScoreIctMediated::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
+        if(isset($req->ict_type) and count($req->ict_type)>0){
         foreach ($req->ict_type as $k => $ict) {
             $d1 = AcademinResearchScoreIctMediated::create([
                 'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -392,6 +394,7 @@ class PromotionFormController extends Controller
                 }
             }
         }
+    }
         Auth::guard('promotion_app_user')->user()->step == 6 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
         Alert::success('Previous Data Save Successfully');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);

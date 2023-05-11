@@ -374,8 +374,8 @@
                     <input type="text" id="vol_pp_year" required name="vol_pp_year" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->vol_pp_no_year??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
-                    <label for="impact_factor*">Impact Factor*</label>
-                    <input type="text" id="impact_factor" required name="impact_factor" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
+                    <label for="impact_factor*">Impact Factor</label>
+                    <input type="text" id="impact_factor"  name="impact_factor" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="name_authors*">Number of authors</label>
@@ -400,14 +400,14 @@
             @isset($user->step6_c[0])  
             @php $co_author= json_decode($user->step6_c[0]->co_author)@endphp
             @endisset
-            <div class=" parent2  row g-3 @isset($user->step6_c[0]) @if($user->step6_c[0]->no_authors=='individual') showdatahide @endif @else showdatahide @endisset" >
-                <div class="col-sm-4">
+            <div class=" parent2  row g-3 " >
+                <div class="col-sm-4  showdatahide ">
                     <label for="authorship*">Type of Authorship (First author/corresponding
                         author/principal/co-author)</label>
                     <input type="text" id="authorship"  name="co_auth[0][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author[0]->authorship??'' }} @endisset">
                 </div>
                 <div class="col-sm-2">
-                    <label for="UGC_listed_journals*">Narure Journals</label>
+                    <label for="UGC_listed_journals*">Nature Journals</label>
                     <select required name="co_auth[0][UGC_listed_journals]" class="form-control" id="">
                         <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
                         <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
@@ -436,14 +436,14 @@
                 @for($g=1;$g<count($co_author);$g++)
                     <div class="parent2">
                         <hr />
-                         <div class="row g-3 @isset($user->step6_c[0]) @if($user->step6_c[0]->no_authors=='individual') showdatahide @endif @else showdatahide @endisset" >
-                            <div class="col-sm-4">
+                         <div class="row g-3 " >
+                            <div class="col-sm-4 @isset($user->step6_c[0]) @if($user->step6_c[0]->no_authors=='individual') showdatahide @endif @else showdatahide @endisset">
                                 <label for="authorship*">Type of Authorship (First author/corresponding
                                     author/principal/co-author)</label>
                                 <input type="text" id="authorship"  name="co_auth[{{ $g }}][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author[$g]->authorship??'' }} @endisset">
                             </div>
                             <div class="col-sm-2">
-                                <label for="UGC_listed_journals*">Narure Journals</label>
+                                <label for="UGC_listed_journals*">Nature Journals</label>
                                 <select required name="co_auth[{{ $g }}][UGC_listed_journals]" class="form-control" id="">
                                     <option @isset($co_author[$g]) @selected($co_author[$g]->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
                                     <option @isset($co_author[$g]) @selected($co_author[$g]->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
@@ -647,7 +647,7 @@
                     aria-label="authorship">
             </div>
             <div class="col-sm-2">
-                <label for="UGC_listed_journals*">Narure Journals</label>
+                <label for="UGC_listed_journals*">Nature Journals</label>
                 <select required name="co_auth[`+c+`][UGC_listed_journals]" class="form-control" id="">
                 <option >UGC care listed</option>    
                 <option >UGC approved</option>    
@@ -692,6 +692,7 @@
             $('.showdatahide').addClass('d-none');
             $(document).on('change','.number_of_authors',function(){
                var value = $(this).val();
+               alert(value);
                if(value=='individual'){
                 $('.showdatahide').addClass('d-none');
                }else{

@@ -389,6 +389,7 @@
     $(document).on('click', '.remove3', function() {
         $(this).closest('.parerent3').remove();
     });
+    
     $(document).on('click','#section2_check',function(){
         if($(this).is(':checked')){
             $('.p2').find('input').removeAttr('disabled');

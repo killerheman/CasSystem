@@ -8,8 +8,16 @@
             <div class="col-9">
                 <h2 class="fs-title">PUBLICATIONS (other than Research papers)</h2>
             </div>
+            
             <div class="col-3">
                 <h2 class="steps">Step 7 - 10</h2>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-3">Are you want to fill this section ? </div>
+            <div class="col-2">
+                <input type="checkbox" name="" class="form-check" id="section1_check" @if(isset($user->step7) and count($user->step7)>0) checked @endif>
             </div>
         </div>
         <div class="parent7 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -147,6 +155,14 @@
             </div>
         </div>
     </div>
+    {{-- check box --}}
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section2_check" @if(isset($user->step7) and count($user->step7)>0) checked @endif>
+        </div>
+    </div>
     <div class="parent8 border border-4 rounded rounded-5  border-danger mb-5 p-3">
         <div class="row">
             (b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
@@ -271,6 +287,13 @@
             <h2 class="fs-title">CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND
                 CONTENT
                 AND DEVELOPMENT OF NEW AND INNOVATIVE COURSES AND CURRICULA.</h2>
+        </div>
+    </div>
+    <div class="row">
+            
+        <div class="col-3">Are you want to fill this section ? </div>
+        <div class="col-2">
+            <input type="checkbox" name="" class="form-check" id="section3_check" @if(isset($user->step7_b) and count($user->step7_b)>0) checked @endif>
         </div>
     </div>
     <div class="parent9 border border-4 rounded rounded-5  border-danger mb-5 p-3">
@@ -663,5 +686,60 @@
                 $(this).closest('.parent9').remove();
             });
         });
+
+        
+    $(document).on('click','#section1_check',function(){
+        if($(this).is(':checked')){
+            $('.parent7').find('input').removeAttr('disabled');
+            $('.parent7').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent7').find('input').attr('disabled','true');
+            $('.parent7').find('select  ').attr('disabled','true');
+        }
+    });
+    //section 2
+    $(document).on('click','#section2_check',function(){
+        if($(this).is(':checked')){
+            $('.parent8').find('input').removeAttr('disabled');
+            $('.parent8').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent8').find('input').attr('disabled','true');
+            $('.parent8').find('select').attr('disabled','true');
+        }
+    });
+
+    //section 3
+    $(document).on('click','#section3_check',function(){
+        if($(this).is(':checked')){
+            $('.parent9').find('input').removeAttr('disabled');
+            $('.parent9').find('select').removeAttr('disabled');
+        }
+        else
+        {
+            $('.parent9').find('input').attr('disabled','true');
+            $('.parent9').find('select').attr('disabled','true');
+        }
+    });
+
+    //on dynamic data comes 
+    @if(isset($user->step7) and count($user->step7)>0) 
+        $('#section1_check').prop('checked', true);
+        $('#section2_check').prop('checked', true);
+        @else
+        $('.parent7').find('input').attr('disabled','true');
+        $('.parent7').find('select').attr('disabled','true');
+        $('.parent8').find('input').attr('disabled','true');
+        $('.parent8').find('select').attr('disabled','true');
+     @endif
+     @if(isset($user->step7_b) and count($user->step7_b)>0) 
+        $('#section3_check').prop('checked', true);
+        @else
+        $('.parent9').find('input').attr('disabled','true');
+        $('.parent9').find('select').attr('disabled','true');
+     @endif
     </script>
 @endsection

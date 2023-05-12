@@ -32,18 +32,18 @@
                     <label class="fieldlabels">Category: </label>
                     <select class="form-control" required name="category">
                         <option value="" disabled selected>--Select Category--</option>
-                        <option value="sc" @isset($user->step2->category) @selected($user->step2->category=='SC')
+                        <option value="sc" @isset($user->step2->category) @selected($user->step2->category=='sc')
                             @endisset>SC</option>
-                        <option value="st" @isset($user->step2->category) @selected($user->step2->category=='ST')
+                        <option value="st" @isset($user->step2->category) @selected($user->step2->category=='st')
                             @endisset>ST</option>
-                        <option value="ebc" @isset($user->step2->category) @selected($user->step2->category=='EBC')
+                        <option value="ebc" @isset($user->step2->category) @selected($user->step2->category=='ebc')
                             @endisset>EBC</option>
-                        <option value="bc" @isset($user->step2->category) @selected($user->step2->category=='BC')
+                        <option value="bc" @isset($user->step2->category) @selected($user->step2->category=='bc')
                             @endisset>BC</option>
-                        <option value="ews" @isset($user->step2->category) @selected($user->step2->category=='EWS')
+                        <option value="ews" @isset($user->step2->category) @selected($user->step2->category=='ews')
                             @endisset>EWS</option>
                         <option value="general" @isset($user->step2->category)
-                            @selected($user->step2->category=='GENERAL') @endisset>General</option>
+                            @selected($user->step2->category=='general') @endisset>General</option>
                     </select>
                 </div>
 
@@ -135,7 +135,7 @@
             <div class="col-6">
                 <div class="row">
                     <div class="col">
-                        
+
                         <label class="fieldlabels">Same as Correspondence Address</label>
                         <input type="checkbox"  id="adcheck" class="ms-0 form-checkbox">
                 </div></div>

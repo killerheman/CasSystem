@@ -77,7 +77,7 @@ a {
                     <ul>
                       <li> <a href="{{ asset('Bihar CAS Promotion-2018_(2023).pdf') }} " class="text-light"> CAS-2018 </a></li>
                       <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html"  class="text-light" target="_blank"> CAS-1998 </a></li>
-                      <li > Notification (LNMU)</li>
+                      <li > <a href="{{ asset('upload/Memo No. 126 dt. 19.04.2023.pdf') }}" target="_blank">Notification (LNMU)</a></li>
                       <li><a href="{{ asset('Old Cas/C.C.R Proforma for Teacher.pdf') }}" download="">C.C.R Proforma for Teacher</a></li>
                       <li><a href="{{ asset('Old Cas/Proforma for Promotion to Reader (MPS).pdf') }}" download="">Proforma for Promotion to Reader (MPS)</a></li>
                       <li><a href="{{ asset('upload/Principal HOD Cert for Class Engagement_Format (3).pdf') }}" target="_blank">Principal HOD Cert for Class Engagement_Format</a></li>

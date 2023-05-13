@@ -41,7 +41,7 @@ class PromotionFormController extends Controller
     {
         try{
         $this->user = Auth::guard('promotion_app_user')->user();
-        $req->validate(['profile_pic' => 'nullable|image|max:200']);
+        $req->validate(['profile_pic' => 'nullable|image|max:1024']);
         $image = '';
         $promotion = PromotionApplication::updateOrCreate([
             'promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id,
@@ -136,15 +136,15 @@ class PromotionFormController extends Controller
     public function step4_store(Request $req)
     {
         $req->validate([
-            'teaching_file'=>'max:200',
-            'research_file'=>'max:200',
+            'teaching_file'=>'max:1024',
+            'research_file'=>'max:1024',
             'research_b'=>'array',
-            'research_b.*'=>'max:200',
-            'pd_file'=>'max:200',
-            'paper_file'=>'max:200',
-            'conference_international'=>'max:200',
-            'conference_national'=>'max:200',
-            'conference_state'=>'max:200',
+            'research_b.*'=>'max:1024',
+            'pd_file'=>'max:1024',
+            'paper_file'=>'max:1024',
+            'conference_international'=>'max:1024',
+            'conference_national'=>'max:1024',
+            'conference_state'=>'max:1024',
         ]);
         // $data = $req->only([
         //     'ug_pg_in_years', 'ug_pg_from', 'ug_pg_to', 'mphil_phd_in_years', 'mphil_phd_from', 'mphil_phd_to', 'years_spent_in_mphil', 'years_spent_in_phd', 'years_of_guiding_phd', 'years_of_guiding_completed', 'years_of_guiding_registered', 'years_of_guiding_phd', 'papers_published_international_journals', 'papers_published_national_journals', 'papers_published_state_level_journals', 'papers_published_total', 'conferences_seminars_international_attended', 'conferences_seminars_national_attended', 'conferences_seminars__state_level_attended', 'conferences_seminars_total_attended', 'conferences_seminars_international_papers_presented',
@@ -246,7 +246,7 @@ class PromotionFormController extends Controller
     {
         $req->validate([
             'file' => 'array',
-            'file.*' => 'max:200'
+            'file.*' => 'max:1024'
         ]);
         try{
         $data = $req->only(['vision_to_the_department', 'contribution_to_the_department', 'future_academic_development_plan', 'other_relevant_information']);
@@ -293,10 +293,10 @@ class PromotionFormController extends Controller
     {
         $req->validate([
             'activity_file' => 'array',
-            'activity_file.*' => 'max:200',
+            'activity_file.*' => 'max:1024',
             'involment_file' => 'array',
-            'involment_file.*' => 'max:200',
-            'research_file' => 'max:200'
+            'involment_file.*' => 'max:1024',
+            'research_file' => 'max:1024'
         ]);
         try {
             PromotionApplicationPartB::where('promotion_application_id', Auth::guard('promotion_app_user')->user()->id)->delete();
@@ -382,9 +382,9 @@ class PromotionFormController extends Controller
     {
         $req->validate([
             'book_file' => 'array',
-            'book_file.*' => 'max:200',
+            'book_file.*' => 'max:1024',
             'ict_file' => 'array',
-            'ict_file.*' => 'max:200'
+            'ict_file.*' => 'max:1024'
         ]);
         try{
         AcademicResearchScorePublication::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
@@ -452,11 +452,11 @@ class PromotionFormController extends Controller
     {
         $req->validate([
             'file' => 'array',
-            'file.*' => 'max:200',
+            'file.*' => 'max:1024',
             'file_b' => 'array',
-            'file_b.*' => 'max:200',
+            'file_b.*' => 'max:1024',
             'research_file' => 'array',
-            'research_file.*' => 'max:200'
+            'research_file.*' => 'max:1024'
         ]);
         try{
         AcademinResearchScoreGuidance::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'phd')->delete();
@@ -555,13 +555,13 @@ class PromotionFormController extends Controller
     {
         $req->validate([
             'patent_file' => 'array',
-            'patent_file.*' => 'max:200',
+            'patent_file.*' => 'max:1024',
             'file_b' => 'array',
-            'file_b.*' => 'max:200',
+            'file_b.*' => 'max:1024',
             'award_file_b' => 'array',
-            'award_file_b.*' => 'max:200',
+            'award_file_b.*' => 'max:1024',
             'inv_file' => 'array',
-            'inv_file.*' => 'max:200'
+            'inv_file.*' => 'max:1024'
         ]);
         try{
         AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'patent')->delete();

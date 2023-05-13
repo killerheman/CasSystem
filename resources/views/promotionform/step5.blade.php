@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-4">
                     <label class="fieldlabels">Attach (certificates)</label>
-                    <input type="file"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[0])?($user->step5[0]->file?'required':''):'' }} />
+                    <input type="file" accept="application/pdf, image/*"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[0])?($user->step5[0]->file?'required':''):'' }} />
                     @error('file.0') <span class="text-danger">{{ $message }}</span> @enderror
 
                 </div>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-4">
                                 <label class="fieldlabels">Attach (certificates)</label>
-                                <input type="file"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[$j])?($user->step5[$j]->file?'required':''):'' }} />
+                                <input type="file" accept="application/pdf, image/*"  name="file[]" placeholder="Attach certificates" {{!empty($user->step5[$j])?($user->step5[$j]->file?'required':''):'' }} />
                                 @error('file.'.$j) <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-1">
@@ -237,7 +237,7 @@
             </div>
             <div class="col-4">
                 <label class="fieldlabels">Attach (certificates)</label>
-                <input type="file"  name="file[]"
+                <input type="file" accept="application/pdf, image/*"  name="file[]"
                     placeholder="Attach certificates" required/>
             </div>
             <div class="col-1">

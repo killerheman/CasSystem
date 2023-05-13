@@ -65,7 +65,7 @@
                         <img @isset($user->step1) src="{{asset('storage/'.$user->step1->profile_image) }}" @endisset
                         alt="Upload Your Pic" style="height: 100%; width:100%" id='profile_pic_img' >
                     </div>
-                    <input type="file" onchange="image_upload(this)" name="profile_pic" accept="image/*">
+                    <input type="file" accept="application/pdf, image/*" onchange="image_upload(this)" name="profile_pic" accept="image/*">
                     @error('profile_pic') <small class="text-danger"> {{ $message }} </small> @enderror
                 </div>
             </div>

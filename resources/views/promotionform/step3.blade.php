@@ -42,7 +42,7 @@
                     </div>
                     <div class="col">
                         <label for="Session">File</label>
-                        <input type="file" id="Session" name="file[]" class="form-control" placeholder="file" aria-label="file" @isset($user->step3_a[0]){{$user->step3_a[0]->file?'required':'' }} @endisset>
+                        <input type="file" accept="application/pdf, image/*" id="Session" name="file[]" class="form-control" placeholder="file" aria-label="file" @isset($user->step3_a[0]){{$user->step3_a[0]->file?'required':'' }} @endisset>
                     </div>
                 </div>
                 <div class="row g-3">
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="Session">File</label>
-                                    <input type="file" id="Session"  name="file[]" class="form-control" placeholder="file" aria-label="file" {{ $user->step3_a[0]->file?'required':'' }}>
+                                    <input type="file" accept="application/pdf, image/*" id="Session"  name="file[]" class="form-control" placeholder="file" aria-label="file" {{ $user->step3_a[0]->file?'required':'' }}>
                                 </div>
                             </div>
                             <div class="row g-3">
@@ -174,7 +174,7 @@
                     </div>
                     <div class="col">
                         <label for="service_file">File</label>
-                        <input type="file" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." @isset($user->step3_b[0]){{ $user->step3_b[0]->file?'required':'' }} @endisset>
+                        <input type="file" accept="application/pdf, image/*" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." @isset($user->step3_b[0]){{ $user->step3_b[0]->file?'required':'' }} @endisset>
                     </div>
                 </div>
                 <div class="row g-3">
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="service_file">File</label>
-                                    <input type="file" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." {{ $user->step3_b[$j]->file?'required':'' }}>
+                                    <input type="file" accept="application/pdf, image/*" id="service_file"  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." {{ $user->step3_b[$j]->file?'required':'' }}>
                                 </div>
                             </div>
                             <div class="row g-3">
@@ -335,7 +335,7 @@
                     </div>
                     <div class="col">
                         <label for="experience_file">File</label>
-                        <input type="file" id="Months"  name="step3c_experience_file[]" class="form-control" @isset($user->step3_c[0]){{ $user->step3_c[0]->file?'required':'' }} @endisset placeholder="experience_file" aria-label="experience_file">
+                        <input type="file" accept="application/pdf, image/*" id="Months"  name="step3c_experience_file[]" class="form-control" @isset($user->step3_c[0]){{ $user->step3_c[0]->file?'required':'' }} @endisset placeholder="experience_file" aria-label="experience_file">
                     </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-info add2 mt-4">+</button>
@@ -398,7 +398,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="experience_file">File</label>
-                                    <input type="file" id="Months"  name="step3c_experience_file[]" class="form-control"  {{$user->step3_c[$k]->file?'required':'' }} placeholder="experience_file" aria-label="experience_file">
+                                    <input type="file" accept="application/pdf, image/*" id="Months"  name="step3c_experience_file[]" class="form-control"  {{$user->step3_c[$k]->file?'required':'' }} placeholder="experience_file" aria-label="experience_file">
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-danger remove2 mt-4">-</button>
@@ -456,7 +456,7 @@
                                             </div>\
                                             <div class="col">\
                                                 <label for="Session">File</label>\
-                                                <input type="file" id="Session"  name="file[]" class="form-control"\
+                                                <input type="file" accept="application/pdf, image/*" id="Session"  name="file[]" class="form-control"\
                                                     placeholder="file" aria-label="file">\
                                             </div>\
                                             </div>\
@@ -545,7 +545,7 @@
                                         </div>\
                                         <div class="col">\
                                             <label for="service_file">File</label>\
-                                            <input type="file" id="service_file."  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." >\
+                                            <input type="file" accept="application/pdf, image/*" id="service_file."  name="service_file[]" class="form-control" placeholder="service_file." aria-label="Encl.No." >\
                                         </div>\
                                     </div>\
                                     <div class="row g-3">\
@@ -650,7 +650,7 @@
                                         </div>\
                                         <div class="col">\
                                             <label for="experience_file">File</label>\
-                                            <input type="file" id="Months"  name="step3c_experience_file[]" class="form-control"  placeholder="experience_file" aria-label="experience_file">\
+                                            <input type="file" accept="application/pdf, image/*" id="Months"  name="step3c_experience_file[]" class="form-control"  placeholder="experience_file" aria-label="experience_file">\
                                         </div>\
                                         <div class="col-1">\
                                             <button type="button" class="btn btn-danger remove2 mt-4">-</button>\

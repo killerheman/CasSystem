@@ -22,7 +22,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <p>
                         <h6>Application Information</h6>
                         @isset($user->step1->profile_image)
-                        {{ $user->step1->profile_image }}
+                        <a href="{{ asset('storage/'.$user->step1->profile_image) }}" target="_blank">{{ $user->step1->profile_image }}</a>
                         @endisset
                         </p>
                         <p>
@@ -30,7 +30,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step3_a)
                                 @foreach ($user->step3_a as $file)
-                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -38,7 +38,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step3_b)
                                 @foreach ($user->step3_b as $file)
-                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -46,7 +46,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step3_c)
                                 @foreach ($user->step3_c as $file)
-                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -57,7 +57,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step4 && json_decode($user->step4->file))
                                 @foreach (json_decode($user->step4->file) as $file)
-                                    <li>{!! $file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'.$file) }}" target="_blank">{!! $file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -65,7 +65,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step4)
                                 @foreach ($user->step4_phdrecord as $file)
-                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -75,7 +75,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                         <ul>
                             @if ($user->step5)
                                 @foreach ($user->step5 as $file)
-                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                    <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -87,7 +87,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                             <ul>
                                 @if ($user->step6)
                                     @foreach ($user->step6 as $file)
-                                        <li>{!! $file->A1_file??'<span class="text-danger">N/A</span>' !!}</li>
+                                        <li><a href="{{ asset('storage/'.$file->A1_file) }}" target="_blank">{!! $file->A1_file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                     @endforeach
                                 @endif
                             </ul>
@@ -95,7 +95,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                             <ul>
                                 @if ($user->step6_b)
                                     @foreach ($user->step6_b as $file)
-                                        <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                        <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                     @endforeach
                                 @endif
                             </ul>
@@ -103,7 +103,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                             <ul>
                                 @if ($user->step6_c)
                                     @foreach ($user->step6_c as $file)
-                                        <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                        <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                     @endforeach
                                 @endif
                             </ul>
@@ -113,7 +113,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                 <ul>
                                     @if ($user->step7)
                                         @foreach ($user->step7 as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -121,7 +121,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                 <ul>
                                     @if ($user->step7_b)
                                         @foreach ($user->step7_b as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -131,7 +131,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                 <ul>
                                     @if ($user->step8)
                                         @foreach ($user->step8 as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -139,7 +139,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                 <ul>
                                     @if ($user->step8_b)
                                         @foreach ($user->step8_b as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -149,7 +149,7 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                 <ul>
                                     @if ($user->step9)
                                         @foreach ($user->step9 as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
                                         @endforeach
                                     @endif
                                 </ul>

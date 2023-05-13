@@ -34,7 +34,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement)</label>
-                    <input type="file"  name="file[]" placeholder="Attachement" @isset($phd[0]) {{ $phd[0]->file?'required':'' }} @endisset />
+                    <input type="file" accept="application/pdf, image/*"  name="file[]" placeholder="Attachement" @isset($phd[0]) {{ $phd[0]->file?'required':'' }} @endisset />
                 </div>
             </div>
             <div class="row mt-2">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File (Attachement)</label>
-                            <input type="file"  name="file[]" placeholder="Attachement" @isset($phd[0]) {{ $phd[0]->file?'required':'' }} @endisset />
+                            <input type="file" accept="application/pdf, image/*"  name="file[]" placeholder="Attachement" @isset($phd[0]) {{ $phd[0]->file?'required':'' }} @endisset />
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -135,7 +135,7 @@
                 <label class="fieldlabels">University / College</label> <input type="text" required name="University_b[]" placeholder="University" @isset($mphil[0]) value="{{ $mphil[0]->university??'' }}" @endisset />
             </div>
             <div class="col">
-                <label class="fieldlabels">File (Attachement)</label> <input type="file"  name="file_b[]" @isset($mphil[0]) {{ $mphil[0]->file?'required':'' }} @endisset placeholder="File" />
+                <label class="fieldlabels">File (Attachement)</label> <input type="file" accept="application/pdf, image/*"  name="file_b[]" @isset($mphil[0]) {{ $mphil[0]->file?'required':'' }} @endisset placeholder="File" />
             </div>
         </div>
         <div class="row mt-2">
@@ -177,7 +177,7 @@
                         <label class="fieldlabels">University / College</label> <input type="text" required name="University_b[]" placeholder="University" @isset($mphil[$j]) value="{{ $mphil[$j]->university??'' }}" @endisset />
                     </div>
                     <div class="col">
-                        <label class="fieldlabels">File (Attachement)</label> <input type="file"  name="file_b[]" placeholder="File" @isset($mphil[$j]) {{ $mphil[$j]->file?'required':'' }} @endisset />
+                        <label class="fieldlabels">File (Attachement)</label> <input type="file" accept="application/pdf, image/*"  name="file_b[]" placeholder="File" @isset($mphil[$j]) {{ $mphil[$j]->file?'required':'' }} @endisset />
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -248,7 +248,7 @@
                 <label class="fieldlabels">Funding Agency</label> <input type="text" required name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[0]) value="{{ $user->step8_b[0]->funding_agency??'' }}" @endisset />
             </div>
             <div class="col">
-                <label class="fieldlabels">File</label> <input type="file"  name="research_file[]" placeholder="File" @isset($user->step8_b[0]) {{ $user->step8_b[0]->file?'required':'' }} @endisset />
+                <label class="fieldlabels">File</label> <input type="file" accept="application/pdf, image/*"  name="research_file[]" placeholder="File" @isset($user->step8_b[0]) {{ $user->step8_b[0]->file?'required':'' }} @endisset />
             </div>
         </div>
         <div class="row mt-2">
@@ -306,7 +306,7 @@
                             <label class="fieldlabels">Funding Agency</label> <input type="text" required name="Funding_Agency[]" placeholder="Funding Agency" @isset($user->step8_b[$j]) value="{{ $user->step8_b[$j]->funding_agency??'' }}" @endisset />
                         </div>
                         <div class="col">
-                            <label class="fieldlabels">File</label> <input type="file"  name="research_file[]" placeholder="File" @isset($user->step8_b[$j]) {{ $user->step8_b[$j]->file?'required':'' }} @endisset />
+                            <label class="fieldlabels">File</label> <input type="file" accept="application/pdf, image/*"  name="research_file[]" placeholder="File" @isset($user->step8_b[$j]) {{ $user->step8_b[$j]->file?'required':'' }} @endisset />
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -385,7 +385,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement)</label> <input
-                    type="file"  name="file[]"
+                    type="file" accept="application/pdf, image/*"  name="file[]"
                     placeholder="Attachement" />
             </div>
         </div>
@@ -443,7 +443,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement)</label> <input
-                    type="file"  name="file_b[]"
+                    type="file" accept="application/pdf, image/*"  name="file_b[]"
                     placeholder="File" />
             </div>
         </div>
@@ -504,7 +504,7 @@
                     required name="Funding_Agency[]" placeholder="Funding Agency" />
             </div>
             <div class="col">
-                <label class="fieldlabels">File</label> <input type="file"
+                <label class="fieldlabels">File</label> <input type="file" accept="application/pdf, image/*"
                     required name="research_file[]" placeholder="File" />
             </div>
         </div>

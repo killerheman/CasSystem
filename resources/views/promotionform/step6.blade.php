@@ -62,7 +62,7 @@
                 
                 <div class="col-sm-3">
                     <label for="activity_file">File Attachement</label>
-                    <input type="file" id="activity_file" 
+                    <input type="file" accept="application/pdf, image/*" id="activity_file" 
                      name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[0])
                     {{ $user->step6[0]->A1_file?'required':'' }} @endisset >
                     @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
@@ -132,7 +132,7 @@
                             
                             <div class="col-sm-3">
                                 <label for="activity_file">File Attachement</label>
-                                <input type="file" id="activity_file"  name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
+                                <input type="file" accept="application/pdf, image/*" id="activity_file"  name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
                                 {{ $user->step6[$j]->A1_file?'required':'' }} @endisset >
                                 @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
@@ -220,7 +220,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="involment_file">File (Attachement)</label>
-                    <input type="file"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[0]) {{ $user->step6_b[0]->file?'required':'' }} @endisset>
+                    <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[0]) {{ $user->step6_b[0]->file?'required':'' }} @endisset>
                     @error('involment_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="involment_file">File (Attachement)</label>
-                                <input type="file"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[$j]) {{ $user->step6_b[$j]->file?'required':'' }} @endisset>
+                                <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[$j]) {{ $user->step6_b[$j]->file?'required':'' }} @endisset>
                                 @error('involment_file.'.$j) <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -392,7 +392,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="research_file">File</label>
-                    <input type="file" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[0])
+                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[0])
                     {{ $user->step6_c[0]->file?'required':'' }} @endisset>
                     @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
@@ -529,7 +529,7 @@
             </div>
             <div class="col-sm-3">
                 <label for="activity_file">File Attachement</label>
-                <input type="file" id="activity_file"  name="activity_file[]" class="form-control"
+                <input type="file" accept="application/pdf, image/*" id="activity_file"  name="activity_file[]" class="form-control"
                     placeholder="Activity File" aria-label="Activity File">
             </div>
             <div class="col-sm-2">
@@ -600,7 +600,7 @@
             </div>
             <div class="col-md-3">
                 <label for="involment_file">File (Attachement)</label>
-                <input type="file"  name="involment_file[]" class="form-control" id="involment_file" >
+                <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" >
             </div>
         </div>
         <div class="row g-3">

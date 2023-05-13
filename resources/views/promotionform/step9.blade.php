@@ -47,7 +47,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File </label>
-                    <input type="file"  name="patent_file[]" @isset($patents[0]) {{ $patents[0]->file?'required':'' }} @endisset placeholder="Encl. No." />
+                    <input type="file" accept="application/pdf, image/*"  name="patent_file[]" @isset($patents[0]) {{ $patents[0]->file?'required':'' }} @endisset placeholder="Encl. No." />
                 </div>
                 <div class="col-1">
                     <button type="button" class="btn btn-info add13 mt-4">+</button>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File </label>
-                            <input type="file"  name="patent_file[]" @isset($patents[$j]) {{ $patents[$j]->file?'required':'' }} @endisset placeholder="Encl. No." />
+                            <input type="file" accept="application/pdf, image/*"  name="patent_file[]" @isset($patents[$j]) {{ $patents[$j]->file?'required':'' }} @endisset placeholder="Encl. No." />
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove13 mt-4">-</button>
@@ -139,7 +139,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File </label>
-                <input type="file"  name="file_b[]" placeholder="Encl. No." @isset($policies[0]) value="{{ $policies[0]->file?'required':'' }}" @endisset />
+                <input type="file" accept="application/pdf, image/*"  name="file_b[]" placeholder="Encl. No." @isset($policies[0]) value="{{ $policies[0]->file?'required':'' }}" @endisset />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add14 mt-4">+</button>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File </label>
-                        <input type="file"  name="file_b[]" placeholder="Encl. No." @isset($policies[$j]) value="{{ $policies[$j]->file?'required':'' }}" @endisset />
+                        <input type="file" accept="application/pdf, image/*"  name="file_b[]" placeholder="Encl. No." @isset($policies[$j]) value="{{ $policies[$j]->file?'required':'' }}" @endisset />
                     </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-danger remove14 mt-4">-</button>
@@ -232,7 +232,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File </label>
-                <input type="file"  name="award_file_b[]" placeholder="Encl. No." @isset($user->step9_b[0]) {{ $user->step9_b[0]->file?'required':'' }} @endisset />
+                <input type="file" accept="application/pdf, image/*"  name="award_file_b[]" placeholder="Encl. No." @isset($user->step9_b[0]) {{ $user->step9_b[0]->file?'required':'' }} @endisset />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add15 mt-4">+</button>
@@ -274,7 +274,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File </label>
-                            <input type="file"  name="award_file_b[]" placeholder="Encl. No." @isset($user->step9_b[$j]) {{ $user->step9_b[$j]->file?'required':'' }} @endisset />
+                            <input type="file" accept="application/pdf, image/*"  name="award_file_b[]" placeholder="Encl. No." @isset($user->step9_b[$j]) {{ $user->step9_b[$j]->file?'required':'' }} @endisset />
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove15 mt-4">-</button>
@@ -339,7 +339,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>
-                <input type="file"  name="inv_file[]" @isset($user->step9_c[0]) value="{{ $user->step9_c[0]->file?'required':'' }}" @endisset
+                <input type="file" accept="application/pdf, image/*"  name="inv_file[]" @isset($user->step9_c[0]) value="{{ $user->step9_c[0]->file?'required':'' }}" @endisset
                 placeholder="Encl. No." />
             </div>
             <div class="col-1">
@@ -391,7 +391,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File</label>
-                            <input type="file"  name="inv_file[]" @isset($user->step9_c[$k]) value="{{ $user->step9_c[$k]->file?'required':'' }}" @endisset
+                            <input type="file" accept="application/pdf, image/*"  name="inv_file[]" @isset($user->step9_c[$k]) value="{{ $user->step9_c[$k]->file?'required':'' }}" @endisset
                             placeholder="Encl. No." />
                         </div>
                         <div class="col-1">
@@ -455,7 +455,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File </label>
-                <input type="file"  name="patent_file[]"
+                <input type="file" accept="application/pdf, image/*"  name="patent_file[]"
                     placeholder="Encl. No." />
             </div>
             <div class="col-1">
@@ -501,7 +501,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File </label>
-                <input type="file"  name="file_b[]"
+                <input type="file" accept="application/pdf, image/*"  name="file_b[]"
                     placeholder="Encl. No." />
             </div>
             <div class="col-1">
@@ -555,7 +555,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File </label>
-                <input type="file"  name="award_file_b[]"
+                <input type="file" accept="application/pdf, image/*"  name="award_file_b[]"
                     placeholder="Encl. No." />
             </div>
             <div class="col-1">
@@ -620,7 +620,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>
-                <input type="file"  name="inv_file[]"
+                <input type="file" accept="application/pdf, image/*"  name="inv_file[]"
                     placeholder="Encl. No." />
             </div>
             <div class="col-1">

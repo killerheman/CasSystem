@@ -313,7 +313,7 @@
                                         </div>
                                         <div class="col-4">
                                             <label class="fieldlabels">Attach (certificates)</label>
-                                            <input type="file" name="attach_certificates"
+                                            <input type="file" accept="application/pdf, image/*" name="attach_certificates"
                                                 placeholder="Attach certificates" />
                                         </div>
                                         <div class="col-1">
@@ -477,7 +477,7 @@
                                         placeholder="Sponsoring Agency" />
                                         </div><div class="col-3">
                                         <label class="fieldlabels">Attach (certificates)</label>
-                                        <input type="file" name="attach_certificates"
+                                        <input type="file" accept="application/pdf, image/*" name="attach_certificates"
                                         placeholder="Attach certificates" /></div>
                                         <div class="col-1">
                                         <button type="button" class="btn btn-info remove4 mt-3">-</button>

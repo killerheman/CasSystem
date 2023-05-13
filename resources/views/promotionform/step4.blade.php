@@ -25,7 +25,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels" id="teaching_file">File (Attachement)</label>
-                    <input type="file"  name="teaching_file" placeholder="period_to" @isset($user->step4)
+                    <input type="file" accept="application/pdf, image/*"  name="teaching_file" placeholder="period_to" @isset($user->step4)
                     {{ $user->step4->file?'required':'' }} @endisset/>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-4">
                     <label class="fieldlabels" id="research_file">File (Attachement)</label>
-                    <input type="file"  name="research_file" placeholder="research_file" @isset($user->step4->file) value="{{ $user->step4->file?'required':'' }}" @endisset/>
+                    <input type="file" accept="application/pdf, image/*"  name="research_file" placeholder="research_file" @isset($user->step4->file) value="{{ $user->step4->file?'required':'' }}" @endisset/>
                 </div>
             </div>
             <div class="row">
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File</label>
-                        <input type="file"  name="research_b[]" placeholder="Name of Institute/University"  @isset($user->step4_phdrecord[0]) {{ $user->step4_phdrecord[0]->file?'required':'' }} @endisset/>
+                        <input type="file" accept="application/pdf, image/*"  name="research_b[]" placeholder="Name of Institute/University"  @isset($user->step4_phdrecord[0]) {{ $user->step4_phdrecord[0]->file?'required':'' }} @endisset/>
                     </div>
 
                 </div>
@@ -205,7 +205,7 @@
 
                 <div class="col">
                     <label class="fieldlabels">File (Attachement)</label>
-                    <input type="file"  name="pd_file" placeholder="Registered" />
+                    <input type="file" accept="application/pdf, image/*"  name="pd_file" placeholder="Registered" />
                 </div>
             </div>
             <div class="row">
@@ -229,7 +229,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement)</label>
-                    <input type="file"  name="paper_file" placeholder="Registered" />
+                    <input type="file" accept="application/pdf, image/*"  name="paper_file" placeholder="Registered" />
                 </div>
             </div>
 
@@ -257,7 +257,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File (Attachement)</label>
-                        <input type="file"  name="conference_international" placeholder="Registered" />
+                        <input type="file" accept="application/pdf, image/*"  name="conference_international" placeholder="Registered" />
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -272,7 +272,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File (Attachement)</label>
-                        <input type="file"  name="conference_national" placeholder="Registered" />
+                        <input type="file" accept="application/pdf, image/*"  name="conference_national" placeholder="Registered" />
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -287,7 +287,7 @@
                     </div>
                     <div class="col">
                         <label class="fieldlabels">File (Attachement)</label>
-                        <input type="file"  name="conference_state" placeholder="Registered" />
+                        <input type="file" accept="application/pdf, image/*"  name="conference_state" placeholder="Registered" />
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -372,7 +372,7 @@
                                     </div>\
                                     <div class="col">\
                                         <label class="fieldlabels" id="research_file">File (Attachement)</label> \
-                                        <input type="file"  name="research_b[]" placeholder="research_file" />\
+                                        <input type="file" accept="application/pdf, image/*"  name="research_b[]" placeholder="research_file" />\
                                     </div>\
                                     </div><div class="row mt-3"><div class="col-4">\
                                     <label class="fieldlabels">Research Topic(Dissertation)</label>\

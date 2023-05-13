@@ -48,7 +48,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement):</label>
-                    <input type="file" name="book_file[]" placeholder="File" @isset($user->step7[0]) {{ $user->step7[0]->file?'required':'' }} @endisset />
+                    <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" @isset($user->step7[0]) {{ $user->step7[0]->file?'required':'' }} @endisset />
                 </div>
             </div>
             <div class="row mt-2">
@@ -112,7 +112,7 @@
                             </div>
                             <div class="col">
                                 <label class="fieldlabels">File (Attachement):</label>
-                                <input type="file" name="book_file[]" placeholder="File" @isset($user->step7[$i]) {{ $user->step7[$i]->file?'required':'' }} @endisset />
+                                <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" @isset($user->step7[$i]) {{ $user->step7[$i]->file?'required':'' }} @endisset />
                             </div>
                         </div>
                         <div class="row mt-2">
@@ -187,7 +187,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label>
-                <input type="file" name="book_file[]" placeholder="File" {{ isset($step7_a[0]->file)?'required':'' }} />
+                <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" {{ isset($step7_a[0]->file)?'required':'' }} />
             </div>
         </div>
         <div class="row mt-2">
@@ -244,7 +244,7 @@
                 </div>
                 <div class="col">
                     <label class="fieldlabels">File (Attachement):</label>
-                    <input type="file" name="book_file[]" placeholder="File" {{ isset($step7_a[$j]->file)?'required':'' }} />
+                    <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" {{ isset($step7_a[$j]->file)?'required':'' }} />
                 </div>
             </div>
             <div class="row mt-2">
@@ -355,7 +355,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>
-                <input type="file" name="ict_file[]" placeholder="File" @isset($user->step7_b[0]) {{ $user->step7_b[0]->file?'required':'' }} @endisset/>
+                <input type="file" accept="application/pdf, image/*" name="ict_file[]" placeholder="File" @isset($user->step7_b[0]) {{ $user->step7_b[0]->file?'required':'' }} @endisset/>
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-info add9 mt-4">+</button>
@@ -424,7 +424,7 @@
                         </div>
                         <div class="col">
                             <label class="fieldlabels">File</label>
-                            <input type="file" name="ict_file[]" placeholder="File" @isset($user->step7_b[$u]) {{ $user->step7_b[$u]->file?'required':'' }} @endisset/>
+                            <input type="file" accept="application/pdf, image/*" name="ict_file[]" placeholder="File" @isset($user->step7_b[$u]) {{ $user->step7_b[$u]->file?'required':'' }} @endisset/>
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove9 mt-4">-</button>
@@ -491,7 +491,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label> 
-                <input type="file" name="book_file[]" placeholder="File" />
+                <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" />
             </div>
         </div>
         <div class="row mt-2">
@@ -562,7 +562,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File (Attachement):</label> 
-                <input type="file" name="book_file[]" placeholder="File" />
+                <input type="file" accept="application/pdf, image/*" name="book_file[]" placeholder="File" />
             </div>
         </div>
         <div class="row mt-2">
@@ -670,7 +670,7 @@
             </div>
             <div class="col">
                 <label class="fieldlabels">File</label>
-                <input type="file" name="ict_file[]" placeholder="File" />
+                <input type="file" accept="application/pdf, image/*" name="ict_file[]" placeholder="File" />
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-danger remove9 mt-4">-</button>

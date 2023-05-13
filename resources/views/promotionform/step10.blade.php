@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-4">
                     <p>Signature of the applicant :</p>
-                    <input type="file" name="applicant_signature" />
+                    <input type="file" accept="application/pdf, image/*" name="applicant_signature" />
                 </div>
             </div>
             <div class="row text-center mt-5">

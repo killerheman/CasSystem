@@ -25,6 +25,7 @@ use App\Models\PromotionApplicationUser;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PromotionFormController extends Controller
@@ -38,7 +39,7 @@ class PromotionFormController extends Controller
     }
     public function step1_store(Request $req)
     {
-
+        try{
         $this->user = Auth::guard('promotion_app_user')->user();
         $req->validate(['profile_pic' => 'nullable|image|max:200']);
         $image = '';
@@ -74,6 +75,12 @@ class PromotionFormController extends Controller
         Alert::error('This Form Cant Save right Now');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step2()
     {
         $user = Auth::guard('promotion_app_user')->user();
@@ -81,6 +88,7 @@ class PromotionFormController extends Controller
     }
     public function step2_store(Request $req)
     {
+        try{
         $data = $req->except(['_token', 'next','submit']);
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
         $dt = PartAGeneralInfo::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
@@ -92,6 +100,12 @@ class PromotionFormController extends Controller
         }
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step3()
     {
         $user = Auth::guard('promotion_app_user')->user();
@@ -99,12 +113,19 @@ class PromotionFormController extends Controller
     }
     public function step3_store(Request $req)
     {
+        try{
         // dd($req->service_file[1]);
         $r = PartAAcademicQualification::saveinfo($req);
         if ($r) {
             Alert::success('Previous Step Save Successfully');
         }
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
+    }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
     }
     public function step4()
     {
@@ -130,6 +151,7 @@ class PromotionFormController extends Controller
         //     'conferences_seminars_national_papers_presented', 'conferences_seminars__state_level_papers_presented', 'conferences_seminars_total_papers_presented',
         //     'awards_prizes_honours_recognitions', 'specialization_in_the_subject_discipline', ''
         // ]);
+        try{
         $data['promotion_application_users_id'] = Auth::guard('promotion_app_user')->user()->id;
         $dt = PartAExperienceRecord::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], [
             'ug_pg_in_years'=>$req->ug_pg_in_years??'',
@@ -208,6 +230,12 @@ class PromotionFormController extends Controller
         }
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step5()
     {
 
@@ -220,6 +248,7 @@ class PromotionFormController extends Controller
             'file' => 'array',
             'file.*' => 'max:200'
         ]);
+        try{
         $data = $req->only(['vision_to_the_department', 'contribution_to_the_department', 'future_academic_development_plan', 'other_relevant_information']);
         $dt = PartAExperienceRecord::updateOrCreate(['promotion_application_users_id' => Auth::guard('promotion_app_user')->user()->id], $data);
         Auth::guard('promotion_app_user')->user()->step == 4 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
@@ -244,6 +273,12 @@ class PromotionFormController extends Controller
         }
         Alert::success('Previous Data Save ');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
+    }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
     }
 
     //Part B
@@ -351,7 +386,7 @@ class PromotionFormController extends Controller
             'ict_file' => 'array',
             'ict_file.*' => 'max:200'
         ]);
-
+        try{
         AcademicResearchScorePublication::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
         if(isset($req->type) and count($req->type)>0){
         foreach ($req->type as $k => $t) {
@@ -399,6 +434,12 @@ class PromotionFormController extends Controller
         Alert::success('Previous Data Save Successfully');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step8()
     {
 
@@ -417,6 +458,7 @@ class PromotionFormController extends Controller
             'research_file' => 'array',
             'research_file.*' => 'max:200'
         ]);
+        try{
         AcademinResearchScoreGuidance::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'phd')->delete();
         if(isset($req->Name_of_the_Scholar) and count($req->Name_of_the_Scholar)>0){
         foreach ($req->Name_of_the_Scholar as $k => $v) {
@@ -496,6 +538,12 @@ class PromotionFormController extends Controller
         Alert::success('Previous Data Save Successfully');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step9()
     {
         $user = Auth::guard('promotion_app_user')->user();
@@ -515,6 +563,7 @@ class PromotionFormController extends Controller
             'inv_file' => 'array',
             'inv_file.*' => 'max:200'
         ]);
+        try{
         AcademinResearchScorePatentsAndPolicyDoc::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->where('type', 'patent')->delete();
         if(isset($req->details_of_patents_or_policy_document) and count($req->details_of_patents_or_policy_document)>0)
         {
@@ -608,6 +657,12 @@ class PromotionFormController extends Controller
         Alert::success('Previous Data Save Successfully');
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
+    }
     public function step10()
     {
         $user = Auth::guard('promotion_app_user')->user();
@@ -617,6 +672,7 @@ class PromotionFormController extends Controller
     public function step10_store(Request $request)
     {
         //         dd($request->all());
+        try{
         if ($request->hasFile('applicant_signature')) {
             if (isset($request->claimed_score)) {
 
@@ -642,5 +698,11 @@ class PromotionFormController extends Controller
         } else {
             return redirect()->back()->with('toast_error', 'please upload applicant signature');
         }
+    }
+    catch(Exception $ex){
+        Log::info('Error Found -'.$ex->getMessage());
+        Alert::warning('Please Fill your form properly');
+        return redirect()->back();
+    }
     }
 }

@@ -78,7 +78,7 @@
                         <select class="form-select form-select-lg mb-3" required name="type[]" aria-label=".form-select-lg example">
                             <option selected disabled>choose option...</option>
                             <option value="m_phil" @isset($user->step4_phdrecord[0])
-                                @selected($user->step4_phdrecord[0]->type=='m_phil') @endisset>M. Phil.</option>
+                                @selected($user->step4_phdrecord[0]->type=='m_phil') @endisset>M. Phil. / LL.M. / M.Tech / M.V.Sc. / M.D.</option>
                             <option value="ph_d" @isset($user->step4_phdrecord[0])
                                 @selected($user->step4_phdrecord[0]->type=='ph_d') @endisset>Ph.D.</option>
                         </select>

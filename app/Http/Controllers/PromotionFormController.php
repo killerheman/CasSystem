@@ -671,7 +671,7 @@ class PromotionFormController extends Controller
 
     public function step10_store(Request $request)
     {
-        //         dd($request->all());
+    //        dd($request->all());
         try{
         if ($request->hasFile('applicant_signature')) {
             if (isset($request->claimed_score)) {
@@ -685,7 +685,9 @@ class PromotionFormController extends Controller
                     'entire_assessment_period_from' => $request->entire_assessment_period_from,
                     'entire_assessment_period_to' => $request->entire_assessment_period_to,
                     'claimed_score' => json_encode($request->claimed_score),
-                    'total_claimed_score' => array_sum($request->claimed_score)
+                    'total_claimed_score' => array_sum($request->claimed_score),
+                    'applicant_claimed_score'=>$request->applicant_claimed_score_10??'',
+                    'type'=>'claimed'
                 ]);
                 $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-sign-') : '';
                 $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';

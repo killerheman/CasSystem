@@ -74,27 +74,24 @@
                     <li>Assistant Professor(Academic Level 10) to Assistant Professor (Senior Scale/Academic Level 11)
                     </li>
                     <li>Assistant Professor (Senior Scale/Academic Level 11) to Assistant Professor (Selection --}}
-                        {{-- Grade/Academic Level 12)</li> --}}
+                    {{-- Grade/Academic Level 12)</li> --}}
                 </div>
                 <div class="row p-2">
                     @php
-                        if($users->step1->promotion_level == 1){
-                            $promotion_level = ['10','11'];
-                        }
-                        elseif($users->step1->promotion_level == 2){
-                            $promotion_level = ['11','12'];
-                        }
-                        elseif($users->step1->promotion_level == 3){
-                            $promotion_level = ['12','13A'];
-                        }
-                        elseif($users->step1->promotion_level == 4){
-                            $promotion_level = ['13A','14'];
-                        }
-                        else{
-                            $promotion_level = ['10','11'];
+                        if ($users->step1->promotion_level == 1) {
+                            $promotion_level = ['10', '11'];
+                        } elseif ($users->step1->promotion_level == 2) {
+                            $promotion_level = ['11', '12'];
+                        } elseif ($users->step1->promotion_level == 3) {
+                            $promotion_level = ['12', '13A'];
+                        } elseif ($users->step1->promotion_level == 4) {
+                            $promotion_level = ['13A', '14'];
+                        } else {
+                            $promotion_level = ['10', '11'];
                         }
                     @endphp
-                    Application for promotion from Level <span class="col-4 sp">{{ $promotion_level[0] ?? 'N/A' }}</span>to Level <span
+                    Application for promotion from Level <span
+                        class="col-4 sp">{{ $promotion_level[0] ?? 'N/A' }}</span>to Level <span
                         class="col-2 sp">{{ $promotion_level[1] ?? 'N/A' }}</span>
                 </div>
             </div>
@@ -103,10 +100,11 @@
                 Name :<span class="col-8 sp">{{ $users->step1->name ?? 'N/A' }}</span>
             </div>
             <div class="photo">
-                @if($users->step1->profile_image)
-                 <img src="{{ asset('storage/'.$users->step1->profile_image) }}" style="height: 170px;width: 140px;" />
+                @if ($users->step1->profile_image)
+                    <img src="{{ asset('storage/' . $users->step1->profile_image) }}"
+                        style="height: 170px;width: 140px;" />
                 @else
-                N/A
+                    N/A
                 @endif
             </div>
             <div class="row p-2">
@@ -116,26 +114,34 @@
                 College:<span class="col-8 sp">{{ $users->step1->college ?? 'N/A' }}</span>
             </div>
             <div class="row p-2">
-                Notification Reference No. <span class="col-4 sp">{{ $users->step1->notification_reference_no ?? 'N/A' }}</span>Date:<span class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->notification_reference_date)->format('d-m-Y') ?? 'N/A' }}</span>
+                Notification Reference No. <span
+                    class="col-4 sp">{{ $users->step1->notification_reference_no ?? 'N/A' }}</span>Date:<span
+                    class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->notification_reference_date)->format('d-m-Y') ?? 'N/A' }}</span>
             </div>
             <div class="row p-2 mt-5 contain">
                 <div class="row p-2">
-                    Date of Appointment: <span class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_appointment)->format('d-m-Y') ?? 'N/A' }}</span>Date of Confirmation:<span
+                    Date of Appointment: <span
+                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_appointment)->format('d-m-Y') ?? 'N/A' }}</span>Date
+                    of Confirmation:<span
                         class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</span>
                 </div>
                 <div class="row p-2">
-                    Period of Assessment for promotion: From <span class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_from)->format('d-m-Y') ?? 'N/A' }}</span>to<span
+                    Period of Assessment for promotion: From <span
+                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_from)->format('d-m-Y') ?? 'N/A' }}</span>to<span
                         class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_to)->format('d-m-Y') ?? 'N/A' }}</span>
                 </div>
                 <div class="row p-2">
-                    Date of the last Promotion (with Notification No. & Date) <span class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</span>
+                    Date of the last Promotion (with Notification No. & Date) <span
+                        class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</span>
                 </div>
                 <div class="row p-2">
                     Grade in Annual Performance Report of the last 4/5/6 years of the assessment period:<span
-                        class="col-2 sp">{{ $users->step1->grade_annual_performance ?? 'N/A' }}</span>(As per Table-1 of the Statute referred above)
+                        class="col-2 sp">{{ $users->step1->grade_annual_performance ?? 'N/A' }}</span>(As per Table-1
+                    of the Statute referred above)
                 </div>
                 <div class="row">
-                    Total Academic / Research Scores (as per Table 2 of the Statutes)<span class="col-2 sp">{{ $users->step1->total_academic_research_scores ?? 'N/A' }}</span>
+                    Total Academic / Research Scores (as per Table 2 of the Statutes)<span
+                        class="col-2 sp">{{ $users->step1->total_academic_research_scores ?? 'N/A' }}</span>
                 </div>
             </div>
             <div class="row mt-4 main2">
@@ -147,8 +153,9 @@
             </div>
             <div class="p-5">
                 <span class="col-2 sp"></span>
-                1 CAS Statutes-2018 can be downloaded here: <a href="https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf" target="_blank">
-                https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf</a>
+                1 CAS Statutes-2018 can be downloaded here: <a
+                    href="https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf" target="_blank">
+                    https://lnmu.ac.in/upload/Bihar%20CAS%20Promotion-2018_(2023).pdf</a>
             </div>
         </div>
     </section>
@@ -166,21 +173,45 @@
                 <ol class="mt-4">
                     <li>Name (in Block Letters) : <strong>{{ strtoupper($users->step2->name ?? 'N/A') }}</strong></li>
                     <li>Category : <strong>{{ strtoupper($users->step2->category_a ?? 'N/A') }}</strong></li>
-                    <li>Father’s Name (in Block Letters) : <strong>{{ strtoupper($users->step2->father_name ?? 'N/A') }}</strong></li>
-                    <li>Mother’s Name (in Block Letters) : <strong>{{ strtoupper($users->step2->mother_name ?? 'N/A') }}</strong></li>
-                    <li>Date of Birth and Age : <strong>{{ $users->step2->date_of_birth ?? 'N/A' }} / {{ $users->step2->age ?? 'N/A' }} Years </strong></li>
-                    <li>Gender : <strong>{{ strtoupper(isset($users->step2->gender) ? ($users->step2->gender == 'm' ? 'Male' : 'Female' ) : 'N/A') }}</strong></li>
+                    <li>Father’s Name (in Block Letters) :
+                        <strong>{{ strtoupper($users->step2->father_name ?? 'N/A') }}</strong></li>
+                    <li>Mother’s Name (in Block Letters) :
+                        <strong>{{ strtoupper($users->step2->mother_name ?? 'N/A') }}</strong></li>
+                    <li>Date of Birth and Age : <strong>{{ $users->step2->date_of_birth ?? 'N/A' }} /
+                            {{ $users->step2->age ?? 'N/A' }} Years </strong></li>
+                    <li>Gender :
+                        <strong>{{ strtoupper(isset($users->step2->gender) ? ($users->step2->gender == 'm' ? 'Male' : 'Female') : 'N/A') }}</strong>
+                    </li>
                     <li>Nationality : <strong>{{ strtoupper($users->step2->nationality ?? 'N/A') }}</strong></li>
-                    <li>Category (SC/ST/EBC/BC/EWS/General) : <strong>{{ strtoupper($users->step2->category ?? 'N/A') }}</strong></li>
-                    <li>Current Designation : <strong>{{ strtoupper($users->step2->current_designation ?? 'N/A') }}</strong></li>
-                    <li>Current Pay Scale & Grade Pay : <strong>{{ strtoupper($users->step2->current_pay_scale ?? 'N/A') }} / {{ $users->step2->current_grade_pay ?? 'N/A' }}</strong></li>
-                    <li>Date of Confirmation : {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</li>
-                    <li>Date of Initial Appointment and Present Stage with Pay Scale at LNMU: {{ \Carbon\Carbon::parse($users->step2->date_of_initial_appointment)->format('d-m-Y') ?? 'N/A' }} / {{ strtoupper($users->step2->present_stage ?? 'N/A') }} with {{ strtoupper($users->step2->pay_scale_at_lnmu ?? 'N/A') }} (Payscale) </li>
-                    <li>Position, Stage and Grade Pay applied for : <strong>{{ strtoupper($users->step2->applied_for_position ?? 'N/A') }} / {{ strtoupper($users->step2->applied_for_stage ?? 'N/A') }} / {{ strtoupper($users->step2->applied_for_grade_pay ?? 'N/A') }}</strong></li>
-                    <li>Date of Last Promotion : {{ \Carbon\Carbon::parse($users->step2->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}</li>
-                    <li>Date of Eligibility for Promotion : {{ \Carbon\Carbon::parse($users->step2->date_of_eligibility_for_promotion)->format('d-m-Y') ?? 'N/A' }}</li>
-                    <li>Address for Correspondence (with Pin Code) : <strong>{{ $users->step2->address_for_correspondence ?? 'N/A' }}(Pincode - {{ $users->step2->address_for_correspondence_pincode ?? 'N/A' }})</strong></li>
-                    <li>Permanent Address (with Pin Code) : <strong>{{ $users->step2->permanent_address ?? 'N/A' }}(Pincode - {{ $users->step2->permanent_address_pincode ?? 'N/A' }})</strong></li>
+                    <li>Category (SC/ST/EBC/BC/EWS/General) :
+                        <strong>{{ strtoupper($users->step2->category ?? 'N/A') }}</strong></li>
+                    <li>Current Designation :
+                        <strong>{{ strtoupper($users->step2->current_designation ?? 'N/A') }}</strong></li>
+                    <li>Current Pay Scale & Grade Pay :
+                        <strong>{{ strtoupper($users->step2->current_pay_scale ?? 'N/A') }} /
+                            {{ $users->step2->current_grade_pay ?? 'N/A' }}</strong></li>
+                    <li>Date of Confirmation :
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</li>
+                    <li>Date of Initial Appointment and Present Stage with Pay Scale at LNMU:
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_initial_appointment)->format('d-m-Y') ?? 'N/A' }}
+                        / {{ strtoupper($users->step2->present_stage ?? 'N/A') }} with
+                        {{ strtoupper($users->step2->pay_scale_at_lnmu ?? 'N/A') }} (Payscale) </li>
+                    <li>Position, Stage and Grade Pay applied for :
+                        <strong>{{ strtoupper($users->step2->applied_for_position ?? 'N/A') }} /
+                            {{ strtoupper($users->step2->applied_for_stage ?? 'N/A') }} /
+                            {{ strtoupper($users->step2->applied_for_grade_pay ?? 'N/A') }}</strong></li>
+                    <li>Date of Last Promotion :
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}
+                    </li>
+                    <li>Date of Eligibility for Promotion :
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_eligibility_for_promotion)->format('d-m-Y') ?? 'N/A' }}
+                    </li>
+                    <li>Address for Correspondence (with Pin Code) :
+                        <strong>{{ $users->step2->address_for_correspondence ?? 'N/A' }}(Pincode -
+                            {{ $users->step2->address_for_correspondence_pincode ?? 'N/A' }})</strong></li>
+                    <li>Permanent Address (with Pin Code) :
+                        <strong>{{ $users->step2->permanent_address ?? 'N/A' }}(Pincode -
+                            {{ $users->step2->permanent_address_pincode ?? 'N/A' }})</strong></li>
                     <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? 'N/A' }}</strong></li>
                     <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? 'N/A' }}</strong></li>
                     <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong> --}}</li>
@@ -197,15 +228,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users->step3_a as $data)
-                        <tr>
-                            <th scope="row">{{$data->qualifications??''}}</th>
-                            <td>{{$data->college_university??''}}</td>
-                            <td>{{$data->session??''}}</td>
-                            <td>{{$data->year_of_passing??''}}</td>
-                            <td>{{$data->marks_obtained_out_of_or_cgpa_grade??''}}</td>
-                            <td>{{$data->class_with??''}}</td>
-                        </tr>
+                        @foreach ($users->step3_a as $data)
+                            <tr>
+                                <th scope="row">{{ $data->qualifications ?? '' }}</th>
+                                <td>{{ $data->college_university ?? '' }}</td>
+                                <td>{{ $data->session ?? '' }}</td>
+                                <td>{{ $data->year_of_passing ?? '' }}</td>
+                                <td>{{ $data->marks_obtained_out_of_or_cgpa_grade ?? '' }}</td>
+                                <td>{{ $data->class_with ?? '' }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -247,22 +278,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users->step3_b as $data)
-                    <tr>
-                        <td>{{$data->institution??''}}</td>
-                        <td>{{$data->designation??''}}</td>
-                        <td>{{$data->nature_of_appointment??''}}</td>
-                        <td>{{$data->nature_of_duties}}</td>
-                        <td>{{$data->pay_scale_pay_band_and_agp??''}}</td>
-                        <td>{{$data->duration_from??''}}</td>
-                        <td>{{$data->duration_to??''}}</td>
-                        <td>{{$data->experience_year}}</td>
-                        <td>{{$data->experience_months}}</td>
-                        <td>{{$data->minimum_qualification_for_the_post??''}}</td>
-                        <td>{{$data->highest_degree_obtained??''}}</td>
-                        <td>{{$data->remark??''}}</td>
-                        <td>{{$data->encl_no??''}}</td>
-                    </tr>
+                    @foreach ($users->step3_b as $data)
+                        <tr>
+                            <td>{{ $data->institution ?? '' }}</td>
+                            <td>{{ $data->designation ?? '' }}</td>
+                            <td>{{ $data->nature_of_appointment ?? '' }}</td>
+                            <td>{{ $data->nature_of_duties }}</td>
+                            <td>{{ $data->pay_scale_pay_band_and_agp ?? '' }}</td>
+                            <td>{{ $data->duration_from ?? '' }}</td>
+                            <td>{{ $data->duration_to ?? '' }}</td>
+                            <td>{{ $data->experience_year }}</td>
+                            <td>{{ $data->experience_months }}</td>
+                            <td>{{ $data->minimum_qualification_for_the_post ?? '' }}</td>
+                            <td>{{ $data->highest_degree_obtained ?? '' }}</td>
+                            <td>{{ $data->remark ?? '' }}</td>
+                            <td>{{ $data->encl_no ?? '' }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -285,21 +316,19 @@
                         <th>Year</th>
                         <th>Months</th>
                     </tr>
-                    @foreach($users->step3_c as $data)
+                    @foreach ($users->step3_c as $data)
+                        <tr>
+                            <td>Level {{ $data->level ?? '' }}</td>
+                            <td>{{ $data->designation ?? '' }}</td>
+                            <td>{{ $data->pay_scale_and_agp ?? '' }}</td>
+                            <td>{{ $data->duration_from ?? '' }}</td>
+                            <td>{{ $data->duration_to ?? '' }}</td>
+                            <td>{{ $data->experience_year ?? '' }}</td>
+                            <td>{{ $data->experience_months ?? '' }}</td>
+                            <td>{{ $data->remarks ?? '' }}</td>
+                            <td>{{ $data->encl_no ?? '' }}</td>
 
-                    <tr>
-                        <td>Level {{$data->level??''}}</td>
-                        <td>{{$data->designation??''}}</td>
-                        <td>{{$data->pay_scale_and_agp??''}}</td>
-                        <td>{{$data->duration_from??''}}</td>
-                        <td>{{$data->duration_to??''}}</td>
-                        <td>{{$data->experience_year??''}}</td>
-                        <td>{{$data->experience_months??''}}</td>
-                        <td>{{$data->remarks??''}}</td>
-                        <td>{{$data->encl_no??''}}</td>
-
-                    </tr>
-                    
+                        </tr>
                     @endforeach
                     <tr>
                         <td colspan="7">Please clearly specify the period of Leave Without Pay (LWP)</td>
@@ -320,18 +349,22 @@
                 <h5>23. TEACHING EXPERIENCE (UG/PG): </h5>
             </div>
             <div class="row p-2">
-                In Years: <span class="col-3 sp">{{$users->step4->ug_pg_in_years??''}}</span>&nbsp;Period: &nbsp;From<span
-                    class="col-2 sp">{{ $users->step4->ug_pg_from??'' }}</span> &nbsp;To<span class="col-2 sp">{{ $users->step4->ug_pg_to??'' }}</span>
+                In Years: <span class="col-3 sp">{{ $users->step4->ug_pg_in_years ?? '' }}</span>&nbsp;Period:
+                &nbsp;From<span class="col-2 sp">{{ $users->step4->ug_pg_from ?? '' }}</span> &nbsp;To<span
+                    class="col-2 sp">{{ $users->step4->ug_pg_to ?? '' }}</span>
             </div>
             <div class="row mt-3">
                 <h5>24. RESEARCH EXPERIENCE: (including M.Phil/Ph.D Duration) </h5>
             </div>
             <div class="row p-2">
-                i. &nbsp;&nbsp; Total Number of Years: <span class="col-3 sp">{{$users->step4->mphil_phd_in_years??''}}</span>&nbsp;&nbsp;&nbsp;Period:
-                &nbsp;From<span class="col-2 sp">{{$users->step4->mphil_phd_from??''}}</span> &nbsp;&nbsp;To<span class="col-2 sp">{{$users->step4->mphil_phd_to??''}}</span>
+                i. &nbsp;&nbsp; Total Number of Years: <span
+                    class="col-3 sp">{{ $users->step4->mphil_phd_in_years ?? '' }}</span>&nbsp;&nbsp;&nbsp;Period:
+                &nbsp;From<span class="col-2 sp">{{ $users->step4->mphil_phd_from ?? '' }}</span> &nbsp;&nbsp;To<span
+                    class="col-2 sp">{{ $users->step4->mphil_phd_to ?? '' }}</span>
             </div>
             <div class="row p-2">
-                a)&nbsp; &nbsp;&nbsp; Years Spent in M. Phil.: <span class="col-3 sp">{{$users->step4->years_spent_in_mphil??''}}</span>
+                a)&nbsp; &nbsp;&nbsp; Years Spent in M. Phil.: <span
+                    class="col-3 sp">{{ $users->step4->years_spent_in_mphil ?? '' }}</span>
             </div>
             <table class="table table-bordered mt-5">
                 <thead>
@@ -352,23 +385,22 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    @foreach ($users->step4_phdrecord->where('type','m_phil') as $phdrec)
-                        
-                    <tr>
-                        <td scope="row">{{ $phdrec->period_of_from??'' }}</td>
-                        <td>{{ $phdrec->period_of_to??'' }}</td>
-                        <td>{{ $phdrec->name_of_institute_university??'' }}</td>
-                        <td>{{ $phdrec->research_topic??'' }}</td>
-                        <td>{{ $phdrec->date_of_notification_result_conferring_the_degree??'' }}</td>
-                        <td>{{ $phdrec->period_of_from??'' }}</td>
-                    </tr>
-                    
+                    @foreach ($users->step4_phdrecord->where('type', 'm_phil') as $phdrec)
+                        <tr>
+                            <td scope="row">{{ $phdrec->period_of_from ?? '' }}</td>
+                            <td>{{ $phdrec->period_of_to ?? '' }}</td>
+                            <td>{{ $phdrec->name_of_institute_university ?? '' }}</td>
+                            <td>{{ $phdrec->research_topic ?? '' }}</td>
+                            <td>{{ $phdrec->date_of_notification_result_conferring_the_degree ?? '' }}</td>
+                            <td>{{ $phdrec->period_of_from ?? '' }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="row p-2">
                 b)&nbsp; &nbsp;&nbsp; Years Spent in M. Ph.D. &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:<span class="col-3 sp">{{$users->step4->years_spent_in_phd??''}}</span>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:<span
+                    class="col-3 sp">{{ $users->step4->years_spent_in_phd ?? '' }}</span>
             </div>
             <table class="table table-bordered mt-5">
                 <thead>
@@ -389,69 +421,82 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    @foreach ($users->step4_phdrecord->where('type','ph_d') as $phdrec)
-                        
-                    <tr>
-                        <td scope="row">{{ $phdrec->period_of_from??'' }}</td>
-                        <td>{{ $phdrec->period_of_to??'' }}</td>
-                        <td>{{ $phdrec->name_of_institute_university??'' }}</td>
-                        <td>{{ $phdrec->research_topic??'' }}</td>
-                        <td>{{ $phdrec->date_of_notification_result_conferring_the_degree??'' }}</td>
-                        <td>{{ $phdrec->period_of_from??'' }}</td>
-                    </tr>
-                    
+                    @foreach ($users->step4_phdrecord->where('type', 'ph_d') as $phdrec)
+                        <tr>
+                            <td scope="row">{{ $phdrec->period_of_from ?? '' }}</td>
+                            <td>{{ $phdrec->period_of_to ?? '' }}</td>
+                            <td>{{ $phdrec->name_of_institute_university ?? '' }}</td>
+                            <td>{{ $phdrec->research_topic ?? '' }}</td>
+                            <td>{{ $phdrec->date_of_notification_result_conferring_the_degree ?? '' }}</td>
+                            <td>{{ $phdrec->period_of_from ?? '' }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="row p-2">
-                ii. &nbsp;&nbsp; Years of Guiding Ph.D.: <span class="col-3 sp">{{$users->step4->years_of_guiding_phd??''}}</span>&nbsp;&nbsp;&nbsp;Ph.D.: <span
-                    class="col-2 sp"></span>
+                ii. &nbsp;&nbsp; Years of Guiding Ph.D.: <span
+                    class="col-3 sp">{{ $users->step4->years_of_guiding_phd ?? '' }}</span>&nbsp;&nbsp;&nbsp;Ph.D.:
+                <span class="col-2 sp"></span>
             </div>
             <div class="row p-2">
                 iii. &nbsp;&nbsp;&nbsp;&nbsp; Total No. of Papers Published: <span class="col-2"></span> &nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp; i.International Journals <span class="col-2 sp">{{$users->step4->papers_published_international_journals??''}}</span>
+                &nbsp; &nbsp; &nbsp; i.International Journals <span
+                    class="col-2 sp">{{ $users->step4->papers_published_international_journals ?? '' }}</span>
             </div>
             <div class="row p-2">
-                <span class="col-5"></span> ii.National Journals <span class="col-2 sp">{{$users->step4->papers_published_national_journals??''}}</span>
+                <span class="col-5"></span> ii.National Journals <span
+                    class="col-2 sp">{{ $users->step4->papers_published_national_journals ?? '' }}</span>
             </div>
             <div class="row p-2">
-                <span class="col-5"></span> iii.State Journals <span class="col-2 sp">{{$users->step4->papers_published_state_level_journals??''}}</span>
+                <span class="col-5"></span> iii.State Journals <span
+                    class="col-2 sp">{{ $users->step4->papers_published_state_level_journals ?? '' }}</span>
             </div>
             <div class="row p-2">
-                <span class="col-3"></span> (Not Abstract but Full paper only) Total <span class="col-3 sp">{{$users->step4->papers_published_total??''}}</span>
+                <span class="col-3"></span> (Not Abstract but Full paper only) Total <span
+                    class="col-3 sp">{{ $users->step4->papers_published_total ?? '' }}</span>
             </div>
             <div class="row pt-2">
                 <b> iv.&nbsp;&nbsp;&nbsp;&nbsp;Total No. of Conferences/Seminars/Workshops Attended and papers
                     presented:</b>
             </div>
             <div class="row p-2">
-                i. &nbsp;&nbsp;&nbsp;&nbsp; International: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_international_attended??''}}</span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_international_papers_presented??''}}</span>
+                i. &nbsp;&nbsp;&nbsp;&nbsp; International: &nbsp;&nbsp;&nbsp; Attended<span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_international_attended ?? '' }}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_international_papers_presented ?? '' }}</span>
             </div>
             <div class="row p-2">
-                ii. &nbsp;&nbsp;&nbsp;&nbsp; National: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_national_attended??''}}</span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_national_papers_presented??''}}</span>
+                ii. &nbsp;&nbsp;&nbsp;&nbsp; National: &nbsp;&nbsp;&nbsp; Attended<span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_national_attended ?? '' }}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_national_papers_presented ?? '' }}</span>
             </div>
             <div class="row p-2">
-                iii. &nbsp;&nbsp;&nbsp;&nbsp; State Level: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars__state_level_attended??''}}</span>
-                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars__state_level_papers_presented??''}}</span>
+                iii. &nbsp;&nbsp;&nbsp;&nbsp; State Level: &nbsp;&nbsp;&nbsp; Attended<span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars__state_level_attended ?? '' }}</span>
+                &nbsp;&nbsp; &nbsp; : Attended and Papers Presented <span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars__state_level_papers_presented ?? '' }}</span>
             </div>
             <div class="row p-2">
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                Total: &nbsp;&nbsp;&nbsp; Attended<span class="col-2 sp">{{$users->step4->conferences_seminars_total_attended??''}}</span> &nbsp;&nbsp; &nbsp; : Attended and
-                Papers Presented <span class="col-2 sp">{{$users->step4->conferences_seminars_total_papers_presented??''}}</span>
+                Total: &nbsp;&nbsp;&nbsp; Attended<span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_total_attended ?? '' }}</span> &nbsp;&nbsp;
+                &nbsp; : Attended and
+                Papers Presented <span
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_total_papers_presented ?? '' }}</span>
             </div>
             <div class="row pt-2">
                 <b> 27. AWARDS /PRIZES/HONOURS/RECOGNITIONS :</b>
             </div>
             @php $awards=explode(',',$users->step4->awards_prizes_honours_recognitions) @endphp
-            @foreach($awards as $a)
-            <div class="row pt-2">
+            @foreach ($awards as $a)
+                <div class="row pt-2">
 
-                {{ $loop->index+1 }}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="col-8 sp">{{ $a }}</span>
-            </div>
+                    {{ $loop->index + 1 }}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="col-8 sp">{{ $a }}</span>
+                </div>
             @endforeach
-            
+
         </div>
     </section>
 
@@ -463,10 +508,11 @@
             @php $field=explode(',',$users->step4->specialization_in_the_subject_discipline) @endphp
             <div class="row">
                 @foreach ($field as $f)
-                <span>&#10146; {{ $f }}</span>
+                    <span>&#10146; {{ $f }}</span>
                 @endforeach
             </div>
-            <h6 class="mt-2"> 29. ORIENTATION/REFRESHER COURSE ATTENDED <span>(ONLY UGC RECOGNIZED):(Attach certificates)</span></h6>
+            <h6 class="mt-2"> 29. ORIENTATION/REFRESHER COURSE ATTENDED <span>(ONLY UGC RECOGNIZED):(Attach
+                    certificates)</span></h6>
 
             <table class="table table-bordered">
                 <thead>
@@ -490,17 +536,17 @@
                         <th></th>
                     </tr>
                     @isset($users->step5)
-                    @foreach ($users->step5->where('type',1) as $v)
-                    <tr>
-                        <th scope="row">{{ $loop->index+1 }}</th>
-                        <td>{{ $v->particulars??'' }}</td>
-                        <td>{{ $v->place??'' }}</td>
-                        <td>{{ $v->duration_from??'' }}</td>
-                        <td>{{ $v->duration_to??'' }}</td>
-                        <td>{{ $v->sponsoring_agency??'' }}</td>
-                        <td>{{ $v->encl_no??'' }}</td>
-                    </tr>
-                    @endforeach
+                        @foreach ($users->step5->where('type', 1) as $v)
+                            <tr>
+                                <th scope="row">{{ $loop->index + 1 }}</th>
+                                <td>{{ $v->particulars ?? '' }}</td>
+                                <td>{{ $v->place ?? '' }}</td>
+                                <td>{{ $v->duration_from ?? '' }}</td>
+                                <td>{{ $v->duration_to ?? '' }}</td>
+                                <td>{{ $v->sponsoring_agency ?? '' }}</td>
+                                <td>{{ $v->encl_no ?? '' }}</td>
+                            </tr>
+                        @endforeach
                     @endisset
                 </tbody>
             </table>
@@ -521,17 +567,17 @@
                 </thead>
                 <tbody>
                     @isset($users->step5)
-                    @foreach ($users->step5->where('type',2) as $v)
-                    <tr>
-                        <th scope="row">{{ $loop->index+1 }}</th>
-                        <td>{{ $v->particulars??'' }}</td>
-                        <td>{{ $v->place??'' }}</td>
-                        <td>{{ $v->duration_from??'' }}</td>
-                        <td>{{ $v->duration_to??'' }}</td>
-                        <td>{{ $v->sponsoring_agency??'' }}</td>
-                        <td>{{ $v->encl_no??'' }}</td>
-                    </tr>
-                    @endforeach
+                        @foreach ($users->step5->where('type', 2) as $v)
+                            <tr>
+                                <th scope="row">{{ $loop->index + 1 }}</th>
+                                <td>{{ $v->particulars ?? '' }}</td>
+                                <td>{{ $v->place ?? '' }}</td>
+                                <td>{{ $v->duration_from ?? '' }}</td>
+                                <td>{{ $v->duration_to ?? '' }}</td>
+                                <td>{{ $v->sponsoring_agency ?? '' }}</td>
+                                <td>{{ $v->encl_no ?? '' }}</td>
+                            </tr>
+                        @endforeach
                     @endisset
                 </tbody>
             </table>
@@ -539,31 +585,31 @@
                 <h6 class="mt-5">31. YOUR VISION FOR THE DEPARTMENT /COLLEGE/UNIVERSITY:</h6>
                 @php $vision=explode(',',$users->step4->vision_to_the_department) @endphp
                 @foreach ($vision as $v)
-                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
                 @endforeach
             </div>
 
             <div class="row">
                 <h6 class="mt-5">32. YOUR CONTRIBUTION TO THE DEPARTMENT /COLLEGE/DISCIPLINE AND
                     UNIVERSITY:</h6>
-                 @php $conti=explode(',',$users->step4->contribution_to_the_department) @endphp
+                @php $conti=explode(',',$users->step4->contribution_to_the_department) @endphp
                 @foreach ($conti as $v)
-                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
                 @endforeach
             </div>
             <div class="row">
                 <h6 class="mt-5">33. FUTURE ACADEMIC DEVELOPMENT PLAN FOR SELF AS WELL AS DEPARTMENT
                     /COLLEGE/UNIVERSITY:</h6>
-                    @php $dev=explode(',',$users->step4->future_academic_development_plan) @endphp
-                    @foreach ($dev as $v)
+                @php $dev=explode(',',$users->step4->future_academic_development_plan) @endphp
+                @foreach ($dev as $v)
                     <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
-                    @endforeach
+                @endforeach
             </div>
             <div class="row">
                 <h6 class="mt-5">34. ANY OTHER RELEVANT INFORMATION:</h6>
                 @php $dev=explode(',',$users->step4->other_relevant_information) @endphp
                 @foreach ($dev as $v)
-                <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
                 @endforeach
             </div>
         </div>
@@ -581,7 +627,8 @@
                             Grading
                             criteria,
                             and Scores and or
-                            publications. The minimum Grading criteria and scores and or publications required by teachers
+                            publications. The minimum Grading criteria and scores and or publications required by
+                            teachers
                             from
                             this category are different for different levels of promotion. The self-assessment grades,
                             scores,
@@ -646,23 +693,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($users->step6 as $s6)
-                                    <tr>
-                                        <th>{{$loop->index+1}}</th>
-                                        <th>Year {{ $s6->A1_academic_year??'' }} </th>
-                                        <td>{{ $s6->A1_semester??'' }} </td>
-                                        <td>{{ $s6->total_classes_assigned??'' }}</td>
-                                        <td>{{ $s6->number_of_classes_tought??'' }}</td>
-                                        <td>{{ $s6->teaching??'' }}</td>
-                                        <td>{{ $s6->claimed_by_the_candidate??'' }}</td>
-                                        <td>{{ $s6->varified_by_the_committee??'' }}</td>
-                                        <td>{{ $s6->remark_ks??'' }}</td>
-                                        <td>{{ $s6->encl_no??'' }}</td>
-                                        <td><a href="{{$s6->A1_file??''}}">{{$s6->A1_file??''}}</a></td>
+                                    @foreach ($users->step6 as $s6)
+                                        <tr>
+                                            <th>{{ $loop->index + 1 }}</th>
+                                            <th>Year {{ $s6->A1_academic_year ?? '' }} </th>
+                                            <td>{{ $s6->A1_semester ?? '' }} </td>
+                                            <td>{{ $s6->total_classes_assigned ?? '' }}</td>
+                                            <td>{{ $s6->number_of_classes_tought ?? '' }}</td>
+                                            <td>{{ $s6->teaching ?? '' }}</td>
+                                            <td>{{ $s6->claimed_by_the_candidate ?? '' }}</td>
+                                            <td>{{ $s6->varified_by_the_committee ?? '' }}</td>
+                                            <td>{{ $s6->remark_ks ?? '' }}</td>
+                                            <td>{{ $s6->encl_no ?? '' }}</td>
+                                            <td><a href="{{ $s6->A1_file ?? '' }}">{{ $s6->A1_file ?? '' }}</a></td>
 
-                                    </tr>
+                                        </tr>
                                     @endforeach
-                                    
+
                                 </tbody>
                             </table>
 
@@ -692,21 +739,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users->step6_b as $s6)
-                                    <tr>
-                                        <th >{{$loop->index+1}}</th>
-                                        <th>Year {{$s6->academic_year}}</th>
-                                        <td>{{$s6->semester??''}}</td>
-                                        <td colspan="3">{{$s6->activity??''}}</td>
-                                        <td>{{ $s6->claimed_by_candidate??'' }}</td>
-                                        <td>{{ $s6->verify_by_committee??'' }}</td>
-                                        <td>{{ $s6->remark??'' }}</td>
-                                        <td>{{ $s6->encl_no??'' }}</td>
-                                        <td><a href="{{$s6->file??''}}">{{$s6->file??''}}</a></td>
-                                    </tr>
+                                    @foreach ($users->step6_b as $s6)
+                                        <tr>
+                                            <th>{{ $loop->index + 1 }}</th>
+                                            <th>Year {{ $s6->academic_year }}</th>
+                                            <td>{{ $s6->semester ?? '' }}</td>
+                                            <td colspan="3">{{ $s6->activity ?? '' }}</td>
+                                            <td>{{ $s6->claimed_by_candidate ?? '' }}</td>
+                                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                                            <td>{{ $s6->remark ?? '' }}</td>
+                                            <td>{{ $s6->encl_no ?? '' }}</td>
+                                            <td><a href="{{ $s6->file ?? '' }}">{{ $s6->file ?? '' }}</a></td>
+                                        </tr>
                                     @endforeach
 
-                                   
+
                                 </tbody>
                             </table>
                         </div>
@@ -749,19 +796,19 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
-                    @foreach($users->step6_c as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title_research_chapter??''}}</td>
-                        <td>{{$s6->name_journal??''}}</td>
-                        <td>{{$s6->vol_pp_no_year??''}}</td>
-                        <td>{{$s6->impact_factor??''}}</td>
-                        <td>{{$s6->no_authors??''}}</td>
-                        <td>{{$s6->type_authorship??''}}</td>
-                        <td>{{$s6->sr_in_ugc??''}}</td>
-                        <td>{{$s6->varified_by_committee??''}}</td>
-                        <td></td>
-                    </tr>
+                    @foreach ($users->step6_c as $s6)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title_research_chapter ?? '' }}</td>
+                            <td>{{ $s6->name_journal ?? '' }}</td>
+                            <td>{{ $s6->vol_pp_no_year ?? '' }}</td>
+                            <td>{{ $s6->impact_factor ?? '' }}</td>
+                            <td>{{ $s6->no_authors ?? '' }}</td>
+                            <td>{{ $s6->type_authorship ?? '' }}</td>
+                            <td>{{ $s6->sr_in_ugc ?? '' }}</td>
+                            <td>{{ $s6->varified_by_committee ?? '' }}</td>
+                            <td></td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -788,153 +835,153 @@
                     <tr>
                         <td colspan="9">(a) BOOKS AUTHORED WHICH ARE PUBLISHED BY:</td>
                     </tr>
-                    
+
                     <tr>
                         <td colspan="9">International publishers</td>
                     </tr>
                     @forelse($users->step7->where('type',5) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
+
                     <tr>
                         <td colspan="9">National publishers</td>
                     </tr>
                     @forelse($users->step7->where('type',4) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
+
                     <tr>
                         <td colspan="9">Chapter in Edited Book</td>
                     </tr>
                     @forelse($users->step7->where('type',3) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
+
                     <tr>
                         <td colspan="9">Editor of Book by International Publisher</td>
                     </tr>
                     @forelse($users->step7->where('type',2) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
+
                     <tr>
                         <td colspan="9">Editor of Book by National Publisher</td>
                     </tr>
                     @forelse($users->step7->where('type',1) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
-                      <tr>
+
+                    <tr>
                         <td colspan="9">(b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
                         </td>
                     </tr>
@@ -942,60 +989,60 @@
                         <td colspan="9">CHAPTER OR RESEARCH PAPER</td>
                     </tr>
                     @forelse($users->step7->where('type',6) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                    
+
                     <tr>
                         <td colspan="9">BOOKS</td>
                     </tr>
                     @forelse($users->step7->where('type',7) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s6->title??''}}</td>
-                        <td>{{$s6->auth??''}}</td>
-                        <td>{{$s6->co_author??''}}</td>
-                        <td>{{$s6->publisher??''}}</td>
-                        <td>{{$s6->isbn_issn??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s6->title ?? '' }}</td>
+                            <td>{{ $s6->auth ?? '' }}</td>
+                            <td>{{ $s6->co_author ?? '' }}</td>
+                            <td>{{ $s6->publisher ?? '' }}</td>
+                            <td>{{ $s6->isbn_issn ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
-                   
+
                 </tbody>
             </table>
             <small class="text-danger">Note: Attach front, index and back pages justifying the claim showing the
@@ -1028,41 +1075,41 @@
                         <td colspan="9">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
                     </tr>
                     @forelse($users->step7_b->where('type',1) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">DESIGN OF NEW CURRICULA AND COURSES</td>
                     </tr>
                     @forelse($users->step7_b->where('type',2) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">(c) MOOCs</td>
@@ -1074,21 +1121,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',3) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1096,21 +1143,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',4) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1119,21 +1166,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',5) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1142,21 +1189,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',6) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">(d) E-CONTENT</td>
@@ -1168,21 +1215,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',7) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1190,21 +1237,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',8) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1213,21 +1260,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',9) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                     <tr>
                         <td colspan="9">
@@ -1235,21 +1282,21 @@
                         </td>
                     </tr>
                     @forelse($users->step7_b->where('type',10) as $s6)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td colspan="5">{{$s6->activity??''}}</td>
-                        <td>{{$s6->claimed_score??''}}</td>
-                        <td>{{$s6->verify_by_committee??''}}</td>
-                        <td>{{$s6->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td colspan="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -1283,29 +1330,29 @@
                         <th><strong>Encl.No</strong></th>
                     </tr>
                     @forelse($users->step8->where('type','phd') as $s8)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s8->name_of_the_scholar??''}}</td>
-                        <td>{{$s8->thesis??''}}</td>
-                        <td>{{$s8->awarded_thesis_submitted??''}}</td>
-                        <td>{{$s8->university??''}}</td>
-                        <td>{{$s8->month_and_year??''}}</td>
-                        <td>{{$s8->claimed_score??''}}</td>
-                        <td>{{$s8->verify_by_committee??''}}</td>
-                        <td>{{$s8->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s8->name_of_the_scholar ?? '' }}</td>
+                            <td>{{ $s8->thesis ?? '' }}</td>
+                            <td>{{ $s8->awarded_thesis_submitted ?? '' }}</td>
+                            <td>{{ $s8->university ?? '' }}</td>
+                            <td>{{ $s8->month_and_year ?? '' }}</td>
+                            <td>{{ $s8->claimed_score ?? '' }}</td>
+                            <td>{{ $s8->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s8->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -1338,29 +1385,29 @@
                         <th><strong>Encl.No</strong></th>
                     </tr>
                     @forelse($users->step8->where('type','mphil') as $s8)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s8->name_of_the_scholar??''}}</td>
-                        <td>{{$s8->thesis??''}}</td>
-                        <td>{{$s8->awarded_thesis_submitted??''}}</td>
-                        <td>{{$s8->university??''}}</td>
-                        <td>{{$s8->month_and_year??''}}</td>
-                        <td>{{$s8->claimed_score??''}}</td>
-                        <td>{{$s8->verify_by_committee??''}}</td>
-                        <td>{{$s8->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s8->name_of_the_scholar ?? '' }}</td>
+                            <td>{{ $s8->thesis ?? '' }}</td>
+                            <td>{{ $s8->awarded_thesis_submitted ?? '' }}</td>
+                            <td>{{ $s8->university ?? '' }}</td>
+                            <td>{{ $s8->month_and_year ?? '' }}</td>
+                            <td>{{ $s8->claimed_score ?? '' }}</td>
+                            <td>{{ $s8->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s8->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -1391,34 +1438,34 @@
                         <th>To</th>
                     </tr>
                     @forelse($users->step8_b->where('type',1) as $s8)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s8->title_of_the_project??''}}</td>
-                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
-                        <td>{{$s8->funding_agency??''}}</td>
-                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
-                        <td>{{$s8->duration_from??''}}</td>
-                        <td>{{$s8->duration_to??''}}</td>
-                        <td>{{$s8->claimed_score??''}}</td>
-                        <td>{{$s8->verify_by_committee??''}}</td>
-                        <td>{{$s8->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s8->title_of_the_project ?? '' }}</td>
+                            <td>{{ $s8->name_of_pi_and_co_pi ?? '' }}</td>
+                            <td>{{ $s8->funding_agency ?? '' }}</td>
+                            <td>{{ $s8->grant_sanctioned_or_component ?? '' }}</td>
+                            <td>{{ $s8->duration_from ?? '' }}</td>
+                            <td>{{ $s8->duration_to ?? '' }}</td>
+                            <td>{{ $s8->claimed_score ?? '' }}</td>
+                            <td>{{ $s8->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s8->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
                 </tbody>
-                
+
             </table>
             <p>
                 <b>(c) RESEARCH PROJECTS ONGOING </b>
@@ -1447,31 +1494,31 @@
                         <th>To</th>
                     </tr>
                     @forelse($users->step8_b->where('type',2) as $s8)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s8->title_of_the_project??''}}</td>
-                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
-                        <td>{{$s8->funding_agency??''}}</td>
-                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
-                        <td>{{$s8->duration_from??''}}</td>
-                        <td>{{$s8->duration_to??''}}</td>
-                        <td>{{$s8->claimed_score??''}}</td>
-                        <td>{{$s8->verify_by_committee??''}}</td>
-                        <td>{{$s8->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s8->title_of_the_project ?? '' }}</td>
+                            <td>{{ $s8->name_of_pi_and_co_pi ?? '' }}</td>
+                            <td>{{ $s8->funding_agency ?? '' }}</td>
+                            <td>{{ $s8->grant_sanctioned_or_component ?? '' }}</td>
+                            <td>{{ $s8->duration_from ?? '' }}</td>
+                            <td>{{ $s8->duration_to ?? '' }}</td>
+                            <td>{{ $s8->claimed_score ?? '' }}</td>
+                            <td>{{ $s8->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s8->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
 
                 </tbody>
@@ -1505,40 +1552,40 @@
                         <th>To</th>
                     </tr>
                     @forelse($users->step8_b->where('type',3) as $s8)
-                    <tr>
-                        <td>{{$loop->index+1}}</td>
-                        <td>{{$s8->title_of_the_project??''}}</td>
-                        <td>{{$s8->name_of_pi_and_co_pi??''}}</td>
-                        <td>{{$s8->funding_agency??''}}</td>
-                        <td>{{$s8->grant_sanctioned_or_component??''}}</td>
-                        <td>{{$s8->duration_from??''}}</td>
-                        <td>{{$s8->duration_to??''}}</td>
-                        <td>{{$s8->claimed_score??''}}</td>
-                        <td>{{$s8->verify_by_committee??''}}</td>
-                        <td>{{$s8->encl_no??''}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $s8->title_of_the_project ?? '' }}</td>
+                            <td>{{ $s8->name_of_pi_and_co_pi ?? '' }}</td>
+                            <td>{{ $s8->funding_agency ?? '' }}</td>
+                            <td>{{ $s8->grant_sanctioned_or_component ?? '' }}</td>
+                            <td>{{ $s8->duration_from ?? '' }}</td>
+                            <td>{{ $s8->duration_to ?? '' }}</td>
+                            <td>{{ $s8->claimed_score ?? '' }}</td>
+                            <td>{{ $s8->verify_by_committee ?? '' }}</td>
+                            <td>{{ $s8->encl_no ?? '' }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     @endforelse
 
                 </tbody>
             </table>
             <p>
-                <b>5 (a) Parents </b>
+                <b>5 (a) Patents </b>
             </p>
             <table class="table table-bordered border-primary">
-                <tbody>
+                <thead>
                     <tr>
                         <th><strong>Sr.no</strong></th>
                         <th>
@@ -1554,16 +1601,19 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users->step9->where('type', 'patent') as $patentdoc)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $patentdoc->details_of_patents_or_policy_document }}</td>
+                            <td>{{ $patentdoc->international_national_state }}</td>
+                            <td>{{ $patentdoc->year }}</td>
+                            <td>{{ $patentdoc->claimed_score }}</td>
+                            <td>{{ $patentdoc->verify_by_committee }}</td>
+                            <td>{{ $patentdoc->encl_no }}</td>
+                        </tr>
+                    @endforeach
                     <tr>
                         <td></td>
                         <td></td>
@@ -1582,7 +1632,7 @@
                 </b>
             </p>
             <table class="table table-bordered border-primary">
-                <tbody>
+                <thead>
                     <tr>
                         <th><strong>Sr.no</strong></th>
                         <th>
@@ -1598,32 +1648,26 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users->step9->where('type', 'policy') as $patentdoc)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $patentdoc->details_of_patents_or_policy_document }}</td>
+                            <td>{{ $patentdoc->international_national_state }}</td>
+                            <td>{{ $patentdoc->year }}</td>
+                            <td>{{ $patentdoc->claimed_score }}</td>
+                            <td>{{ $patentdoc->verify_by_committee }}</td>
+                            <td>{{ $patentdoc->encl_no }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             <p>
                 <b>(c) Awards/Fellowship</b>
             </p>
             <table class="table table-bordered border-primary">
-                <tbody>
+                <thaed>
                     <tr>
                         <th><strong>Sr.no</strong></th>
                         <th>
@@ -1642,30 +1686,22 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users->step9_b as $dt)
+                            <tr>
+                                <td>{{ ++$loop->index }}</td>
+                                <td>{{ $dt->name_of_the_award_followship ?? '' }}</td>
+                                <td>{{ $dt->awarding_institute_organization ?? '' }}</td>
+                                <td>{{ $dt->international_national_state ?? '' }}</td>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                                <td>{{ $dt->date_awarded ?? '' }}</td>
+                                <td>{{ $dt->claimed_score ?? '' }}</td>
+                                <td>{{ $dt->verify_by_committee ?? '' }}</td>
+                                <td>{{ $dt->encl_no ?? '' }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
             </table>
             <p>
                 <b>6. *INVITED LECTURES / RESOURCE PERSON/ PAPER PRESENTATION IN
@@ -1706,22 +1742,23 @@
                         </th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                    @foreach ($users->step9_C as $dt2)
+                        <tr>
+                            <td>{{ ++$loop->index }}</td>
+                            <td>{{ $dt2->title ?? '' }}</td>
+                            <td>{{ $dt2->name_of_the_event ?? '' }}</td>
+                            <td>{{ $dt2->invited_or_al_poster ?? '' }}</td>
+                            <td>{{ $dt2->organiser_institute ?? '' }}</td>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                            <td>{{ $dt2->duration ?? '' }}</td>
 
-                        <td></td>
+                            <td>{{ $dt2->international_national_state ?? '' }}</td>
 
-                        <td></td>
-
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <td>{{ $dt2->claimed_score ?? '' }}</td>
+                            <td>{{ $dt2->verify_by_committee }}</td>
+                            <td>{{ $dt2->encl_no ?? '' }}</td>
+                        </tr>
+                    @endforeach
                     <tr>
                         <td></td>
                         <td></td>
@@ -1772,9 +1809,9 @@
             <div class="row">
                 <h6>APPLICANT CLAIMED
                     SCORE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text">
+                    <input type="text" value="{{ $users->step10[0]->applicant_claimed_score }}" readonly>
                 </h6>
-                <table class="table table-bordered mt-2">
+                {{-- <table class="table table-bordered mt-2">
 
                     <thead>
                         <tr>
@@ -1796,19 +1833,73 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                        </tr>
+
+                        @foreach ($users->step10 as $dt3)
+                            <tr>
+                                <th scope="row">{{ $loop->index + 1 }}</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>Thornton</td>
+                                <td>Thornton</td>
+                                <td>Thornton</td>
+                                <td>Thornton</td>
+                            </tr>
+                        @endforeach
                     </tbody>
-                </table>
+                </table> --}}
+                <div class="container">
+                    <div class="row border border-danger">
+                        <h6 class="text-center">Summary of Total Claimed Score(1+2+3+4+5+6)</h6>
+                        <div class="row mb-2 pl-5">
+                            Assessment Period from <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->assessment_period_from??'' }}</div>
+                            To <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->assessment_period_to??'' }}</div>
+                        </div>
+                        <div class="table-responsive ">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">Year</th>
+                                        <th scope="col" colspan="6" class="text-center">Claimed Score</th>
+                                        <th scope="col"class="text-center" rowspan="2">Total Claimed Score</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"class="text-center">Entire Assessment Period</th>
+                                        <th scope="col"class="text-center">1</th>
+                                        <th scope="col"class="text-center">2</th>
+                                        <th scope="col"class="text-center">3</th>
+                                        <th scope="col"class="text-center">4</th>
+                                        <th scope="col"class="text-center">5</th>
+                                        <th scope="col"class="text-center">6</th>
+                                    </tr>
+                                </thead>
+                                @isset($users->step10)
+                                    @php $claimedscore=json_decode($users->step10[0]->claimed_score)??[]; @endphp
+                                    @endisset
+                                <tbody>
+                                    <tr class="">
+                                        <td scope="row">
+                                            <div class="row mb-2 pl-5">
+                                                from <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->entire_assessment_period_from??'' }}</div>
+                                                To <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->entire_assessment_period_to??'' }}</div>
+                                            </div>
+                                        </td>
+
+                                        <td>{{ $claimedscore[0] }}</td>
+                                        <td>{{ $claimedscore[1] }}</td>
+                                        <td>{{ $claimedscore[2] }}</td>
+                                        <td>{{ $claimedscore[3] }}</td>
+                                        <td>{{ $claimedscore[4] }}</td>
+                                        <td>{{ $claimedscore[5] }}</td>
+                                        <td>{{ $users->step10[0]->total_claimed_score??0 }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="row">
+            {{-- <div class="row mt-3">
                 <h6>VERIFIED BY THE SELECTION
                     COMMITTEE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text">
@@ -1846,11 +1937,11 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
             <div class="container">
                 <h4 class="text-center">Declaration</h4>
                 <div class="row">
-                    I, <span class="col-6 sp"></span> hereby solemnly certify that the information
+                    I, <span class="col-6 sp">{{ $users->step1->name??'' }}</span> hereby solemnly certify that the information
                     provided in and documents attached to this application form is true, correct, and complete to the
                     best
                     of my knowledge and belief. If any information/document is found to be fake/forged/incomplete, the
@@ -1870,6 +1961,14 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section>
+        <center>
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-danger  me-2">Go Back</button>
+          <button class="btn btn-success  me-2">Final Submit</button>
+        </div>
+    </center>
     </section>
     <hr />
 

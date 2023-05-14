@@ -87,4 +87,8 @@ class PromotionApplicationUser extends  Authenticatable
     {
        return $this->hasMany(AcademinResearchScoreInvitedLecture::class,'promotion_application_user_id');
     }
+    public function step10()
+    {
+      return $this->hasMany(AcademinResearchScoreSummaryClaimed::class,'promotion_application_user_id');
+    }
 }

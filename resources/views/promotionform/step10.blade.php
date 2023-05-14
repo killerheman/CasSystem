@@ -30,10 +30,10 @@
                     <h6>Applicant Claimed Score : </h6>
                 </div>
                 <div class="col-3">
-                    <input type="text" required name="10_applicant_claimed_score" />
+                    <input type="text" required name="applicant_claimed_score_10" @isset($user->step10[0]) value="{{ $user->step10[0]->applicant_claimed_score }}" @endisset/>
                 </div>
             </div>
-            <div class="parent border border-4 rounded rounded-5  border-danger mb-5 p-3">
+            {{-- <div class="parent border border-4 rounded rounded-5  border-danger mb-5 p-3">
                 <h6 class="text-center">Summary of Total Claimed Score(1+2+3+4+5+6)</h6>
                 <div class="row text-center">
                     <div class="col-3">
@@ -83,7 +83,72 @@
                     </div>
                 </div>
 
+            </div> --}}
+
+
+            <div class="container">
+                <div class="row border border-danger">
+                    <h6 class="text-center">Summary of Total Claimed Score(1+2+3+4+5+6)</h6>
+                    <div class="row mb-2 pl-5">
+                        Assessment Period from <div class="col-md-3" ><input type="date" name="assessment_period_from" @isset($user->step10[0]) value="{{ $user->step10[0]->assessment_period_from??'' }}" @endisset></div>
+                        To <div class="col-md-3" ><input type="date" name="assessment_period_to" @isset($user->step10[0]) value="{{ $user->step10[0]->assessment_period_to??'' }}" @endisset></div>
+                    </div>
+                    <div class="table-responsive ">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Year</th>
+                                    <th scope="col" colspan="6" class="text-center">Claimed Score</th>
+                                    <th scope="col"class="text-center" rowspan="2">Total Claimed Score</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col"class="text-center">Entire Assessment Period</th>
+                                    <th scope="col"class="text-center">1</th>
+                                    <th scope="col"class="text-center">2</th>
+                                    <th scope="col"class="text-center">3</th>
+                                    <th scope="col"class="text-center">4</th>
+                                    <th scope="col"class="text-center">5</th>
+                                    <th scope="col"class="text-center">6</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row">
+                                        <div class="row mb-2 pl-5">
+                                            <div class="col-md-6" >from<input type="date" name="entire_assessment_period_from" @isset($user->step10[0]) value="{{ $user->step10[0]->entire_assessment_period_from??'' }}" @endisset></div>
+                                            <div class="col-md-6" >To <input type="date" name="entire_assessment_period_to" @isset($user->step10[0]) value="{{ $user->step10[0]->entire_assessment_period_to??'' }}" @endisset></div>
+                                        </div>
+                                    </td>
+                                    @isset($user->step10)
+                                    @php $claimedscore=json_decode($user->step10[0]->claimed_score)??[]; @endphp
+                                    @endisset
+                                    <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[0]) value="{{$claimedscore[0]??0  }}" @endisset></td>
+                                    <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[1]) value="{{$claimedscore[1]??0  }}" @endisset></td>
+                                    <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[2]) value="{{$claimedscore[2]??0  }}" @endisset></td>
+                                    <td><input type="number"  class="claimed_score" name="claimed_score[]" @isset($claimedscore[3]) value="{{$claimedscore[3]??0  }}" @endisset></td>
+                                    <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[4]) value="{{$claimedscore[4]??0  }}" @endisset></td>
+                                    <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[5]) value="{{$claimedscore[5]??0  }}" @endisset></td>
+                                    <td><input type="number" class="total_claimed_score" name="total_claimed_score" @isset($user->step10) value="{{ $user->step10[0]->total_claimed_score??'' }}" @endisset readonly></td>
+                                </tr>
+                                {{-- <tr class="">
+                                    <td scope="row"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number"></td>
+                                    <td><input type="number" readonly></td>
+                                </tr> --}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
+
+
+
             <h6 class="text-center text-decoration-underline">Declaration </h6>
             <div class="row">
                 <div class="col-1">
@@ -143,7 +208,7 @@
                                 <ul>
                                     @if ($user->step3_a)
                                         @foreach ($user->step3_a as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -151,7 +216,7 @@
                                 <ul>
                                     @if ($user->step3_b)
                                         @foreach ($user->step3_b as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -159,7 +224,7 @@
                                 <ul>
                                     @if ($user->step3_c)
                                         @foreach ($user->step3_c as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -170,7 +235,7 @@
                                 <ul>
                                     @if ($user->step4 && json_decode($user->step4->file))
                                         @foreach (json_decode($user->step4->file) as $file)
-                                            <li>{!! $file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -178,7 +243,7 @@
                                 <ul>
                                     @if ($user->step4)
                                         @foreach ($user->step4_phdrecord as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -188,7 +253,7 @@
                                 <ul>
                                     @if ($user->step5)
                                         @foreach ($user->step5 as $file)
-                                            <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
                                         @endforeach
                                     @endif
                                 </ul>
@@ -196,77 +261,80 @@
                             </div>
                             <div class="col-md-6">
                                 <p>
-                                    <h6>TEACHING, INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES/ RESEARCH ACTIVITIES</h6>
-                                    <ul>
-                                        @if ($user->step6)
-                                            @foreach ($user->step6 as $file)
-                                                <li>{!! $file->A1_file??'<span class="text-danger">N/A</span>' !!}</li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                    <h6>INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES</h6>
-                                    <ul>
-                                        @if ($user->step6_b)
-                                            @foreach ($user->step6_b as $file)
-                                                <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                    <h6>RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS</h6>
-                                    <ul>
-                                        @if ($user->step6_c)
-                                            @foreach ($user->step6_c as $file)
-                                                <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                    </p>
-                                    <p>
-                                        <h6>PUBLICATIONS (other than Research papers)</h6>
-                                        <ul>
-                                            @if ($user->step7)
-                                                @foreach ($user->step7 as $file)
-                                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                        <h6>CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT AND DEVELOPMENT OF NEW AND INNOVATIVE COURSES AND CURRICULA</h6>
-                                        <ul>
-                                            @if ($user->step7_b)
-                                                @foreach ($user->step7_b as $file)
-                                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </p>
-                                    <p>
-                                        <h6>RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted <b> AND </b>M.Phil./P.G. Dissertation Supervised</h6>
-                                        <ul>
-                                            @if ($user->step8)
-                                                @foreach ($user->step8 as $file)
-                                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                        <h6>RESEARCH PROJECTS COMPLETED</h6>
-                                        <ul>
-                                            @if ($user->step8_b)
-                                                @foreach ($user->step8_b as $file)
-                                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </p>
-                                    <p>
-                                        <h6>PATENTS <b> AND </b> Policy Documents</h6>
-                                        <ul>
-                                            @if ($user->step9)
-                                                @foreach ($user->step9 as $file)
-                                                    <li>{!! $file->file??'<span class="text-danger">N/A</span>' !!}</li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </p>
+                                <h6>TEACHING, INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES/ RESEARCH ACTIVITIES
+                                </h6>
+                                <ul>
+                                    @if ($user->step6)
+                                        @foreach ($user->step6 as $file)
+                                            <li>{!! $file->A1_file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                <h6>INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES</h6>
+                                <ul>
+                                    @if ($user->step6_b)
+                                        @foreach ($user->step6_b as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                <h6>RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS</h6>
+                                <ul>
+                                    @if ($user->step6_c)
+                                        @foreach ($user->step6_c as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                </p>
+                                <p>
+                                <h6>PUBLICATIONS (other than Research papers)</h6>
+                                <ul>
+                                    @if ($user->step7)
+                                        @foreach ($user->step7 as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                <h6>CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT AND DEVELOPMENT OF NEW
+                                    AND INNOVATIVE COURSES AND CURRICULA</h6>
+                                <ul>
+                                    @if ($user->step7_b)
+                                        @foreach ($user->step7_b as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                </p>
+                                <p>
+                                <h6>RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted <b> AND </b>M.Phil./P.G.
+                                    Dissertation Supervised</h6>
+                                <ul>
+                                    @if ($user->step8)
+                                        @foreach ($user->step8 as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                <h6>RESEARCH PROJECTS COMPLETED</h6>
+                                <ul>
+                                    @if ($user->step8_b)
+                                        @foreach ($user->step8_b as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                </p>
+                                <p>
+                                <h6>PATENTS <b> AND </b> Policy Documents</h6>
+                                <ul>
+                                    @if ($user->step9)
+                                        @foreach ($user->step9 as $file)
+                                            <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                </p>
                             </div>
                         </div>
                     </div>

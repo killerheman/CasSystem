@@ -119,7 +119,7 @@
                                             <div class="col-md-6" >To <input type="date" name="entire_assessment_period_to" @isset($user->step10[0]) value="{{ $user->step10[0]->entire_assessment_period_to??'' }}" @endisset></div>
                                         </div>
                                     </td>
-                                    @isset($user->step10)
+                                    @isset($user->step10[0])
                                     @php $claimedscore=json_decode($user->step10[0]->claimed_score)??[]; @endphp
                                     @endisset
                                     <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[0]) value="{{$claimedscore[0]??0  }}" @endisset></td>
@@ -128,7 +128,7 @@
                                     <td><input type="number"  class="claimed_score" name="claimed_score[]" @isset($claimedscore[3]) value="{{$claimedscore[3]??0  }}" @endisset></td>
                                     <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[4]) value="{{$claimedscore[4]??0  }}" @endisset></td>
                                     <td><input type="number" class="claimed_score" name="claimed_score[]" @isset($claimedscore[5]) value="{{$claimedscore[5]??0  }}" @endisset></td>
-                                    <td><input type="number" class="total_claimed_score" name="total_claimed_score" @isset($user->step10) value="{{ $user->step10[0]->total_claimed_score??'' }}" @endisset readonly></td>
+                                    <td><input type="number" class="total_claimed_score" name="total_claimed_score" @isset($user->step10[0]) value="{{ $user->step10[0]->total_claimed_score??'' }}" @endisset readonly></td>
                                 </tr>
                                 {{-- <tr class="">
                                     <td scope="row"></td>

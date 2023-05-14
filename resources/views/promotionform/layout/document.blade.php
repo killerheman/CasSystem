@@ -154,6 +154,8 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                     @endif
                                 </ul>
                             </p>
+                            <h6>Signature</h6>
+                            <img src="{{ asset('storage/'.$user->step10[0]->file) }}" alt="" style="max-height:80px;max-width:350px">
                     </div>
                 </div>
             </div>

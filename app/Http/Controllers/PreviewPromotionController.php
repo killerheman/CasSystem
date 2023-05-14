@@ -13,8 +13,9 @@ class PreviewPromotionController extends Controller
         $user = Auth::guard('promotion_app_user')->user();
         if(isset($user)){
             $users =  Auth::guard('promotion_app_user')->user();
+            $user=$users;
             // dd($users->step1->promotion_level );
-            return view('preview', compact('users'));
+            return view('preview', compact('users','user'));
         }
         else{
             return redirect()->route('promotion-form.user-login')->with('toast_error', 'Please login to preview');

@@ -299,7 +299,7 @@ class PromotionFormController extends Controller
             'involment_file.*' => 'max:1024',
             'research_file' => 'max:1024'
         ]);
-        // try {
+        try {
             PromotionApplicationPartB::where('promotion_application_id', Auth::guard('promotion_app_user')->user()->id)->delete();
             foreach ($req->acadmicYears as $k => $v) {
                 $d = PromotionApplicationPartB::create([
@@ -356,7 +356,7 @@ class PromotionFormController extends Controller
                     'claimed_score' => '',
                     'varified_by_committee' =>'',
                     'encl_no' => '',
-                    'co_author'=>json_encode($req->co_auth[$k])
+                    'co_author'=>json_encode($req->co_auth[$k])??'',
 
                 ]);
                 if ($d2) {
@@ -368,9 +368,9 @@ class PromotionFormController extends Controller
         }
             Auth::guard('promotion_app_user')->user()->step == 5 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             Alert::success('Previous Data Save ');
-        // } catch (Exception $ex) {
-        //     Alert::error($ex->getMessage());
-        // }
+        } catch (Exception $ex) {
+            Alert::error($ex->getMessage());
+        }
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
     public function step7()
@@ -694,6 +694,8 @@ class PromotionFormController extends Controller
                 ]);
                 $request->applicant_signature ? $file = ImageUpload::simpleUpload('signature', $request->applicant_signature, Auth::guard('promotion_app_user')->user()->id . '-sign-') : '';
                 $request->applicant_signature ? $d->update(['applicant_sign' => $file]) : '';
+                isset($request->file)?$f=ImageUpload::simpleUpload('bihar',$request->file, Auth::guard('promotion_app_user')->user()->id . '-attachement-'):'';
+                isset($request->file)?$d->update(['file'=>$file]):'';
                 Alert::success('Form Filling Success. Please Check Preview');
                 return redirect()->route('promotion-form.preview');
                 return redirect('/')->with('toast_success', 'Promotion Form Submitted Successfully');

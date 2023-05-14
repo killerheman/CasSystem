@@ -392,7 +392,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="research_file">File</label>
-                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[0])
+                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[0])
                     {{ $user->step6_c[0]->file?'required':'' }} @endisset>
                     @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
@@ -509,7 +509,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="research_file">File</label>
-                                <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[$i])
+                                <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[$i])
                                 {{ $user->step6_c[$i]->file?'required':'' }} @endisset>
                                 @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
@@ -767,7 +767,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="research_file">File</label>
-                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" >
+                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" >
                 </div>
             </div>
             <div class="row g-3 " >

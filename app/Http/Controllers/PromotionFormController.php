@@ -26,6 +26,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PromotionFormController extends Controller
@@ -706,5 +707,36 @@ class PromotionFormController extends Controller
         Alert::warning('Please Fill your form properly');
         return redirect()->back();
     }
+    }
+
+    public function docuploadview()
+    {
+        $user=Auth::guard('promotion_app_user')->user();
+       return view('promotionform.docupload',compact('user'));
+    }
+
+    public function document_store(Request $req)
+    {
+        $req->validate([
+            'file'=>'required|mimes:jpeg,png,jpg,pdf',
+            'classname'=>'required'
+        ]);
+        try{
+        $model = "App\Models\\".$req->classname;
+       $res=$model::find($req->table_id)->update([
+        'file'=>ImageUpload::simpleUpload('bulk',$req->file,'bulk-'.Auth::guard('promotion_app_user')->user()->id)
+       ]);
+       if($res){
+        Alert::success('File uploaded successfully');
+       }
+       else
+       {
+        Alert::warning('File Not uploaded please try again');
+       }
+    }
+    catch(Exception $ex){
+        Log::info('Error File Upload -'.$ex->getMessage());
+    }
+    return redirect()->route('promotion-form.document-upload');
     }
 }

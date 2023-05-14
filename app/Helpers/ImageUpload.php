@@ -11,7 +11,7 @@ class ImageUpload{
     {
         try{
     if($file->getSize()!=null){
-        $filename=($pre?$pre.'-':'').time().'.'.$file->extension();
+        $filename=($pre?$pre.'-':'').time().'-'.rand(0,999).'.'.$file->extension();
         $path=$file->storeAs($path,$filename,'public');
         return $path;
     }

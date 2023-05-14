@@ -359,27 +359,27 @@
                 <h3 class="fs-title">RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS:</h3>
             </div>
         </div>
-        <div class="border border-4 rounded rounded-5  border-danger mb-5 p-3">
+        <div class="parent2  border border-4 rounded rounded-5  border-danger mb-5 p-3">
             <div class="row g-3">
                 <div class="col-md-2">
                     <label for="research_paper">Title of the Research Paper</label>
-                    <input type="text" id="research_paper" required name="research_paper" class="form-control" placeholder="Title of the Research Paper" aria-label="research_paper" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->title_research_chapter??'' }} @endisset">
+                    <input type="text" id="research_paper" required name="research_paper[]" class="form-control" placeholder="Title of the Research Paper" aria-label="research_paper" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->title_research_chapter??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="name_journal">Name of the Journal</label>
-                    <input type="text" id="name_journal" required name="name_journal" class="form-control" placeholder="Name of the Journal" aria-label="name_journal" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->name_journal??'' }} @endisset">
+                    <input type="text" id="name_journal" required name="name_journal[]" class="form-control" placeholder="Name of the Journal" aria-label="name_journal" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->name_journal??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="vol_pp_year">Vol., PP No. & Year</label>
-                    <input type="text" id="vol_pp_year" required name="vol_pp_year" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->vol_pp_no_year??'' }} @endisset">
+                    <input type="text" id="vol_pp_year" required name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->vol_pp_no_year??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="impact_factor*">Impact Factor</label>
-                    <input type="text" id="impact_factor"  name="impact_factor" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
+                    <input type="text" id="impact_factor"  name="impact_factor[]" value="0" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="name_authors*">Number of authors</label>
-                    <select class="form-select form-select-lg mb-3 number_of_authors" required name="name_authors" aria-label="Activity">
+                    <select class="form-select form-select-lg mb-3 number_of_authors" required name="name_authors[]" aria-label="Activity">
                         <option selected disabled>Choose Activity</option>
                         <option
                         value="individual" @isset($user->step6_c[0]) @selected($user->step6_c[0]->no_authors=='individual') @endisset>
@@ -400,19 +400,19 @@
             @isset($user->step6_c[0])  
             @php $co_author= json_decode($user->step6_c[0]->co_author)@endphp
             @endisset
-            <div class=" parent2  row g-3 " >
-                <div class="col-sm-4  showdatahide ">
+            <div class="row g-3 " >
+                <div class="col-sm-4 @isset($user->step6_c[0]) @if($user->step6_c[0]->no_authors=='individual')showdatahide  @endif @endisset">
                     <label for="authorship*">Type of Authorship (First author/corresponding
                         author/principal/co-author)</label>
-                    <input type="text" id="authorship"  name="co_auth[0][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author[0]->authorship??'' }} @endisset">
+                    <input type="text" id="authorship"  name="co_auth[0][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author->authorship??'' }} @endisset">
                 </div>
                 <div class="col-sm-2">
                     <label for="UGC_listed_journals*">Nature Journals</label>
                     <select required name="co_auth[0][UGC_listed_journals]" class="form-control" id="">
-                        <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
-                        <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
-                        <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='Peer Review Journal')@endisset>Peer Review Journal</option>
-                        <option @isset($co_author[0]) @selected($co_author[0]->UGC_listed_journals=='Other')@endisset>Other</option>
+                        <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
+                        <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
+                        <option @isset($co_author) @selected($co_author->UGC_listed_journals=='Peer Review Journal')@endisset>Peer Review Journal</option>
+                        <option @isset($co_author) @selected($co_author->UGC_listed_journals=='Other')@endisset>Other</option>
                     </select>
                 </div>
                 <div class="col-sm-2">
@@ -421,19 +421,18 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
-                    <input type="number" id="claimed_score" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author[0]){{ $co_author[0]->claimed_score??0 }}@endisset">
+                    <input type="number" id="claimed_score" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
                 </div>
                 <div class="col-sm-1">
                     <label for="Encl*">Encl.No.</label>
-                    <input type="text" id="Encl" name="co_auth[0][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" value="@isset($co_author[0]) {{ $co_author[0]->encl_no_c??'' }} @endisset">
+                    <input type="text" id="Encl" name="co_auth[0][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" value="@isset($co_author) {{ $co_author->encl_no_c??'' }} @endisset">
                 </div>
                 <div class="col-md-1 mt-5">
                     <button type="button" class="btn btn-info add2 mt">+</button>
                 </div>
             </div>
             <div class="add_input2">
-                @isset($co_author)
-                @for($g=1;$g<count($co_author);$g++)
+                {{-- @for($g=1;$g<count($co_author);$g++)
                     <div class="parent2">
                         <hr />
                          <div class="row g-3 " >
@@ -470,8 +469,109 @@
 
                     </div>
 
+                    @endfor --}}
+                  
+                    @isset($user->step6_c)
+                    @for ($i=1;$i<count($user->step6_c);$i++ )
+                        
+                    
+                    <div class="parent2  p-3">
+                        <hr>
+                        <div class="row g-3">
+                            <div class="col-md-2">
+                                <label for="research_paper">Title of the Research Paper</label>
+                                <input type="text" id="research_paper" required name="research_paper[]" class="form-control" placeholder="Title of the Research Paper" aria-label="research_paper" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->title_research_chapter??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="name_journal">Name of the Journal</label>
+                                <input type="text" id="name_journal" required name="name_journal[]" class="form-control" placeholder="Name of the Journal" aria-label="name_journal" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->name_journal??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="vol_pp_year">Vol., PP No. & Year</label>
+                                <input type="text" id="vol_pp_year" required name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->vol_pp_no_year??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="impact_factor*">Impact Factor</label>
+                                <input type="text" id="impact_factor"  name="impact_factor[]" value="0" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->impact_factor??'' }} @endisset">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="name_authors*">Number of authors</label>
+                                <select class="form-select form-select-lg mb-3 number_of_authors" required name="name_authors[]" aria-label="Activity">
+                                    <option selected disabled>Choose Activity</option>
+                                    <option
+                                    value="individual" @isset($user->step6_c[$i]) @selected($user->step6_c[$i]->no_authors=='individual') @endisset>
+                                      Individual
+                                    </option>
+                                    <option
+                                    value="multiple"  @isset($user->step6_c[$i]) @selected($user->step6_c[$i]->no_authors=='multiple') @endisset>
+                                      Multiple</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="research_file">File</label>
+                                <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[$i])
+                                {{ $user->step6_c[$i]->file?'required':'' }} @endisset>
+                                @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                        @isset($user->step6_c[$i])  
+                        @php $co_author= json_decode($user->step6_c[$i]->co_author)@endphp
+                        @endisset
+                        <div class="row g-3 " >
+                            <div class="col-sm-4  @if($user->step6_c[$i]->no_authors=='individual')showdatahide  @endif">
+                                <label for="authorship*">Type of Authorship (First author/corresponding
+                                    author/principal/co-author)</label>
+                                <input type="text" id="authorship"  name="co_auth[0][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author->authorship??'' }} @endisset">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="UGC_listed_journals*">Nature Journals</label>
+                                <select required name="co_auth[0][UGC_listed_journals]" class="form-control" id="">
+                                    <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
+                                    <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
+                                    <option @isset($co_author) @selected($co_author->UGC_listed_journals=='Peer Review Journal')@endisset>Peer Review Journal</option>
+                                    <option @isset($co_author) @selected($co_author->UGC_listed_journals=='Other')@endisset>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="verified_committee*">Verified by the Committee</label>
+                                <input type="text" id="verified_committee"  name="co_auth[0][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="claimed_score*">Claimed Score</label>
+                                <input type="number" id="claimed_score" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="Encl*">Encl.No.</label>
+                                <input type="text" id="Encl" name="co_auth[0][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" value="@isset($co_author) {{ $co_author->encl_no_c??'' }} @endisset">
+                            </div>
+                            <div class="col-md-1 mt-5">
+                                <button type="button" class="btn btn-danger remove2 mt">-</button>
+                            </div>
+                        </div>
+            
+                    </div>
                     @endfor
                     @endisset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
         </div>
@@ -635,52 +735,79 @@
             $(document).on('click', '.remove1', function() {
                 $(this).closest('.parent1').remove();
             });
-
+            var count=1;
             function htmladd(c){
             var html2 =
                 `
          <div class="parent2 "><hr/>
-        <div class="row g-3">
-            <div class="col-sm-4">
-                <label for="authorship*">Type of Authorship (First author/corresponding author/principal/co-author)</label>
-                <input type="text" id="authorship" required name="co_auth[`+c+`][authorship]" class="form-control" placeholder="Type of Authorship"
-                    aria-label="authorship">
+            <div class="row g-3">
+                <div class="col-md-2">
+                    <label for="research_paper">Title of the Research Paper</label>
+                    <input type="text" id="research_paper" required name="research_paper[]" class="form-control" placeholder="Title of the Research Paper" aria-label="research_paper" >
+                </div>
+                <div class="col-md-2">
+                    <label for="name_journal">Name of the Journal</label>
+                    <input type="text" id="name_journal" required name="name_journal[]" class="form-control" placeholder="Name of the Journal" aria-label="name_journal" >
+                </div>
+                <div class="col-md-2">
+                    <label for="vol_pp_year">Vol., PP No. & Year</label>
+                    <input type="text" id="vol_pp_year" required name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" >
+                </div>
+                <div class="col-md-2">
+                    <label for="impact_factor*">Impact Factor</label>
+                    <input type="text" id="impact_factor"  name="impact_factor[]" value="0" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="0">
+                </div>
+                <div class="col-md-2">
+                    <label for="name_authors*">Number of authors</label>
+                    <select class="form-select form-select-lg mb-3 number_of_authors" required name="name_authors[]" aria-label="Activity">
+                        <option selected disabled>Choose Activity</option>
+                        <option value="individual" > Individual </option>
+                        <option value="multiple" selected>  Multiple </option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="research_file">File</label>
+                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file" class="form-control" placeholder="research_file" aria-label="research_file" >
+                </div>
             </div>
-            <div class="col-sm-2">
-                <label for="UGC_listed_journals*">Nature Journals</label>
-                <select required name="co_auth[`+c+`][UGC_listed_journals]" class="form-control" id="">
-                <option >UGC care listed</option>    
-                <option >UGC approved</option>    
-                <option >Peer Review Journals</option> 
-                <option >Other</option>   
-            </select> 
+            <div class="row g-3 " >
+                <div class="col-sm-4  showdatahide ">
+                    <label for="authorship*">Type of Authorship (First author/corresponding
+                        author/principal/co-author)</label>
+                    <input type="text" id="authorship"  name="co_auth[`+count+`][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" >
+                </div>
+                <div class="col-sm-2">
+                    <label for="UGC_listed_journals*">Nature Journals</label>
+                    <select required name="co_auth[`+count+`][UGC_listed_journals]" class="form-control" id="">
+                        <option >UGC care listed</option>
+                        <option >UGC approved</option>
+                        <option >Peer Review Journal</option>
+                        <option >Other</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <label for="verified_committee*">Verified by the Committee</label>
+                    <input type="text" id="verified_committee"  name="co_auth[`+count+`][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
+                </div>
+                <div class="col-sm-2">
+                    <label for="claimed_score*">Claimed Score</label>
+                    <input type="number" id="claimed_score" name="co_auth[`+count+`][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" >
+                </div>
+                <div class="col-sm-1">
+                    <label for="Encl*">Encl.No.</label>
+                    <input type="text" id="Encl" name="co_auth[`+count+`][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" >
+                </div>
+                <div class="col-md-1 mt-5">
+                    <button type="button" class="btn btn-danger remove2 mt">-</button>
+                </div>
             </div>
-            <div class="col-sm-2">
-                <label for="verified_committee*">Verified by the Committee</label>
-                <input type="text" id="verified_committee" required name="co_auth[`+c+`][verified_committee_c]" class="form-control" placeholder="Verified by the Committee"
-                    aria-label="verified_committee" value="Pending" readonly>
-            </div>
-            <div class="col-sm-2">
-                <label for="claimed_score*">Claimed Score</label>
-                <input type="number" id="claimed_score" required name="co_auth[`+c+`][claimed_score]" class="form-control" placeholder="Claimed Score"
-                    aria-label="claimed_score">
-            </div>
-            <div class="col-sm-1">
-                <label for="Encl*">Encl.No.</label>
-                <input type="text" id="Encl" required name="co_auth[`+c+`][encl_no_c]" class="form-control" placeholder="Encl.No"
-                    aria-label="Encl">
-            </div>
-            <div class="col-md-1 mt-5">
-                <button type="button" class="btn btn-danger remove2 mt">-</button>
-            </div>
-        </div>
-
     </div>`;
     return html2;
 }
             $(document).on('click', '.add2', function() {
                 var c=$('.parent2').length;
                 var html2=htmladd(c);
+                count=count+1;
                 $('.remove2').addClass('d-none');
                 $('.add_input2').append(html2);
             });
@@ -691,12 +818,12 @@
             });
             $('.showdatahide').addClass('d-none');
             $(document).on('change','.number_of_authors',function(){
+                alert();
                var value = $(this).val();
-               alert(value);
                if(value=='individual'){
-                $('.showdatahide').addClass('d-none');
+                $(this).closest('.parent2').children('.row').children('.showdatahide').addClass('d-none');
                }else{
-                $('.showdatahide').removeClass('d-none');
+                $(this).closest('.parent2').children('.row').children('.showdatahide').removeClass('d-none');
                }
             });
         });

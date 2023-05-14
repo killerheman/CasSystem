@@ -299,7 +299,7 @@ class PromotionFormController extends Controller
             'involment_file.*' => 'max:1024',
             'research_file' => 'max:1024'
         ]);
-        try {
+        // try {
             PromotionApplicationPartB::where('promotion_application_id', Auth::guard('promotion_app_user')->user()->id)->delete();
             foreach ($req->acadmicYears as $k => $v) {
                 $d = PromotionApplicationPartB::create([
@@ -343,32 +343,34 @@ class PromotionFormController extends Controller
             }
 
             AcademicResearchScoreResearchPaper::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
-                $d2 = AcademicResearchScoreResearchPaper::create([
+            foreach($req->research_paper as $k=>$dt){   
+            $d2 = AcademicResearchScoreResearchPaper::create([
                     'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
-                    'title_research_chapter' => $req->research_paper ?? '',
-                    'name_journal' => $req->name_journal ?? '',
-                    'vol_pp_no_year' => $req->vol_pp_year?? '',
-                    'impact_factor' => $req->impact_factor?? '',
-                    'no_authors' => $req->name_authors?? '',
+                    'title_research_chapter' => $req->research_paper[$k] ?? '',
+                    'name_journal' => $req->name_journal[$k] ?? '',
+                    'vol_pp_no_year' => $req->vol_pp_year[$k]?? '',
+                    'impact_factor' => $req->impact_factor[$k]?? '',
+                    'no_authors' => $req->name_authors[$k]?? '',
                     'type_authorship' =>  '',
                     'sr_in_ugc' => '',
                     'claimed_score' => '',
                     'varified_by_committee' =>'',
                     'encl_no' => '',
-                    'co_author'=>$req->name_authors=='multiple'?json_encode($req->co_auth):json_encode([])
+                    'co_author'=>json_encode($req->co_auth[$k])
 
                 ]);
                 if ($d2) {
                     if ($req->hasFile('research_file')) {
-                        isset($req->research_file) ? $file = ImageUpload::simpleUpload('certificate', $req->research_file, Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
-                        isset($req->research_file) ? $d2->update(['file' => $file]) : '';
+                        isset($req->research_file[$k]) ? $file = ImageUpload::simpleUpload('certificate', $req->research_file[$k], Auth::guard('promotion_app_user')->user()->id . '-res-') : '';
+                        isset($req->research_file[$k]) ? $d2->update(['file' => $file]) : '';
                     }
             }
+        }
             Auth::guard('promotion_app_user')->user()->step == 5 ? Auth::guard('promotion_app_user')->user()->increment('step') : '';
             Alert::success('Previous Data Save ');
-        } catch (Exception $ex) {
-            Alert::error($ex->getMessage());
-        }
+        // } catch (Exception $ex) {
+        //     Alert::error($ex->getMessage());
+        // }
         return redirect()->route('promotion-form.step-' . Auth::guard('promotion_app_user')->user()->step + 1);
     }
     public function step7()

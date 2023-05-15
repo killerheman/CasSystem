@@ -37,7 +37,7 @@
                     <h6>Confirmation Letter</h6>
                 </div>
                 <div class="col-3">
-                    <input type="file" name="file" class="form-control">
+                    <input type="file" name="file" class="form-control" required>
                 </div>
             </div>
             {{-- <div class="parent border border-4 rounded rounded-5  border-danger mb-5 p-3">

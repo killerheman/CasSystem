@@ -421,7 +421,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
-                    <input type="number" id="claimed_score" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
+                    <input type="number"  id="claimed_score" step="0.5" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
                 </div>
                 <div class="col-sm-1">
                     <label for="Encl*">Encl.No.</label>
@@ -538,7 +538,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <label for="claimed_score*">Claimed Score</label>
-                                <input type="number" id="claimed_score" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
+                                <input type="number" id="claimed_score" step="0.5" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
                             </div>
                             <div class="col-sm-1">
                                 <label for="Encl*">Encl.No.</label>
@@ -791,7 +791,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="claimed_score*">Claimed Score</label>
-                    <input type="number" id="claimed_score" name="co_auth[`+count+`][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" >
+                    <input type="number" id="claimed_score" step="0.5" name="co_auth[`+count+`][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" >
                 </div>
                 <div class="col-sm-1">
                     <label for="Encl*">Encl.No.</label>

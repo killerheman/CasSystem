@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
-                    <h6>File Upload</h6>
+                    <h6>Confirmation Letter</h6>
                 </div>
                 <div class="col-3">
                     <input type="file" name="file" class="form-control">

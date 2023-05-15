@@ -735,7 +735,7 @@
             $(document).on('click', '.remove1', function() {
                 $(this).closest('.parent1').remove();
             });
-            var count=1;
+            var count={{ $i??1 }};
             function htmladd(c){
             var html2 =
                 `

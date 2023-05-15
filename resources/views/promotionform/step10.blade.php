@@ -33,7 +33,7 @@
                     <input type="text" required name="applicant_claimed_score_10" @isset($user->step10[0]) value="{{ $user->step10[0]->applicant_claimed_score }}" @endisset/>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-1">
+                <div class="col-2">
                     <h6>Confirmation Letter</h6>
                 </div>
                 <div class="col-3">

@@ -521,11 +521,11 @@
                             <div class="col-sm-4  @if($user->step6_c[$i]->no_authors=='individual')showdatahide  @endif">
                                 <label for="authorship*">Type of Authorship (First author/corresponding
                                     author/principal/co-author)</label>
-                                <input type="text" id="authorship"  name="co_auth[0][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author->authorship??'' }} @endisset">
+                                <input type="text" id="authorship"  name="co_auth[{{ $i }}][authorship]" class="form-control" placeholder="Type of Authorship" aria-label="authorship" value="@isset($co_author) {{ $co_author->authorship??'' }} @endisset">
                             </div>
                             <div class="col-sm-2">
                                 <label for="UGC_listed_journals*">Nature Journals</label>
-                                <select required name="co_auth[0][UGC_listed_journals]" class="form-control" id="">
+                                <select required name="co_auth[{{ $i }}][UGC_listed_journals]" class="form-control" id="">
                                     <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC care listed')@endisset>UGC care listed</option>
                                     <option @isset($co_author) @selected($co_author->UGC_listed_journals=='UGC approved')@endisset>UGC approved</option>
                                     <option @isset($co_author) @selected($co_author->UGC_listed_journals=='Peer Review Journal')@endisset>Peer Review Journal</option>
@@ -534,15 +534,15 @@
                             </div>
                             <div class="col-sm-2">
                                 <label for="verified_committee*">Verified by the Committee</label>
-                                <input type="text" id="verified_committee"  name="co_auth[0][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
+                                <input type="text" id="verified_committee"  name="co_auth[{{ $i }}][verified_committee_c]" class="form-control" placeholder="Verified by the Committee" aria-label="verified_committee" value="Pending" readonly>
                             </div>
                             <div class="col-sm-2">
                                 <label for="claimed_score*">Claimed Score</label>
-                                <input type="number" id="claimed_score" step="0.5" name="co_auth[0][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
+                                <input type="number" id="claimed_score" step="0.5" name="co_auth[{{ $i }}][claimed_score]" class="form-control" placeholder="Claimed Score" aria-label="claimed_score" value="@isset($co_author){{ $co_author->claimed_score??0 }}@endisset">
                             </div>
                             <div class="col-sm-1">
                                 <label for="Encl*">Encl.No.</label>
-                                <input type="text" id="Encl" name="co_auth[0][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" value="@isset($co_author) {{ $co_author->encl_no_c??'' }} @endisset">
+                                <input type="text" id="Encl" name="co_auth[{{ $i }}][encl_no_c]" class="form-control" placeholder="Encl.No" aria-label="Encl" value="@isset($co_author) {{ $co_author->encl_no_c??'' }} @endisset">
                             </div>
                             <div class="col-md-1 mt-5">
                                 <button type="button" class="btn btn-danger remove2 mt">-</button>

@@ -132,7 +132,7 @@
                 </div>
                 <div class="row p-2">
                     Date of the last Promotion (with Notification No. & Date) <span
-                        class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? '' }} ({{ $user->step1->promotion_notification_no??'N/A' }}) {{ $user->promotion_notification_date??'' }}</span>
+                        class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->notificatio_date_last_promotion)->format('d-m-Y') ?? '' }} ({{ $user->step1->promotion_notification_no??'N/A' }}) {{ $user->promotion_notification_date??'' }}</span>
                 </div>
                 <div class="row p-2">
                     Grade in Annual Performance Report of the last 4/5/6 years of the assessment period:<span
@@ -201,7 +201,7 @@
                             {{ strtoupper($users->step2->applied_for_stage ?? 'N/A') }} /
                             {{ strtoupper($users->step2->applied_for_grade_pay ?? 'N/A') }}</strong></li>
                     <li>Date of Last Promotion :
-                        {{ \Carbon\Carbon::parse($users->step1->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}
                     </li>
                     <li>Date of Eligibility for Promotion :
                         {{ \Carbon\Carbon::parse($users->step2->date_of_eligibility_for_promotion)->format('d-m-Y') ?? 'N/A' }}

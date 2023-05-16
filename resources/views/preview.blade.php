@@ -451,10 +451,10 @@
                 <span class="col-5"></span> iii.State Journals <span
                     class="col-2 sp">{{ $users->step4->papers_published_state_level_journals ?? '' }}</span>
             </div>
-            <div class="row p-2">
+            {{-- <div class="row p-2">
                 <span class="col-3"></span> (Not Abstract but Full paper only) Total <span
                     class="col-3 sp">{{ $users->step4->papers_published_total ?? '' }}</span>
-            </div>
+            </div> --}}
             <div class="row pt-2">
                 <b> iv.&nbsp;&nbsp;&nbsp;&nbsp;Total No. of Conferences/Seminars/Workshops Attended and papers
                     presented:</b>

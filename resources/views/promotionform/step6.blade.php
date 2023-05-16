@@ -34,12 +34,12 @@
                             @endfor
                     </select>
                 </div> --}}
-                
+
                 <div class="col-sm-2">
                     <label for="class_Assigned">Total Classes Assigned</label>
                     <input type="text" id="class_Assigned" required name="class_Assigned[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Total Classes Assigned" aria-label="Total Classes Assigned">
                 </div>
-                
+
                 <div class="col-sm-2">
                     <label for="classes_Taught">Number of Classes Taught</label>
                     <input type="text" id="classes_Taught" required name="classes_Taught[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
@@ -47,7 +47,7 @@
                 <div class="col-sm-5">
                     <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
                         100%</label>
-                    <input type="text" id="teaching" required name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
+                    <input type="text" id="teaching" required name="teaching[]" class="form-control" value="@isset($user->step6[0]) {{ ($user->step6[0]->number_of_classes_tought * 100)/ $user->step6[0]->total_classes_assigned }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                 </div>
             </div>
             <div class="row g-3">
@@ -59,10 +59,10 @@
                     <label for="claimed_candidate">Claimed by the Candidate</label>
                     <input type="text" id="claimed_candidate" required name="claimed_candidate[]" class="form-control" value="@isset($user->step6[0]) {{ $user->step6[0]->claimed_by_the_candidate }} @endisset" placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
                 </div>
-                
+
                 <div class="col-sm-3">
                     <label for="activity_file">File Attachement</label>
-                    <input type="file" accept="application/pdf, image/*" id="activity_file" 
+                    <input type="file" accept="application/pdf, image/*" id="activity_file"
                      name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[0])
                     {{ $user->step6[0]->A1_file?'required':'' }} @endisset >
                     @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
@@ -117,8 +117,8 @@
                                     100%</label>
                                 <input type="text" id="teaching" required name="teaching[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->number_of_classes_tought??'' }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                             </div>
-                            
-                            
+
+
                         </div>
                         <div class="row g-3">
                             <div class="col-sm-2">
@@ -129,7 +129,7 @@
                                 <label for="claimed_candidate">Claimed by the Candidate</label>
                                 <input type="text" id="claimed_candidate" required name="claimed_candidate[]" class="form-control" value="@isset($user->step6[$j]) {{ $user->step6[$j]->claimed_by_the_candidate }} @endisset" placeholder="Claimed by the Candidate" aria-label="claimed_candidate">
                             </div>
-                            
+
                             <div class="col-sm-3">
                                 <label for="activity_file">File Attachement</label>
                                 <input type="file" accept="application/pdf, image/*" id="activity_file"  name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
@@ -397,7 +397,7 @@
                     @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>
-            @isset($user->step6_c[0])  
+            @isset($user->step6_c[0])
             @php $co_author= json_decode($user->step6_c[0]->co_author)@endphp
             @endisset
             <div class="row g-3 " >
@@ -470,11 +470,11 @@
                     </div>
 
                     @endfor --}}
-                  
+
                     @isset($user->step6_c)
                     @for ($i=1;$i<count($user->step6_c);$i++ )
-                        
-                    
+
+
                     <div class="parent2  p-3">
                         <hr>
                         <div class="row g-3">
@@ -514,7 +514,7 @@
                                 @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
-                        @isset($user->step6_c[$i])  
+                        @isset($user->step6_c[$i])
                         @php $co_author= json_decode($user->step6_c[$i]->co_author)@endphp
                         @endisset
                         <div class="row g-3 " >
@@ -548,7 +548,7 @@
                                 <button type="button" class="btn btn-danger remove2 mt">-</button>
                             </div>
                         </div>
-            
+
                     </div>
                     @endfor
                     @endisset
@@ -613,8 +613,8 @@
                 <input type="text" id="teaching" required name="teaching[]" class="form-control"
                     placeholder="Number of Classes Taught" aria-label="classes_Taught">
             </div>
-           
-            
+
+
         </div>
         <div class="row g-3">
             <div class="col-sm-2">
@@ -659,7 +659,7 @@
         <div class="row g-3">
             <div class="col-md-3">
                 <label for="academicyear">Academic Year</label>
-                
+
                 <input type="text" class="form-control" required name="acadmicYear_b[]" >
             </div>
             <div class="col-md-3">

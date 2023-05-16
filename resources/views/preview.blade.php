@@ -567,7 +567,7 @@
                 </thead>
                 <tbody>
                     @isset($users->step5)
-                        @foreach ($users->step5->where('type', 2) as $v)
+                        @foreach ($users->step5 as $v)
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $v->particulars ?? '' }}</td>

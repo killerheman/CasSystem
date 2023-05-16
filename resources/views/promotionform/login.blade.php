@@ -39,17 +39,17 @@ a {
             <div class="row g-0">
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
-  
+
                   <div class="text-center">
                     {{-- <img src="{{ asset('asset/logo.jpg') }}"
                       style="width: 100px;" alt="logo"> --}}
                     <h5 class="mt-1 mb-3 pb-1">Login using your valid email address</h5>
                   </div>
-  
+
                   <form method="post" action="{{ route('promotion-form.user-login-otp-verify') }}">
                     @csrf
                     <p>Please login to your account</p>
-  
+
                     <div class="form-outline mb-4">
                         <div class="input-group mb-3">
                                 <input type="email" id="email"  name='email' placeholder="Enter Your Email" class="form-control" value="{{ old('email') }}" />
@@ -66,7 +66,7 @@ a {
                         </div>
                     </div>
                   </form>
-  
+
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -75,6 +75,7 @@ a {
                   <p class="small mb-0">
                     <marquee behavior="" direction="up" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">
                     <ul>
+                      <li> <a href="{{ asset('Self-declaration.pdf') }} " class="text-light"> Self Declaration </a></li>
                       <li> <a href="{{ asset('Bihar CAS Promotion-2018_(2023).pdf') }} " class="text-light"> CAS-2018 </a></li>
                       <li> <a href="https://laws.gsbihar.online/statutes/statutes-48.html"  class="text-light" target="_blank"> CAS-1998 </a></li>
                       <li > <a href="{{ asset('upload/Memo No. 126 dt. 19.04.2023.pdf') }}" target="_blank">Notification (LNMU)</a></li>
@@ -108,7 +109,7 @@ a {
                           <li><a href="{{ asset('upload/Proforma for Performance Appraisal Report 1.pdf') }}">Proforma for Performance Appraisal Report 1</a></li>
                           <li><a href="{{ asset('upload/WhatsApp Image 2023-05-10 at 18.02.56.pdf') }}">Notice for  Sr. Scale Grade</a></li>
                         </ul>
-                        
+
                       </p>
                     </details>
                   </marquee>
@@ -180,6 +181,6 @@ a {
     },
         );
     });
-  
+
   </script>
   @endsection

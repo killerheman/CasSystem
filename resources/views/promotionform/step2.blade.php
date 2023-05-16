@@ -32,18 +32,17 @@
                     <label class="fieldlabels">Category: </label>
                     <select class="form-control" required name="category">
                         <option value="" disabled selected>--Select Category--</option>
-                        <option value="sc" @isset($user->step2->category) @selected($user->step2->category=='sc')
-                            @endisset>SC</option>
-                        <option value="st" @isset($user->step2->category) @selected($user->step2->category=='st')
+                        <option value="sc" @isset($user->step2->category) {{ $user->step2->category=='sc' ? 'selected' : ''}} @endisset>SC</option>
+                        <option value="st" @isset($user->step2->category) {{ $user->step2->category=='st' ? 'selected' : ''}}
                             @endisset>ST</option>
-                        <option value="ebc" @isset($user->step2->category) @selected($user->step2->category=='ebc')
+                        <option value="ebc" @isset($user->step2->category) {{ $user->step2->category=='ebc' ? 'selected' : ''}}
                             @endisset>EBC</option>
-                        <option value="bc" @isset($user->step2->category) @selected($user->step2->category=='bc')
+                        <option value="bc" @isset($user->step2->category) {{ $user->step2->category=='bc' ? 'selected' : ''}}
                             @endisset>BC</option>
-                        <option value="ews" @isset($user->step2->category) @selected($user->step2->category=='ews')
+                        <option value="ews" @isset($user->step2->category) {{ $user->step2->category=='ews' ? 'selected' : ''}}
                             @endisset>EWS</option>
                         <option value="general" @isset($user->step2->category)
-                            @selected($user->step2->category=='general') @endisset>General</option>
+                            {{ $user->step2->category=='general' ? 'selected' : ''}}  @endisset>General</option>
                     </select>
                 </div>
 

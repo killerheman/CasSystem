@@ -193,7 +193,7 @@
                     <li>Date of Confirmation :
                         {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</li>
                     <li>Date of Initial Appointment and Present Stage with Pay Scale at LNMU:
-                        {{ \Carbon\Carbon::parse($users->step2->date_of_initial_appointment)->format('d-m-Y') ?? 'N/A' }}
+                        {{ $users->step2->date_of_initial_appointment ?? 'N/A' }}
                         / {{ strtoupper($users->step2->present_stage ?? 'N/A') }} with
                         {{ strtoupper($users->step2->pay_scale_at_lnmu ?? 'N/A') }} (Payscale) </li>
                     <li>Position, Stage and Grade Pay applied for :

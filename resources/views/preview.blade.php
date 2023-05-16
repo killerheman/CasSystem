@@ -201,7 +201,7 @@
                             {{ strtoupper($users->step2->applied_for_stage ?? 'N/A') }} /
                             {{ strtoupper($users->step2->applied_for_grade_pay ?? 'N/A') }}</strong></li>
                     <li>Date of Last Promotion :
-                        {{ \Carbon\Carbon::parse($users->step2->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}
+                        {{ \Carbon\Carbon::parse($users->step1->date_of_last_promotion)->format('d-m-Y') ?? 'N/A' }}
                     </li>
                     <li>Date of Eligibility for Promotion :
                         {{ \Carbon\Carbon::parse($users->step2->date_of_eligibility_for_promotion)->format('d-m-Y') ?? 'N/A' }}

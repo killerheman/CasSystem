@@ -584,33 +584,49 @@
             <div class="row">
                 <h6 class="mt-5">31. YOUR VISION FOR THE DEPARTMENT /COLLEGE/UNIVERSITY:</h6>
                 @php $vision=explode(',',$users->step4->vision_to_the_department) @endphp
+               <div class="border border-primary">
+                <ul>
                 @foreach ($vision as $v)
-                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <li>{{ $v }}</li>
                 @endforeach
+                </ul>
+                </div>
             </div>
 
             <div class="row">
                 <h6 class="mt-5">32. YOUR CONTRIBUTION TO THE DEPARTMENT /COLLEGE/DISCIPLINE AND
                     UNIVERSITY:</h6>
                 @php $conti=explode(',',$users->step4->contribution_to_the_department) @endphp
+                <div class="border border-info">
+                    <ul>
                 @foreach ($conti as $v)
-                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <li>{{ $v }}</li>
                 @endforeach
+                    </ul>
+                </div>
             </div>
             <div class="row">
                 <h6 class="mt-5">33. FUTURE ACADEMIC DEVELOPMENT PLAN FOR SELF AS WELL AS DEPARTMENT
                     /COLLEGE/UNIVERSITY:</h6>
                 @php $dev=explode(',',$users->step4->future_academic_development_plan) @endphp
+                <div class="border border-success">
+                    <ul>
                 @foreach ($dev as $v)
-                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <li>{{ $v }}</li>
                 @endforeach
+            </ul>
+        </div>
             </div>
             <div class="row">
                 <h6 class="mt-5">34. ANY OTHER RELEVANT INFORMATION:</h6>
                 @php $dev=explode(',',$users->step4->other_relevant_information) @endphp
+                <div class="border border-warning">
+                    <ul>
                 @foreach ($dev as $v)
-                    <span class="col-12 sp pt-5 mb-2">{{ $v }}</span>
+                    <li>{{ $v }}</li>
                 @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -794,6 +810,7 @@
                         <th>
                             <strong>Verified by the Committee</strong>
                         </th>
+                        <th>Claimed Score</th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
                     @foreach ($users->step6_c as $s6)
@@ -804,10 +821,11 @@
                             <td>{{ $s6->vol_pp_no_year ?? '' }}</td>
                             <td>{{ $s6->impact_factor ?? '' }}</td>
                             <td>{{ $s6->no_authors ?? '' }}</td>
-                            <td>{{ $s6->type_authorship ?? '' }}</td>
-                            <td>{{ $s6->sr_in_ugc ?? '' }}</td>
-                            <td>{{ $s6->varified_by_committee ?? '' }}</td>
-                            <td></td>
+                            <td>{{ json_decode($s6->co_author??[])->authorship ?? '' }}</td>
+                            <td>{{ json_decode($s6->co_author??[])->UGC_listed_journals ?? '' }}</td>
+                            <td>{{ json_decode($s6->co_author??[])->verified_committee_c ?? '' }}</td>
+                            <td>{{ json_decode($s6->co_author??[])->claimed_score ?? '' }}</td>
+                            <td>{{ json_decode($s6->co_author??[])->encl_no_c ?? ''}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -1951,17 +1969,20 @@
             </div>
             <div class="container mt-2">
                 <div class="row">
+                    <div class="col-sm-6">
                     <h6>
                         Place:
                     </h6>
                     <h6>
                         Date:
                     </h6>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <h6>Signature</h6>
+                    <img src="{{ asset('storage/'.$user->step10[0]->file??'') }}" alt="Your Sign" style="height:50px;max-width:250px">
+                </div>
 
                 </div>
-            </div>
-            <div class=" row text-right">
-                <img src="{{ asset('storage/'.$user->step10[0]->file??'') }}" alt="Your Sign" style="height:50px;max-width:250px">
             </div>
         </div>
         <div class="row text-center mt-5">
@@ -1971,10 +1992,15 @@
         </div>
     </section>
     <section>
+
         <center>
+            @if($users->is_final_submit!=true)
         <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-danger  me-2">Go Back</button>
-          <button class="btn btn-success  me-2">Final Submit</button>
+          <button class="btn btn-success  me-2" onclick="final_submit()">Final Submit</button>
+          @else
+          <button class="btn btn-primary" onclick="window.print()">Print</button>
+          @endif
         </div>
     </center>
     
@@ -2151,7 +2177,26 @@
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+            function final_submit(){
+            Swal.fire({
+  title: 'Are you sure want to Final submit ?',
+  text: "You won't be able to modify form!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, Final Submit !'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href="{{ route('promotion-form.final-submit') }}";
+  }
+})
+            }
+    </script>
+     @include('sweetalert::alert')
 </body>
 
 </html>

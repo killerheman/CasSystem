@@ -31,7 +31,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PromotionFormController extends Controller
 {
-
     public $user;
     public function step1()
     {
@@ -742,5 +741,12 @@ class PromotionFormController extends Controller
         Log::info('Error File Upload -'.$ex->getMessage());
     }
     return redirect()->route('promotion-form.document-upload');
+    }
+
+    public function final_submit()
+    {
+        $user=Auth::guard('promotion_app_user')->user()->update(['is_final_submit'=>True]);
+        Alert::success('Your final form submitted successfully');
+        return redirect()->route('promotion-form.user-login');
     }
 }

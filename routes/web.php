@@ -66,5 +66,6 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
 
     //Preview Promotion Form
     Route::get('preview', [PreviewPromotionController::class, 'preview'])->name('preview');
+    Route::get('final-submit',[PromotionFormController::class,'final_submit'])->name('final-submit');
 
 });

@@ -53,6 +53,10 @@ class PromotionAuthController extends Controller
         $user=PromotionApplicationUser::where('email',$req->email)->whereDate('otp_expire_at',Carbon::now())->whereTime('otp_expire_at','>=',Carbon::now())->where('otp',$req->otp)->first();
         if($user){
             Auth::guard('promotion_app_user')->loginUsingId($user->id);
+            if(Auth::guard('promotion_app_user')->user()->is_final_submit==true){
+                Alert::success('Your form was submitted successfully. Please take Print');
+                return redirect()->route('promotion-form.preview');
+            }
             Alert::warning('Please Check Your all documents from doc button and make sure that all are uploaded. If it is missing kindly upload it  again');
             return redirect()->route('promotion-form.step-'.$user->step+1);
         }

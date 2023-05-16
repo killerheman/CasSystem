@@ -132,7 +132,7 @@
                 </div>
                 <div class="row p-2">
                     Date of the last Promotion (with Notification No. & Date) <span
-                        class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</span>
+                        class="col-6 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? '' }} ({{ $user->step1->promotion_notification_no??'N/A' }}) {{ $user->promotion_notification_date??'' }}</span>
                 </div>
                 <div class="row p-2">
                     Grade in Annual Performance Report of the last 4/5/6 years of the assessment period:<span
@@ -1383,10 +1383,10 @@
                     <tr>
                         <th><strong>Sr.No</strong></th>
                         <th>
-                            <strong>Name of the Scholar</strong>
+                            <strong>No of the Scholar</strong>
                         </th>
 
-                        <th><strong>Title of the Dissertation/Thesis </strong></th>
+                        <th><strong>Name of the department </strong></th>
                         <th>
                             <strong>M.Phil. / P.G. </strong>
                         </th>

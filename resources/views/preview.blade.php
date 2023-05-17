@@ -428,7 +428,7 @@
                             <td>{{ $phdrec->name_of_institute_university ?? '' }}</td>
                             <td>{{ $phdrec->research_topic ?? '' }}</td>
                             <td>{{ $phdrec->date_of_notification_result_conferring_the_degree ?? '' }}</td>
-                            <td>{{ $phdrec->period_of_from ?? '' }}</td>
+                            <td>{{ $phdrec->encl_no ?? '' }}</td>
                         </tr>
                     @endforeach
                 </tbody>

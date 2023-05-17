@@ -74,10 +74,14 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
 Route::get('arrange-data',function(){
   $datas=AcademicResearchScoreResearchPaper::where('co_author','<>',NULL)->orWhere('co_author','<>','')->get();
   return $datas;
-  // foreach($datas as $dt){
-  //   $d=json_decode($dt->co_author);
-  //   $dt->update([
-
-  //   ]);
-  // }
+  foreach($datas as $dt){
+    $d=json_decode($dt->co_author);
+    $dt->update([
+      'type_authorship'=>$d['authorship']??'',
+      'sr_in_ugc'=>$d['UGC_listed_journals']??'',
+      'verified_committee_c'=>$d['verified_by_committee']??'',
+      'claimed_score'=>$d['claimed_score']??'',
+      'encl_no'=>$d['encl_no_c']??''
+    ]);
+  }
 });

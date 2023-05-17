@@ -154,9 +154,39 @@ right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
                                     @endif
                                 </ul>
                             </p>
+                            <p>
+                                <h6>Award and Fellowship</h6>
+                                <ul>
+                                    @if ($user->step9_b)
+                                        @foreach ($user->step9_b as $file)
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </p>
+                            <p>
+                                <h6>NVITED LECTURES / RESOURCE PERSON/ PAPER PRESENTATION IN SEMINARS/ CONFERENCES/FULL PAPER IN CONFERENCE PROCEEDINGS</h6>
+                                <ul>
+                                    @if ($user->step9_c)
+                                        @foreach ($user->step9_c as $file)
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </p>
+                            <p>
+                                <h6>Confirmation Letter</h6>
+                                <ul>
+                                    @if ($user->step10)
+                                        @foreach ($user->step10 as $file)
+                                            <li><a href="{{ asset('storage/'. $file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </p>
                             <h6>Signature</h6>
                             @isset($user->step10[0])
-                            <img src="{{ asset('storage/'.$user->step10[0]->file) }}" alt="" style="max-height:80px;max-width:350px">
+                            <img src="{{ asset('storage/'.$user->step10[0]->applicant_sign) }}" alt="" style="max-height:80px;max-width:350px">
                             @endisset
                     </div>
                 </div>

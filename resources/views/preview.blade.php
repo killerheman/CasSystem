@@ -835,11 +835,11 @@
                             <td>{{ $s6->vol_pp_no_year ?? '' }}</td>
                             <td>{{ $s6->impact_factor ?? '' }}</td>
                             <td>{{ $s6->no_authors ?? '' }}</td>
-                            <td>{{ json_decode($s6->co_author??[])->authorship ?? '' }}</td>
-                            <td>{{ json_decode($s6->co_author??[])->UGC_listed_journals ?? '' }}</td>
-                            <td>{{ json_decode($s6->co_author??[])->verified_committee_c ?? '' }}</td>
-                            <td>{{ json_decode($s6->co_author??[])->claimed_score ?? '' }}</td>
-                            <td>{{ json_decode($s6->co_author??[])->encl_no_c ?? ''}}</td>
+                            <td>{{ $s6->type_authorship ?? '' }}</td>
+                            <td>{{ $s6->sr_in_ugc ?? '' }}</td>
+                            <td>{{ $s6->varified_by_committee ?? '' }}</td>
+                            <td>{{ $s6->claimed_score ?? '' }}</td>
+                            <td>{{ $s6->encl_no ?? '' }}</td>
                         </tr>
                     @endforeach
                 </tbody>

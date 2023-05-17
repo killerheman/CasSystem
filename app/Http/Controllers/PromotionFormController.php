@@ -350,12 +350,12 @@ class PromotionFormController extends Controller
                     'vol_pp_no_year' => $req->vol_pp_year[$k]?? '',
                     'impact_factor' => $req->impact_factor[$k]?? '',
                     'no_authors' => $req->name_authors[$k]?? '',
-                    'type_authorship' =>  '',
-                    'sr_in_ugc' => '',
-                    'claimed_score' => '',
-                    'varified_by_committee' =>'',
-                    'encl_no' => '',
-                    'co_author'=>json_encode($req->co_auth[$k])??'',
+                    'type_authorship' =>$req->type_authorship[$k]??'',
+                    'sr_in_ugc' => $req->sr_in_ugc[$k]??'',
+                    'claimed_score' => $req->claimed_score[$k]??'',
+                    'varified_by_committee' =>$req->varified_by_committee[$k]??'',
+                    'encl_no' => $req->encl_no[$k]??'',
+                    'co_author'=>'',
 
                 ]);
                 if ($d2) {

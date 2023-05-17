@@ -6,6 +6,7 @@ use App\Http\Controllers\PreviewPromotionController;
 use App\Http\Controllers\PromotionAuthController;
 use App\Http\Controllers\PromotionFormController;
 use App\Http\Controllers\RegistrationController;
+use App\Models\AcademicResearchScoreResearchPaper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,4 +69,9 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
     Route::get('preview', [PreviewPromotionController::class, 'preview'])->name('preview');
     Route::get('final-submit',[PromotionFormController::class,'final_submit'])->name('final-submit');
 
+});
+
+Route::get('arrange-data',function(){
+  $data=AcademicResearchScoreResearchPaper::where('co_author',NULL)->where('co_author','')->get();
+  return $data;
 });

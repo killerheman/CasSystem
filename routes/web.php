@@ -72,6 +72,6 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
 });
 
 Route::get('arrange-data',function(){
-  $data=AcademicResearchScoreResearchPaper::where('co_author',NULL)->where('co_author','')->get();
+  $data=AcademicResearchScoreResearchPaper::where('co_author',NULL)->orWhere('co_author','')->get();
   return $data;
 });

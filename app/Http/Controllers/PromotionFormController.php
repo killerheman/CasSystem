@@ -745,7 +745,7 @@ class PromotionFormController extends Controller
 
     public function final_submit()
     {
-        $user=Auth::guard('promotion_app_user')->user()->update(['is_final_submit'=>True]);
+        $user=Auth::guard('promotion_app_user')->user()->update(['is_final_submit'=>True,'step'=>10]);
         Alert::success('Your final form submitted successfully');
         return redirect()->route('promotion-form.user-login');
     }

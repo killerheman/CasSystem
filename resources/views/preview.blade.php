@@ -760,7 +760,21 @@
                                             <th>{{ $loop->index + 1 }}</th>
                                             <th>Year {{ $s6->academic_year }}</th>
                                             <td>{{ $s6->semester ?? '' }}</td>
-                                            <td colspan="3">{{ $s6->activity ?? '' }}</td>
+                                            <td colspan="3">{{ $s6->activity ? (
+                                                $s6->activity == '1' ? 'Administrative responsibilities such as Head, Chairperson/ Dean/ Director/ Co-ordinator,Warden etc.':(
+                                                    $s6->activity == '2' ?' Examination and evaluation duties assigned by the Department/ College /University or attending the examination paper evaluation.':(
+                                                        $s6->activity == '3' ?'Student related co-curricular, extension and field based activities such as student clubs, career counselling, study visits, student seminars and other events, cultural, sports, NCC, NSS and community services.':(
+                                                            $s6->activity == '4' ?' Organising seminars/ conferences/ workshops, other Department/ College/University activities.':(
+                                                                $s6->activity == '5' ?'Evidence of actively involved in guiding Ph.D students.':(
+                                                                    $s6->activity == '6' ?'Conducting minor or major research project sponsored by national or international agencies.':(
+                                                                        $s6->activity == '7' ?' At least one single or joint publication in peer reviewed or UGC list of Journals.':''
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                    )
+                                            ):'' }}</td>
                                             <td>{{ $s6->claimed_by_candidate ?? '' }}</td>
                                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                                             <td>{{ $s6->remark ?? '' }}</td>

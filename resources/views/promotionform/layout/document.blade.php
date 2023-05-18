@@ -3,7 +3,7 @@
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
 
-<button class="btn btn-danger " style="position:fixed;
+<button class="btn btn-danger "  type="button" style="position:fixed; 
 bottom:50vh;
 right:10px;"  title="View your all document" id="docmodalbtn2">View-Doc</button>
 

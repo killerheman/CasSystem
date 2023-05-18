@@ -63,8 +63,8 @@
                 <div class="col-sm-3">
                     <label for="activity_file">File Attachement</label>
                     <input type="file" accept="application/pdf, image/*" id="activity_file"
-                     name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[0])
-                    {{ $user->step6[0]->A1_file?'required':'' }} @endisset >
+                     name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" >
+                     <input type="hidden" name="activity_old_file[]"  @isset($user->step6[0]) value="{{ $user->step6[0]->A1_file??'' }}"  @endisset>
                     @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-sm-2">
@@ -132,8 +132,8 @@
 
                             <div class="col-sm-3">
                                 <label for="activity_file">File Attachement</label>
-                                <input type="file" accept="application/pdf, image/*" id="activity_file"  name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file" @isset($user->step6[$j])
-                                {{ $user->step6[$j]->A1_file?'required':'' }} @endisset >
+                                <input type="file" accept="application/pdf, image/*" id="activity_file"  name="activity_file[]" class="form-control" placeholder="activity_file" aria-label="activity_file"  >
+                                <input type="hidden" name="activity_old_file[]"  @isset($user->step6[$j]) value="{{ $user->step6[$j]->A1_file??'' }}"  @endisset>
                                 @error('activity_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-sm-2">
@@ -220,7 +220,10 @@
                 </div>
                 <div class="col-md-3">
                     <label for="involment_file">File (Attachement)</label>
-                    <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[0]) {{ $user->step6_b[0]->file?'required':'' }} @endisset>
+                    <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" >
+                   
+                    <input type="hidden" name="involment_old_file"  @isset($user->step6_b[0]) value="{{ $user->step6_b[0]->file??'' }}"  @endisset>
+                   
                     @error('involment_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -319,7 +322,8 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="involment_file">File (Attachement)</label>
-                                <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" @isset($user->step6_b[$j]) {{ $user->step6_b[$j]->file?'required':'' }} @endisset>
+                                <input type="file" accept="application/pdf, image/*"  name="involment_file[]" class="form-control" id="involment_file" >
+                                <input type="hidden" name="involment_old_file[]"  @isset($user->step6_b[$j]) value="{{ $user->step6_b[$j]->file??'' }}"  @endisset>
                                 @error('involment_file.'.$j) <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -392,8 +396,9 @@
                 </div>
                 <div class="col-md-2">
                     <label for="research_file">File</label>
-                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[0])
-                    {{ $user->step6_c[0]->file?'required':'' }} @endisset>
+                    <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" >
+                    <input type="hidden" name="research_old_file[]"  @isset($user->step6_c[0]) value="{{ $user->step6_c[0]->file??'' }}"  @endisset>
+
                     @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -506,8 +511,9 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="research_file">File</label>
-                                <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" @isset($user->step6_c[$i])
-                                {{ $user->step6_c[$i]->file?'required':'' }} @endisset>
+                                <input type="file" accept="application/pdf, image/*" id="research_file"  name="research_file[]" class="form-control" placeholder="research_file" aria-label="research_file" >
+                                <input type="hidden" name="research_old_file[]"  @isset($user->step6_c[$i]) value="{{ $user->step6_c[$i]->file??'' }}"  @endisset>
+
                                 @error('research_file.0') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>

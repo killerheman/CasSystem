@@ -311,7 +311,8 @@ class PromotionFormController extends Controller
                     'number_of_classes_tought' => $req->classes_Taught[$k] ?? '',
                     'total_classes_assigned' => $req->class_Assigned[$k] ?? '',
                     'remark_ks' => $req->remarks[$k] ?? '',
-                    'encl_no' => $req->enclNo[$k]
+                    'encl_no' => $req->enclNo[$k]??'',
+                    'A1_file' =>$req->activity_old_file[$k]??''
                 ]);
                 if ($d) {
                     if ($req->hasFile('activity_file')) {
@@ -331,6 +332,7 @@ class PromotionFormController extends Controller
                     'verify_by_committee' => $req->committee_b[$k] ?? '',
                     'remark' => $req->remarks_b[$k] ?? '',
                     'encl_no' => $req->enclNo_b[$k] ?? '',
+                    'file'=>$req->activity_old_file[$k]??''
 
                 ]);
                 if ($d1) {
@@ -356,6 +358,7 @@ class PromotionFormController extends Controller
                     'varified_by_committee' =>$req->varified_by_committee[$k]??'',
                     'encl_no' => $req->encl_no[$k]??'',
                     'co_author'=>'',
+                    'file'=>$req->research_old_file[$k]??''
 
                 ]);
                 if ($d2) {

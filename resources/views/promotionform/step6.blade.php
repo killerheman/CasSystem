@@ -47,7 +47,7 @@
                 <div class="col-sm-5">
                     <label for="teaching">Teaching= (Number of Classes Taught / Total Classes Assigned) X
                         100%</label>
-                    <input type="text" id="teaching" required name="teaching[]" class="form-control" value="@isset($user->step6[0]->teaching ) {{ (((int)$user->step6[0]->teaching??0 )/(int)$user->step6[0]->total_classes_assigned??1)* 100 }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
+                    <input type="text" id="teaching" required name="teaching[]" class="form-control" value="@isset($user->step6[0]->teaching ) {{ $user->step6[0]->teaching??0  }} @endisset" placeholder="Number of Classes Taught" aria-label="classes_Taught">
                 </div>
             </div>
             <div class="row g-3">

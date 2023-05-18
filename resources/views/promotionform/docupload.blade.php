@@ -117,17 +117,45 @@
                 </ul>
                 <h6>INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES</h6>
                 <ul>
-                    @if ($user->step6_b)
-                        @foreach ($user->step6_b as $file)
+                @if ($user->step6_b)
+                    @foreach ($user->step6_b as $file)
+                        @if($file->file==NULL || $file->file=='')
+                                <li>
+                                <form action="{{route('promotion-form.document-store')}}" method="post" enctype="multipart/form-data" >
+                                    @csrf
+                                    <input type="hidden" name="classname" value="PromotionApplicationPartBInvolvement">
+                                    <input type="hidden" name="table_id" value="{{$file->id}}">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" name="file" placeholder="Upload Your Document" aria-label="Upload This Document" aria-describedby="button-addon2" required>
+                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Upload</button>
+                                </div>
+                                </form>
+                            </li>
+                        @else
                             <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
-                        @endforeach
+                        @endif    
+                    @endforeach
                     @endif
                 </ul>
                 <h6>RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS</h6>
                 <ul>
                     @if ($user->step6_c)
                         @foreach ($user->step6_c as $file)
+                        @if($file->file==NULL || $file->file=='')
+                                <li>
+                                <form action="{{route('promotion-form.document-store')}}" method="post" enctype="multipart/form-data" >
+                                    @csrf
+                                    <input type="hidden" name="classname" value="AcademicResearchScoreResearchPaper">
+                                    <input type="hidden" name="table_id" value="{{$file->id}}">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" name="file" placeholder="Upload Your Document" aria-label="Upload This Document" aria-describedby="button-addon2" required>
+                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Upload</button>
+                                </div>
+                                </form>
+                            </li>
+                        @else
                             <li><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{!! $file->file??'<span class="text-danger">N/A</span>' !!}</a></li>
+                        @endif
                         @endforeach
                     @endif
                 </ul>

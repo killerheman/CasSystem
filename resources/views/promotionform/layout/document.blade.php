@@ -5,8 +5,11 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 
 <button class="btn btn-danger " style="position:fixed;
 bottom:50vh;
-right:10px;"  title="View your all document" id="docmodalbtn2">doc</button>
+right:10px;"  title="View your all document" id="docmodalbtn2">View-Doc</button>
 
+<a class="btn btn-primary " style="position:fixed;
+bottom:40vh;
+right:10px;"  title="upload your  document" href="{{ route('promotion-form.document-upload') }}" target="_blank">Upload-Doc</a>
 
 
 <div class="modal fade" id="dcmodal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >

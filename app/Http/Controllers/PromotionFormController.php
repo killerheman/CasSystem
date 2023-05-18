@@ -753,4 +753,12 @@ class PromotionFormController extends Controller
         Alert::success('Your final form submitted successfully');
         return redirect()->route('promotion-form.user-login');
     }
+    public function document_del($modelname,$id,$field=null)
+    {
+        $model = "App\Models\\".$modelname;
+        $model::find($id)->update([$field??'file'=>'']);
+        Alert::success('Document Deleted ');
+        return redirect()->back();
+
+    }
 }

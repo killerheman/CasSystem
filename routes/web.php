@@ -64,12 +64,14 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
     Route::post('step-10-store',[PromotionFormController::class,'step10_store'])->name('step-10-store');
     Route::get('document-upload',[PromotionFormController::class,'docuploadview'])->name('document-upload');
     Route::post('document-store',[PromotionFormController::class,'document_store'])->name('document-store');
+    Route::get('document-del/{model}/{id}/{field?}',[PromotionFormController::class,'document_del'])->name('document-del');
 
     //Preview Promotion Form
     Route::get('preview', [PreviewPromotionController::class, 'preview'])->name('preview');
     Route::get('final-submit',[PromotionFormController::class,'final_submit'])->name('final-submit');
 
 });
+
 
 Route::get('arrange-data',function(){
   $datas=AcademicResearchScoreResearchPaper::where('co_author','<>',NULL)->orWhere('co_author','<>','')->get();

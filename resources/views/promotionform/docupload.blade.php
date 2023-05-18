@@ -111,7 +111,22 @@
                 <ul>
                     @if ($user->step6)
                         @foreach ($user->step6 as $file)
+                        @if($file->A1_file==NULL || $file->A1_file=='')
+                                <li>
+                                <form action="{{route('promotion-form.document-store')}}" method="post" enctype="multipart/form-data" >
+                                    @csrf
+                                    <input type="hidden" name="classname" value="PromotionApplicationPartB">
+                                    <input type="hidden" name="table_id" value="{{$file->id}}">
+                                    <input type="hidden" name="field" value="A1_file">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" name="file" placeholder="Upload Your Document" aria-label="Upload This Document" aria-describedby="button-addon2" required>
+                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Upload</button>
+                                </div>
+                                </form>
+                            </li>
+                        @else
                             <li><a href="{{ asset('storage/'.$file->A1_file) }}" target="_blank">{!! $file->A1_file??'<span class="text-danger">N/A</span>' !!}</a></li>
+                        @endif
                         @endforeach
                     @endif
                 </ul>

@@ -726,8 +726,9 @@ class PromotionFormController extends Controller
         ]);
         try{
         $model = "App\Models\\".$req->classname;
+        $k=$req->field??'file';
        $res=$model::find($req->table_id)->update([
-        'file'=>ImageUpload::simpleUpload('bulk',$req->file,'bulk-'.Auth::guard('promotion_app_user')->user()->id)
+        $k=>ImageUpload::simpleUpload('bulk',$req->file,'bulk-'.Auth::guard('promotion_app_user')->user()->id)
        ]);
        if($res){
         Alert::success('File uploaded successfully');

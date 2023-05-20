@@ -379,7 +379,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="impact_factor*">Impact Factor</label>
-                    <input type="text" id="impact_factor"  name="impact_factor[]" value="0" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??'' }} @endisset">
+                    <input type="text" id="impact_factor"  name="impact_factor[]"  class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[0]) {{ $user->step6_c[0]->impact_factor??0 }}@else 0 @endisset">
                 </div>
                 <div class="col-md-2">
                     <label for="name_authors*">Number of authors</label>
@@ -494,7 +494,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="impact_factor*">Impact Factor</label>
-                                <input type="text" id="impact_factor"  name="impact_factor[]" value="0" class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->impact_factor??'' }} @endisset">
+                                <input type="text" id="impact_factor"  name="impact_factor[]"  class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->impact_factor??0 }} @else 0 @endisset">
                             </div>
                             <div class="col-md-2">
                                 <label for="name_authors*">Number of authors</label>

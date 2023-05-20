@@ -179,7 +179,12 @@ class PromotionFormController extends Controller
              'conferences_seminars_total_papers_presented'=>$req->conferences_seminars_total_papers_presented??'',
             'awards_prizes_honours_recognitions'=>$req->awards_prizes_honours_recognitions??'',
              'specialization_in_the_subject_discipline'=>$req->specialization_in_the_subject_discipline??'',
+             'phd_fellow_agency'=>$req->phd_fellow_agency??'',
+            'phd_fellow_duration'=>$req->phd_fellow_duration??'',
         ]);
+        if($req->hasFile('phd_fellow_file')){
+            $dt->update(['phd_fellow_file'=>ImageUpload::simpleUpload('phd_fellow',$req->phd_fellow_file,'phd-fellow-'.Auth::guard('promotion_app_user')->user()->id)]);
+        }
         $files=[];
         if($req->hasFile('teaching_file')){
             $files['teaching_file']=ImageUpload::simpleUpload('certificate',$req->teaching_file,'teach-'.Auth::guard('promotion_app_user')->user()->id)??'';

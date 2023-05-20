@@ -177,6 +177,7 @@
                         associate etc. (in yrs) :</h3>
                 </div>
             </div>
+
             @endif
             <div class="row">
                 <div class="col-3">
@@ -208,6 +209,35 @@
                     <input type="file" accept="application/pdf, image/*"  name="pd_file" placeholder="Registered" />
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12"><h3 class="fs-title h3">Post Ph.D. Fellowship/Project Awarded </h3></div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    Are you want to fill this form
+            <input type="checkbox" name="" class="form-check" id="section8_check" checked>
+        </div>
+
+         <div class="row mt-3 border border-4 rounded rounded-5 p8 border-danger mb-5 p-3">
+                <div class="col">
+                    <label class="fieldlabels">Name Of the Agency</label>
+                    <input type="text" required name="phd_fellow_agency" value="@isset($user->step4) {{ $user->step4->phd_fellow_agency??'' }} @endisset" placeholder="Name Of the Agency" />
+                </div>
+                <div class="col">
+                    <label class="fieldlabels">Duration</label>
+                    <input type="text" required name="phd_fellow_duration"  placeholder="duration" value="@isset($user->step4) {{ $user->step4->phd_fellow_duration??'' }} @endisset"/>
+                </div>
+                <div class="col">
+                    <label class="fieldlabels">File (Attachement)</label>
+                    <input type="file" accept="application/pdf, image/*"  name="phd_fellow_file" placeholder="Registered" @isset($user->step4->phd_fellow_file) required @endisset/>
+                </div>
+            </div>
+
+
+
+
+
             <div class="row">
                 <div class="col-3">
                     Are you want to fill this form
@@ -444,6 +474,15 @@
         else
         {
             $('.p7').find('textarea').attr('disabled','true');
+        }
+    });
+    $(document).on('click','#section8_check',function(){
+        if($(this).is(':checked')){
+            $('.p8').find('input').removeAttr('disabled');
+        }
+        else
+        {
+            $('.p8').find('input').attr('disabled','true');
         }
     });
 

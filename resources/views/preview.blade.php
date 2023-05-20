@@ -451,6 +451,27 @@
                 <span class="col-5"></span> iii.State Journals <span
                     class="col-2 sp">{{ $users->step4->papers_published_state_level_journals ?? '' }}</span>
             </div>
+            <div class="row">
+                <h6>Post Ph.D. Fellowship/Project Awarded</h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name Of Agency</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ $user->step4->phd_fellow_agency??'' }}
+                            </td>
+                            <td>
+                                {{ $user->step4->phd_fellow_duration??'' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             {{-- <div class="row p-2">
                 <span class="col-3"></span> (Not Abstract but Full paper only) Total <span
                     class="col-3 sp">{{ $users->step4->papers_published_total ?? '' }}</span>

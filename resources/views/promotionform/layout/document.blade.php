@@ -64,6 +64,12 @@ right:10px;"  title="upload your  document" href="{{ route('promotion-form.docum
                                 @endforeach
                             @endif
                         </ul>
+                        <h6>Post Ph.D. Fellowship/Project Awarded</h6>
+                        <ul>
+                            @if ($user->step4 && $user->step4->phd_fellow_file)
+                            <li><a href="{{ asset('$user->step4->phd_fellow_file') }}" target="_blank">{{ $user->step4->phd_fellow_file??'<span class="text-danger">N/A</span>' }}</a></li>
+                        @endif
+                        </ul>
                         <h6>Ph.D and M.phil</h6>
                         <ul>
                             @if ($user->step4)

@@ -493,7 +493,7 @@
                                 <input type="text" id="vol_pp_year" required name="vol_pp_year[]" class="form-control" placeholder="Vol., PP No. & Year" aria-label="Vol., PP No. & Year" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->vol_pp_no_year??'' }} @endisset">
                             </div>
                             <div class="col-md-2">
-                                <label for="impact_factor*">Impact Factor</label>
+                                <label for="impact_factor*">Impact Factor </label>
                                 <input type="text" id="impact_factor"  name="impact_factor[]"  class="form-control" placeholder="Impact Factor" aria-label="impact_factor" value="@isset($user->step6_c[$i]) {{ $user->step6_c[$i]->impact_factor??0 }} @else 0 @endisset">
                             </div>
                             <div class="col-md-2">

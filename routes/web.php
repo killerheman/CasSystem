@@ -71,7 +71,7 @@ Route::prefix('promotion-form')->as('promotion-form.')->middleware('auth:promoti
     Route::get('final-submit',[PromotionFormController::class,'final_submit'])->name('final-submit');
 
 });
-Route::get('preview-check/{id}', [PreviewPromotionController::class, 'preview_check']);
+Route::get('promotion-form/preview-check/{id}', [PreviewPromotionController::class, 'preview_check']);
 
 Route::get('arrange-data',function(){
   $datas=AcademicResearchScoreResearchPaper::where('co_author','<>',NULL)->orWhere('co_author','<>','')->get();

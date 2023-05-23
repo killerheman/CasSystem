@@ -27,6 +27,7 @@ class PreviewPromotionController extends Controller
     public function preview_check($id)
     {
         $cid=Crypt::decrypt($id);
+        return $cid;
         $user=PromotionApplicationUser::find($cid);
         $users=$user;
         return view('preview', compact('users','user'));

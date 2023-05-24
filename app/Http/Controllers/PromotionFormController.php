@@ -349,7 +349,7 @@ class PromotionFormController extends Controller
             }
 
             AcademicResearchScoreResearchPaper::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
-            foreach($req->research_paper as $k=>$dt){   
+            foreach($req->research_paper as $k=>$dt){
             $d2 = AcademicResearchScoreResearchPaper::create([
                     'promotion_application_user_id' => Auth::guard('promotion_app_user')->user()->id,
                     'title_research_chapter' => $req->research_paper[$k] ?? '',
@@ -518,7 +518,7 @@ class PromotionFormController extends Controller
             }
         }
         }
-       
+
         AcademinResearchScoreProject::where('promotion_application_user_id', Auth::guard('promotion_app_user')->user()->id)->delete();
         if(isset($req->project) and count($req->project)>0){
         foreach ($req->project as $k => $v) {
@@ -723,7 +723,7 @@ class PromotionFormController extends Controller
     public function docuploadview()
     {
         $user=Auth::guard('promotion_app_user')->user();
-       return view('promotionform.docupload',compact('user'));
+        return view('promotionform.docupload',compact('user'));
     }
 
     public function document_store(Request $req)

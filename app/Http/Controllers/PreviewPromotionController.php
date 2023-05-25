@@ -28,6 +28,6 @@ class PreviewPromotionController extends Controller
     {
         $user=PromotionApplicationUser::find($id);
         $users=$user;
-        return view('preview', compact('users','user'));
+        return view('preview-check', compact('users','user'));
     }
 }

@@ -214,7 +214,7 @@
                             {{ $users->step2->permanent_address_pincode ?? 'N/A' }})</strong></li>
                     <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? 'N/A' }}</strong></li>
                     <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? 'N/A' }}</strong></li>
-                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong> --}}</li>
+                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards):</b> {{-- <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong> --}}</li>
                 </ol>
                 <table class="table table-bordered">
                     <thead>
@@ -225,6 +225,7 @@
                             <th scope="col">Year of Passing</th>
                             <th scope="col">Marks Obtained/Out of Or CGPA Grade </th>
                             <th scope="col">Class with %</th>
+                            <th scope="col">File</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -236,6 +237,7 @@
                                 <td>{{ $data->year_of_passing ?? '' }}</td>
                                 <td>{{ $data->marks_obtained_out_of_or_cgpa_grade ?? '' }}</td>
                                 <td>{{ $data->class_with ?? '' }}</td>
+                                <td><a href="{{ $data->file??'' }}">{{ $data->file??'' }}</a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -268,6 +270,7 @@
                         <th rowspan="2"><strong>Highest degree obtained at the time of appointment</strong></th>
                         <th rowspan="2"><strong>Remark</strong></th>
                         <th rowspan="2"><strong>Encl.No</strong></th>
+                        <th rowspan="2"><strong>File</strong></th>
 
                     </tr>
                     <tr>
@@ -293,6 +296,7 @@
                             <td>{{ $data->highest_degree_obtained ?? '' }}</td>
                             <td>{{ $data->remark ?? '' }}</td>
                             <td>{{ $data->encl_no ?? '' }}</td>
+                            <td><a href="{{ $data->file??'' }}">{{ $data->file ?? '' }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -308,6 +312,7 @@
                         <th colspan="2"><strong>Experience</strong></th>
                         <th rowspan="2"><strong>Remark</strong></th>
                         <th rowspan="2"><strong>Encl.No</strong></th>
+                        <th rowspan="2"><strong>File</strong></th>
 
                     </tr>
                     <tr>
@@ -327,6 +332,7 @@
                             <td>{{ $data->experience_months ?? '' }}</td>
                             <td>{{ $data->remarks ?? '' }}</td>
                             <td>{{ $data->encl_no ?? '' }}</td>
+                            <td> <a href="{{ $data->file??'' }}"> {{ $data->file ?? '' }} </a></td>
 
                         </tr>
                     @endforeach
@@ -544,6 +550,7 @@
                         <th scope="col" colspan="2">Duration </th>
                         <th scope="col">Sponsoring Agency</th>
                         <th scope="col">Encl. No.</th>
+                        <th scope="col">File</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -566,6 +573,7 @@
                                 <td>{{ $v->duration_to ?? '' }}</td>
                                 <td>{{ $v->sponsoring_agency ?? '' }}</td>
                                 <td>{{ $v->encl_no ?? '' }}</td>
+                                <td><a href="{{ $v->file??'' }}">{{ $v->file ?? '' }} </a></td>
                             </tr>
                         @endforeach
                     @endisset
@@ -584,6 +592,7 @@
                         <th scope="col" colspan="2">Duration </th>
                         <th scope="col">Sponsoring Agency</th>
                         <th scope="col">Encl. No.</th>
+                        <th scope="col">File</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -597,6 +606,7 @@
                                 <td>{{ $v->duration_to ?? '' }}</td>
                                 <td>{{ $v->sponsoring_agency ?? '' }}</td>
                                 <td>{{ $v->encl_no ?? '' }}</td>
+                                <td><a href="{{ $v->file ?? '' }}">{{ $v->file ?? '' }}</a></td>
                             </tr>
                         @endforeach
                     @endisset
@@ -847,6 +857,7 @@
                         </th>
                         <th>Claimed Score</th>
                         <th><strong>Encl.No</strong></th>
+                        <th><strong>File</strong></th>
                     </tr>
                     @foreach ($users->step6_c as $s6)
                         <tr>
@@ -861,6 +872,7 @@
                             <td>{{ $s6->varified_by_committee ?? '' }}</td>
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file??'' }}">{{ $s6->file ?? '' }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -883,6 +895,7 @@
                             <strong>Verified by the Committee</strong>
                         </th>
                         <th><strong>Encl.No</strong></th>
+                        <th><strong>File</strong></th>
                     </tr>
 
                     <tr>
@@ -903,6 +916,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file ?? '' }}">{{ $s6->file ?? '' }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -932,6 +946,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file }}">{{ $s6->file }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -961,6 +976,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file }}">{{ $s6->file }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -990,6 +1006,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file??'' }}">{{ $s6->file??'' }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -1019,6 +1036,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file??'' }}">{{ $s6->file ?? '' }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -1052,6 +1070,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file??'' }}">{{ $s6->file ?? '' }}</a></td>
                         </tr>
                     @empty
                         <tr>
@@ -1081,6 +1100,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file ?? '' }}"></a>{{ $s6->file ?? '' }}</td>
                         </tr>
                     @empty
                         <tr>
@@ -1120,12 +1140,13 @@
                             <strong>Verified by the Committee</strong>
                         </th>
                         <th><strong>Encl.No</strong></th>
+                        <th><strong>File</strong></th>
                     </tr>
                     <tr>
-                        <td colspan="9">PEDAGOGY</td>
+                        <td colspan="10">PEDAGOGY</td>
                     </tr>
                     <tr>
-                        <td colspan="9">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
+                        <td colspan="10">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
                     </tr>
                     @forelse($users->step7_b->where('type',1) as $s6)
                         <tr>
@@ -1134,11 +1155,13 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file ?? '' }}">{{ $s6->file ?? '' }}</a></td>
                         </tr>
                     @empty
                         <tr>
                             <td></td>
                             <td colspan="5"></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -1154,6 +1177,7 @@
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td><a href="{{ $s6->file ?? '' }}"></a>{{ $s6->file ?? '' }}</td>
                         </tr>
                     @empty
                         <tr>

@@ -91,13 +91,13 @@
                         }
                     @endphp
                     Application for promotion from Level <span
-                        class="col-4 sp">{{ $promotion_level[0] ?? 'N/A' }}</span>to Level <span
-                        class="col-2 sp">{{ $promotion_level[1] ?? 'N/A' }}</span>
+                        class="col-4 sp">{{ $promotion_level[0] ?? ' ' }}</span>to Level <span
+                        class="col-2 sp">{{ $promotion_level[1] ?? ' ' }}</span>
                 </div>
             </div>
 
             <div class="row p-2">
-                Name :<span class="col-8 sp">{{ $users->step1->name ?? 'N/A' }}</span>
+                Name :<span class="col-8 sp">{{ $users->step1->name ?? ' ' }}</span>
             </div>
             <div class="photo">
                 @if ($users->step1->profile_image)
@@ -108,40 +108,40 @@
                 @endif
             </div>
             <div class="row p-2">
-                Department:<span class="col-8 sp">{{ $users->step1->department ?? 'N/A' }}</span>
+                Department:<span class="col-8 sp">{{ $users->step1->department ?? ' ' }}</span>
             </div>
             <div class="row p-2">
-                College:<span class="col-8 sp">{{ $users->step1->college ?? 'N/A' }}</span>
+                College:<span class="col-8 sp">{{ $users->step1->college ?? ' ' }}</span>
             </div>
             <div class="row p-2">
                 Notification Reference No. <span
-                    class="col-4 sp">{{ $users->step1->notification_reference_no ?? 'N/A' }}</span>Date:<span
-                    class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->notification_reference_date)->format('d-m-Y') ?? 'N/A' }}</span>
+                    class="col-4 sp">{{ $users->step1->notification_reference_no ?? ' ' }}</span>Date:<span
+                    class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->notification_reference_date)->format('d-m-Y') ?? ' ' }}</span>
             </div>
             <div class="row p-2 mt-5 contain">
                 <div class="row p-2">
                     Date of Appointment: <span
-                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_appointment)->format('d-m-Y') ?? 'N/A' }}</span>Date
+                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_appointment)->format('d-m-Y') ?? ' ' }}</span>Date
                     of Confirmation:<span
-                        class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</span>
+                        class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->date_of_confirmation)->format('d-m-Y') ?? ' ' }}</span>
                 </div>
                 <div class="row p-2">
                     Period of Assessment for promotion: From <span
-                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_from)->format('d-m-Y') ?? 'N/A' }}</span>to<span
-                        class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_to)->format('d-m-Y') ?? 'N/A' }}</span>
+                        class="col-4 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_from)->format('d-m-Y') ?? ' ' }}</span>to<span
+                        class="col-2 sp">{{ \Carbon\Carbon::parse($users->step1->assessment_promotion_to)->format('d-m-Y') ?? ' ' }}</span>
                 </div>
                 <div class="row p-2">
                     Date of the last Promotion (with Notification No. & Date) <span
-                        class="col-6 sp">{{ $users->step1->promotion_notification_date ?? '' }} ({{ $user->step1->promotion_notification_no??'N/A' }}) {{ $user->promotion_notification_date??'' }}</span>
+                        class="col-6 sp">{{ $users->step1->promotion_notification_date ?? '' }} ({{ $user->step1->promotion_notification_no??' ' }}) {{ $user->promotion_notification_date??'' }}</span>
                 </div>
                 <div class="row p-2">
                     Grade in Annual Performance Report of the last 4/5/6 years of the assessment period:<span
-                        class="col-2 sp">{{ $users->step1->grade_annual_performance ?? 'N/A' }}</span>(As per Table-1
+                        class="col-2 sp">{{ $users->step1->grade_annual_performance ?? ' ' }}</span>(As per Table-1
                     of the Statute referred above)
                 </div>
                 <div class="row">
                     Total Academic / Research Scores (as per Table 2 of the Statutes)<span
-                        class="col-2 sp">{{ $users->step1->total_academic_research_scores ?? 'N/A' }}</span>
+                        class="col-2 sp">{{ $users->step1->total_academic_research_scores ?? ' ' }}</span>
                 </div>
             </div>
             <div class="row mt-4 main2">
@@ -171,50 +171,50 @@
 
             <div class="col-12">
                 <ol class="mt-4">
-                    <li>Name (in Block Letters) : <strong>{{ strtoupper($users->step2->name ?? 'N/A') }}</strong></li>
-                    <li>Category : <strong>{{ strtoupper($users->step2->category_a ?? 'N/A') }}</strong></li>
+                    <li>Name (in Block Letters) : <strong>{{ strtoupper($users->step2->name ?? ' ') }}</strong></li>
+                    <li>Category : <strong>{{ strtoupper($users->step2->category_a ?? ' ') }}</strong></li>
                     <li>Father’s Name (in Block Letters) :
-                        <strong>{{ strtoupper($users->step2->father_name ?? 'N/A') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->father_name ?? ' ') }}</strong></li>
                     <li>Mother’s Name (in Block Letters) :
-                        <strong>{{ strtoupper($users->step2->mother_name ?? 'N/A') }}</strong></li>
-                    <li>Date of Birth and Age : <strong>{{ $users->step2->date_of_birth ?? 'N/A' }} /
-                            {{ $users->step2->age ?? 'N/A' }} Years </strong></li>
+                        <strong>{{ strtoupper($users->step2->mother_name ?? ' ') }}</strong></li>
+                    <li>Date of Birth and Age : <strong>{{ $users->step2->date_of_birth ?? ' ' }} /
+                            {{ $users->step2->age ?? ' ' }} Years </strong></li>
                     <li>Gender :
-                        <strong>{{ strtoupper(isset($users->step2->gender) ? ($users->step2->gender == 'm' ? 'Male' : 'Female') : 'N/A') }}</strong>
+                        <strong>{{ strtoupper(isset($users->step2->gender) ? ($users->step2->gender == 'm' ? 'Male' : 'Female') : ' ') }}</strong>
                     </li>
-                    <li>Nationality : <strong>{{ strtoupper($users->step2->nationality ?? 'N/A') }}</strong></li>
+                    <li>Nationality : <strong>{{ strtoupper($users->step2->nationality ?? ' ') }}</strong></li>
                     <li>Category (SC/ST/EBC/BC/EWS/General) :
-                        <strong>{{ strtoupper($users->step2->category ?? 'N/A') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->category ?? ' ') }}</strong></li>
                     <li>Current Designation :
-                        <strong>{{ strtoupper($users->step2->current_designation ?? 'N/A') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->current_designation ?? ' ') }}</strong></li>
                     <li>Current Pay Scale & Grade Pay :
-                        <strong>{{ strtoupper($users->step2->current_pay_scale ?? 'N/A') }} /
-                            {{ $users->step2->current_grade_pay ?? 'N/A' }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->current_pay_scale ?? ' ') }} /
+                            {{ $users->step2->current_grade_pay ?? ' ' }}</strong></li>
                     <li>Date of Confirmation :
-                        {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? 'N/A' }}</li>
+                        {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? ' ' }}</li>
                     <li>Date of Initial Appointment and Present Stage with Pay Scale at LNMU:
-                        {{ $users->step2->date_of_initial_appointment ?? 'N/A' }}
-                        / {{ strtoupper($users->step2->present_stage ?? 'N/A') }} with
-                        {{ strtoupper($users->step2->pay_scale_at_lnmu ?? 'N/A') }} (Payscale) </li>
+                        {{ $users->step2->date_of_initial_appointment ?? ' ' }}
+                        / {{ strtoupper($users->step2->present_stage ?? ' ') }} with
+                        {{ strtoupper($users->step2->pay_scale_at_lnmu ?? ' ') }} (Payscale) </li>
                     <li>Position, Stage and Grade Pay applied for :
-                        <strong>{{ strtoupper($users->step2->applied_for_position ?? 'N/A') }} /
-                            {{ strtoupper($users->step2->applied_for_stage ?? 'N/A') }} /
-                            {{ strtoupper($users->step2->applied_for_grade_pay ?? 'N/A') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->applied_for_position ?? ' ') }} /
+                            {{ strtoupper($users->step2->applied_for_stage ?? ' ') }} /
+                            {{ strtoupper($users->step2->applied_for_grade_pay ?? ' ') }}</strong></li>
                     <li>Date of Last Promotion :
-                        {{ $users->step2->date_of_last_promotion ?? 'N/A' }}
+                        {{ $users->step2->date_of_last_promotion ?? ' ' }}
                     </li>
                     <li>Date of Eligibility for Promotion :
-                        {{ $users->step2->date_of_eligibility_for_promotion ?? 'N/A' }}
+                        {{ $users->step2->date_of_eligibility_for_promotion ?? ' ' }}
                     </li>
                     <li>Address for Correspondence (with Pin Code) :
-                        <strong>{{ $users->step2->address_for_correspondence ?? 'N/A' }}(Pincode -
-                            {{ $users->step2->address_for_correspondence_pincode ?? 'N/A' }})</strong></li>
+                        <strong>{{ $users->step2->address_for_correspondence ?? ' ' }}(Pincode -
+                            {{ $users->step2->address_for_correspondence_pincode ?? ' ' }})</strong></li>
                     <li>Permanent Address (with Pin Code) :
-                        <strong>{{ $users->step2->permanent_address ?? 'N/A' }}(Pincode -
-                            {{ $users->step2->permanent_address_pincode ?? 'N/A' }})</strong></li>
-                    <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? 'N/A' }}</strong></li>
-                    <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? 'N/A' }}</strong></li>
-                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? 'N/A') }}</strong> --}}</li>
+                        <strong>{{ $users->step2->permanent_address ?? ' ' }}(Pincode -
+                            {{ $users->step2->permanent_address_pincode ?? ' ' }})</strong></li>
+                    <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? ' ' }}</strong></li>
+                    <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? ' ' }}</strong></li>
+                    <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? ' ') }}</strong> --}}</li>
                 </ol>
                 <table class="table table-bordered">
                     <thead>
@@ -2038,7 +2038,7 @@
           @endif
         </div>
     </center>
-    
+
     </section>
     <hr />
 

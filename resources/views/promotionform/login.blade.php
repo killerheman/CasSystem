@@ -187,9 +187,9 @@ a {
              $('#otp').attr('disabled','true');
             $('#otp-verify-btn').attr('disabled','true');
             Swal.fire(
-                'OOPS!',
-               r,
-                'fail'
+                'New registration has been closed',
+                'Please contact university for more details',
+                'warning'
                 )
            }
         },

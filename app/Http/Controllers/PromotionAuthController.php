@@ -41,7 +41,7 @@ class PromotionAuthController extends Controller
                 }
             }
             else{
-                return Alert::warning('New registration is closed now.');
+                return 2;
             }
     }
     catch(Exception $ex){

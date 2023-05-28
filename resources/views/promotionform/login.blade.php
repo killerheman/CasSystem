@@ -165,7 +165,7 @@ a {
                 'warning'
                 )
            }
-           else if(r==3)
+           else if(r==2)
            {
             $('#email').removeAttr('readonly');
              $('#otp-send-btn').removeAttr('disabled');

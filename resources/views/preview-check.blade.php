@@ -249,7 +249,7 @@
 
     {{-- Page 3 --}}
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <p>
                 <b>21. RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach
                     Relevant Certificates of Service Experience)
@@ -828,7 +828,7 @@
 
     {{-- Page 9 / 10/ 11/ 12 --}}
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <p>
                 <b>B. ACADEMIC / RESEARCH SCORE. . (As per Table 2 and 3 of the CAS
                     Statute approved by the Chancellor Vide Letter No- BSU
@@ -1124,7 +1124,7 @@
         </div>
     </section>
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <p>
                 <b>3. CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT
                     AND DEVELOPMENT OF NEW AND INNOVATIVE COURSES AND CURRICULA.</b>

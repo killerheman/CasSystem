@@ -34,7 +34,7 @@
         }
 
         .contain {
-            border: 2px solid;
+            /* border: 2px solid; */
         }
 
         .main2 {
@@ -45,9 +45,10 @@
             border-bottom: 2px solid;
         }
     </style>
+  
 </head>
 
-<body>
+<body id="printarea">
     {{-- Page 1 --}}
     <section class="section">
         <div class="container">
@@ -132,7 +133,9 @@
                 </div>
                 <div class="row p-2">
                     Date of the last Promotion (with Notification No. & Date) <span
-                        class="col-6 sp">{{ $users->step1->promotion_notification_date ?? '' }} ({{ $user->step1->promotion_notification_no??' ' }}) {{ $user->promotion_notification_date??'' }}</span>
+                        class="col-6 sp">{{ $users->step1->promotion_notification_date ?? '' }}
+                        ({{ $user->step1->promotion_notification_no ?? ' ' }})
+                        {{ $user->promotion_notification_date ?? '' }}</span>
                 </div>
                 <div class="row p-2">
                     Grade in Annual Performance Report of the last 4/5/6 years of the assessment period:<span
@@ -174,9 +177,11 @@
                     <li>Name (in Block Letters) : <strong>{{ strtoupper($users->step2->name ?? ' ') }}</strong></li>
                     <li>Category : <strong>{{ strtoupper($users->step2->category_a ?? ' ') }}</strong></li>
                     <li>Father’s Name (in Block Letters) :
-                        <strong>{{ strtoupper($users->step2->father_name ?? ' ') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->father_name ?? ' ') }}</strong>
+                    </li>
                     <li>Mother’s Name (in Block Letters) :
-                        <strong>{{ strtoupper($users->step2->mother_name ?? ' ') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->mother_name ?? ' ') }}</strong>
+                    </li>
                     <li>Date of Birth and Age : <strong>{{ $users->step2->date_of_birth ?? ' ' }} /
                             {{ $users->step2->age ?? ' ' }} Years </strong></li>
                     <li>Gender :
@@ -184,12 +189,15 @@
                     </li>
                     <li>Nationality : <strong>{{ strtoupper($users->step2->nationality ?? ' ') }}</strong></li>
                     <li>Category (SC/ST/EBC/BC/EWS/General) :
-                        <strong>{{ strtoupper($users->step2->category ?? ' ') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->category ?? ' ') }}</strong>
+                    </li>
                     <li>Current Designation :
-                        <strong>{{ strtoupper($users->step2->current_designation ?? ' ') }}</strong></li>
+                        <strong>{{ strtoupper($users->step2->current_designation ?? ' ') }}</strong>
+                    </li>
                     <li>Current Pay Scale & Grade Pay :
                         <strong>{{ strtoupper($users->step2->current_pay_scale ?? ' ') }} /
-                            {{ $users->step2->current_grade_pay ?? ' ' }}</strong></li>
+                            {{ $users->step2->current_grade_pay ?? ' ' }}</strong>
+                    </li>
                     <li>Date of Confirmation :
                         {{ \Carbon\Carbon::parse($users->step2->date_of_confirmation)->format('d-m-Y') ?? ' ' }}</li>
                     <li>Date of Initial Appointment and Present Stage with Pay Scale at LNMU:
@@ -199,7 +207,8 @@
                     <li>Position, Stage and Grade Pay applied for :
                         <strong>{{ strtoupper($users->step2->applied_for_position ?? ' ') }} /
                             {{ strtoupper($users->step2->applied_for_stage ?? ' ') }} /
-                            {{ strtoupper($users->step2->applied_for_grade_pay ?? ' ') }}</strong></li>
+                            {{ strtoupper($users->step2->applied_for_grade_pay ?? ' ') }}</strong>
+                    </li>
                     <li>Date of Last Promotion :
                         {{ $users->step2->date_of_last_promotion ?? ' ' }}
                     </li>
@@ -208,10 +217,12 @@
                     </li>
                     <li>Address for Correspondence (with Pin Code) :
                         <strong>{{ $users->step2->address_for_correspondence ?? ' ' }}(Pincode -
-                            {{ $users->step2->address_for_correspondence_pincode ?? ' ' }})</strong></li>
+                            {{ $users->step2->address_for_correspondence_pincode ?? ' ' }})</strong>
+                    </li>
                     <li>Permanent Address (with Pin Code) :
                         <strong>{{ $users->step2->permanent_address ?? ' ' }}(Pincode -
-                            {{ $users->step2->permanent_address_pincode ?? ' ' }})</strong></li>
+                            {{ $users->step2->permanent_address_pincode ?? ' ' }})</strong>
+                    </li>
                     <li>Mobile Number : <strong>{{ $users->step2->mobile_number ?? ' ' }}</strong></li>
                     <li>E-Mail ID : <strong>{{ $users->step2->email_id ?? ' ' }}</strong></li>
                     <li><b>ACADEMIC QUALIFICATIONS(Graduation onwards) :</b> {{-- <strong>{{ strtoupper($users->step1->name ?? ' ') }}</strong> --}}</li>
@@ -246,57 +257,58 @@
     <hr>
 
     {{-- Page 3 --}}
-    <section>
-        <div class="container-fluid">
+    <section class="section3">
+        <div class="container">
             <p>
-                <b>21. RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach
-                    Relevant Certificates of Service Experience)
-                </b>
+                <b>21. RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU (Please Attach Relevant Certificates of Service
+                    Experience)</b>
             </p>
-            <table class="table table-bordered border-primary">
+            <table class="table table-bordered border-primary ab " style="table-layout:fixed">
                 <thead>
                     <tr>
-                        <th rowspan="2"><strong>Institution</strong></th>
-                        <th rowspan="2"><strong>Designation</strong></th>
-                        <th rowspan="2"><strong>Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Institution</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Designation</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Nature of appointment (Regular/ Fixed term/Temporary/Ad-hoc/
                                 Part-time)</strong></th>
-                        <th rowspan="2"><strong>Nature of Duties</strong></th>
-                        <th rowspan="2">pay-Scale / Pay band and AGP</th>
-                        <th colspan="2"><strong>Duration</strong></th>
-                        <th colspan="2"><strong>Experience</strong></th>
-                        <th rowspan="2"><strong>Required minimum qualification for the pos</strong></th>
-                        <th rowspan="2"><strong>Highest degree obtained at the time of appointment</strong></th>
-                        <th rowspan="2"><strong>Remark</strong></th>
-                        <th rowspan="2"><strong>Encl.No</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Nature of Duties</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;">pay-Scale / Pay band and AGP</th>
+                        <th colspan="2" style="word-wrap: break-word;"><strong>Duration</strong></th>
+                        <th colspan="2" style="word-wrap: break-word;"><strong>Experience</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Required minimum qualification for the pos</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Highest degree obtained at the time of appointment</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Remark</strong></th>
+                        <th rowspan="2" style="word-wrap: break-word;"><strong>Encl.No</strong></th>
 
                     </tr>
                     <tr>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Year</th>
-                        <th>Months</th>
+                        <th style="word-wrap: break-word;">From</th>
+                        <th style="word-wrap: break-word;">To</th>
+                        <th style="word-wrap: break-word;">Year</th>
+                        <th style="word-wrap: break-word;">Months</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users->step3_b as $data)
                         <tr>
-                            <td>{{ $data->institution ?? '' }}</td>
-                            <td>{{ $data->designation ?? '' }}</td>
-                            <td>{{ $data->nature_of_appointment ?? '' }}</td>
-                            <td>{{ $data->nature_of_duties }}</td>
-                            <td>{{ $data->pay_scale_pay_band_and_agp ?? '' }}</td>
-                            <td>{{ $data->duration_from ?? '' }}</td>
-                            <td>{{ $data->duration_to ?? '' }}</td>
-                            <td>{{ $data->experience_year }}</td>
-                            <td>{{ $data->experience_months }}</td>
-                            <td>{{ $data->minimum_qualification_for_the_post ?? '' }}</td>
-                            <td>{{ $data->highest_degree_obtained ?? '' }}</td>
-                            <td>{{ $data->remark ?? '' }}</td>
-                            <td>{{ $data->encl_no ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->institution ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->designation ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->nature_of_appointment ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->nature_of_duties }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->pay_scale_pay_band_and_agp ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->duration_from ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->duration_to ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->experience_year }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->experience_months }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->minimum_qualification_for_the_post ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->highest_degree_obtained ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->remark ?? '' }}</td>
+                            <td style="word-wrap: break-word;">{{ $data->encl_no ?? '' }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="container">
             <p><b>22.RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER</b></p>
             <table class="table table-bordered border-primary">
                 <tbody>
@@ -463,10 +475,10 @@
                     <tbody>
                         <tr>
                             <td>
-                                {{ $user->step4->phd_fellow_agency??'' }}
+                                {{ $user->step4->phd_fellow_agency ?? '' }}
                             </td>
                             <td>
-                                {{ $user->step4->phd_fellow_duration??'' }}
+                                {{ $user->step4->phd_fellow_duration ?? '' }}
                             </td>
                         </tr>
                     </tbody>
@@ -501,7 +513,8 @@
             <div class="row p-2">
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                 Total: &nbsp;&nbsp;&nbsp; Attended<span
-                    class="col-2 sp">{{ $users->step4->conferences_seminars_total_attended ?? '' }}</span> &nbsp;&nbsp;
+                    class="col-2 sp">{{ $users->step4->conferences_seminars_total_attended ?? '' }}</span>
+                &nbsp;&nbsp;
                 &nbsp; : Attended and
                 Papers Presented <span
                     class="col-2 sp">{{ $users->step4->conferences_seminars_total_papers_presented ?? '' }}</span>
@@ -588,7 +601,7 @@
                 </thead>
                 <tbody>
                     @isset($users->step5)
-                        @foreach ($users->step5->where('type','<>',2) as $v)
+                        @foreach ($users->step5->where('type', '<>', 2) as $v)
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $v->particulars ?? '' }}</td>
@@ -605,12 +618,12 @@
             <div class="row">
                 <h6 class="mt-5">31. YOUR VISION FOR THE DEPARTMENT /COLLEGE/UNIVERSITY:</h6>
                 @php $vision=explode(',',$users->step4->vision_to_the_department) @endphp
-               <div class="border border-primary">
-                <ul>
-                @foreach ($vision as $v)
-                    <li>{{ $v }}</li>
-                @endforeach
-                </ul>
+                <div class="border border-primary">
+                    <ul>
+                        @foreach ($vision as $v)
+                            <li>{{ $v }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
 
@@ -620,9 +633,9 @@
                 @php $conti=explode(',',$users->step4->contribution_to_the_department) @endphp
                 <div class="border border-info">
                     <ul>
-                @foreach ($conti as $v)
-                    <li>{{ $v }}</li>
-                @endforeach
+                        @foreach ($conti as $v)
+                            <li>{{ $v }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -632,20 +645,20 @@
                 @php $dev=explode(',',$users->step4->future_academic_development_plan) @endphp
                 <div class="border border-success">
                     <ul>
-                @foreach ($dev as $v)
-                    <li>{{ $v }}</li>
-                @endforeach
-            </ul>
-        </div>
+                        @foreach ($dev as $v)
+                            <li>{{ $v }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
             <div class="row">
                 <h6 class="mt-5">34. ANY OTHER RELEVANT INFORMATION:</h6>
                 @php $dev=explode(',',$users->step4->other_relevant_information) @endphp
                 <div class="border border-warning">
                     <ul>
-                @foreach ($dev as $v)
-                    <li>{{ $v }}</li>
-                @endforeach
+                        @foreach ($dev as $v)
+                            <li>{{ $v }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -742,7 +755,8 @@
                                             <td>{{ $s6->varified_by_the_committee ?? '' }}</td>
                                             <td>{{ $s6->remark_ks ?? '' }}</td>
                                             <td>{{ $s6->encl_no ?? '' }}</td>
-                                            <td><a href="{{ $s6->A1_file ?? '' }}">{{ $s6->A1_file ?? '' }}</a></td>
+                                            <td><a href="{{ $s6->A1_file ?? '' }}">{{ $s6->A1_file ?? '' }}</a>
+                                            </td>
 
                                         </tr>
                                     @endforeach
@@ -781,21 +795,25 @@
                                             <th>{{ $loop->index + 1 }}</th>
                                             <th>Year {{ $s6->academic_year }}</th>
                                             <td>{{ $s6->semester ?? '' }}</td>
-                                            <td colspan="3">{{ $s6->activity ? (
-                                                $s6->activity == '1' ? 'Administrative responsibilities such as Head, Chairperson/ Dean/ Director/ Co-ordinator,Warden etc.':(
-                                                    $s6->activity == '2' ?' Examination and evaluation duties assigned by the Department/ College /University or attending the examination paper evaluation.':(
-                                                        $s6->activity == '3' ?'Student related co-curricular, extension and field based activities such as student clubs, career counselling, study visits, student seminars and other events, cultural, sports, NCC, NSS and community services.':(
-                                                            $s6->activity == '4' ?' Organising seminars/ conferences/ workshops, other Department/ College/University activities.':(
-                                                                $s6->activity == '5' ?'Evidence of actively involved in guiding Ph.D students.':(
-                                                                    $s6->activity == '6' ?'Conducting minor or major research project sponsored by national or international agencies.':(
-                                                                        $s6->activity == '7' ?' At least one single or joint publication in peer reviewed or UGC list of Journals.':''
-                                                                    )
-                                                                )
-                                                            )
-                                                        )
-                                                    )
-                                                    )
-                                            ):'' }}</td>
+                                            <td colspan="3">
+                                                {{ $s6->activity
+                                                    ? ($s6->activity == '1'
+                                                        ? 'Administrative responsibilities such as Head, Chairperson/ Dean/ Director/ Co-ordinator,Warden etc.'
+                                                        : ($s6->activity == '2'
+                                                            ? ' Examination and evaluation duties assigned by the Department/ College /University or attending the examination paper evaluation.'
+                                                            : ($s6->activity == '3'
+                                                                ? 'Student related co-curricular, extension and field based activities such as student clubs, career counselling, study visits, student seminars and other events, cultural, sports, NCC, NSS and community services.'
+                                                                : ($s6->activity == '4'
+                                                                    ? ' Organising seminars/ conferences/ workshops, other Department/ College/University activities.'
+                                                                    : ($s6->activity == '5'
+                                                                        ? 'Evidence of actively involved in guiding Ph.D students.'
+                                                                        : ($s6->activity == '6'
+                                                                            ? 'Conducting minor or major research project sponsored by national or international agencies.'
+                                                                            : ($s6->activity == '7'
+                                                                                ? ' At least one single or joint publication in peer reviewed or UGC list of Journals.'
+                                                                                : '')))))))
+                                                    : '' }}
+                                            </td>
                                             <td>{{ $s6->claimed_by_candidate ?? '' }}</td>
                                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                                             <td>{{ $s6->remark ?? '' }}</td>
@@ -818,7 +836,7 @@
 
     {{-- Page 9 / 10/ 11/ 12 --}}
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <p>
                 <b>B. ACADEMIC / RESEARCH SCORE. . (As per Table 2 and 3 of the CAS
                     Statute approved by the Chancellor Vide Letter No- BSU
@@ -827,7 +845,7 @@
             </p>
             <p>1. RESEARCH PAPERS IN PEER-REVIEWED OR UGC LISTED JOURNALS:</p>
             <table class="table table-bordered border-primary">
-                <tbody>
+                <thead>
                     <tr>
                         <th><strong>Sr.No</strong></th>
                         <th><strong>Title of the Research Paper </strong></th>
@@ -848,6 +866,8 @@
                         <th>Claimed Score</th>
                         <th><strong>Encl.No</strong></th>
                     </tr>
+                </thead>
+                <tbody>
                     @foreach ($users->step6_c as $s6)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
@@ -1104,7 +1124,7 @@
         </div>
     </section>
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <p>
                 <b>3. CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT
                     AND DEVELOPMENT OF NEW AND INNOVATIVE COURSES AND CURRICULA.</b>
@@ -1904,8 +1924,11 @@
                     <div class="row border border-danger">
                         <h6 class="text-center">Summary of Total Claimed Score(1+2+3+4+5+6)</h6>
                         <div class="row mb-2 pl-5">
-                            Assessment Period from <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->assessment_period_from??'' }}</div>
-                            To <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->assessment_period_to??'' }}</div>
+                            Assessment Period from <div class="col-md-3"
+                                style="border-bottom:2px solid rgb(0, 0, 0) ">
+                                {{ $users->step10[0]->assessment_period_from ?? '' }}</div>
+                            To <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">
+                                {{ $users->step10[0]->assessment_period_to ?? '' }}</div>
                         </div>
                         <div class="table-responsive ">
                             <table class="table table-bordered">
@@ -1927,13 +1950,17 @@
                                 </thead>
                                 @isset($users->step10)
                                     @php $claimedscore=json_decode($users->step10[0]->claimed_score)??[]; @endphp
-                                    @endisset
+                                @endisset
                                 <tbody>
                                     <tr class="">
                                         <td scope="row">
                                             <div class="row mb-2 pl-5">
-                                                from <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->entire_assessment_period_from??'' }}</div>
-                                                To <div class="col-md-3" style="border-bottom:2px solid rgb(0, 0, 0) ">{{ $users->step10[0]->entire_assessment_period_to??'' }}</div>
+                                                from <div class="col-md-3"
+                                                    style="border-bottom:2px solid rgb(0, 0, 0) ">
+                                                    {{ $users->step10[0]->entire_assessment_period_from ?? '' }}</div>
+                                                To <div class="col-md-3"
+                                                    style="border-bottom:2px solid rgb(0, 0, 0) ">
+                                                    {{ $users->step10[0]->entire_assessment_period_to ?? '' }}</div>
                                             </div>
                                         </td>
 
@@ -1943,7 +1970,7 @@
                                         <td>{{ $claimedscore[3] }}</td>
                                         <td>{{ $claimedscore[4] }}</td>
                                         <td>{{ $claimedscore[5] }}</td>
-                                        <td>{{ $users->step10[0]->total_claimed_score??0 }}</td>
+                                        <td>{{ $users->step10[0]->total_claimed_score ?? 0 }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1994,7 +2021,8 @@
             <div class="container">
                 <h4 class="text-center">Declaration</h4>
                 <div class="row">
-                    I, <span class="col-6 sp">{{ $users->step1->name??'' }}</span> hereby solemnly certify that the information
+                    I, <span class="col-6 sp">{{ $users->step1->name ?? '' }}</span> hereby solemnly certify that the
+                    information
                     provided in and documents attached to this application form is true, correct, and complete to the
                     best
                     of my knowledge and belief. If any information/document is found to be fake/forged/incomplete, the
@@ -2005,17 +2033,18 @@
             <div class="container mt-2">
                 <div class="row">
                     <div class="col-sm-6">
-                    <h6>
-                        Place:
-                    </h6>
-                    <h6>
-                        Date:
-                    </h6>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <h6>Signature</h6>
-                    <img src="{{ asset('storage/'.$user->step10[0]->file??'') }}" alt="Your Sign" style="height:50px;max-width:250px">
-                </div>
+                        <h6>
+                            Place:
+                        </h6>
+                        <h6>
+                            Date:
+                        </h6>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <h6>Signature</h6>
+                        <img src="{{ asset('storage/' . $user->step10[0]->file ?? '') }}" alt="Your Sign"
+                            style="height:50px;max-width:250px">
+                    </div>
 
                 </div>
             </div>
@@ -2029,178 +2058,178 @@
     <section>
 
         <center>
-            @if($users->is_final_submit!=true)
-        <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-danger  me-2">Go Back</button>
-          <button class="btn btn-success  me-2" onclick="final_submit()">Final Submit</button>
-          @else
-          <button class="btn btn-primary" onclick="window.print()">Print</button>
-          @endif
-        </div>
-    </center>
+            @if ($users->is_final_submit != true)
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-danger  me-2">Go Back</button>
+                    <button class="btn btn-success  me-2" onclick="final_submit()">Final Submit</button>
+                @else
+                    <button class="btn btn-primary" id="print">Print</button>
+            @endif
+            </div>
+        </center>
 
     </section>
     <hr />
 
 
-  {{-- Document Modal --}}
-    
-  <div class="modal fade" id="dcmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Your Uploaded Documents</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                        <h6>Application Information</h6>
-                        {{ $user->step1->profile_image }}
-                        </p>
-                        <p>
-                        <h6>ACADEMIC QUALIFICATIONS</h6>
-                        <ul>
-                            @if ($user->step3_a)
-                                @foreach ($user->step3_a as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU</h6>
-                        <ul>
-                            @if ($user->step3_b)
-                                @foreach ($user->step3_b as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER</h6>
-                        <ul>
-                            @if ($user->step3_c)
-                                @foreach ($user->step3_c as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                        <p>
-                        <h6>TEACHING EXPERIENCE <span class="text-danger">(UG/PG)</span> / RESEARCH EXPERIENCE
-                            (including M.Phil/Ph.D Duration) / Conferences/Seminars/Workshops</h6>
-                        <ul>
-                            @if ($user->step4 && json_decode($user->step4->file))
-                                @foreach (json_decode($user->step4->file) as $file)
-                                    <li>{!! $file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>Ph.D and M.phil</h6>
-                        <ul>
-                            @if ($user->step4)
-                                @foreach ($user->step4_phdrecord as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                        <p>
-                        <h6>ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL / WORKSHOPS/ QIP/ FIP ETC ATTENDED</h6>
-                        <ul>
-                            @if ($user->step5)
-                                @foreach ($user->step5 as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                        <h6>TEACHING, INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES/ RESEARCH ACTIVITIES
-                        </h6>
-                        <ul>
-                            @if ($user->step6)
-                                @foreach ($user->step6 as $file)
-                                    <li>{!! $file->A1_file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES</h6>
-                        <ul>
-                            @if ($user->step6_b)
-                                @foreach ($user->step6_b as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS</h6>
-                        <ul>
-                            @if ($user->step6_c)
-                                @foreach ($user->step6_c as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                        <p>
-                        <h6>PUBLICATIONS (other than Research papers)</h6>
-                        <ul>
-                            @if ($user->step7)
-                                @foreach ($user->step7 as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT AND DEVELOPMENT OF NEW
-                            AND INNOVATIVE COURSES AND CURRICULA</h6>
-                        <ul>
-                            @if ($user->step7_b)
-                                @foreach ($user->step7_b as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                        <p>
-                        <h6>RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted <b> AND </b>M.Phil./P.G.
-                            Dissertation Supervised</h6>
-                        <ul>
-                            @if ($user->step8)
-                                @foreach ($user->step8 as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        <h6>RESEARCH PROJECTS COMPLETED</h6>
-                        <ul>
-                            @if ($user->step8_b)
-                                @foreach ($user->step8_b as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
-                        <p>
-                        <h6>PATENTS <b> AND </b> Policy Documents</h6>
-                        <ul>
-                            @if ($user->step9)
-                                @foreach ($user->step9 as $file)
-                                    <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                        </p>
+    {{-- Document Modal --}}
+
+    <div class="modal fade" id="dcmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Uploaded Documents</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                            <h6>Application Information</h6>
+                            {{ $user->step1->profile_image }}
+                            </p>
+                            <p>
+                            <h6>ACADEMIC QUALIFICATIONS</h6>
+                            <ul>
+                                @if ($user->step3_a)
+                                    @foreach ($user->step3_a as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>RECORD OF ACADEMIC SERVICE PRIOR TO JOINING LNMU</h6>
+                            <ul>
+                                @if ($user->step3_b)
+                                    @foreach ($user->step3_b as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>RECORD OF SERVICE IN LNMU FROM THE DATE OF JOINING AS A REGULAR TEACHER</h6>
+                            <ul>
+                                @if ($user->step3_c)
+                                    @foreach ($user->step3_c as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                            <p>
+                            <h6>TEACHING EXPERIENCE <span class="text-danger">(UG/PG)</span> / RESEARCH EXPERIENCE
+                                (including M.Phil/Ph.D Duration) / Conferences/Seminars/Workshops</h6>
+                            <ul>
+                                @if ($user->step4 && json_decode($user->step4->file))
+                                    @foreach (json_decode($user->step4->file) as $file)
+                                        <li>{!! $file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>Ph.D and M.phil</h6>
+                            <ul>
+                                @if ($user->step4)
+                                    @foreach ($user->step4_phdrecord as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                            <p>
+                            <h6>ANY OTHER TRAINING PROGRAM/SUMMER SCHOOL / WORKSHOPS/ QIP/ FIP ETC ATTENDED</h6>
+                            <ul>
+                                @if ($user->step5)
+                                    @foreach ($user->step5 as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                            <h6>TEACHING, INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES/ RESEARCH ACTIVITIES
+                            </h6>
+                            <ul>
+                                @if ($user->step6)
+                                    @foreach ($user->step6 as $file)
+                                        <li>{!! $file->A1_file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>INVOLVEMENT IN THE UNIVERSITY STUDENTS RELATED ACTIVITIES / RESEARCH ACTIVITIES</h6>
+                            <ul>
+                                @if ($user->step6_b)
+                                    @foreach ($user->step6_b as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>RESEARCH PAPERS IN PEER-REVIEWED OR UGC-LISTED JOURNALS</h6>
+                            <ul>
+                                @if ($user->step6_c)
+                                    @foreach ($user->step6_c as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                            <p>
+                            <h6>PUBLICATIONS (other than Research papers)</h6>
+                            <ul>
+                                @if ($user->step7)
+                                    @foreach ($user->step7 as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>CREATION OF ICT MEDIATED TEACHING LEARNING PEDAGOGY AND CONTENT AND DEVELOPMENT OF NEW
+                                AND INNOVATIVE COURSES AND CURRICULA</h6>
+                            <ul>
+                                @if ($user->step7_b)
+                                    @foreach ($user->step7_b as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                            <p>
+                            <h6>RESEARCH GUIDANCE - Ph.D. awarded / Thesis submitted <b> AND </b>M.Phil./P.G.
+                                Dissertation Supervised</h6>
+                            <ul>
+                                @if ($user->step8)
+                                    @foreach ($user->step8 as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <h6>RESEARCH PROJECTS COMPLETED</h6>
+                            <ul>
+                                @if ($user->step8_b)
+                                    @foreach ($user->step8_b as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                            <p>
+                            <h6>PATENTS <b> AND </b> Policy Documents</h6>
+                            <ul>
+                                @if ($user->step9)
+                                    @foreach ($user->step9 as $file)
+                                        <li>{!! $file->file ?? '<span class="text-danger">N/A</span>' !!}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -2211,27 +2240,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-            function final_submit(){
+        function final_submit() {
             Swal.fire({
-  title: 'Are you sure want to Final submit ?',
-  text: "You won't be able to modify form!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, Final Submit !'
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location.href="{{ route('promotion-form.final-submit') }}";
-  }
-})
-            }
+                title: 'Are you sure want to Final submit ?',
+                text: "You won't be able to modify form!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Final Submit !'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ route('promotion-form.final-submit') }}";
+                }
+            })
+        }
+
+        $(document).ready(function() {
+            $(document).on('click', '#print', function() {
+                // $("#printarea").print();
+                window.print();
+            })
+        });
     </script>
-     @include('sweetalert::alert')
+    @include('sweetalert::alert')
 </body>
 
 </html>

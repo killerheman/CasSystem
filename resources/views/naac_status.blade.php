@@ -89,15 +89,16 @@
                                     <input type="text" name="cgpa" id="cgpa" value="{{ $college->Naacreport->cgpa??'' }}"
                                         class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label>Proposed date of submission of pending AQAR</label>
-                                    <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
-                                        class="form-control" >
-                                </div>
+                              
                                 <div class="form-group">
                                     <label>AQAR Submitted Upto</label>
                                     <input type="date" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
                                         class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Proposed date of submission of pending AQAR</label>
+                                    <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
+                                        class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label for="iiqa">Proposed date of submission of pending IIQA</label>
@@ -107,9 +108,9 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="ssr_staus">
-                                    <option value="" selected disabled>-- SSR Status --</option>
-                                    <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Yes</option>
-                                    <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>No</option>
+                                    <option value="" selected disabled>-- SSR Submitted ? --</option>
+                                    <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Submitted</option>
+                                    <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>Not Submitted</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -118,7 +119,7 @@
                             <div class="form-group">
                                 <input type="checkbox" class="checkbox" name="accept" value="1" required  @isset($college->NaacReport)@checked($college->NaacReport->accept==true)@endisset>
                                 <span class="check-label">I do hereby declare that all the above information given by me
-                                    are true to the best of my knowledge and belief.</span>
+                                    are true as evident in the records of the college.</span>
                             </div>
                             <button type="submit" class="btn signup">Submit</button>
                         </form>

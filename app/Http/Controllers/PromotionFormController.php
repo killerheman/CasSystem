@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PromotionApplication as ExportsPromotionApplication;
 use App\Helpers\ImageUpload;
 use App\Models\AcademicResearchScorePublication;
 use App\Models\AcademicResearchScoreResearchPaper;
@@ -27,6 +28,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PromotionFormController extends Controller
@@ -765,5 +767,12 @@ class PromotionFormController extends Controller
         Alert::success('Document Deleted ');
         return redirect()->back();
 
+    }
+
+    // Excell download 
+    public function download_excel($id)
+    {
+        $user=PromotionApplicationUser::find($id);
+        return Excel::download(new ExportsPromotionApplication($user),'Application.xlsx');
     }
 }

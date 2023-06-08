@@ -340,6 +340,7 @@
                         <td colspan="7">Please clearly specify the period of Leave Without Pay (LWP)</td>
                         <td></td>
                         <td></td>
+                        <td></td>
 
                     </tr>
                 </tbody>
@@ -380,12 +381,14 @@
                         <th scope="col">Research Topic(Dissertation)</th>
                         <th scope="col">Date of Notification of result conferring the degree</th>
                         <th scope="col">Encl. No.</th>
+                        <th scope="col">File</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td scope="row">From</td>
                         <td>To</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -399,6 +402,7 @@
                             <td>{{ $phdrec->research_topic ?? '' }}</td>
                             <td>{{ $phdrec->date_of_notification_result_conferring_the_degree ?? '' }}</td>
                             <td>{{ $phdrec->period_of_from ?? '' }}</td>
+                            <td><a href="{{ asset($phdrec->file??'') }}" target="_blank">{{ $phdrec->file??'' }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -416,12 +420,14 @@
                         <th scope="col">Research Topic(Dissertation)</th>
                         <th scope="col">Date of Notification of result conferring the degree</th>
                         <th scope="col">Encl. No.</th>
+                        <th scope="col">File</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td scope="row">From</td>
                         <td>To</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -435,6 +441,7 @@
                             <td>{{ $phdrec->research_topic ?? '' }}</td>
                             <td>{{ $phdrec->date_of_notification_result_conferring_the_degree ?? '' }}</td>
                             <td>{{ $phdrec->encl_no ?? '' }}</td>
+                            <td><a href="{{ asset($phdrec->file ?? '') }}" target="_blank">{{ $phdrec->file ?? '' }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -899,11 +906,11 @@
                     </tr>
 
                     <tr>
-                        <td colspan="9">(a) BOOKS AUTHORED WHICH ARE PUBLISHED BY:</td>
+                        <td colspan="10">(a) BOOKS AUTHORED WHICH ARE PUBLISHED BY:</td>
                     </tr>
 
                     <tr>
-                        <td colspan="9">International publishers</td>
+                        <td colspan="10">International publishers</td>
                     </tr>
                     @forelse($users->step7->where('type',5) as $s6)
                         <tr>
@@ -929,11 +936,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">National publishers</td>
+                        <td colspan="10">National publishers</td>
                     </tr>
                     @forelse($users->step7->where('type',4) as $s6)
                         <tr>
@@ -959,11 +967,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">Chapter in Edited Book</td>
+                        <td colspan="10">Chapter in Edited Book</td>
                     </tr>
                     @forelse($users->step7->where('type',3) as $s6)
                         <tr>
@@ -989,11 +998,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">Editor of Book by International Publisher</td>
+                        <td colspan="10">Editor of Book by International Publisher</td>
                     </tr>
                     @forelse($users->step7->where('type',2) as $s6)
                         <tr>
@@ -1019,11 +1029,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">Editor of Book by National Publisher</td>
+                        <td colspan="10">Editor of Book by National Publisher</td>
                     </tr>
                     @forelse($users->step7->where('type',1) as $s6)
                         <tr>
@@ -1049,15 +1060,16 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">(b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
+                        <td colspan="10">(b) TRANSLATION WORKS IN INDIAN AND FOREIGN LANGUAGES BY QUALIFIED FACULTIES
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="9">CHAPTER OR RESEARCH PAPER</td>
+                        <td colspan="10">CHAPTER OR RESEARCH PAPER</td>
                     </tr>
                     @forelse($users->step7->where('type',6) as $s6)
                         <tr>
@@ -1083,11 +1095,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
 
                     <tr>
-                        <td colspan="9">BOOKS</td>
+                        <td colspan="10">BOOKS</td>
                     </tr>
                     @forelse($users->step7->where('type',7) as $s6)
                         <tr>
@@ -1104,6 +1117,7 @@
                         </tr>
                     @empty
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -1133,7 +1147,7 @@
                 <tbody>
                     <tr>
                         <th><strong>Sr.No</strong></th>
-                        <th colspan="5" class="p-4"><strong>*Activity </strong></th>
+                        <th colspan="6" class="p-4"><strong>*Activity </strong></th>
 
                         <th><strong>Claimed Score</strong></th>
                         <th>
@@ -1143,15 +1157,15 @@
                         <th><strong>File</strong></th>
                     </tr>
                     <tr>
-                        <td colspan="10">PEDAGOGY</td>
+                        <td colspan="11">PEDAGOGY</td>
                     </tr>
                     <tr>
-                        <td colspan="10">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
+                        <td colspan="11">DEVELOPMENT OF INNOVATIVE PEDAGOGY</td>
                     </tr>
                     @forelse($users->step7_b->where('type',1) as $s6)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
-                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td colspan="6">{{ $s6->activity ?? '' }}</td>
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
@@ -1165,10 +1179,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
                     <tr>
-                        <td colspan="9">DESIGN OF NEW CURRICULA AND COURSES</td>
+                        <td colspan="11">DESIGN OF NEW CURRICULA AND COURSES</td>
                     </tr>
                     @forelse($users->step7_b->where('type',2) as $s6)
                         <tr>
@@ -1182,17 +1197,18 @@
                     @empty
                         <tr>
                             <td></td>
-                            <td colspan="5"></td>
+                            <td colspan="6"></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                     @endforelse
                     <tr>
-                        <td colspan="9">(c) MOOCs</td>
+                        <td colspan="11">(c) MOOCs</td>
                     </tr>
                     <tr>
-                        <td colspan="9">
+                        <td colspan="11">
                             Development of complete MOOCs in 4 quadrants (4 credit course)
                             (In case of MOOCs of lesser credits 05 marks/credit)
                         </td>
@@ -1200,10 +1216,11 @@
                     @forelse($users->step7_b->where('type',3) as $s6)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
-                            <td colspan="5">{{ $s6->activity ?? '' }}</td>
+                            <td colspan="6">{{ $s6->activity ?? '' }}</td>
                             <td>{{ $s6->claimed_score ?? '' }}</td>
                             <td>{{ $s6->verify_by_committee ?? '' }}</td>
                             <td>{{ $s6->encl_no ?? '' }}</td>
+                            <td>{{ $s6->file ?? '' }}</td>
                         </tr>
                     @empty
                         <tr>
@@ -1212,10 +1229,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     @endforelse
                     <tr>
-                        <td colspan="9">
+                        <td colspan="10">
                             MOOCs (developed in 4 quadrant) per module/lectur
                         </td>
                     </tr>

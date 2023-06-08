@@ -25,18 +25,24 @@ class PromotionAuthController extends Controller
             'email'=>'required|email'
         ]);
         try{
-       $res= PromotionApplicationUser::updateOrCreate(['email'=>$req->email],[
-            'email'=>$req->email,
-            'otp'=>rand(0000,9999),
-            'otp_expire_at'=>Carbon::now()->addMinutes(15)
-        ]);
-        if($res){
-            Mail::to($res->email)->send(new PromotionUserOtpMail($res));
-            return 1;
-        }
-        else{
-            return 0;
-        }
+            $isUserExist = PromotionApplicationUser::where('email', $req->email)->where('is_final_submit', 1)->first();
+            if($isUserExist){
+                $res= PromotionApplicationUser::updateOrCreate(['email'=>$req->email],[
+                    'email'=>$req->email,
+                    'otp'=>rand(0000,9999),
+                    'otp_expire_at'=>Carbon::now()->addMinutes(15)
+                ]);
+                if($res){
+                    Mail::to($res->email)->send(new PromotionUserOtpMail($res));
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+            else{
+                return 2;
+            }
     }
     catch(Exception $ex){
         return $ex->getMessage();

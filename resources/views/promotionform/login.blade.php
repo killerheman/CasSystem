@@ -165,6 +165,20 @@ a {
                 'warning'
                 )
            }
+           else if(r==2)
+           {
+            $('#email').removeAttr('readonly');
+             $('#otp-send-btn').removeAttr('disabled');
+             $('#otp-send-btn').text('Send OTP');
+             $('#otp').attr('disabled','true');
+            $('#otp-verify-btn').attr('disabled','true');
+
+            Swal.fire(
+                'New registration has been closed',
+                'Please contact university for more details',
+                'warning'
+                )
+           }
            else
            {
             $('#email').removeAttr('disabled');
@@ -173,9 +187,9 @@ a {
              $('#otp').attr('disabled','true');
             $('#otp-verify-btn').attr('disabled','true');
             Swal.fire(
-                'OOPS!',
-               r,
-                'fail'
+                'New registration has been closed',
+                'Please contact university for more details',
+                'warning'
                 )
            }
         },

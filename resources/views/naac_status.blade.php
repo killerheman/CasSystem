@@ -63,7 +63,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="cycle_of_acc">Cycle Of Accreditation</label>
-                                <input type="date" class="form-control" name="cycle_of_accreditation" id="cycle_of_acc" value="{{ $college->cycle_of_accreditation??'' }}">
+                                <select name="cycle_of_accreditation" id="" class="form-control">
+                                    <option value="" selected disabled>--select cycle --</option>
+                                    <option value="1">Cycle - 1</option>
+                                    <option value="2">Cycle - 2 </option>
+                                    <option value="3">Cycle - 3</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" id="accredited_status" name="accrediation_status">
@@ -96,7 +101,7 @@
                               
                                 <div class="form-group">
                                     <label>AQAR Submitted Upto</label>
-                                    <input type="date" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
+                                    <input type="text" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
                                         class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -113,7 +118,7 @@
 
                             <div id="liqa" style="display:none">
                                 <div class="form-group">
-                                    <label for="liqa_status">IQA Status</label>
+                                    <label for="liqa_status">IIQA Status</label>
                                     <select name="iqa_status" id="liqa_status" class="form-control">
                                         <option value="" selected disabled>--select status--</option>
                                         <option value="1">Submitted</option>

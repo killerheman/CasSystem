@@ -84,7 +84,7 @@
                                         class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="accredition_upto"> Accredition upto</label>
+                                    <label for="accredition_upto"> Accreditation upto</label>
                                     <input type="date" name="accredition_upto" id="accredition_upto" value="{{ $college->NaacReport->accredetion_upto??'' }}"
                                         class="form-control">
                                 </div>

@@ -62,6 +62,10 @@
                                 <textarea class="form-control" rows="5" placeholder="Address" name="address">{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
                             <div class="form-group">
+                                <label for="cycle_of_acc">Cycle Of Accreditation</label>
+                                <input type="date" class="form-control" name="cycle_of_accreditation" id="cycle_of_acc" value="{{ $college->cycle_of_accreditation??'' }}">
+                            </div>
+                            <div class="form-group">
                                 <select class="form-control" id="accredited_status" name="accrediation_status">
                                     <option value="" selected disabled>-- Accredited Status --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
@@ -106,12 +110,34 @@
                                         class="form-control">
                                 </div>
                             </div>
+
+                            <div id="liqa" style="display:none">
+                                <div class="form-group">
+                                    <label for="liqa_status">IQA Status</label>
+                                    <select name="iqa_status" id="liqa_status" class="form-control">
+                                        <option value="" selected disabled>--select status--</option>
+                                        <option value="1">Submitted</option>
+                                        <option value="0">Not-Submitted</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="iqa_submition_date" id="iqa_submition_lbl"></label>
+                                    <input type="date" name="iqa_submition_date" id="" class="form-control">
+                                </div>
+                            </div>
+
                             <div class="form-group">
-                                <select class="form-control" name="ssr_staus">
+                                <select class="form-control" name="ssr_staus" id="ssr_status">
                                     <option value="" selected disabled>-- SSR Submitted ? --</option>
                                     <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Submitted</option>
                                     <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>Not Submitted</option>
                                 </select>
+                            </div>
+                            <div class="form-group d-none" id="ssr_div" >
+                                <label for="ssr_submission_date" id="ssr_submition_date_lbl">
+
+                                </label>
+                                <input type="date" name="ssr_submission_date" id="ssr_submission_date" class="form-control">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="remark" placeholder="Remarks">{{ $college->NaacReport->remark??'' }}</textarea>
@@ -142,10 +168,36 @@
                 var status = $('#accredited_status').val();
                 if (status == 1) {
                     $('#accredited').show();
+                    $('#liqa').hide();
                 } else {
+                    $('#liqa').show();
                     $('#accredited').hide();
+
                 }
             });
+            $(document).on('change','#ssr_status',function(){
+                var val=this.value;
+                if(val==1){
+                    $('#ssr_div').addClass('d-none');
+                }
+                else
+                {
+                    $('#ssr_div').removeClass('d-none');
+                    $('#ssr_submition_date_lbl').text('When to be submitted');
+                }
+            })
+        });
+
+        //iqa
+        $(document).on('change','#liqa_status',function(){
+            var st=$(this).val();
+            if(st==1){
+                $('#iqa_submition_lbl').text('Date of Submission');
+            }
+            else
+            {
+                $('#iqa_submition_lbl').text('When to be submitted');
+            }
         });
     </script>
 </body>

@@ -132,6 +132,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="ssr_status">SSR Submitted ?</label>
                                 <select class="form-control" name="ssr_staus" id="ssr_status">
                                     <option value="" selected disabled>-- SSR Submitted ? --</option>
                                     <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Submitted</option>

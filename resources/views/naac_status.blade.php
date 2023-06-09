@@ -100,7 +100,7 @@
                                 </div>
                               
                                 <div class="form-group">
-                                    <label>AQAR Submitted Upto</label>
+                                    <label>AQAR Submitted valid Upto</label>
                                     <input type="text" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
                                         class="form-control">
                                 </div>

@@ -72,14 +72,14 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" id="accredited_status" name="accrediation_status">
-                                    <option value="" selected disabled>-- Accredited Status --</option>
+                                    <option value="" selected disabled>-- Accreditation Status --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
                                     <option value="0" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==false)@endisset>Not Accredited</option>
                                 </select>
                             </div>
                             <div id="accredited">
                                 <div class="form-group">
-                                    <label>Date of last Accredition</label>
+                                    <label>Date of last Accreditation</label>
                                     <input type="date" name="last_accredition_date" id="last_accredition_date" value="{{ $college->NaacReport->last_accredetion??'' }}"
                                         class="form-control">
                                 </div>

@@ -69,6 +69,7 @@ class NAACController extends Controller
         'aished_id'=>$request->aished_id,
         'academic_level'=>$request->academic_level,
         'address'=>$request->address,
+        'cycle_of_accreditation'=>$request->cycle_of_accreditation??'',
         'accrediation_status'=>$request->accrediation_status,
         'last_accredetion'=>$request->last_accredition_date,
         'accredetion_upto'=>$request->accredition_upto,
@@ -77,7 +78,10 @@ class NAACController extends Controller
         'praposed_date_of_pending_aqar'=>$request->proposed_aqar_date,
         'aqar_submition_upto'=>$request->aqar_submitted_upto,
         'praposed_date_of_pending_iiqa'=>$request->iiqa,
+        'liqa_status'=>$request->liqa_status??'',
+        'iqa_submition_date'=>$request->iqa_submition_date??'',
         'ssr_status'=>$request->ssr_staus,
+        'ssr_submission_date'=>$request->ssr_submission_date??'',
         'remark'=>$request->remark,
         'accept'=>$request->accept
        ]);

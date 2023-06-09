@@ -65,9 +65,9 @@
                                 <label for="cycle_of_acc">Cycle Of Accreditation</label>
                                 <select name="cycle_of_accreditation" id="" class="form-control">
                                     <option value="" selected disabled>--select cycle --</option>
-                                    <option value="1">Cycle - 1</option>
-                                    <option value="2">Cycle - 2 </option>
-                                    <option value="3">Cycle - 3</option>
+                                    <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==1) @endisset>Cycle - 1</option>
+                                    <option value="2" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==2) @endisset>Cycle - 2 </option>
+                                    <option value="3" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==3) @endisset>Cycle - 3</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -121,13 +121,13 @@
                                     <label for="liqa_status">IIQA Status</label>
                                     <select name="iqa_status" id="liqa_status" class="form-control">
                                         <option value="" selected disabled>--select status--</option>
-                                        <option value="1">Submitted</option>
-                                        <option value="0">Not-Submitted</option>
+                                        <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->liqa_status==1) @endisset>Submitted</option>
+                                        <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->liqa_status==0) @endisset>Not-Submitted</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="iqa_submition_date" id="iqa_submition_lbl"></label>
-                                    <input type="date" name="iqa_submition_date" id="" class="form-control">
+                                    <input type="date" name="iqa_submition_date" id="" class="form-control" value="{{ $college->NaacRreport->iqa_submition_date??'' }}">
                                 </div>
                             </div>
 
@@ -143,7 +143,7 @@
                                 <label for="ssr_submission_date" id="ssr_submition_date_lbl">
 
                                 </label>
-                                <input type="date" name="ssr_submission_date" id="ssr_submission_date" class="form-control">
+                                <input type="date" name="ssr_submission_date" id="ssr_submission_date" class="form-control" value="{{ $college->NaacReport->ssr_submission_date??'' }}">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="remark" placeholder="Remarks">{{ $college->NaacReport->remark??'' }}</textarea>

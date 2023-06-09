@@ -184,7 +184,8 @@
             $(document).on('change','#ssr_status',function(){
                 var val=this.value;
                 if(val==1){
-                    $('#ssr_div').addClass('d-none');
+                    $('#ssr_div').removeClass('d-none');
+                    $('#ssr_submition_date_lbl').text('Date of submission');
                 }
                 else
                 {

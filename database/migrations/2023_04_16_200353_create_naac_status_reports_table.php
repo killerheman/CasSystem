@@ -30,7 +30,7 @@ return new class extends Migration
             $table->date('praposed_date_of_pending_iiqa')->nullable();
             $table->string('liqa_status')->nullable();
             $table->date('iqa_submition_date')->nullable();
-            $table->boolean('ssr_status');
+            $table->boolean('ssr_status')->nullable();
             $table->date('ssr_submission_date')->nullable();
             $table->text('remark');
             $table->boolean('accept');

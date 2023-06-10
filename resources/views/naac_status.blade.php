@@ -27,7 +27,7 @@
                                 <input disabled type="email" value="{{ $college->email }}" class="form-control" placeholder="Email" readonly>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="district">
+                                <select class="form-control" name="district" required>
                                     <option value="" selected disabled>-- Select District --</option>
                                     <option value="darbhanga" @isset($college->NaacReport)@selected($college->NaacReport->district=='darbhanga')@endisset>Darbhanga</option>
                                     <option value="madhubani" @isset($college->NaacReport)@selected($college->NaacReport->district=='madhubani')@endisset>Madhubani</option>
@@ -39,7 +39,7 @@
                                 <input type="text" class="form-control" placeholder="College Name" value="{{ $college->name }}" readonly>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="college_type">
+                                <select class="form-control" name="college_type" required>
                                     <option value="" selected disabled>-- College Type --</option>
                                     <option value="constituent_college" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='constituent_college') @endisset>Constituent</option>
                                     <option value="affiliated_degree" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='affiliated_degree') @endisset>Affiliated Degree College</option>
@@ -48,10 +48,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->address??'' }}">
+                                <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->address??'' }}" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="academic_level">
+                                <select class="form-control" name="academic_level" required>
                                     <option value="" selected disabled>-- Academic Level --</option>
                                     <option value="ug" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='ug')@endisset>UG</option>
                                     <option value="pg" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='pg')@endisset>PG</option>
@@ -59,11 +59,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Address" name="address">{{ $college->NaacReport->address??'' }}</textarea>
+                                <textarea class="form-control" rows="5" placeholder="Address" name="address" required>{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="cycle_of_acc">Cycle Of Accreditation</label>
-                                <select name="cycle_of_accreditation" id="" class="form-control">
+                                <select name="cycle_of_accreditation" id="" class="form-control" required>
                                     <option value="" selected disabled>--select cycle --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==1) @endisset>Cycle - 1</option>
                                     <option value="2" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==2) @endisset>Cycle - 2 </option>
@@ -71,7 +71,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="accredited_status" name="accrediation_status">
+                                <select class="form-control" id="accredited_status" name="accrediation_status" required>
                                     <option value="" selected disabled>-- Accreditation Status --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
                                     <option value="0" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==false)@endisset>Not Accredited</option>

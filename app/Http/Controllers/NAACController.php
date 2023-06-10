@@ -15,15 +15,15 @@ class NAACController extends Controller
      */
     public function index(Request $request)
     {
-        // if($request->hasValidSignature()){
-        //     $naac='';
+        if($request->hasValidSignature()){
+            $naac='';
             $collegedetail=CollegeList::find(Crypt::decrypt($request->user));
             return view('naac_status',['user'=>$request->user,'college'=>$collegedetail]);
-            // }
-            // else
-            // {
-            //     abort(403);
-            // }
+            }
+            else
+            {
+                abort(403);
+            }
     }
 
     /**

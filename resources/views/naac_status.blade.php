@@ -146,7 +146,7 @@
                                 <input type="date" name="ssr_submission_date" id="ssr_submission_date" class="form-control" value="{{ $college->NaacReport->ssr_submission_date??'' }}">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="remark" placeholder="Remarks">{{ $college->NaacReport->remark??'' }}</textarea>
+                                <textarea class="form-control" name="remark" placeholder="Remarks" required>{{ $college->NaacReport->remark??'' }}</textarea>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" class="checkbox" name="accept" value="1" required  @isset($college->NaacReport)@checked($college->NaacReport->accept==true)@endisset>

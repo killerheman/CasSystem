@@ -28,8 +28,12 @@ return new class extends Migration
             $table->date('praposed_date_of_pending_aqar')->nullable();
             $table->string('aqar_submition_upto')->nullable();
             $table->date('praposed_date_of_pending_iiqa')->nullable();
+            $table->string('whether_aqar_pending')->nullable();
+            $table->string('aqar_pending_ch')->nullable();
             $table->string('liqa_status')->nullable();
+            $table->string('iqa_status_prapose')->nullable();
             $table->date('iqa_submition_date')->nullable();
+            $table->string('iqa_submition_date_prapose')->nullable();
             $table->boolean('ssr_status')->nullable();
             $table->date('ssr_submission_date')->nullable();
             $table->text('remark');

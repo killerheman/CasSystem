@@ -78,12 +78,16 @@ class NAACController extends Controller
         'praposed_date_of_pending_aqar'=>$request->proposed_aqar_date,
         'aqar_submition_upto'=>$request->aqar_submitted_upto,
         'praposed_date_of_pending_iiqa'=>$request->iiqa,
+        'whether_aqar_pending'=>$request->whether_aqar_pending??'',
+        'aqar_pending_ch'=>json_encode($request->aqar_pending_ch??[]), 
         'liqa_status'=>$request->liqa_status??'',
+        'iqa_status_prapose'=>$request->iqa_status_prapose??'',
         'iqa_submition_date'=>$request->iqa_submition_date??'',
+        'iqa_submition_date_prapose'=>$request->iqa_submition_date_prapose??'',
         'ssr_status'=>$request->ssr_staus,
         'ssr_submission_date'=>$request->ssr_submission_date??'',
         'remark'=>$request->remark,
-        'accept'=>$request->accept
+        'accept'=>$request->accept,
        ]);
        if($naac){
             $naac->update(['is_complete'=>true]);

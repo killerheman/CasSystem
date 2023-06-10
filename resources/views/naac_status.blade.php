@@ -150,6 +150,20 @@
                                     <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
                                 </div>
+                                <div class="iiqaprapose">
+                                    <div class="form-group">
+                                        <label for="liqa_status_prapose">IIQA Status</label>
+                                        <select name="iqa_status_prapose" id="liqa_status_prapose" class="form-control">
+                                            <option value="" selected disabled>--select status--</option>
+                                            <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->iqa_status_prapose==1) @endisset>Submitted</option>
+                                            <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->iqa_status_prapose==0) @endisset>Not-Submitted</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="iqa_submition_date_prapose" id="iqa_submition_lbl_prapose"></label>
+                                        <input type="date" name="iqa_submition_date_prapose" id="iqa_submition_date_prapose" class="form-control" value="{{ $college->NaacRreport->iqa_submition_date_prapose??'' }}">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="iiqa">Proposed date of submission of pending IIQA</label>
                                     <input type="date" id="iiqa" name="iiqa" value="{{ $college->NaacReport->praposed_date_of_pending_iiqa??'' }}"
@@ -245,6 +259,17 @@
             else
             {
                 $('#iqa_submition_lbl').text('When to be submitted');
+            }
+        });
+        // pending
+        $(document).on('change','#liqa_status_prapose',function(){
+            var st=$(this).val();
+            if(st==1){
+                $('#iqa_submition_lbl_prapose').text('Date of Submission');
+            }
+            else
+            {
+                $('#iqa_submition_lbl_prapose').text('When to be submitted');
             }
         });
         $(document).on('change','#whether_aqar_pending',function(){

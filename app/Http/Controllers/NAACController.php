@@ -90,8 +90,12 @@ class NAACController extends Controller
         'accept'=>$request->accept,
        ]);
        if($naac){
+        if($request->submit=='submit')
+        {
             $naac->update(['is_complete'=>true]);
             Alert::success('Naac Status Submitted Successfully');
+        }
+        Alert::success('Naac Status Save Successfully');
        }
        else{
         Alert::warning('Report Submition Fail please Try Again');

@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('naac_status_reports', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('college_id');
-            $table->string('district');
-            $table->string('college_type');
+            $table->string('district')->nullable();
+            $table->string('college_type')->nullable();
             $table->string('aished_id');
-            $table->string('academic_level');
-            $table->text('address');
+            $table->string('academic_level')->nullable();
+            $table->text('address')->nullable();
             $table->string('cycle_of_accreditation')->nullable();
-            $table->boolean('accrediation_status');
+            $table->boolean('accrediation_status')->default(false);
             $table->string('last_accredetion')->nullable();
             $table->string('accredetion_upto')->nullable();
             $table->string('grade')->nullable();
@@ -36,8 +36,8 @@ return new class extends Migration
             $table->string('iqa_submition_date_prapose')->nullable();
             $table->boolean('ssr_status')->nullable();
             $table->string('ssr_submission_date')->nullable();
-            $table->text('remark');
-            $table->boolean('accept');
+            $table->text('remark')->nullable();
+            $table->boolean('accept')->default(false);
             $table->boolean('is_complete')->default(false);
             $table->timestamps();
         });

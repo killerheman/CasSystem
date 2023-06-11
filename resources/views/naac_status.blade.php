@@ -147,7 +147,7 @@
                                     </table>
                                    
                                 </div>
-                                <div class="form-group">
+                               <div class="form-group">
                                     <label>Proposed date of submission of pending AQAR</label>
                                     <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
@@ -166,11 +166,11 @@
                                         <input type="date" name="iqa_submition_date_prapose" id="iqa_submition_date_prapose" class="form-control" value="{{ $college->NaacRreport->iqa_submition_date_prapose??'' }}">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                               {{-- <div class="form-group">
                                     <label for="iiqa">Proposed date of submission of pending IIQA</label>
                                     <input type="date" id="iiqa" name="iiqa" value="{{ $college->NaacReport->praposed_date_of_pending_iiqa??'' }}"
                                         class="form-control">
-                                </div>
+                                </div>--}}
                             </div>
 
                             <div id="liqa" style="display:none">
@@ -270,7 +270,7 @@
             }
             else
             {
-                $('#iqa_submition_lbl_prapose').text('When to be submitted');
+                $('#iqa_submition_lbl_prapose').text('Proposed date of submission of pending IIQA');
             }
         });
         $(document).on('change','#whether_aqar_pending',function(){

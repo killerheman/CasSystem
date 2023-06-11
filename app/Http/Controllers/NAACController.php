@@ -77,7 +77,7 @@ class NAACController extends Controller
         'cgpa'=>$request->cgpa,
         'praposed_date_of_pending_aqar'=>$request->proposed_aqar_date,
         'aqar_submition_upto'=>$request->aqar_submitted_upto,
-        'praposed_date_of_pending_iiqa'=>$request->iiqa,
+        'praposed_date_of_pending_iiqa'=>$request->iiqa??'',
         'whether_aqar_pending'=>$request->whether_aqar_pending??'',
         'aqar_pending_ch'=>json_encode($request->aqar_pending_ch??[]), 
         'liqa_status'=>$request->liqa_status??'',

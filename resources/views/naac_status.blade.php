@@ -112,7 +112,7 @@
                                         </select>
                                 </div>
                                 <div class="form-group aqar_pending_yes" id="aqar_pending_yes" @if(isset($college->NaacReport) and $college->NaacReport->whether_aqar_pending==0) style="display:none" @endif>
-                                    Please Choose Sessions
+                                    Please Choose Academic Year
                                     <table class="table">
                                         <tr>
                                             <th>

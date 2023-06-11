@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cycle_of_acc">Cycle Of Accreditation</label>
-                                <select name="cycle_of_accreditation" id="" class="form-control" required>
+                                <select name="cycle_of_accreditation" id="" class="form-control">
                                     <option value="" selected disabled>--select cycle --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==1) @endisset>Cycle - 1</option>
                                     <option value="2" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==2) @endisset>Cycle - 2 </option>
@@ -84,7 +84,7 @@
                                         class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="accredition_upto"> Accreditation upto</label>
+                                    <label for="accredition_upto"> Accreditation valid upto</label>
                                     <input type="date" name="accredition_upto" id="accredition_upto" value="{{ $college->NaacReport->accredetion_upto??'' }}"
                                         class="form-control">
                                 </div>
@@ -100,14 +100,69 @@
                                 </div>
                               
                                 <div class="form-group">
-                                    <label>AQAR Submitted valid Upto</label>
-                                    <input type="text" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
-                                        class="form-control">
+                                    <label>Whether AQAR Pending ?</label>
+                                    {{-- <input type="text" id="aqar_submitted_upto" name="aqar_submitted_upto" value="{{ $college->NaacReport->aqar_submition_upto??'' }}"
+                                        class="form-control"> --}}
+                                        <select name="whether_aqar_pending" id="whether_aqar_pending" class="form-control">
+                                            <option value="" selected hidden>--Select  Status --</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                </div>
+                                <div class="form-group aqar_pending_yes" id="aqar_pending_yes" style="display:none">
+                                    Please Choose Sessions
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2017-18">
+                                            </th>
+                                            <th>2017-18</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2018-19">
+                                            </th>
+                                            <th>2018-19</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2019-20">
+                                            </th>
+                                            <th>2019-20</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2020-21">
+                                            </th>
+                                            <th>2020-21</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2021-22">
+                                            </th>
+                                            <th>2021-22</th>
+                                        </tr>
+                                    </table>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <label>Proposed date of submission of pending AQAR</label>
                                     <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
+                                </div>
+                                <div class="iiqaprapose">
+                                    <div class="form-group">
+                                        <label for="liqa_status_prapose">IIQA Status</label>
+                                        <select name="iqa_status_prapose" id="liqa_status_prapose" class="form-control">
+                                            <option value="" selected disabled>--select status--</option>
+                                            <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->iqa_status_prapose==1) @endisset>Submitted</option>
+                                            <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->iqa_status_prapose==0) @endisset>Not-Submitted</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="iqa_submition_date_prapose" id="iqa_submition_lbl_prapose"></label>
+                                        <input type="date" name="iqa_submition_date_prapose" id="iqa_submition_date_prapose" class="form-control" value="{{ $college->NaacRreport->iqa_submition_date_prapose??'' }}">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="iiqa">Proposed date of submission of pending IIQA</label>
@@ -206,6 +261,27 @@
                 $('#iqa_submition_lbl').text('When to be submitted');
             }
         });
+        // pending
+        $(document).on('change','#liqa_status_prapose',function(){
+            var st=$(this).val();
+            if(st==1){
+                $('#iqa_submition_lbl_prapose').text('Date of Submission');
+            }
+            else
+            {
+                $('#iqa_submition_lbl_prapose').text('When to be submitted');
+            }
+        });
+        $(document).on('change','#whether_aqar_pending',function(){
+            var v=$(this).val();
+            if(v==1){
+                $('#aqar_pending_yes').show();
+            }
+            else
+            {
+                $('#aqar_pending_yes').hide();
+            }
+        })
     </script>
 </body>
 

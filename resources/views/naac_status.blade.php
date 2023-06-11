@@ -116,7 +116,7 @@
                                     <table class="table">
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id=""  @isset($college->NaacReport->aqar_pending_ch) @checked(in_array('2017-18',json_decode($college->NaacReport->aqar_pending_ch??[]))) @endisset value="2017-18">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id=""  @isset($college->NaacReport->aqar_pending_ch) @checked(in_array('2017-18',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset value="2017-18">
                                             </th>
                                             <th>2017-18</th>
                                         </tr>
@@ -128,19 +128,19 @@
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2019-20" @isset($college->NaacReport) @checked(in_array('2019-20',json_decode($college->NaacReport->aqar_pending_ch??[]))) @endisset>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2019-20" @isset($college->NaacReport) @checked(in_array('2019-20',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2019-20</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2020-21" @isset($college->NaacReport) @checked(in_array('2020-21',json_decode($college->NaacReport->aqar_pending_ch??[]))) @endisset>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2020-21" @isset($college->NaacReport) @checked(in_array('2020-21',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2020-21</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2021-22" @isset($college->NaacReport) @checked(in_array('2021-22',json_decode($college->NaacReport->aqar_pending_ch??[]))) @endisset>
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2021-22" @isset($college->NaacReport) @checked(in_array('2021-22',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2021-22</th>
                                         </tr>

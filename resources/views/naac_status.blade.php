@@ -58,20 +58,20 @@
 
                             <div class="form-group">
                                 <label for="principal_name">Pricipal name</label>
-                                <input type="text" class="form-control" name="principal_name" placeholder="Principal name" value="{{ $college->NaacReport->principal_name??'' }}" required readonly>
+                                <input type="text" class="form-control" name="principal_name" placeholder="Principal name" value="{{ $college->NaacReport->principal_name??'' }}" required >
                             </div>
                             <div class="form-group">
-                                <label for="principal_phone">Principal Phone</label>
-                                <input type="text" class="form-control" name="principal_phone" placeholder="Principal phone" value="{{ $college->NaacReport->principal_phone ??'' }}" required readonly>
+                                <label for="principal_phone">Principal Mobile</label>
+                                <input type="text" class="form-control" name="principal_phone" placeholder="Principal phone" value="{{ $college->NaacReport->principal_phone ??'' }}" required >
                             </div>
 
                             <div class="form-group">
                                 <label for="iqac_coordinator_name">IQAC Co-ordinator name</label>
-                                <input type="text" class="form-control" name="iqac_coordinator_name" placeholder="IQAC Co-ordinator name" value="{{ $college->NaacReport->iqac_coordinator_name??'' }}" required readonly>
+                                <input type="text" class="form-control" name="iqac_coordinator_name" placeholder="IQAC Co-ordinator name" value="{{ $college->NaacReport->iqac_coordinator_name??'' }}" required >
                             </div>
                             <div class="form-group">
-                                <label for="iqac_coordinator_phone">IQAC Co-ordinator Phone</label>
-                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator phone" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required readonly>
+                                <label for="iqac_coordinator_phone">IQAC Co-ordinator Mobile</label>
+                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator phone" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required >
                             </div>
 
                             <div class="form-group">

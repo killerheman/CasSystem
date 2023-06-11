@@ -24,9 +24,11 @@
                             @method('PUT')
                             @csrf
                             <div class="form-group">
+                                <label for="">Email</label>
                                 <input disabled type="email" value="{{ $college->email }}" class="form-control" placeholder="Email" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="">District</label>
                                 <select class="form-control" name="district" required>
                                     <option value="" selected disabled>-- Select District --</option>
                                     <option value="darbhanga" @isset($college->NaacReport)@selected($college->NaacReport->district=='darbhanga')@endisset>Darbhanga</option>
@@ -36,9 +38,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="">College </label>
                                 <input type="text" class="form-control" placeholder="College Name" value="{{ $college->name }}" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="">College Type</label>
                                 <select class="form-control" name="college_type" required>
                                     <option value="" selected disabled>-- College Type --</option>
                                     <option value="constituent_college" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='constituent_college') @endisset>Constituent</option>
@@ -51,7 +55,27 @@
                                 <label for="aished_id">ASIHE ID</label>
                                 <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->aished_id??'' }}" required readonly>
                             </div>
+
                             <div class="form-group">
+                                <label for="principal_name">Pricipal name</label>
+                                <input type="text" class="form-control" name="principal_name" placeholder="Principal name" value="{{ $college->NaacReport->principal_name??'' }}" required readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="principal_phone">Principal Phone</label>
+                                <input type="text" class="form-control" name="principal_phone" placeholder="Principal phone" value="{{ $college->NaacReport->principal_phone ??'' }}" required readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="iqac_coordinator_name">IQAC Co-ordinator name</label>
+                                <input type="text" class="form-control" name="iqac_coordinator_name" placeholder="IQAC Co-ordinator name" value="{{ $college->NaacReport->iqac_coordinator_name??'' }}" required readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="iqac_coordinator_phone">IQAC Co-ordinator Phone</label>
+                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator phone" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Academic Level</label>
                                 <select class="form-control" name="academic_level" required>
                                     <option value="" selected disabled>-- Academic Level --</option>
                                     <option value="ug" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='ug')@endisset>UG</option>
@@ -60,10 +84,12 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="">Address</label>
                                 <textarea class="form-control" rows="5" placeholder="Address" name="address" required>{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
                            
                             <div class="form-group">
+                                <label for="">Accreditation Status</label>
                                 <select class="form-control" id="accredited_status" name="accrediation_status" required>
                                     <option value="" selected disabled>-- Accreditation Status --</option>
                                     <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
@@ -188,10 +214,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="ssr_status">SSR Submitted ?</label>
+                            <div class="form-group" id="ssr_status_div" @if(isset($college->NaacReport) and $college->NaacReport->iqa_status_prapose==0) style="display:none" @endif>
+                                <label for="ssr_status">SSR Status</label>
                                 <select class="form-control" name="ssr_staus" id="ssr_status">
-                                    <option value="" selected disabled>-- SSR Submitted ? --</option>
+                                    <option value="" selected disabled>-- SSR Status --</option>
                                     <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Submitted</option>
                                     <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>Not Submitted</option>
                                 </select>
@@ -267,10 +293,12 @@
             var st=$(this).val();
             if(st==1){
                 $('#iqa_submition_lbl_prapose').text('Date of Submission');
+                $('#ssr_status_div').show();
             }
             else
             {
-                $('#iqa_submition_lbl_prapose').text('Proposed date of submission of pending IIQA');
+                $('#iqa_submition_lbl_prapose').text('When to be submitted ? ');
+                $('#ssr_status_div').hide();
             }
         });
         $(document).on('change','#whether_aqar_pending',function(){

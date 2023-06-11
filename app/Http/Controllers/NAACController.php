@@ -88,6 +88,10 @@ class NAACController extends Controller
         'ssr_submission_date'=>$request->ssr_submission_date??'',
         'remark'=>$request->remark,
         'accept'=>$request->accept,
+        'principal_name'=>$request->principal_name ?? '',
+        'principal_phone'=>$request->principal_phone ?? '',
+        'iqac_coordinator_name'=>$request->iqac_coordinator_name ?? '',
+        'iqac_coordinator_phone'=>$request->iqac_coordinator_phone ?? '',
        ]);
        if($naac){
         if($request->submit=='submit')

@@ -171,13 +171,13 @@
                                             <th>2021-22</th>
                                         </tr>
                                     </table>
-                                   
-                                </div>
-                               <div class="form-group">
+                                    <div class="form-group">
                                     <label>Proposed date of submission of pending AQAR</label>
                                     <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
                                 </div>
+                                </div>
+                               
                                 <div class="iiqaprapose">
                                     <div class="form-group">
                                         <label for="liqa_status_prapose">IIQA Status</label>

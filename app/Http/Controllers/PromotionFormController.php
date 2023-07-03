@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\PromotionApplication as ExportsPromotionApplication;
 use App\Helpers\ImageUpload;
 use App\Models\AcademicResearchScorePublication;
 use App\Models\AcademicResearchScoreResearchPaper;
@@ -769,10 +768,5 @@ class PromotionFormController extends Controller
 
     }
 
-    // Excell download 
-    public function download_excel($id)
-    {
-        $user=PromotionApplicationUser::find($id);
-        return Excel::download(new ExportsPromotionApplication($user),'Application.xlsx');
-    }
+  
 }

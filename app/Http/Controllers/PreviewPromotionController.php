@@ -7,7 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PromotionApplication as ExportsPromotionApplication;
 class PreviewPromotionController extends Controller
 {
     public function preview()
@@ -30,4 +31,10 @@ class PreviewPromotionController extends Controller
         $users=$user;
         return view('preview-check', compact('users','user'));
     }
+      // Excell download 
+      public function download_excel()
+      {
+        
+          return Excel::download(new ExportsPromotionApplication(),'Application.xlsx');
+      }
 }

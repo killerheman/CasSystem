@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\PromotionApplicationUser;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -16,26 +17,31 @@ class PromotionApplication implements FromCollection, WithMapping, WithHeadings,
     */
     public function collection()
     {
-        // return collect($this->data);
+        return PromotionApplicationUser::with('step2')->where('is_final_submit',true)->get();
     }
 
     public function map($row): array
     {
-       return [];
+       return [
+            $row->email,
+            $row->step2->name,
+            $row->step2->address_for_correspondence.' Pin-'.$row->step2->address_for_correspondence_pincode,
+            strtoupper($row->step2->current_designation ?? ' '.'/'.strtoupper($row->step2->current_pay_scale ?? ' ')),
+            strtoupper($row->step2->current_pay_scale ?? ' '),
+            strtoupper($row->step2->applied_for_position ?? ' ').' / '.strtoupper($row->step2->applied_for_stage ?? ' ').' / '.strtoupper($row->step2->applied_for_grade_pay ?? ' '),
+            ''
+       ];
     }
     public function headings(): array
     {
         return [
-            'Employee Code',
-            'Designation',
-            'Store Code',
-            'Sales Value',
-            'UAN No',
-            'Employee Name',
-            'Date',
-            'Clock In',
-            'Clock Out',
-            'Status'
+            'Email',
+            'Name Of the Applicant ',
+            'Address',
+            'Present Designatioin/Pay Level',
+            'Present Pay Scale',
+            'Promotion of the post/Level',
+            'Remark',
             // Add more headings as needed
         ];
     }

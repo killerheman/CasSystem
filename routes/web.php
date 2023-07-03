@@ -89,3 +89,5 @@ Route::get('arrange-data',function(){
   }
   }
 });
+
+Route::get('download_excel',[PreviewPromotionController::class,'download_excel']);

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\Models\NaacStatusReport;
 class CollegeRegistrationController extends Controller
 {
     /**
@@ -44,6 +44,8 @@ class CollegeRegistrationController extends Controller
         'email'=>$request->college_email,
         'name'=>$request->college_name
       ]);
+      NaacStatusReport::updateOrCreate(['college_id'=>$college->id],['aished_id'=>$request->aishe_code]);
+
      $url=URL::temporarySignedRoute('naac-filling.index',now()->addMinutes(30),['user'=>Crypt::encrypt($college->id)]);
      Mail::to($college->email)->send(new CollegeNaacFilling($url));
      Alert::success('Link send on your email kindly procceed for next step');

@@ -77,7 +77,7 @@ class NAACController extends Controller
         'cgpa'=>$request->cgpa,
         'praposed_date_of_pending_aqar'=>$request->proposed_aqar_date,
         'aqar_submition_upto'=>$request->aqar_submitted_upto,
-        'praposed_date_of_pending_iiqa'=>$request->iiqa,
+        'praposed_date_of_pending_iiqa'=>$request->iiqa??'',
         'whether_aqar_pending'=>$request->whether_aqar_pending??'',
         'aqar_pending_ch'=>json_encode($request->aqar_pending_ch??[]), 
         'liqa_status'=>$request->liqa_status??'',
@@ -88,10 +88,18 @@ class NAACController extends Controller
         'ssr_submission_date'=>$request->ssr_submission_date??'',
         'remark'=>$request->remark,
         'accept'=>$request->accept,
+        'principal_name'=>$request->principal_name ?? '',
+        'principal_phone'=>$request->principal_phone ?? '',
+        'iqac_coordinator_name'=>$request->iqac_coordinator_name ?? '',
+        'iqac_coordinator_phone'=>$request->iqac_coordinator_phone ?? '',
        ]);
        if($naac){
+        if($request->submit=='submit')
+        {
             $naac->update(['is_complete'=>true]);
             Alert::success('Naac Status Submitted Successfully');
+        }
+        Alert::success('Naac Status Save Successfully');
        }
        else{
         Alert::warning('Report Submition Fail please Try Again');

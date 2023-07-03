@@ -24,9 +24,11 @@
                             @method('PUT')
                             @csrf
                             <div class="form-group">
+                                <label for="">Email</label>
                                 <input disabled type="email" value="{{ $college->email }}" class="form-control" placeholder="Email" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="">District</label>
                                 <select class="form-control" name="district" required>
                                     <option value="" selected disabled>-- Select District --</option>
                                     <option value="darbhanga" @isset($college->NaacReport)@selected($college->NaacReport->district=='darbhanga')@endisset>Darbhanga</option>
@@ -36,9 +38,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="">College </label>
                                 <input type="text" class="form-control" placeholder="College Name" value="{{ $college->name }}" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="">College Type</label>
                                 <select class="form-control" name="college_type" required>
                                     <option value="" selected disabled>-- College Type --</option>
                                     <option value="constituent_college" @isset($college->NaacReport)@selected($college->NaacReport->college_type=='constituent_college') @endisset>Constituent</option>
@@ -48,9 +52,30 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->address??'' }}" required>
+                                <label for="aished_id">ASIHE ID</label>
+                                <input type="text" class="form-control" name="aished_id" placeholder="ASIHE ID" value="{{ $college->NaacReport->aished_id??'' }}" required readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="principal_name">Pricipal name</label>
+                                <input type="text" class="form-control" name="principal_name" placeholder="Principal name" value="{{ $college->NaacReport->principal_name??'' }}" required >
                             </div>
                             <div class="form-group">
+                                <label for="principal_phone">Principal Mobile</label>
+                                <input type="text" class="form-control" name="principal_phone" placeholder="Principal phone" value="{{ $college->NaacReport->principal_phone ??'' }}" required >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="iqac_coordinator_name">IQAC Co-ordinator name</label>
+                                <input type="text" class="form-control" name="iqac_coordinator_name" placeholder="IQAC Co-ordinator name" value="{{ $college->NaacReport->iqac_coordinator_name??'' }}" required >
+                            </div>
+                            <div class="form-group">
+                                <label for="iqac_coordinator_phone">IQAC Co-ordinator Mobile</label>
+                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator phone" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Academic Level</label>
                                 <select class="form-control" name="academic_level" required>
                                     <option value="" selected disabled>-- Academic Level --</option>
                                     <option value="ug" @isset($college->NaacReport)@selected($college->NaacReport->academic_level=='ug')@endisset>UG</option>
@@ -59,8 +84,19 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="">Address</label>
                                 <textarea class="form-control" rows="5" placeholder="Address" name="address" required>{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
+                           
+                            <div class="form-group">
+                                <label for="">Accreditation Status</label>
+                                <select class="form-control" id="accredited_status" name="accrediation_status" required>
+                                    <option value="" selected disabled>-- Accreditation Status --</option>
+                                    <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
+                                    <option value="0" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==false)@endisset>Not Accredited</option>
+                                </select>
+                            </div>
+                            <div id="accredited" @isset($college->NaacReport) @if($college->NaacReport->accrediation_status==0) style="display:none" @endif  @endisset>
                             <div class="form-group">
                                 <label for="cycle_of_acc">Cycle Of Accreditation</label>
                                 <select name="cycle_of_accreditation" id="" class="form-control">
@@ -70,14 +106,6 @@
                                     <option value="3" @isset($college->NaacReport)@selected($college->NaacReport->cycle_of_accreditation==3) @endisset>Cycle - 3</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <select class="form-control" id="accredited_status" name="accrediation_status" required>
-                                    <option value="" selected disabled>-- Accreditation Status --</option>
-                                    <option value="1" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==true)@endisset>Accredited</option>
-                                    <option value="0" @isset($college->NaacReport)@selected($college->NaacReport->accrediation_status==false)@endisset>Not Accredited</option>
-                                </select>
-                            </div>
-                            <div id="accredited">
                                 <div class="form-group">
                                     <label>Date of last Accreditation</label>
                                     <input type="date" name="last_accredition_date" id="last_accredition_date" value="{{ $college->NaacReport->last_accredetion??'' }}"
@@ -105,51 +133,51 @@
                                         class="form-control"> --}}
                                         <select name="whether_aqar_pending" id="whether_aqar_pending" class="form-control">
                                             <option value="" selected hidden>--Select  Status --</option>
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
+                                            <option value="1" @isset($college->NaacReport) @selected($college->NaacReport->whether_aqar_pending==1) @endisset>Yes</option>
+                                            <option value="0" @isset($college->NaacReport) @selected($college->NaacReport->whether_aqar_pending==0) @endisset>No</option>
                                         </select>
                                 </div>
-                                <div class="form-group aqar_pending_yes" id="aqar_pending_yes" style="display:none">
-                                    Please Choose Sessions
+                                <div class="form-group aqar_pending_yes" id="aqar_pending_yes" @if(isset($college->NaacReport) and $college->NaacReport->whether_aqar_pending==0) style="display:none" @endif>
+                                    Please Choose Academic Year
                                     <table class="table">
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2017-18">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id=""  @isset($college->NaacReport->aqar_pending_ch) @checked(in_array('2017-18',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset value="2017-18">
                                             </th>
                                             <th>2017-18</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2018-19">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2018-19" @isset($college->NaacReport) @checked(in_array('2018-19',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2018-19</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2019-20">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2019-20" @isset($college->NaacReport) @checked(in_array('2019-20',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2019-20</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2020-21">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2020-21" @isset($college->NaacReport) @checked(in_array('2020-21',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2020-21</th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2021-22">
+                                                <input type="checkbox" name="aqar_pending_ch[]" id="" value="2021-22" @isset($college->NaacReport) @checked(in_array('2021-22',json_decode($college->NaacReport->aqar_pending_ch??'[]'))) @endisset>
                                             </th>
                                             <th>2021-22</th>
                                         </tr>
                                     </table>
-                                   
-                                </div>
-                                <div class="form-group">
+                                    <div class="form-group">
                                     <label>Proposed date of submission of pending AQAR</label>
                                     <input type="date" name="proposed_aqar_date" id="proposed_aqar_date" value="{{ $college->NaacReport->praposed_date_of_pending_aqar??''}}"
                                         class="form-control" >
                                 </div>
+                                </div>
+                               
                                 <div class="iiqaprapose">
                                     <div class="form-group">
                                         <label for="liqa_status_prapose">IIQA Status</label>
@@ -164,11 +192,11 @@
                                         <input type="date" name="iqa_submition_date_prapose" id="iqa_submition_date_prapose" class="form-control" value="{{ $college->NaacRreport->iqa_submition_date_prapose??'' }}">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                               {{-- <div class="form-group">
                                     <label for="iiqa">Proposed date of submission of pending IIQA</label>
                                     <input type="date" id="iiqa" name="iiqa" value="{{ $college->NaacReport->praposed_date_of_pending_iiqa??'' }}"
                                         class="form-control">
-                                </div>
+                                </div>--}}
                             </div>
 
                             <div id="liqa" style="display:none">
@@ -186,10 +214,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="ssr_status">SSR Submitted ?</label>
+                            <div class="form-group" id="ssr_status_div" @if(isset($college->NaacReport) and $college->NaacReport->iqa_status_prapose==0) style="display:none" @endif>
+                                <label for="ssr_status">SSR Status</label>
                                 <select class="form-control" name="ssr_staus" id="ssr_status">
-                                    <option value="" selected disabled>-- SSR Submitted ? --</option>
+                                    <option value="" selected disabled>-- SSR Status --</option>
                                     <option value="1"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==true)@endisset>Submitted</option>
                                     <option value="0"  @isset($college->NaacReport)@selected($college->NaacReport->ssr_status==false)@endisset>Not Submitted</option>
                                 </select>
@@ -208,7 +236,8 @@
                                 <span class="check-label">I do hereby declare that all the above information given by me
                                     are true as evident in the records of the college.</span>
                             </div>
-                            <button type="submit" class="btn signup">Submit</button>
+                            <button type="submit" name="submit" value="submit" class="btn signup">Submit</button>
+                            <button type="submit" name="submit" value="save" class="btn signup" style="background-color:green">Save</button>
                         </form>
                     </div>
                 </div>
@@ -223,8 +252,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#accredited').hide();
-
             $("#accredited_status").change(function() {
                 var status = $('#accredited_status').val();
                 if (status == 1) {
@@ -266,10 +293,12 @@
             var st=$(this).val();
             if(st==1){
                 $('#iqa_submition_lbl_prapose').text('Date of Submission');
+                $('#ssr_status_div').show();
             }
             else
             {
-                $('#iqa_submition_lbl_prapose').text('When to be submitted');
+                $('#iqa_submition_lbl_prapose').text('When to be submitted ? ');
+                $('#ssr_status_div').hide();
             }
         });
         $(document).on('change','#whether_aqar_pending',function(){

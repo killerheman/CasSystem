@@ -25,6 +25,11 @@
                             <div class="form-group">
                                 <input type="text" name="college_name"  value='{{ old('college_name') }}' class="form-control" placeholder="Enter College name" required>
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" name="aishe_code"  value='{{ old('aishe_code') }}' class="form-control" placeholder="Enter AISHE code" required>
+                            </div>
+
                             <div class="form-group">
                                 <input type="email" class="form-control" value='{{ old('college_email') }}' name="college_email" placeholder="Email" required>
                             </div>

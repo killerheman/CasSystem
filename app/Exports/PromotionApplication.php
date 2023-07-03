@@ -50,7 +50,7 @@ class PromotionApplication implements FromCollection, WithMapping, WithHeadings,
             strtoupper($row->step2->current_designation ?? ' '.'/'.strtoupper($row->step2->current_pay_scale ?? ' ')),
             strtoupper($row->step2->current_pay_scale ?? ' '),
             strtoupper($row->step2->applied_for_position ?? ' ').' / '.strtoupper($row->step2->applied_for_stage ?? ' ').' / '.strtoupper($row->step2->applied_for_grade_pay ?? ' '),
-            $promotionlvl,
+            $promotionlvl.' '.$row->step2->promotion_level,
             ''
        ];
     }

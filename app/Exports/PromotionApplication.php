@@ -24,21 +24,21 @@ class PromotionApplication implements FromCollection, WithMapping, WithHeadings,
     {
         $promotionlvl='';
         switch($row->step2->promotion_level){
-            case 1: $promotionlvl='Assistant Professor(Academic Level 10)
+            case '1': $promotionlvl='Assistant Professor(Academic Level 10)
             to Assistant Professor (Senior
             Scale/Academic Level 11)';
             break;
-            case 2: $promotionlvl= 'Assistant Professor (Senior
+            case '2': $promotionlvl= 'Assistant Professor (Senior
             Scale/Academic Level 11) to Assistant Professor
             (Selection
             Grade/Academic Level 12)';
             break;
-            case 3: $promotionlvl= 'Assistant Professor (Selection
+            case '3': $promotionlvl= 'Assistant Professor (Selection
             Grade/Academic Level 12) to Associate
             Professor (Academic Level
             13A)';
             break;
-            case 4: $promotionlvl='Associate Professor (Academic Level
+            case '4': $promotionlvl='Associate Professor (Academic Level
             13A) to Professor (Academic Level 14)';
             break;
             default: $promotionlvl= 'N/A';

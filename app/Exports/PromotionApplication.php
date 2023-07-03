@@ -22,27 +22,7 @@ class PromotionApplication implements FromCollection, WithMapping, WithHeadings,
 
     public function map($row): array
     {
-        $promotionlvl='';
-        switch($row->step2->promotion_level){
-            case '1': $promotionlvl='Assistant Professor(Academic Level 10)
-            to Assistant Professor (Senior
-            Scale/Academic Level 11)';
-            break;
-            case '2': $promotionlvl= 'Assistant Professor (Senior
-            Scale/Academic Level 11) to Assistant Professor
-            (Selection
-            Grade/Academic Level 12)';
-            break;
-            case '3': $promotionlvl= 'Assistant Professor (Selection
-            Grade/Academic Level 12) to Associate
-            Professor (Academic Level
-            13A)';
-            break;
-            case '4': $promotionlvl='Associate Professor (Academic Level
-            13A) to Professor (Academic Level 14)';
-            break;
-            default: $promotionlvl= 'N/A';
-        }
+        
        return [
             $row->email,
             $row->step2->name,
@@ -50,7 +30,7 @@ class PromotionApplication implements FromCollection, WithMapping, WithHeadings,
             strtoupper($row->step2->current_designation ?? ' '.'/'.strtoupper($row->step2->current_pay_scale ?? ' ')),
             strtoupper($row->step2->current_pay_scale ?? ' '),
             strtoupper($row->step2->applied_for_position ?? ' ').' / '.strtoupper($row->step2->applied_for_stage ?? ' ').' / '.strtoupper($row->step2->applied_for_grade_pay ?? ' '),
-            $promotionlvl.' '.$row->step2->promotion_level,
+            $row->step2->promotion_level,
             ''
        ];
     }

@@ -64,14 +64,29 @@
                                 <label for="principal_phone">Principal Mobile</label>
                                 <input type="text" class="form-control" name="principal_phone" placeholder="Principal phone" value="{{ $college->NaacReport->principal_phone ??'' }}" required >
                             </div>
-
+                            <div class="form-group">
+                                <label for="naac_nodal_officer">Name of the NAAC Nodel Officer </label>
+                                <input type="text" class="form-control" name="
+                                " placeholder="Naac Nodal Officer" value="{{ $college->NaacReport->naac_nodal_officer ??'' }}" required >
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_naac_nodal_officer">Mobile of the NAAC Nodel Officer </label>
+                                <input type="text" class="form-control" name="mobile_naac_nodal_officer" placeholder="Mobile of NACC Nodal Officer" value="{{ $college->NaacReport->mobile_naac_nodal_officer ??'' }}" pattern="[6-9]{1}[0-9]{9}" required  title="Please enter 10 digit mobile no">
+                            </div>
+                            <div class="form-group">
+                                <label for="location_type">Location Type</label>
+                                <select name="location_type" id="" class="form-control">
+                                    <option value="1" @isset($college->NaacReport) @selected($college->NaacReport->location_type==1) @endisset>Urban</option>
+                                    <option value="2" @isset($college->NaacReport) @selected($college->NaacReport->location_type==2) @endisset>Rural</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="iqac_coordinator_name">IQAC Co-ordinator name</label>
                                 <input type="text" class="form-control" name="iqac_coordinator_name" placeholder="IQAC Co-ordinator name" value="{{ $college->NaacReport->iqac_coordinator_name??'' }}" required >
                             </div>
                             <div class="form-group">
                                 <label for="iqac_coordinator_phone">IQAC Co-ordinator Mobile</label>
-                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator phone" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required >
+                                <input type="text" class="form-control" name="iqac_coordinator_phone" placeholder="IQAC Co-ordinator Mobile" value="{{ $college->NaacReport->iqac_coordinator_phone ??'' }}" required >
                             </div>
 
                             <div class="form-group">
@@ -84,8 +99,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Address</label>
-                                <textarea class="form-control" rows="5" placeholder="Address" name="address" required>{{ $college->NaacReport->address??'' }}</textarea>
+                                <label for="">Address of college</label>
+                                <textarea class="form-control" rows="5" placeholder="Address of college" name="address" required>{{ $college->NaacReport->address??'' }}</textarea>
                             </div>
                            
                             <div class="form-group">

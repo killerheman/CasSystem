@@ -92,6 +92,9 @@ class NAACController extends Controller
         'principal_phone'=>$request->principal_phone ?? '',
         'iqac_coordinator_name'=>$request->iqac_coordinator_name ?? '',
         'iqac_coordinator_phone'=>$request->iqac_coordinator_phone ?? '',
+        'naac_nodal_officer'=>$request->naac_nodal_officer??'',
+        'mobile_naac_nodal_officer'=>$request->mobile_naac_nodal_officer??'',
+        'location_type'=>$request->location_type??'',
        ]);
        if($naac){
         if($request->submit=='submit')

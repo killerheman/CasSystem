@@ -66,8 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="naac_nodal_officer">Name of the NAAC Nodel Officer </label>
-                                <input type="text" class="form-control" name="
-                                " placeholder="Naac Nodal Officer" value="{{ $college->NaacReport->naac_nodal_officer ??'' }}" required >
+                                <input type="text" class="form-control" name="naac_nodal_officer" placeholder="Naac Nodal Officer" value="{{ $college->NaacReport->naac_nodal_officer ??'' }}" required >
                             </div>
                             <div class="form-group">
                                 <label for="mobile_naac_nodal_officer">Mobile of the NAAC Nodel Officer </label>

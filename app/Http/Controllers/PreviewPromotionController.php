@@ -35,6 +35,7 @@ class PreviewPromotionController extends Controller
       // Excell download 
       public function download_excel()
       {
+        return Excel::download(new NaacStatus(),'report.xlsx');   
         
           return Excel::download(new ExportsPromotionApplication(),'Application.xlsx');
       }

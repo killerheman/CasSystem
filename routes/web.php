@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\NaacStatus;
 use App\Http\Controllers\NAACController;
 use App\Http\Controllers\CollegeRegistrationController;
 use App\Http\Controllers\PreviewPromotionController;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::resource('naac-filling', NAACController::class)->name('','naac-filling');
 
 Route::resource('college-register',CollegeRegistrationController::class)->name('','college-register');
+Route::get('nacc-report',[NAACController::class,'download_excel']);
 Route::get('registration',[RegistrationController::class,'index'])->name('registration');
 Route::get('registration-step2',[RegistrationController::class,'step2'])->name('step2');
 Route::get('registration-step3',[RegistrationController::class,'step3'])->name('step3');

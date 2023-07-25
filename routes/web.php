@@ -92,5 +92,5 @@ Route::get('arrange-data',function(){
 });
 
 
-Route::get('nacc-report',[CollegeRegistrationController::class,'download_excel_naac']);
+Route::get('naac-report',[CollegeRegistrationController::class,'download_excel']);
 Route::get('download_excel',[PreviewPromotionController::class,'download_excel']);

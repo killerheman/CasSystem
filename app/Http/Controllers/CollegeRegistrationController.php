@@ -93,8 +93,5 @@ class CollegeRegistrationController extends Controller
         //
     }
 
-    public function download_excel(){
-        return Excel::download(new NaacStatus(),'report.xlsx');        
-
-    }
+   
 }

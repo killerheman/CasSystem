@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\NaacStatus;
 use App\Models\PromotionApplicationUser;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,4 +38,8 @@ class PreviewPromotionController extends Controller
         
           return Excel::download(new ExportsPromotionApplication(),'Application.xlsx');
       }
+      public function download_excel_naac(){
+        return Excel::download(new NaacStatus(),'report.xlsx');        
+
+    }
 }

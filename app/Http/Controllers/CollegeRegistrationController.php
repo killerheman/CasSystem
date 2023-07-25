@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\NaacStatus;
 use App\Mail\CollegeNaacFilling;
 use App\Models\CollegeList;
 use Exception;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\NaacStatusReport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class CollegeRegistrationController extends Controller
 {
     /**
@@ -88,5 +91,10 @@ class CollegeRegistrationController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function download_excel(){
+        return Excel::download(new NaacStatus(),'report.xlsx');        
+
     }
 }

@@ -1,9 +1,10 @@
  <center><h1 style="color:red">Lalit Narayan Mithila University, Darbhanga</h1></center>
 
- <p>Please proceed with given link to Fill Your Naac Report On University Portal ...</p>
+ <p>Please proceed with given link OR Use OTP to Fill Your Naac Report On University Portal ...</p>
 
- <a href="{{ $url }}">Click Here -></a>
-
+ <a href="{{ $url }}">Click Here -> {{ $url }}</a>
+ OR go with OTP
+<h6>Your One Time Password is - <strike>{{ $otp }}</strike></h6> 
  <p>
 
  </p>

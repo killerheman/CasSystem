@@ -14,6 +14,26 @@
 <body>
 
     <div class="form-bg">
+        @if(Session::has('college_id'))
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+                    <div class="form-container">
+                        <h3 class="title">Enter Your OTP</h3>
+                        <span class="description">OTP is sended on your email. you can also proceed with link sended on your email</span>
+                        <form class="form-horizontal" action="{{ route('college-register.show',Session::get('college_id')) }}" method="get">
+                            @csrf
+                            <div class="form-group">
+                                <input type="hidden" name="college_id" value="{{ Session::get('college_id') }}">
+                                <input type="text" name="otp"   class="form-control" placeholder="Enter OTP" required>
+                            </div>
+                            <button type="submit" class="btn signup">Verify</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @else
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
@@ -39,6 +59,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
     @include('sweetalert::alert')
 

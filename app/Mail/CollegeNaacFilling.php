@@ -13,13 +13,15 @@ class CollegeNaacFilling extends Mailable
 {
     use Queueable, SerializesModels;
     public $url;
+    public $otp; //optional
 
     /**
      * Create a new message instance.
      */
-    public function __construct($url)
+    public function __construct($url,$otp=null)
     {
         $this->url=$url;
+        $this->otp=$otp;
     }
 
     /**
@@ -40,7 +42,8 @@ class CollegeNaacFilling extends Mailable
         return new Content(
             view: 'email.college_naac_filling_credential',
             with:[
-                'url'=>$this->url
+                'url'=>$this->url,
+                'otp'=>$this->otp
             ]
         );
     }

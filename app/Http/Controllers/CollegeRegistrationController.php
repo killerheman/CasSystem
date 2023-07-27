@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\NaacStatusReport;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CollegeRegistrationController extends Controller
@@ -50,23 +51,42 @@ class CollegeRegistrationController extends Controller
       NaacStatusReport::updateOrCreate(['college_id'=>$college->id],['aished_id'=>$request->aishe_code]);
 
      $url=URL::temporarySignedRoute('naac-filling.index',now()->addMinutes(30),['user'=>Crypt::encrypt($college->id)]);
-     Mail::to($college->email)->send(new CollegeNaacFilling($url));
-     Alert::success('Link send on your email kindly procceed for next step');
+     $otp=rand(1111,9999);
+     $request->session()->put('college-'.$college->id, $otp);
+     Session::put('route-link',$url);
+     Mail::to($college->email)->send(new CollegeNaacFilling($url,$otp));
+     Alert::success('Link send on your email kindly procceed for next step Or Enter OTP');
      
     }
     catch(Exception $ex){
         Alert::warning($ex->getMessage());
 
     }
-    return redirect()->back();
+    return redirect()->back()->with(['college_id'=>$college->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $req,string $id)
     {
-        //
+        $req->validate([
+            'otp'=>'required|integer',
+            'college_id'=>'required|exists:college_lists,id'
+        ]);
+
+        if(Session::has('college-'.$req->college_id) and Session::get('college-'.$req->college_id)==$req->otp){
+            $link=Session::get('route-link');
+            Session::flush();
+            return redirect($link);
+            
+        }
+        else{
+            Session::flush();
+            Alert::error('Invalid Or Expired OTP given');
+            return redirect()->back();
+        }
+        
     }
 
     /**
